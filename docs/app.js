@@ -797,6 +797,17 @@ async function ensureLeaflet() {
   const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = 'v1/vendor/leaflet.css'; document.head.appendChild(l);
   await loadScript('v1/vendor/leaflet.js');
 }
+// Verkehrsmittel-Symbol je Linie: [Symbol, Bezeichnung, Nachtlinie]
+function lineSymbol(l) {
+  const c = l.cat, n = l.meta.line || '';
+  if (c === 'BN' || /^N\d/.test(n)) return ['🌙', 'Nachtlinie', true];
+  if (c === 'T') return ['🚋', 'Tram', false];
+  if (c === 'FUN') return ['🚞', 'Standseilbahn', false];
+  if (c === 'PB') return ['🚡', 'Pendelbahn', false];
+  if (c === 'RUB') return ['📞', 'Rufbus', false];
+  if (/^S/.test(c)) return ['🚆', 'S-Bahn', false];
+  return ['🚌', 'Bus', false];
+}
 const segClass = m => (MAP_CLASSES.find(c => c[2](m)) || ['none'])[0];
 const stageList = m => ['ref', ...STAGES].map(k => `${m & M.bits[k] ? '✓' : '✗'} ${esc(sname(k))}`).join('<br>');
 async function viewMap() {
@@ -820,15 +831,43 @@ async function viewMap() {
       <span class="muted small" id="mcnt"></span>
     </div>
     <div class="legend" id="mleg">${MAP_CLASSES.map(([k, l]) => `<label><input type="checkbox" data-k="${k}" ${mstate.show[k] ? 'checked' : ''}><i class="sw c-${k}"></i>${esc(l)} <span class="muted">(${fmt(cnt[k] || 0)})</span></label>`).join('')}</div>
+    <div class="legend">${[['🚌', 'Bus'], ['🌙', 'Nachtlinie (N)'], ['🚋', 'Tram'], ['🚆', 'S-Bahn'], ['🚞', 'Standseilbahn'], ['🚡', 'Pendelbahn'], ['📞', 'Rufbus']]
+      .map(([s, t]) => `<span>${s} ${t}</span>`).join('')}<span class="muted">· Rahmen der Beschriftung = schlechtester Abschnitt der Linie · Beschriftung anklicken öffnet die Fahrtenmatrix</span></div>
     <div id="lmap"></div></div>`;
   if (lmap) { lmap.remove(); lmap = null; }
   lmap = L.map('lmap', { preferCanvas: true }).setView([47.38, 8.6], 10);
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, className: 'basemap',
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>' }).addTo(lmap);
+  // Helle, schlichte Grundkarte (Esri Light Gray Canvas + dezente Ortsnamen); Ersatz bei Ausfall: OSM aufgehellt
+  const osmAttr = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
+  const esri = 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/';
+  const base = L.tileLayer(esri + 'World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', { maxZoom: 19, maxNativeZoom: 16, className: 'basemap-light',
+    attribution: 'Grundkarte &copy; Esri, HERE, Garmin, &copy; OpenStreetMap' }).addTo(lmap);
+  L.tileLayer(esri + 'World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}', { maxZoom: 19, maxNativeZoom: 16, className: 'basemap-ref' }).addTo(lmap);
+  let tileErr = 0;
+  base.on('tileerror', () => {
+    if (++tileErr === 4) { base.remove(); L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, className: 'basemap', attribution: osmAttr }).addTo(lmap); }
+  });
   const renderer = L.canvas({ padding: 0.5, tolerance: 6 });
+  // Linienbeschriftung: Symbol + Nummer, ohne Überlappung (wichtige Linien zuerst)
+  let labels = [];
+  const labelLayer = L.layerGroup().addTo(lmap);
+  const placeLabels = () => {
+    labelLayer.clearLayers();
+    const size = lmap.getSize(), placed = [];
+    for (const lb of labels) {
+      const pt = lmap.latLngToContainerPoint(lb.ll);
+      const w = lb.w, h = 20, r = { x0: pt.x - w / 2, y0: pt.y - h / 2, x1: pt.x + w / 2, y1: pt.y + h / 2 };
+      if (r.x1 < 0 || r.y1 < 0 || r.x0 > size.x || r.y0 > size.y) continue;
+      if (placed.some(p => r.x0 < p.x1 + 3 && r.x1 > p.x0 - 3 && r.y0 < p.y1 + 3 && r.y1 > p.y0 - 3)) continue;
+      placed.push(r);
+      L.marker(lb.ll, { icon: L.divIcon({ className: 'lbl-wrap', html: lb.html, iconSize: [w, h], iconAnchor: [w / 2, h / 2] }), keyboard: false, title: lb.title })
+        .on('click', () => go('fahrten', { linie: lb.id })).addTo(labelLayer);
+    }
+  };
+  lmap.on('moveend', placeLabels);
   const draw = () => {
     if (mlayer) mlayer.remove();
     mlayer = L.layerGroup().addTo(lmap);
+    labels = [];
     const q = mstate.q.toLowerCase();
     const sel = M.lines.filter(l => (!mstate.op || l.meta.op === mstate.op) && (!mstate.cat || l.cat === mstate.cat) &&
       (!q || (l.meta.op + ' ' + l.meta.line).toLowerCase().includes(q)) && l.cls.some(c => mstate.show[c]));
@@ -856,8 +895,21 @@ async function viewMap() {
         flush();
       }
     }
+    const rank = { missing: 0, days: 1, time: 2, extra: 3, ok: 4 };
+    for (const l of sel) {
+      const shown = l.cls.filter(c => mstate.show[c]);
+      if (!shown.length) continue;
+      const worst = shown.sort((a, b) => rank[a] - rank[b])[0];
+      const s = M.stops[l.p[Math.floor(l.p.length / 2)]];
+      const sym = lineSymbol(l);
+      const txt = l.meta.line;
+      labels.push({ id: l.id, ll: [s[0], s[1]], rank: rank[worst], line: txt, w: 30 + 7.5 * txt.length, title: `${l.meta.op} ${txt} · ${sym[1]}`,
+        html: `<span class="lbl ${sym[2] ? 'night' : ''}" style="border-color:${MAP_COLORS[worst]}"><span class="sym">${sym[0]}</span>${esc(txt)}</span>` });
+    }
+    labels.sort((a, b) => a.rank - b.rank || a.line.localeCompare(b.line, 'de', { numeric: true }));
     $('#mcnt').textContent = `${fmt(sel.length)} Linien`;
     if ((mstate.q || mstate.op || mstate.cat) && bounds.length) lmap.fitBounds(bounds, { padding: [20, 20], maxZoom: 15 });
+    placeLabels();
   };
   $('#mq').oninput = e => { mstate.q = e.target.value; draw(); };
   $('#mop').onchange = e => { mstate.op = e.target.value; draw(); };
