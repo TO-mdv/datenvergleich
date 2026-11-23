@@ -790,7 +790,7 @@ const MAP_CLASSES = [
   ['missing', 'nur in Referenz', m => m === 1],
   ['extra', 'nicht in Referenz (nur neue Stände)', m => !(m & 1) && m > 0]];
 const MAP_COLORS = { ok: '#008300', time: '#eda100', days: '#e87ba4', missing: '#d03b3b', extra: '#2a78d6' };
-const mstate = { show: { ok: true, time: true, days: true, missing: true, extra: true }, op: '', cat: '', q: '', fitted: false };
+const mstate = { show: { ok: true, time: true, days: true, missing: true, extra: true }, op: '', q: '', fitted: false, mot: {} };
 let M = null, lmap = null, mlayer = null;
 function loadScript(src) { return new Promise((res, rej) => { const s = document.createElement('script'); s.src = src; s.onload = res; s.onerror = rej; document.head.appendChild(s); }); }
 async function ensureLeaflet() {
@@ -799,28 +799,40 @@ async function ensureLeaflet() {
   await loadScript('v1/vendor/leaflet.js');
 }
 // Verkehrsmittel-Symbol je Linie: [Symbol, Bezeichnung, Nachtlinie]
-// Einfache 2D-Piktogramme im Stil der öV-Signaletik Schweiz (weisses Symbol auf dunklem Quadrat)
-const PICTO_GLYPH = {
-  bus: '<rect x="5" y="3.5" width="10" height="11.5" rx="2" fill="#fff"/><rect x="6.3" y="5" width="7.4" height="4.6" rx=".6"/><circle cx="7.3" cy="12.3" r=".9"/><circle cx="12.7" cy="12.3" r=".9"/><rect x="6" y="15" width="2" height="2" rx=".5" fill="#fff"/><rect x="12" y="15" width="2" height="2" rx=".5" fill="#fff"/>',
-  tram: '<path d="M7.5 2.2h5M10 2.2v2.3" stroke="#fff" stroke-width="1.1" fill="none"/><rect x="5.5" y="4.5" width="9" height="10.5" rx="1.5" fill="#fff"/><rect x="6.7" y="6" width="6.6" height="4" rx=".5"/><circle cx="7.8" cy="12.6" r=".8"/><circle cx="12.2" cy="12.6" r=".8"/><path d="M7 15l-1.6 2.6M13 15l1.6 2.6" stroke="#fff" stroke-width="1.1"/>',
-  train: '<path d="M6.5 3.5h7a2 2 0 0 1 2 2V14a1 1 0 0 1-1 1h-9a1 1 0 0 1-1-1V5.5a2 2 0 0 1 2-2z" fill="#fff"/><rect x="6.2" y="5" width="7.6" height="4.2" rx=".5"/><circle cx="7.4" cy="12.2" r=".9"/><circle cx="12.6" cy="12.2" r=".9"/><path d="M7 15l-2 2.8M13 15l2 2.8M6 17h8" stroke="#fff" stroke-width="1.1"/>',
-  ship: '<rect x="7" y="6.5" width="6" height="3.5" fill="#fff"/><rect x="9.2" y="4" width="1.6" height="2.5" fill="#fff"/><path d="M3 10.5h14l-2.3 4h-9.4z" fill="#fff"/><path d="M3 16.6c1.2-1 2.3-1 3.5 0s2.3 1 3.5 0 2.3-1 3.5 0 2.3 1 3.5 0" stroke="#fff" stroke-width="1" fill="none"/>',
-  funi: '<path d="M2.5 17.5L17.5 6.5" stroke="#fff" stroke-width="1.1"/><path d="M5 13.4l8.5-6.2 1.6 2.2v3.4l-8.4 6.1H5z" fill="#fff"/><path d="M7.3 13.1l5.4-3.9" stroke="#000" stroke-width="1.6"/>',
-  cable: '<path d="M2.5 5.5L17.5 2.5" stroke="#fff" stroke-width="1.1"/><path d="M10 4v3.5" stroke="#fff" stroke-width="1.1"/><rect x="5.5" y="7.5" width="9" height="8.5" rx="1.2" fill="#fff"/><rect x="6.8" y="9" width="6.4" height="3.2" rx=".4"/>',
-  night: '<path d="M12.8 3.6a6.6 6.6 0 1 0 3.9 10.3 5.4 5.4 0 1 1-3.9-10.3z" fill="#fff"/>',
+// Piktogramme aus der SBB-Icon-Bibliothek (https://digital.sbb.ch/de/foundation/assets/icons/), 24x24
+const SBB_ICONS = {
+"boat-profile": "<path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M8 5h1V4H2v1h1v2H2v1h11v1H2v1h1v2H2v1h17.428l-3.722 4.43-.573.195a2 2 0 0 1-1.11.045l-.156-.045-1.42-.47a3 3 0 0 0-1.662-.066l-.232.066-1.42.47a2 2 0 0 1-1.11.045l-.156-.045-1.42-.47a3 3 0 0 0-1.894 0l-.013.005-.014.005-2.21.87.368.93 2.198-.865c.407-.132.845-.13 1.25.005l1.42.47.233.067a3 3 0 0 0 1.662-.068l1.42-.47.155-.044a2 2 0 0 1 1.11.045l1.42.47.233.067a3 3 0 0 0 1.662-.068h.003l.71-.24.133-.045.09-.107 4.5-5.36.69-.822H12v-2h2V7H8zm3 5H8v2h3zm5.383 8.182L16 17.86h-.001zM7 10v2H4v-2zM4 7V5h3v2zm12.785 12.088a3 3 0 0 1 1.662.068l.013.004.014.005 2.21.87-.368.93-2.19-.862a2 2 0 0 0-1.104-.043l-.155.045-1.42.47a3 3 0 0 1-1.662.066l-.232-.066-1.42-.47a2 2 0 0 0-1.11-.045l-.156.045-1.42.47a3 3 0 0 1-1.662.066l-.232-.066-1.42-.47a2 2 0 0 0-1.26-.002l-2.19.862-.367-.93 2.21-.87.014-.005.013-.004a3 3 0 0 1 1.894 0l1.42.47.155.044c.366.09.751.075 1.11-.045l1.42-.47.233-.067a3 3 0 0 1 1.662.068l1.42.47.155.044c.366.09.751.075 1.11-.045l1.42-.47z\" clip-rule=\"evenodd\"/>",
+"bus-profile": "<path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M20 11.972V16.5a.5.5 0 0 1-.5.5H11a3 3 0 1 0-6 0H2v1h3.17a3.001 3.001 0 0 0 5.66 0h8.67a1.5 1.5 0 0 0 1.5-1.5v-4.528a2.5 2.5 0 0 0-.264-1.117l-2.46-4.92A3.5 3.5 0 0 0 15.146 4H2v1h13.146a2.5 2.5 0 0 1 2.236 1.382l2.46 4.92a1.5 1.5 0 0 1 .158.67M6 12V6H2v1h3v4H2v1zm7-6v6H7V6zm-5 5h4V7H8zm0 4a2 2 0 1 1 0 4 2 2 0 0 1 0-4m7.809-9 .138.276L19 12.382V14h-5V6zM15 13h3v-.382L15.191 7H15z\" clip-rule=\"evenodd\"/>",
+"cable-car-profile": "<path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M22.241 2.976 22 2.006l-20 5 .242.97L9.14 6.25l-2.837 5.24H3.62a1.5 1.5 0 0 0-1.5 1.5v8a1.5 1.5 0 0 0 1.5 1.5h17a1.5 1.5 0 0 0 1.5-1.5v-8a1.5 1.5 0 0 0-1.5-1.5h-2.681l-3.11-6.662zm-8.4 2.1-3.386.846L7.44 11.49h9.396zm7.279 7.914a.5.5 0 0 0-.5-.5h-17a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h17a.5.5 0 0 0 .5-.5zm-13 .5v5h-4v-5zm-3 4h2v-3h-2zm9 1v-5h-4v5zm-1-1h-2v-3h2zm7-4v5h-4v-5zm-3 4h2v-3h-2z\" clip-rule=\"evenodd\"/>",
+"funicular-profile": "<path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M18.997 3.01a1.5 1.5 0 0 0-.652-.033l-.002.001-16.33 2.88.174.984 16.33-2.88h-.001a.502.502 0 0 1 .584.5V5.81h-4v7h4v1.67a.5.5 0 0 1-.316.476l-.083.024-16.699 3.34.196.98.661-.132a.98.98 0 0 1 .241.64v.002a1 1 0 0 1-.577.906l-.52.104.097.49v.5c.248 0 .49-.046.718-.134l9.337-1.867c.229-.007.453-.052.663-.133l4.337-.867c.229-.007.453-.052.663-.133l4.38-.876-.196-.98-2.997.6a2 2 0 0 0-.097-1.461 1.5 1.5 0 0 0 1.189-1.368l.003-.13V4.47a1.5 1.5 0 0 0-1.103-1.462m-1.474 14.706a1 1 0 0 0 .577-.906v-.001a.97.97 0 0 0-.24-.64l-1.71.341a1 1 0 0 0-.05.306 1 1 0 0 0 .958.993zm-1.947.389a2 2 0 0 1-.476-1.295v-.006l.004-.085-1.196.24a1.97 1.97 0 0 1 .097 1.46zm-3.053.61a1 1 0 0 0 .577-.905v-.001a.97.97 0 0 0-.24-.64l-1.71.34a1 1 0 0 0-.05.307 1 1 0 0 0 .958.993zm-1.947.39a2 2 0 0 1-.476-1.295v-.006l.004-.085-6.197 1.24a1.97 1.97 0 0 1 .098 1.46zM19.1 4.462l.533.008H19.6zm-.21 11.462-.09-.454-.076-.377zm.21-4.114v-5h-3v5zm-6 2v-7h-5v7zm-1-1h-3v-5h3zm-6-5v7h-4v-1h3v-5h-3v-1z\" clip-rule=\"evenodd\"/>",
+"moon": "<path fill=\"currentColor\" d=\"M9.49 6.521c-.722 1.988-.054 4.473 1.54 6.245 1.577 1.751 4 2.737 6.731 1.811l1.997-.677-1.481 1.501c-1.859 1.885-3.864 2.643-5.73 2.573-1.858-.07-3.517-.957-4.695-2.25-1.177-1.29-1.897-3.009-1.85-4.779.048-1.784.875-3.579 2.714-4.99l1.361-1.046zM8.212 7.815c-.816.994-1.181 2.088-1.21 3.157-.04 1.483.565 2.957 1.588 4.079 1.022 1.12 2.438 1.865 3.993 1.924 1.1.04 2.297-.262 3.506-1.055-2.346.138-4.39-.917-5.802-2.485-1.39-1.545-2.204-3.63-2.075-5.62\"/>",
+"taxi-profile": "<path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M13 6h.586a1.5 1.5 0 0 1 1.06.44L18.208 10H20.5a1.5 1.5 0 0 1 1.5 1.5V16h-3.05a2.502 2.502 0 0 1-4.9 0h-5.1a2.502 2.502 0 0 1-4.9 0H2v-5.124c0-.363.132-.715.371-.988l2.954-3.375A1.5 1.5 0 0 1 6.455 6H7V4h6zM8 6V5h4v1zm-3.95 9a2.502 2.502 0 0 1 4.9 0h5.1a2.502 2.502 0 0 1 4.9 0H21v-3.5a.5.5 0 0 0-.5-.5H3v4zm-.448-5H9V7H6.454a.5.5 0 0 0-.377.17zM10 7v3h6.793L13.94 7.146A.5.5 0 0 0 13.586 7zm-2 8.5a1.5 1.5 0 1 0-3.002.001A1.5 1.5 0 0 0 8 15.499m10 0a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 18 15.499\" clip-rule=\"evenodd\"/>",
+"train-profile": "<path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M10.277 3.084 13.901 5.5 11.652 7H14c2.051 0 3.793 1.24 4.563 3v.001q.075.17.137.349l.003.008.003.009 2.099 5.789c.118.25.195.534.195.843a2 2 0 0 1-2 2h-2.05c-.075.37-.232.71-.45 1H22v1H2v-1h1.5a2.5 2.5 0 0 1-.45-1H2v-1h17a1 1 0 0 0 1-1 1 1 0 0 0-.108-.44l-.012-.024-.01-.026-.547-1.51H13V10h4.445A3.97 3.97 0 0 0 14 8H2V7h6.348l-2.25-1.5 3.625-2.416.277-.185zM17.872 11H14v3h4.96zm-5.822 8c.075.369.232.709.45 1h-5c.218-.291.375-.631.45-1zm-7.965 0h2.83a1.502 1.502 0 0 1-2.83 0m9 0a1.502 1.502 0 0 0 2.83 0zM7.901 5.5 10 6.898 12.099 5.5 10 4.1zM12 10v5H7v-5zm-4 4h3v-3H8zm-2 1v-5H2v1h3v3H2v1z\" clip-rule=\"evenodd\"/>",
+"tram-profile": "<path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M22 4V3H2v1h6.293l3 3H2v1h12.806a1.5 1.5 0 0 1 1.32.79l2.694 5.003c.118.218.18.463.18.71V18.5a.5.5 0 0 1-.5.5H2v1h1.05a2.5 2.5 0 0 0 .45 1H2v1h20v-1h-8.5c.222-.296.376-.638.45-1h4.55a1.5 1.5 0 0 0 1.5-1.5v-3.996a2.5 2.5 0 0 0-.299-1.185l-2.694-5.005A2.5 2.5 0 0 0 14.806 7h-2.099l-3-3zM9.5 21h-2a2.5 2.5 0 0 0 .45-1h1.1a2.5 2.5 0 0 0 .45 1m.586-1a1.5 1.5 0 0 0 2.828 0zm-6 0h2.828a1.5 1.5 0 0 1-2.828 0M5 9v6H2v-1h2v-4H2V9zm7 6V9H6v6zm-1-1H7v-4h4zm3.809-5 .138.276L18 15.382V17h-5V9zM14 16h3v-.382L14.191 10H14z\" clip-rule=\"evenodd\"/>"
 };
-const pictoSvg = (k, bg = '#1a1a19', s = 14) => `<svg class="picto" viewBox="0 0 20 20" width="${s}" height="${s}" aria-hidden="true"><rect width="20" height="20" rx="3" fill="${bg}"/>${PICTO_GLYPH[k]}</svg>`;
-// [Piktogramm-HTML, Bezeichnung, Nachtlinie]
-function lineSymbol(l) {
-  const c = l.cat, n = l.meta.line || '';
-  if (c === 'BN' || /^N\d/.test(n)) return [pictoSvg('night', '#1f2a5c'), 'Nachtlinie', true];
-  if (c === 'T') return [pictoSvg('tram'), 'Tram', false];
-  if (c === 'FUN') return [pictoSvg('funi'), 'Standseilbahn', false];
-  if (c === 'PB') return [pictoSvg('cable'), 'Pendelbahn', false];
-  if (/^(BAT|SCH|Schiff)/i.test(c)) return [pictoSvg('ship'), 'Schiff', false];
-  if (c === 'RUB') return [pictoSvg('bus', '#6b6a66'), 'Rufbus', false];
-  if (/^S/.test(c)) return [pictoSvg('train'), 'S-Bahn', false];
-  return [pictoSvg('bus'), 'Bus', false];
+
+// Verkehrsmittel: Schlüssel → [Bezeichnung, Piktogramm, Akzentfarbe des Piktogramms]
+const MOTS = {
+  bus: ['Bus', 'bus-profile', '#1a1a19'],
+  rufbus: ['Rufbus', 'taxi-profile', '#1a1a19'],
+  night: ['Nachtlinie (N)', 'moon', '#1f2a5c'],
+  tram: ['Tram', 'tram-profile', '#1a1a19'],
+  train: ['S-Bahn / Zug', 'train-profile', '#1a1a19'],
+  ship: ['Schiff', 'boat-profile', '#1a1a19'],
+  funi: ['Standseilbahn', 'funicular-profile', '#1a1a19'],
+  cable: ['Luftseilbahn', 'cable-car-profile', '#1a1a19'],
+};
+const icon = (k, s = 16) => `<svg class="picto" viewBox="0 0 24 24" width="${s}" height="${s}" style="color:${MOTS[k][2]}" aria-hidden="true">${SBB_ICONS[MOTS[k][1]]}</svg>`;
+function lineMot(l) {
+  const c = l.cat || '', n = l.meta.line || '';
+  if (c === 'BN' || /^N\d/.test(n)) return 'night';
+  if (c === 'T') return 'tram';
+  if (c === 'FUN') return 'funi';
+  if (/^(PB|GB|SL|LB)$/.test(c)) return 'cable';
+  if (/^(BAT|SCH|Schiff|FAE)$/i.test(c)) return 'ship';
+  if (c === 'RUB') return 'rufbus';
+  if (/^(S|IR|RE|R|IC|EC|EXT|S-Bahn|Zug)/.test(c)) return 'train';
+  return 'bus';
 }
 const segClass = m => (MAP_CLASSES.find(c => c[2](m)) || ['none'])[0];
 const stageList = m => ['ref', ...STAGES].map(k => `${m & M.bits[k] ? '✓' : '✗'} ${esc(sname(k))}`).join('<br>');
@@ -830,10 +842,9 @@ async function viewMap() {
   if (!M) {
     M = await (await fetch('data/map.json')).json();
     const byId = Object.fromEntries(S.lines.map(l => [l.id, l]));
-    M.lines.forEach(l => { l.meta = byId[l.id] || { op: '?', line: l.id }; l.cls = [...new Set(l.m.map(segClass))]; });
+    M.lines.forEach(l => { l.meta = byId[l.id] || { op: '?', line: l.id }; l.cls = [...new Set(l.m.map(segClass))]; l.mot = lineMot(l); });
   }
   const ops = [...new Set(M.lines.map(l => l.meta.op))].sort();
-  const cats = [...new Set(M.lines.map(l => l.cat).filter(Boolean))].sort();
   const cnt = {}; M.lines.forEach(l => l.m.forEach(m => { const c = segClass(m); cnt[c] = (cnt[c] || 0) + 1; }));
   $('#main').innerHTML = `<div class="card"><h2>Karte</h2>
     <p class="muted small">Je Linie der längste Fahrweg (aus der Referenz, sonst aus dem neuesten Stand), als Luftlinie von Halt zu Halt.
@@ -841,13 +852,10 @@ async function viewMap() {
     <div class="toolbar">
       <input type="search" id="mq" placeholder="Linie suchen" value="${esc(mstate.q)}">
       <label>Betreiber <select id="mop"><option value="">alle</option>${ops.map(o => `<option ${o === mstate.op ? 'selected' : ''}>${esc(o)}</option>`).join('')}</select></label>
-      <label>Verkehrsmittel <select id="mcat"><option value="">alle</option>${cats.map(o => `<option ${o === mstate.cat ? 'selected' : ''}>${esc(o)}</option>`).join('')}</select></label>
       <span class="muted small" id="mcnt"></span>
     </div>
     <div class="legend" id="mleg">${MAP_CLASSES.map(([k, l]) => `<label><input type="checkbox" data-k="${k}" ${mstate.show[k] ? 'checked' : ''}><i class="sw c-${k}"></i>${esc(l)} <span class="muted">(${fmt(cnt[k] || 0)})</span></label>`).join('')}</div>
-    <div class="legend">${[[pictoSvg('bus'), 'Bus'], [pictoSvg('bus', '#6b6a66'), 'Rufbus'], [pictoSvg('night', '#1f2a5c'), 'Nachtlinie (N)'], [pictoSvg('tram'), 'Tram'], [pictoSvg('train'), 'S-Bahn'],
-      [pictoSvg('ship'), 'Schiff'], [pictoSvg('funi'), 'Standseilbahn'], [pictoSvg('cable'), 'Pendelbahn'], ['<i class="term"></i>', 'Start / Ziel']]
-      .map(([s, t]) => `<span>${s} ${t}</span>`).join('')}<span class="muted">· Rahmen der Beschriftung = schlechtester Abschnitt der Linie · Beschriftung anklicken öffnet die Fahrtenmatrix</span></div>
+    <div class="legend"><span><i class="term"></i> Start / Ziel der Linie</span><span class="muted">· Rahmen der Beschriftung = schlechtester Abschnitt der Linie · Beschriftung anklicken öffnet die Fahrtenmatrix · Verkehrsmittel-Filter oben rechts in der Karte</span></div>
     <div id="lmap"></div></div>`;
   if (lmap) { lmap.remove(); lmap = null; }
   lmap = L.map('lmap', { preferCanvas: true }).setView([47.38, 8.6], 10);
@@ -870,7 +878,7 @@ async function viewMap() {
     const size = lmap.getSize(), placed = [];
     for (const lb of labels) {
       const pt = lmap.latLngToContainerPoint(lb.ll);
-      const w = lb.w, h = 20, r = { x0: pt.x - w / 2, y0: pt.y - h / 2, x1: pt.x + w / 2, y1: pt.y + h / 2 };
+      const w = lb.w, h = 24, r = { x0: pt.x - w / 2, y0: pt.y - h / 2, x1: pt.x + w / 2, y1: pt.y + h / 2 };
       if (r.x1 < 0 || r.y1 < 0 || r.x0 > size.x || r.y0 > size.y) continue;
       if (placed.some(p => r.x0 < p.x1 + 3 && r.x1 > p.x0 - 3 && r.y0 < p.y1 + 3 && r.y1 > p.y0 - 3)) continue;
       placed.push(r);
@@ -885,7 +893,7 @@ async function viewMap() {
     mlayer = L.layerGroup().addTo(lmap);
     labels = [];
     const q = mstate.q.toLowerCase();
-    const sel = M.lines.filter(l => (!mstate.op || l.meta.op === mstate.op) && (!mstate.cat || l.cat === mstate.cat) &&
+    const sel = M.lines.filter(l => (!mstate.op || l.meta.op === mstate.op) && mstate.mot[l.mot] !== false &&
       (!q || (l.meta.op + ' ' + l.meta.line).toLowerCase().includes(q)) && l.cls.some(c => mstate.show[c]));
     const order = ['ok', 'extra', 'time', 'days', 'missing'];     // Probleme oben zeichnen
     const bounds = [];
@@ -917,7 +925,7 @@ async function viewMap() {
       if (!shown.length) continue;
       const worst = shown.sort((a, b) => rank[a] - rank[b])[0];
       const s = M.stops[l.p[Math.floor(l.p.length / 2)]];
-      const sym = lineSymbol(l);
+      const mk = l.mot;
       const txt = l.meta.line;
       const a = M.stops[l.p[0]], b = M.stops[l.p[l.p.length - 1]];
       // Start und Ziel des längsten Fahrwegs
@@ -925,18 +933,34 @@ async function viewMap() {
         L.circleMarker([st[0], st[1]], { renderer, radius: 4, color: '#1a1a19', weight: 2, fillColor: '#fff', fillOpacity: 1 })
           .bindTooltip(`<b>${esc(l.meta.op)} ${esc(txt)}</b> · ${role}<br>${esc(st[2])}`).addTo(mlayer);
       }
-      labels.push({ id: l.id, ll: [s[0], s[1]], rank: rank[worst], line: txt, w: 30 + 7.5 * txt.length,
-        tip: `<b>${esc(l.meta.op)} ${esc(txt)}</b> · ${esc(sym[1])}<br>${esc(a[2])} → ${esc(b[2])}`,
-        html: `<span class="lbl" style="border-color:${MAP_COLORS[worst]}">${sym[0]}${esc(txt)}</span>` });
+      labels.push({ id: l.id, ll: [s[0], s[1]], rank: rank[worst], line: txt, w: 36 + 7.5 * txt.length,
+        tip: `<b>${esc(l.meta.op)} ${esc(txt)}</b> · ${esc(MOTS[mk][0])}<br>${esc(a[2])} → ${esc(b[2])}`,
+        html: `<span class="lbl" style="border-color:${MAP_COLORS[worst]}">${icon(mk, 20)}${esc(txt)}</span>` });
     }
     labels.sort((a, b) => a.rank - b.rank || a.line.localeCompare(b.line, 'de', { numeric: true }));
     $('#mcnt').textContent = `${fmt(sel.length)} Linien`;
-    if ((mstate.q || mstate.op || mstate.cat) && bounds.length) lmap.fitBounds(bounds, { padding: [20, 20], maxZoom: 15 });
+    if ((mstate.q || mstate.op) && bounds.length) lmap.fitBounds(bounds, { padding: [20, 20], maxZoom: 15 });
     placeLabels();
   };
   $('#mq').oninput = e => { mstate.q = e.target.value; draw(); };
   $('#mop').onchange = e => { mstate.op = e.target.value; draw(); };
-  $('#mcat').onchange = e => { mstate.cat = e.target.value; draw(); };
+  // Filter je Verkehrsmittel oben rechts in der Karte
+  const motCount = {};
+  M.lines.forEach(l => { motCount[l.mot] = (motCount[l.mot] || 0) + 1; });
+  const MotCtl = L.Control.extend({ options: { position: 'topright' }, onAdd() {
+    const div = L.DomUtil.create('div', 'motctl');
+    div.innerHTML = `<b>Verkehrsmittel</b>${Object.keys(MOTS).filter(k => motCount[k]).map(k =>
+      `<label><input type="checkbox" data-mot="${k}" ${mstate.mot[k] !== false ? 'checked' : ''}>${icon(k, 18)}<span>${esc(MOTS[k][0])}</span><span class="muted">${fmt(motCount[k])}</span></label>`).join('')}
+      <div class="motbtn"><button type="button" data-all="1">alle</button><button type="button" data-all="0">keine</button></div>`;
+    L.DomEvent.disableClickPropagation(div); L.DomEvent.disableScrollPropagation(div);
+    div.querySelectorAll('input').forEach(cb => cb.onchange = () => { mstate.mot[cb.dataset.mot] = cb.checked; draw(); });
+    div.querySelectorAll('button').forEach(b => b.onclick = () => {
+      const on = b.dataset.all === '1';
+      div.querySelectorAll('input').forEach(cb => { cb.checked = on; mstate.mot[cb.dataset.mot] = on; }); draw();
+    });
+    return div;
+  } });
+  new MotCtl().addTo(lmap);
   document.querySelectorAll('#mleg input').forEach(cb => cb.onchange = () => { mstate.show[cb.dataset.k] = cb.checked; draw(); });
   draw();
 }
