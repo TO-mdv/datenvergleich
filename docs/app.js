@@ -80,6 +80,7 @@ function route() {
   const [name, query] = (location.hash.slice(1) || 'uebersicht').split('?');
   const params = new URLSearchParams(query || '');
   document.querySelectorAll('#tabs a').forEach(a => a.classList.toggle('on', a.dataset.view === name));
+  document.body.classList.toggle('wide', name === 'karte');   // Karte über die ganze Bildschirmbreite
   (VIEWS[name] || viewOverview)(params);
 }
 function go(view, params = {}) {
@@ -836,6 +837,7 @@ async function viewMap() {
     <div id="lmap"></div></div>`;
   if (lmap) { lmap.remove(); lmap = null; }
   lmap = L.map('lmap', { preferCanvas: true }).setView([47.38, 8.6], 10);
+  setTimeout(() => lmap && lmap.invalidateSize(), 0);
   // Helle, schlichte Grundkarte (Esri Light Gray Canvas + dezente Ortsnamen); Ersatz bei Ausfall: OSM aufgehellt
   const osmAttr = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
   const esri = 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/';
