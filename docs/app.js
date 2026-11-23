@@ -65,7 +65,15 @@ async function init(){
  state.meta=await api('meta');state.stages=state.meta.stages;state.stages.forEach(s=>state.enabled.add(s.id));
  for(const s of state.stages){const label=document.createElement('label');label.className='source';label.style.setProperty('--color',s.color);label.innerHTML=`<input type="checkbox" checked value="${s.id}" aria-label="${esc(s.label)} anzeigen"><span class="swatch"></span><span class="source-name" title="${esc(s.label)} · ${fmt(s.total)} Datensätze · ${fmt(s.lines)} Liniengruppen">${esc(sourceShort(s.id))}<span class="source-count">${fmt(s.total)} Datensätze · ${fmt(s.lines)} Liniengruppen</span></span>`;label.querySelector('input').onchange=e=>{if(e.target.checked)state.enabled.add(s.id);else state.enabled.delete(s.id);updateStages().catch(fail);};$('stages').append(label);}
  map=L.map('map',{preferCanvas:true,zoomControl:true}).setView([47.385,8.555],12);window.viewerMap=map;renderer=L.canvas({padding:.5,tolerance:5});
- tile=L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png',{maxZoom:20,attribution:'&copy; <a href="https://stadiamaps.com/">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);let errors=0;tile.on('tileerror',()=>{if(++errors>3)$('tile-warning').hidden=false;});tile.on('tileload',()=>{$('tile-warning').hidden=true;errors=0;});
+ const stadia=L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png',{maxZoom:20,attribution:'&copy; <a href="https://stadiamaps.com/">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'});
+ map.createPane('light-basemap');map.getPane('light-basemap').style.zIndex=200;map.getPane('light-basemap').classList.add('light-osm');
+ const osm=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,pane:'light-basemap',attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'});
+ const local=['localhost','127.0.0.1'].includes(location.hostname);let basemap=local?'stadia':'osm';
+ function chooseBase(value){if(tile)map.removeLayer(tile);basemap=value;tile=(value==='stadia'?stadia:osm).addTo(map);$('basemap').value=value;$('tile-warning').hidden=true;}
+ $('basemap').onchange=()=>chooseBase($('basemap').value);chooseBase(basemap);
+ let errors=0;stadia.on('tileerror',()=>{if(++errors>3&&basemap==='stadia'){chooseBase('osm');$('tile-warning').textContent='Stadia ist nicht verfügbar. OSM hell ist als Ersatz aktiv.';$('tile-warning').hidden=false;}});
+ osm.on('tileerror',()=>{$('tile-warning').textContent='Grundkarte momentan nicht erreichbar. Die Fahrplandaten bleiben verfügbar.';$('tile-warning').hidden=false;});osm.on('tileload',()=>{$('tile-warning').hidden=true;});
+
  map.on('moveend',scheduleMap);$('home').onclick=()=>map.setView([47.385,8.555],12);$('zoom-line').onclick=zoomLine;
  for(const id of ['show-lines','show-stops','show-platforms','only-selected'])$(id).onchange=scheduleMap;
  for(const id of ['difference-filter','line-sort','comparison-focus'])$(id).onchange=()=>{state.lineLimit=500;loadLines().catch(fail);};

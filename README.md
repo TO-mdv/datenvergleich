@@ -74,4 +74,6 @@ Quellzählungen, Dateigrössen und SHA-256-Prüfsummen.
 - [Pyodide 314.0.8](https://pyodide.org/) – gebündelte Laufzeit und Lizenzhinweise unter `docs/vendor/pyodide/`.
 - Helle Grundkarte: Stadia Maps Alidade Smooth, OpenMapTiles und OpenStreetMap.
   Stadia verlangt für öffentliche Domains eine passende Domainfreigabe.
-  Die Kartenattribution bleibt sichtbar.
+  Die öffentliche Domain ist noch nicht freigegeben. Deshalb startet die Online-Version mit
+  einer hell dargestellten OpenStreetMap-Ersatzkarte. Stadia hell bleibt im Kartenmenü
+  auswählbar. Lokal startet weiterhin Stadia hell. Die Kartenattribution bleibt sichtbar.
