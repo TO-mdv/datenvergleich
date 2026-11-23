@@ -74,7 +74,8 @@ function legend(classes) {
 function badge(k, txt) { return `<span class="badge"><i class="sw c-${k}"></i>${esc(txt ?? LABEL[k])}</span>`; }
 
 /* ---------- Router */
-const VIEWS = { uebersicht: viewOverview, linien: viewLines, kalender: viewCalendar, fahrten: viewTrips, methodik: viewMethod };
+const VIEWS = { uebersicht: viewOverview, linien: viewLines, kalender: viewCalendar, fahrten: viewTrips,
+  zieltexte: viewZiel, angebote: viewAngebote, hinweise: viewHinweise, methodik: viewMethod };
 function route() {
   const [name, query] = (location.hash.slice(1) || 'uebersicht').split('?');
   const params = new URLSearchParams(query || '');
@@ -288,14 +289,17 @@ function lineOptions(sel, withAll) {
   return (withAll ? `<option value="">Alle Linien (ZVV-Umfang)</option>` : '') +
     ls.map(l => `<option value="${esc(l.id)}" ${l.id === sel ? 'selected' : ''}>${esc(l.op)} · ${esc(l.line)}</option>`).join('');
 }
-const DIV = [['#d03b3b', '< 50 %'], ['#e98a8a', '50–90 %'], ['#f5c4c4', '90–99 %'], ['#e4e3de', '±1 %'], ['#b7d3f6', '101–110 %'], ['#6da7ec', '110–150 %'], ['#2a78d6', '> 150 %']];
+// Rot = weniger Fahrten als Referenz, Grün = gleich viele, Blau = mehr (Intensität = Grösse der Abweichung)
+const DIV = [['#d03b3b', 'weniger: < 90 %'], ['#e98a8a', 'weniger: 90–99 %'], ['#f5c4c4', 'weniger: > 99 %'], ['#008300', 'gleich viele'],
+  ['#b7d3f6', 'mehr: < 101 %'], ['#6da7ec', 'mehr: 101–110 %'], ['#2a78d6', 'mehr: > 110 %']];
 function divColor(r, ref, st) {
   if (!ref && !st) return null;
+  if (st === ref) return DIV[3][0];
   if (!ref) return DIV[6][0];
-  if (r < 0.5) return DIV[0][0]; if (r < 0.9) return DIV[1][0]; if (r < 0.99) return DIV[2][0];
-  if (r <= 1.01) return DIV[3][0]; if (r <= 1.1) return DIV[4][0]; if (r <= 1.5) return DIV[5][0]; return DIV[6][0];
+  if (st < ref) return r < 0.9 ? DIV[0][0] : r < 0.99 ? DIV[1][0] : DIV[2][0];
+  return r <= 1.01 ? DIV[4][0] : r <= 1.1 ? DIV[5][0] : DIV[6][0];
 }
-const SEQ = ['#cde2fb', '#9ec5f4', '#6da7ec', '#3987e5', '#1c5cab'];
+const SEQ = ['#e4e3de', '#c9c8c2', '#a9a8a2', '#7a7974', '#52514e'];
 function heat(values, colorOf, tipOf) {
   const first = (dateOf(0).getUTCDay() + 6) % 7;   // Mo=0
   let html = '<div class="cal">', col = '<div class="wk">';
@@ -325,7 +329,8 @@ async function viewCalendar(params) {
   if (params.get('linie') != null) state.calLine = params.get('linie');
   $('#main').innerHTML = `<div class="card"><h2>Kalender</h2>
     <p class="muted small">Jedes Kästchen ist ein Verkehrstag (Spalten = Wochen, Zeilen = Mo–So). Oben die Anzahl Fahrten der Referenz,
-      darunter je Datenstand das Verhältnis zur Referenz. Grau = gleich viele Fahrten, rot = weniger, blau = mehr.
+      darunter je Datenstand der Vergleich zur Referenz: <b style="color:var(--ok)">grün</b> = gleich viele Fahrten,
+      <b style="color:var(--missing)">rot</b> = weniger, <b style="color:var(--extra)">blau</b> = mehr (je kräftiger, desto grösser die Abweichung).
       So werden fehlende Feiertage, Ferienperioden oder abgeschnittene Zeiträume sofort sichtbar.</p>
     <div class="toolbar"><label>Linie <select id="cl">${lineOptions(state.calLine, true)}</select></label></div>
     <div id="calbody"><p class="loading">Lade …</p></div></div>
@@ -354,7 +359,7 @@ async function viewCalendar(params) {
   $('#calbody').innerHTML = `${monthHeader()}<div class="calrow"><div class="lbl">Referenz</div>${refRow}</div>${rows}
     <div class="toolbar" style="margin-top:10px">
       <span class="ramp">Referenz: wenige ${SEQ.map(c => `<i style="background:${c}"></i>`).join('')} viele Fahrten</span>
-      <span class="ramp">Verhältnis zur Referenz: ${DIV.map(([c, l]) => `<i style="background:${c}" data-tip="${esc(l)}"></i>`).join('')} <span class="small">(&lt;50 % … gleich … &gt;150 %)</span></span>
+      <span class="ramp">Vergleich zur Referenz: <span class="small">weniger</span> ${DIV.map(([c, l]) => `<i style="background:${c}" data-tip="${esc(l)}"></i>`).join('')} <span class="small">mehr</span></span>
     </div>`;
   const days = [];
   for (let i = 0; i < S.ndays; i++) {
@@ -537,10 +542,241 @@ function viewMethod() {
     <li><b>Linien-Ampel</b> – wo liegen die Probleme? Sortierbare Tabelle je Linie, wahlweise gegen die Referenz oder gegen die Vorstufe.</li>
     <li><b>Kalender</b> – wann? Fahrten pro Tag im Verhältnis zur Referenz, macht fehlende Feiertage oder Perioden sichtbar.</li>
     <li><b>Fahrtenmatrix</b> – welche Fahrten genau? Jede Fahrt mit Status je Stand und Direktvergleich von Kalender und Fahrplan.</li>
+    <li><b>Zieltexte</b> – zeigt die Auskunft dieselbe Richtung an? DINO-Fahrtziel bzw. HRDF-Richtungstext, ersatzweise der Endhalt.</li>
+    <li><b>Angebote</b> – bleiben HRDF-Attribute (Niederflur, Reservation, Gruppen …) an den Fahrten erhalten?</li>
+    <li><b>Verkehrshinweise</b> – bleiben Infotexte bzw. DINO-Notizen an den Fahrten erhalten?</li>
   </ul>
-  <p class="muted small">Nicht verglichen werden in dieser Ansicht Attribute, Infotexte, Richtungstexte und Durchbindungen – dafür steht die <a href="v1/">bisherige Detailansicht</a> weiter zur Verfügung.
+  <p class="muted small">Zieltexte, Angebote und Hinweise werden je Fahrt verglichen (vorhanden ja/nein), nicht je Verkehrstag oder Teilstrecke; gezählt werden nur Fahrten, die in Referenz und Datenstand vorkommen.
+  Durchbindungen und Karte: <a href="v1/">bisherige Detailansicht</a>.
   Aufbereitung: <code>python tools/build_compare.py --base &lt;Datenordner&gt; --out docs/data</code>.</p>
   </div>`;
+}
+
+/* ================================================================ Zieltexte · Angebote · Verkehrshinweise */
+let X = null;
+async function loadExtras() {
+  if (!X) {
+    X = await (await fetch('data/extras.json')).json();
+    X.lineById = Object.fromEntries(S.lines.map(l => [l.id, l]));
+  }
+  return X;
+}
+const lineLbl = id => { const l = X.lineById[id]; return l ? `${esc(l.op)} <b>${esc(l.line)}</b>` : esc(id); };
+const lineTxt = id => { const l = X.lineById[id]; return l ? l.op + ' ' + l.line : id; };
+const opOf = id => (X.lineById[id] || {}).op || '';
+function opSelect(sel) {
+  const ops = [...new Set(S.lines.map(l => l.op))].sort();
+  return `<label>Betreiber <select id="xop"><option value="">alle</option>${ops.map(o => `<option ${o === sel ? 'selected' : ''}>${esc(o)}</option>`).join('')}</select></label>`;
+}
+// c = [vorhanden, fehlt, zusätzlich, Referenzfahrten im Stand]
+function keepCell(c) {
+  if (!c) return { v: 101, html: '<span class="muted small">–</span>' };
+  const [has, lost, add] = c;
+  const base = has + lost;
+  if (!base && !add) return { v: 101, html: '<span class="muted small">–</span>' };
+  const p = base ? pct(has, base) : null;
+  const tipx = `<br>vorhanden: ${fmt(has)}<br>fehlt: ${fmt(lost)}<br>zusätzlich: ${fmt(add)}`;
+  return { v: p ?? 100, html: `<div class="cell" data-tip="${esc('Fahrten in Referenz und Datenstand' + tipx)}"><span class="pct">${base ? pctTxt(p, p >= 99.95 ? 1 : 0) : '<span class="pos">+' + fmt(add) + '</span>'}</span>${
+    stackBar([['ok', has, 'vorhanden'], ['missing', lost, 'fehlt'], ['extra', add, 'zusätzlich']], has + lost + add, 'mini')}</div>` };
+}
+function sortRows(rows, val, sort) {
+  const { key, asc } = sort;
+  rows.sort((a, b) => { const x = val(a, key), y = val(b, key); const r = typeof x === 'number' ? x - y : String(x).localeCompare(String(y), 'de', { numeric: true }); return asc ? r : -r; });
+}
+function bindSort(tableSel, sort, draw) {
+  document.querySelectorAll(tableSel + ' th[data-s]').forEach(th => {
+    th.classList.toggle('sorted', th.dataset.s === sort.key); th.classList.toggle('asc', sort.asc);
+    th.onclick = () => { const k = th.dataset.s; if (sort.key === k) sort.asc = !sort.asc; else { sort.key = k; sort.asc = !(k === 'n' || k === 'ref'); } draw(); };
+  });
+}
+function kpiKeep(k, c, what) {
+  const b = c[0] + c[1];
+  return `<div class="card kpi"><div class="stage"><b>${esc(sname(k))}</b></div>
+    <div class="hero">${pctTxt(pct(c[0], b))} <small>der ${what} erhalten</small></div>
+    ${stackBar([['ok', c[0], 'vorhanden'], ['missing', c[1], 'fehlt'], ['extra', c[2], 'zusätzlich']], b + c[2], 'big')}
+    <div class="kv"><span>vorhanden</span><span>${fmt(c[0])}</span><span>fehlt</span><span class="${c[1] ? 'neg' : ''}">${fmt(c[1])}</span><span>zusätzlich</span><span>${fmt(c[2])}</span></div></div>`;
+}
+
+/* ---------- Zieltexte */
+const zstate = { q: '', op: '', stage: 'any', only: true, sort: { key: 'n', asc: false }, mode: 'diff' };
+async function viewZiel() {
+  $('#main').innerHTML = '<p class="loading">Lade …</p>';
+  await loadExtras();
+  const tot = Object.fromEntries(STAGES.map(k => [k, { same: 0, diff: 0 }]));
+  for (const v of Object.values(X.ztLines)) for (const k of STAGES) { tot[k].same += v[k]?.same || 0; tot[k].diff += v[k]?.diff || 0; }
+  const expl = Object.fromEntries(['ref', ...STAGES].map(k => [k, 0]));
+  const all = Object.fromEntries(['ref', ...STAGES].map(k => [k, 0]));
+  for (const r of X.zt) {
+    all.ref += r.n; if (r.ref[1] === 'R') expl.ref += r.n;
+    for (const k of STAGES) if (r.st[k]) { all[k] += r.n; if (r.st[k][1] === 'R') expl[k] += r.n; }
+  }
+  const cards = STAGES.map(k => {
+    const t = tot[k], n = t.same + t.diff;
+    return `<div class="card kpi"><div class="stage"><b>${esc(sname(k))}</b></div>
+      <div class="hero">${pctTxt(pct(t.same, n))} <small>gleicher Zieltext</small></div>
+      ${stackBar([['ok', t.same, 'gleicher Zieltext'], ['time', t.diff, 'anderer Zieltext']], n, 'big')}
+      <div class="kv"><span>Fahrten verglichen</span><span>${fmt(n)}</span><span>anderer Zieltext</span><span class="${t.diff ? 'neg' : ''}">${fmt(t.diff)}</span>
+      <span>mit eigenem Zieltext</span><span>${pctTxt(pct(expl[k], all[k]))}</span></div></div>`;
+  }).join('');
+  $('#main').innerHTML = `
+    <p class="lead">Der Zieltext ist die «Richtung», die die Auskunft zu einer Fahrt anzeigt. Für jede Referenzfahrt wird verglichen, welcher Zieltext in jedem Datenstand ankommt.
+      Quelle: DINO <code>vehicle_destination_text</code> (über <code>trip_vdt</code>, am ersten Halt), HRDF <code>*R</code> → RICHTUNG.
+      Hat eine Fahrt keinen eigenen Zieltext, gilt – wie in der Auskunft – der Endhalt <span class="tag">Endhalt</span>.</p>
+    <div class="callout info">Eigener Zieltext vorhanden bei: Referenz ${pctTxt(pct(expl.ref, all.ref))} · DINO ${pctTxt(pct(expl.dino, all.dino))} · NeRED ${pctTxt(pct(expl.nered, all.nered))} · INFO+ ${pctTxt(pct(expl.info, all.info))} der Fahrten.</div>
+    <div class="grid3">${cards}</div>
+    ${legend([['ok', 'gleicher Zieltext wie Referenz'], ['time', 'anderer Zieltext']])}
+    <div class="card"><h2>${zstate.mode === 'diff' ? 'Zieltexte je Linie' : 'Übereinstimmung je Linie'}</h2>
+      <p class="muted small">${zstate.mode === 'diff' ? 'Fahrten einer Linie mit derselben Kombination von Zieltexten sind zu einer Zeile zusammengefasst. Gelb = weicht von der Referenz ab, – = Fahrt fehlt im Datenstand. Zeile anklicken öffnet eine Beispielfahrt in der Fahrtenmatrix.' : 'Anteil der Fahrten je Linie mit gleichem Zieltext wie in der Referenz.'}</p>
+      <div class="toolbar">
+        <span class="seg" id="zm"><button data-m="diff" class="${zstate.mode === 'diff' ? 'on' : ''}">Zieltexte</button><button data-m="line" class="${zstate.mode === 'line' ? 'on' : ''}">je Linie</button></span>
+        <input type="search" id="zq" placeholder="Linie oder Text suchen" value="${esc(zstate.q)}">${opSelect(zstate.op)}
+        <label>Abweichung in <select id="zs"><option value="any">irgendeinem Stand</option>${STAGES.map(k => `<option value="${k}" ${zstate.stage === k ? 'selected' : ''}>${esc(sname(k))}</option>`).join('')}</select></label>
+        <label><input type="checkbox" id="zo" ${zstate.only ? 'checked' : ''}> nur Abweichungen</label><span class="muted small" id="zc"></span></div>
+      <div class="tablewrap"><table class="t" id="zt"></table></div></div>`;
+  const zdiff = (r, k) => r.st[k] && r.st[k][0].toLowerCase() !== r.ref[0].toLowerCase();
+  const ztxt = z => z ? `${esc(z[0])}${z[1] === 'E' ? ' <span class="tag">Endhalt</span>' : ''}` : '<span class="muted">–</span>';
+  const draw = () => {
+    const q = zstate.q.toLowerCase();
+    const stg = zstate.stage === 'any' ? STAGES : [zstate.stage];
+    if (zstate.mode === 'diff') {
+      let rows = X.zt.filter(r => (!zstate.op || opOf(r.l) === zstate.op) &&
+        (!q || (lineTxt(r.l) + ' ' + r.ref[0] + ' ' + STAGES.map(k => r.st[k]?.[0] || '').join(' ')).toLowerCase().includes(q)));
+      if (zstate.only) rows = rows.filter(r => stg.some(k => zdiff(r, k)));
+      sortRows(rows, (r, k) => k === 'n' ? r.n : k === 'l' ? lineTxt(r.l) : k === 'ref' ? r.ref[0] : (r.st[k]?.[0] || ''), zstate.sort);
+      $('#zc').textContent = `${fmt(rows.length)} Zeilen · ${fmt(rows.reduce((a, r) => a + r.n, 0))} Fahrten`;
+      $('#zt').innerHTML = `<thead><tr><th data-s="l">Linie</th><th data-s="ref">Referenz</th>${STAGES.map(k => `<th data-s="${k}">${esc(sname(k))}</th>`).join('')}<th data-s="n" class="num">Fahrten</th></tr></thead><tbody>${
+        rows.slice(0, 1500).map(r => `<tr class="row" data-l="${esc(r.l)}" data-sj="${esc(r.sj)}"><td>${lineLbl(r.l)}</td><td class="txt">${ztxt(r.ref)}</td>${
+          STAGES.map(k => `<td class="txt ${zdiff(r, k) ? 'zdiff' : ''}">${ztxt(r.st[k])}</td>`).join('')}<td class="num">${fmt(r.n)}</td></tr>`).join('') ||
+        '<tr><td colspan="6" class="empty">Keine Zeilen.</td></tr>'}</tbody>`;
+    } else {
+      let rows = Object.entries(X.ztLines).filter(([l]) => (!zstate.op || opOf(l) === zstate.op) && (!q || lineTxt(l).toLowerCase().includes(q)))
+        .map(([l, v]) => ({ l, v, p: Object.fromEntries(STAGES.map(k => { const s = v[k] || {}; const n = (s.same || 0) + (s.diff || 0); return [k, n ? pct(s.same || 0, n) : 101]; })) }));
+      if (zstate.only) rows = rows.filter(r => stg.some(k => r.p[k] < 100));
+      const srt = STAGES.includes(zstate.sort.key) || zstate.sort.key === 'l' ? zstate.sort : { key: 'info', asc: true };
+      sortRows(rows, (r, k) => k === 'l' ? lineTxt(r.l) : r.p[k], srt);
+      $('#zc').textContent = `${fmt(rows.length)} Linien`;
+      $('#zt').innerHTML = `<thead><tr><th data-s="l">Linie</th>${STAGES.map(k => `<th data-s="${k}">${esc(sname(k))}</th>`).join('')}</tr></thead><tbody>${
+        rows.map(r => `<tr class="row" data-l="${esc(r.l)}"><td>${lineLbl(r.l)}</td>${STAGES.map(k => {
+          const s = r.v[k] || {}, n = (s.same || 0) + (s.diff || 0);
+          return `<td>${n ? `<div class="cell"><span class="pct">${pctTxt(r.p[k], r.p[k] >= 99.95 ? 1 : 0)}</span>${stackBar([['ok', s.same || 0, 'gleicher Zieltext'], ['time', s.diff || 0, 'anderer Zieltext']], n, 'mini')}</div>` : '<span class="muted small">–</span>'}</td>`;
+        }).join('')}</tr>`).join('') || '<tr><td colspan="4" class="empty">Keine Linien.</td></tr>'}</tbody>`;
+    }
+    bindSort('#zt', zstate.sort, draw);
+    document.querySelectorAll('#zt tr[data-l]').forEach(tr => tr.onclick = () => go('fahrten', tr.dataset.sj ? { linie: tr.dataset.l, fahrt: tr.dataset.sj } : { linie: tr.dataset.l }));
+  };
+  document.querySelectorAll('#zm button').forEach(b => b.onclick = () => { zstate.mode = b.dataset.m; viewZiel(); });
+  $('#zq').oninput = e => { zstate.q = e.target.value; draw(); };
+  $('#xop').onchange = e => { zstate.op = e.target.value; draw(); };
+  $('#zs').onchange = e => { zstate.stage = e.target.value; draw(); };
+  $('#zo').onchange = e => { zstate.only = e.target.checked; draw(); };
+  draw();
+}
+
+/* ---------- Angebote (HRDF-Attribute) */
+const astate = { code: '', q: '', op: '', sort: { key: 'ref', asc: false }, lsort: { key: 'info', asc: true } };
+const ASTAGES = ['nered', 'info'];
+async function viewAngebote(params) {
+  $('#main').innerHTML = '<p class="loading">Lade …</p>';
+  await loadExtras();
+  if (params && params.get('code') != null) astate.code = params.get('code');
+  const sum = rows => {
+    const o = { ref: 0 }; ASTAGES.forEach(k => o[k] = [0, 0, 0, 0]);
+    for (const r of rows) { o.ref += r.ref; ASTAGES.forEach(k => { if (r[k]) for (let i = 0; i < 4; i++) o[k][i] += r[k][i]; }); }
+    return o;
+  };
+  const byCode = {};
+  for (const r of X.att) (byCode[r.a] = byCode[r.a] || []).push(r);
+  const codes = Object.entries(byCode).map(([a, rows]) => ({ a, name: X.attrNames[a] || '', lines: rows.length, ...sum(rows) }));
+  const totals = sum(X.att);
+  $('#main').innerHTML = `
+    <p class="lead">Angebote sind die HRDF-Attribute einer Fahrt (<code>*A</code>, z. B. Niederflur, Reservation, Gruppen, Velo).
+      Für jede Referenzfahrt wird geprüft, ob ihre Attribute im neuen Datenstand erhalten bleiben. Gezählt werden nur Fahrten, die es in Referenz und Datenstand gibt.</p>
+    <div class="callout">DINO kennt diese Angebote nicht als Fahrtattribute (Bemerkungen wie Rufbus-Reservationen stehen dort als Notiz – siehe <a href="#hinweise">Verkehrshinweise</a>).
+      Verglichen werden deshalb NeRED und INFO+ ZVV mit der Referenz.</div>
+    <div class="grid2">${ASTAGES.map(k => kpiKeep(k, totals[k], 'Attribut-Zuweisungen')).join('')}</div>
+    ${legend([['ok', 'Attribut vorhanden'], ['missing', 'Attribut fehlt'], ['extra', 'Attribut zusätzlich (nicht in Referenz)']])}
+    <div class="card"><h2>Angebote</h2><p class="muted small">Zeile anklicken zeigt die Linien mit diesem Angebot.</p>
+      <div class="tablewrap" style="max-height:50vh"><table class="t" id="at"></table></div></div>
+    <div class="card" id="acard"></div>`;
+  const drawCodes = () => {
+    const rows = [...codes];
+    sortRows(rows, (r, k) => k === 'a' ? r.a : k === 'name' ? r.name : k === 'ref' ? r.ref : k === 'lines' ? r.lines : keepCell(r[k]).v, astate.sort);
+    $('#at').innerHTML = `<thead><tr><th data-s="a">Code</th><th data-s="name">Bezeichnung</th><th data-s="lines" class="num">Linien</th><th data-s="ref" class="num">Fahrten Ref.</th>${ASTAGES.map(k => `<th data-s="${k}">${esc(sname(k))}</th>`).join('')}</tr></thead><tbody>${
+      rows.map(r => `<tr class="row ${r.a === astate.code ? 'selrow' : ''}" data-a="${esc(r.a)}"><td><b>${esc(r.a)}</b></td><td>${esc(r.name) || '<span class="muted">?</span>'}</td><td class="num">${fmt(r.lines)}</td><td class="num">${fmt(r.ref)}</td>${ASTAGES.map(k => `<td>${keepCell(r[k]).html}</td>`).join('')}</tr>`).join('')}</tbody>`;
+    bindSort('#at', astate.sort, drawCodes);
+    document.querySelectorAll('#at tr[data-a]').forEach(tr => tr.onclick = () => { astate.code = tr.dataset.a; drawCodes(); drawLines(); $('#acard').scrollIntoView({ behavior: 'smooth' }); });
+  };
+  const drawLines = () => {
+    if (!astate.code) { $('#acard').innerHTML = '<p class="empty">Angebot in der Tabelle oben auswählen.</p>'; return; }
+    $('#acard').innerHTML = `<h2>${esc(astate.code)} · ${esc(X.attrNames[astate.code] || '')} – je Linie</h2>
+      <div class="toolbar"><input type="search" id="aq" placeholder="Linie suchen" value="${esc(astate.q)}">${opSelect(astate.op)}<span class="muted small" id="acnt"></span></div>
+      <div class="tablewrap"><table class="t" id="al"></table></div>`;
+    const body = () => {
+      const q = astate.q.toLowerCase();
+      const rows = (byCode[astate.code] || []).filter(r => (!astate.op || opOf(r.l) === astate.op) && (!q || lineTxt(r.l).toLowerCase().includes(q)));
+      sortRows(rows, (r, k) => k === 'l' ? lineTxt(r.l) : k === 'ref' ? r.ref : keepCell(r[k]).v, astate.lsort);
+      $('#acnt').textContent = fmt(rows.length) + ' Linien';
+      $('#al').innerHTML = `<thead><tr><th data-s="l">Linie</th><th data-s="ref" class="num">Fahrten Ref.</th>${ASTAGES.map(k => `<th data-s="${k}">${esc(sname(k))}</th>`).join('')}</tr></thead><tbody>${
+        rows.map(r => `<tr class="row" data-l="${esc(r.l)}"><td>${lineLbl(r.l)}</td><td class="num">${fmt(r.ref)}</td>${ASTAGES.map(k => `<td>${keepCell(r[k]).html}</td>`).join('')}</tr>`).join('')}</tbody>`;
+      bindSort('#al', astate.lsort, body);
+      document.querySelectorAll('#al tr[data-l]').forEach(tr => tr.onclick = () => go('fahrten', { linie: tr.dataset.l }));
+    };
+    $('#aq').oninput = e => { astate.q = e.target.value; body(); };
+    $('#xop').onchange = e => { astate.op = e.target.value; body(); };
+    body();
+  };
+  drawCodes(); drawLines();
+}
+
+/* ---------- Verkehrshinweise (Infotexte / DINO-Notizen) */
+const hstate = { mode: 'text', q: '', op: '', only: true, sort: { key: 'ref', asc: false } };
+async function viewHinweise() {
+  $('#main').innerHTML = '<p class="loading">Lade …</p>';
+  await loadExtras();
+  const blank = () => ({ ref: 0, ...Object.fromEntries(STAGES.map(k => [k, [0, 0, 0, 0]])) });
+  const add = (o, r) => { o.ref += r.ref; for (const k of STAGES) for (let i = 0; i < 4; i++) o[k][i] += r[k][i]; };
+  const totals = blank(); X.hint.forEach(r => add(totals, r));
+  const byText = {};
+  for (const r of X.hint) { const o = byText[r.t] || (byText[r.t] = { t: r.t, code: r.code, lines: new Set(), ...blank() }); o.lines.add(r.l); o.code = o.code || r.code; add(o, r); }
+  const codeLbl = c => X.noteCodes[c] ? `${esc(X.noteCodes[c])} <span class="muted">(${esc(c)})</span>` : esc(c || '–');
+  $('#main').innerHTML = `
+    <p class="lead">Verkehrshinweise sind die Infotexte einer Fahrt (HRDF <code>*I</code>, ohne SJYID und Fahrtnummer) bzw. in DINO die Notizen der Fahrt (<code>trip.NOTICE</code> → <code>notice.din</code>).
+      Für jede Referenzfahrt wird geprüft, ob derselbe Text (ohne Formatierungscodes wie <code>{RR}</code>) im Datenstand an der Fahrt hängt.</p>
+    <div class="grid3">${STAGES.map(k => kpiKeep(k, totals[k], 'Hinweise')).join('')}</div>
+    ${legend([['ok', 'Hinweis vorhanden'], ['missing', 'Hinweis fehlt'], ['extra', 'Hinweis zusätzlich (nicht in Referenz)']])}
+    <div class="card"><h2>Hinweistexte</h2>
+      <p class="muted small">Werte = Anzahl Fahrten mit dem Hinweis. Prozent = Anteil der Referenzfahrten mit diesem Hinweis, bei denen er im Datenstand erhalten ist.
+        ${hstate.mode === 'text' ? 'Zeile anklicken zeigt den Text je Linie.' : 'Zeile anklicken öffnet die Linie in der Fahrtenmatrix.'}</p>
+      <div class="toolbar"><span class="seg" id="hm"><button data-m="text" class="${hstate.mode === 'text' ? 'on' : ''}">je Text</button><button data-m="line" class="${hstate.mode === 'line' ? 'on' : ''}">je Linie und Text</button></span>
+        <input type="search" id="hq" placeholder="Text oder Linie suchen" value="${esc(hstate.q)}">${opSelect(hstate.op)}
+        <label><input type="checkbox" id="ho" ${hstate.only ? 'checked' : ''}> nur Abweichungen</label><span class="muted small" id="hc"></span></div>
+      <div class="tablewrap"><table class="t" id="ht"></table></div></div>`;
+  const draw = () => {
+    const q = hstate.q.toLowerCase();
+    let rows = hstate.mode === 'text' ? Object.values(byText) : X.hint;
+    rows = rows.filter(r => {
+      const ls = hstate.mode === 'text' ? [...r.lines] : [r.l];
+      return (!hstate.op || ls.some(l => opOf(l) === hstate.op)) && (!q || (r.t + ' ' + ls.map(lineTxt).join(' ')).toLowerCase().includes(q));
+    });
+    if (hstate.only) rows = rows.filter(r => STAGES.some(k => r[k][1] || r[k][2]));
+    sortRows(rows, (r, k) => k === 't' ? r.t : k === 'code' ? r.code : k === 'ref' ? r.ref : k === 'l' ? (hstate.mode === 'text' ? r.lines.size : lineTxt(r.l)) : keepCell(r[k]).v, hstate.sort);
+    $('#hc').textContent = `${fmt(rows.length)} Zeilen`;
+    $('#ht').innerHTML = `<thead><tr><th data-s="t">Text</th><th data-s="code">Art</th><th data-s="l" class="${hstate.mode === 'text' ? 'num' : ''}">${hstate.mode === 'text' ? 'Linien' : 'Linie'}</th><th data-s="ref" class="num">Fahrten Ref.</th>${STAGES.map(k => `<th data-s="${k}">${esc(sname(k))}</th>`).join('')}</tr></thead><tbody>${
+      rows.slice(0, 1500).map(r => `<tr class="row" data-l="${esc(hstate.mode === 'line' ? r.l : '')}" data-t="${esc(r.t)}"><td class="txt hint">${esc(r.t)}</td><td class="small">${codeLbl(r.code)}</td>
+        <td class="${hstate.mode === 'text' ? 'num' : ''}">${hstate.mode === 'text' ? `<span data-tip="${esc([...r.lines].slice(0, 30).map(lineTxt).map(esc).join('<br>') + (r.lines.size > 30 ? '<br>…' : ''))}">${fmt(r.lines.size)}</span>` : lineLbl(r.l)}</td>
+        <td class="num">${fmt(r.ref)}</td>${STAGES.map(k => `<td>${keepCell(r[k]).html}</td>`).join('')}</tr>`).join('') ||
+      '<tr><td colspan="7" class="empty">Keine Zeilen.</td></tr>'}</tbody>`;
+    bindSort('#ht', hstate.sort, draw);
+    document.querySelectorAll('#ht tr[data-t]').forEach(tr => tr.onclick = () => {
+      if (tr.dataset.l) go('fahrten', { linie: tr.dataset.l });
+      else { hstate.mode = 'line'; hstate.q = tr.dataset.t.slice(0, 60); viewHinweise(); }
+    });
+  };
+  document.querySelectorAll('#hm button').forEach(b => b.onclick = () => { hstate.mode = b.dataset.m; viewHinweise(); });
+  $('#hq').oninput = e => { hstate.q = e.target.value; draw(); };
+  $('#xop').onchange = e => { hstate.op = e.target.value; draw(); };
+  $('#ho').onchange = e => { hstate.only = e.target.checked; draw(); };
+  draw();
 }
 
 /* ---------- Start */

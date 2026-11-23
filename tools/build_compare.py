@@ -493,6 +493,12 @@ def build(base, out, cache):
         for rec in recs:
             del rec['_c']
 
+    # --- Zieltexte, Angebote (Attribute) und Verkehrshinweise (Infotexte)
+    extras = build_extras(base, by, trips_out, stopnames)
+    with open(os.path.join(out, 'extras.json'), 'w', encoding='utf-8') as f:
+        json.dump(extras, f, ensure_ascii=False, separators=(',', ':'))
+    log('Zieltexte', len(extras['zt']), 'Angebote', len(extras['att']), 'Hinweise', len(extras['hint']))
+
     # --- Ausgabe
     os.makedirs(os.path.join(out, 'lines'), exist_ok=True)
     for f in glob.glob(os.path.join(out, 'lines', '*.json')):
@@ -584,6 +590,149 @@ def build(base, out, cache):
     with open(os.path.join(out, 'summary.json'), 'w', encoding='utf-8') as f:
         json.dump(summary, f, ensure_ascii=False, separators=(',', ':'))
     log('fertig', len(line_list), 'Linien')
+
+
+def norm_text(t):
+    t = re.sub(r'\{[^}]*\}', '', t or '').replace('\\n', ' ')
+    return re.sub(r'\s+', ' ', t).strip()
+
+
+def attr_names(base):
+    """Attributbezeichnungen (deutsch) aus ATTRIBUT der HRDF-Stände."""
+    names = {}
+    for sub, fn in (('Gesamt 2027', 'ATTRIBUT'), ('ZVV 2027', 'ATTRIBUT'), ('ZVV 2027 NeRED V2', 'attribut')):
+        path = os.path.join(base, sub, fn)
+        if not os.path.exists(path):
+            continue
+        raw = open(path, 'rb').read()
+        try:
+            txt = raw.decode('utf-8')
+        except UnicodeDecodeError:
+            txt = raw.decode('cp1252', errors='replace')
+        sec = None
+        for line in txt.splitlines():
+            if line.startswith('<'):
+                sec = line.strip()
+                continue
+            if sec == '<deu>' and len(line) > 4:
+                code, name = line[:2].strip(), line[3:].strip()
+                if code and name:
+                    names.setdefault(code, name)
+    return names
+
+
+NOTE_CODES = {'hi': 'Hinweis', 'TC': 'Tarif/Verbund', 'ZN': 'Zugname', 'ZO': 'Zusatzinfo',
+              'DINO': 'DINO-Notiz', 'TT': 'Text'}
+
+
+def build_extras(base, by, trips_out, stopnames):
+    """Je Referenzfahrt, die im Datenstand vorhanden ist: Zieltext, Attribute und Infotexte vergleichen."""
+    SID = [s['id'] for s in STAGES]
+
+    def main_rec(k, sj):
+        ts = by[k].get(sj)
+        if not ts:
+            return None
+        return max(ts, key=lambda t: popcount(t['days']))
+
+    def ziel(t):
+        if t.get('dir'):
+            return norm_text(t['dir']), 'R'
+        if t['stops']:
+            return stopnames.get(t['stops'][-1][0], t['stops'][-1][0]), 'E'
+        return '', 'E'
+
+    shown = {}      # Vergleichsschlüssel (ohne Leerzeichen) → Anzeigetext
+
+    def notes(k, sj):
+        out = {}
+        for t in by[k].get(sj, []):
+            for code, txt in t.get('notes', ()):
+                n = norm_text(txt)
+                if n:
+                    key = re.sub(r'\s', '', n).casefold()
+                    if key not in shown or k == 'dino':
+                        shown[key] = n
+                    out.setdefault(key, code)
+        return out
+
+    def attrs(k, sj):
+        a = set()
+        for t in by[k].get(sj, []):
+            a.update(x for x in t.get('attrs', ()) if x)
+        return a
+
+    zt = C.Counter()
+    zt_ex = {}
+    zt_line = C.defaultdict(lambda: {k: C.Counter() for k in SID})
+    att = C.defaultdict(lambda: {'ref': 0, **{k: [0, 0, 0, 0] for k in SID}})
+    hint = C.defaultdict(lambda: {'ref': 0, 'code': '', **{k: [0, 0, 0, 0] for k in SID}})
+    for lid, recs in trips_out.items():
+        for rec in recs:
+            sj = rec['sj']
+            r = main_rec('ref', sj)
+            if r is None:
+                continue
+            rz = ziel(r)
+            ra = attrs('ref', sj)
+            rn = notes('ref', sj)
+            stz = []
+            for code in ra:
+                att[(lid, code)]['ref'] += 1
+            for n, code in rn.items():
+                h = hint[(lid, n)]
+                h['ref'] += 1
+                h['code'] = h['code'] or code
+            for k in SID:
+                t = main_rec(k, sj)
+                if t is None:
+                    stz.append(None)
+                    continue
+                z = ziel(t)
+                stz.append(z)
+                zt_line[lid][k]['same' if z[0].casefold() == rz[0].casefold() else 'diff'] += 1
+                if k != 'dino':      # DINO kennt keine Fahrtattribute im HRDF-Sinn
+                    sa = attrs(k, sj)
+                    for code in ra | sa:
+                        c = att[(lid, code)][k]
+                        # [vorhanden, fehlt, zusätzlich, Referenzfahrten im Stand]
+                        if code in ra and code in sa:
+                            c[0] += 1
+                        elif code in ra:
+                            c[1] += 1
+                        else:
+                            c[2] += 1
+                    for code in ra:
+                        att[(lid, code)][k][3] += 1
+                sn = notes(k, sj)
+                for n in set(rn) | set(sn):
+                    h = hint[(lid, n)]
+                    h['code'] = h['code'] or sn.get(n, '')
+                    c = h[k]
+                    if n in rn and n in sn:
+                        c[0] += 1
+                    elif n in rn:
+                        c[1] += 1
+                    else:
+                        c[2] += 1
+                for n in rn:
+                    hint[(lid, n)][k][3] += 1
+            key = (lid, rz[0], rz[1]) + tuple(x if x is None else x for x in stz)
+            zt[key] += 1
+            zt_ex.setdefault(key, sj)
+    zt_rows = []
+    for key, n in zt.items():
+        lid, rt, rs = key[:3]
+        sts = key[3:]
+        zt_rows.append({'l': lid, 'ref': [rt, rs], 'st': {k: (list(v) if v else None) for k, v in zip(SID, sts)},
+                        'n': n, 'sj': zt_ex[key]})
+    att_rows = [{'l': lid, 'a': code, 'ref': v['ref'], **{k: v[k] for k in SID if k != 'dino'}}
+                for (lid, code), v in att.items()]
+    hint_rows = [{'l': lid, 't': shown.get(txt, txt), 'code': v['code'], 'ref': v['ref'], **{k: v[k] for k in SID}}
+                 for (lid, txt), v in hint.items()]
+    return {'attrNames': attr_names(base), 'noteCodes': NOTE_CODES,
+            'ztLines': {lid: {k: dict(c) for k, c in v.items()} for lid, v in zt_line.items()},
+            'zt': zt_rows, 'att': att_rows, 'hint': hint_rows}
 
 
 def natkey(s):

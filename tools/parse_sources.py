@@ -54,7 +54,7 @@ def parse_hrdf(folder, names, keep=None, progress=None):
     keep: optionale Funktion(sjyid)->bool zur Vorfilterung (für den grossen Gesamtexport)."""
     infotext = {}
     for line in _read(f'{folder}/{names["infotext"]}'):
-        if 'sjyid' in line[:60]:
+        if len(line) > 10 and line[:9].isdigit():
             infotext[line[:9]] = line[10:].strip()
     bits = {}
     for line in _read(f'{folder}/{names["bitfeld"]}'):
@@ -110,7 +110,8 @@ def parse_hrdf(folder, names, keep=None, progress=None):
             mask = ALL
         trips.append({'sj': cur['sj'], 'stops': stops, 'days': mask, 'line': cur['line'],
                       'cat': cur['cat'], 'op': operators.get(cur['adm'], cur['adm']),
-                      'adm': cur['adm'], 'nr': cur['nr'], 'dir': cur['dir'], 'tag': cur['tag']})
+                      'adm': cur['adm'], 'nr': cur['nr'], 'dir': cur['dir'], 'tag': cur['tag'],
+                      'attrs': tuple(sorted(cur['attrs'])), 'notes': tuple(sorted(cur['notes']))})
 
     n = 0
     for line in _read(f'{folder}/{names["fplan"]}'):
@@ -122,7 +123,8 @@ def parse_hrdf(folder, names, keep=None, progress=None):
             p = line[:60].split()
             tag = line.split('%', 1)[1].strip() if '%' in line else ''
             cur = {'nr': p[1], 'adm': p[2], 'sj': None, 'stops': [], 've': [], 'line': '',
-                   'cat': '', 'dir': '', 'tag': tag}
+                   'cat': '', 'dir': '', 'tag': tag,
+                   'attrs': set(), 'notes': set()}
         elif cur is None:
             continue
         elif line.startswith('*'):
@@ -131,10 +133,17 @@ def parse_hrdf(folder, names, keep=None, progress=None):
             if kind == '*A' and body[3:5] == 'VE':
                 p = body[5:].split()
                 cur['ve'].append(p[2] if len(p) >= 3 and p[2] != '000000' else None)
+            elif kind == '*A':
+                cur['attrs'].add(body[3:5].strip())
             elif kind == '*I' and body[3:5] == 'JY':
                 p = body[5:].split()
                 ref = p[-1] if p else ''
-                cur['sj'] = infotext.get(ref)
+                v = infotext.get(ref)
+                cur['sj'] = v if v and 'sjyid' in v[:12] else None
+            elif kind == '*I' and body[3:5] != 'RN':
+                txt = infotext.get(body[29:38].strip())
+                if txt:
+                    cur['notes'].add((body[3:5].strip(), txt))
             elif kind == '*G' and not cur['cat']:
                 cur['cat'] = body[3:].split()[0] if body[3:].split() else ''
             elif kind == '*L' and not cur['line']:
@@ -221,6 +230,18 @@ def parse_dino(folder):
     for r in _csv(folder, 'timing_pattern.din'):
         timing[(r['LINE_NR'], r['STR_LINE_VAR'], r['LINE_DIR_NR'], r['TIMING_GROUP_NR'])][int(r['LINE_CONSEC_NR'])] = (
             int(r['TT_REL'] or 0), int(r['STOPPING_TIME'] or 0))
+    vdt = {}
+    for r in _csv(folder, 'vehicle_destination_text.din'):
+        vdt[r['VDT_NR']] = (r.get('VDT_JOURNEY_PLANNER') or r.get('VDT_LONG_NAME') or r.get('VDT_TEXT_FRONT1') or '').strip()
+    trip_vdt = {}
+    for r in _csv(folder, 'trip_vdt.din'):
+        k = (r['LINE_NR'], r['STR_LINE_VAR'], r['LINE_DIR_NR'], r['TRIP_ID'])
+        c = int(r['LINE_CONSEC_NR'] or 0)
+        if k not in trip_vdt or c < trip_vdt[k][0]:
+            trip_vdt[k] = (c, vdt.get(r['VDT_NR'], ''))
+    notices = {}
+    for r in _csv(folder, 'notice.din'):
+        notices[(r['LINE_NR'], r['NOTICE'])] = r['NOTICE_TEXT']
     trips = []
     for r in _csv(folder, 'trip.din'):
         key = (r['LINE_NR'], r['STR_LINE_VAR'], r['LINE_DIR_NR'])
@@ -259,6 +280,10 @@ def parse_dino(folder):
                       'line': ln.get('LINE_NAME', r['LINE_NR']),
                       'cat': mots.get(ln.get('MOT_NR', ''), ''),
                       'op': ops.get(ln.get('OP_CODE') or r['OP_CODE'], ln.get('OP_CODE', '')),
-                      'adm': ln.get('OP_CODE', ''), 'nr': r['TRIP_ID'], 'dir': '',
+                      'adm': ln.get('OP_CODE', ''), 'nr': r['TRIP_ID'],
+                      'dir': trip_vdt.get((r['LINE_NR'], r['STR_LINE_VAR'], r['LINE_DIR_NR'], r['TRIP_ID']), (0, ''))[1],
+                      'attrs': (), 'notes': tuple(sorted(
+                          ('DINO', notices.get((r['LINE_NR'], n)) or notices.get(('', n)) or n)
+                          for n in {r.get(f) for f in ('NOTICE', 'NOTICE_2', 'NOTICE_3', 'NOTICE_4', 'NOTICE_5')} if n)),
                       'tag': f"{r['LINE_NR']}/{r['STR_LINE_VAR']}/{r['LINE_DIR_NR']}"})
     return trips, stopnames

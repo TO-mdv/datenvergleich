@@ -140,3 +140,8 @@ table.t tr.row:hover td{background:#f4f3ef;cursor:pointer}
 .tt td.new{background:#e3eefb;font-weight:600}
 .c-merged{background:repeating-linear-gradient(135deg,var(--ok) 0 3px,#7fc27f 3px 6px)}
 .mx .st.c-merged{opacity:.7}
+.tag{display:inline-block;font-size:10px;padding:0 5px;border-radius:8px;background:#eeede8;color:var(--ink2);vertical-align:1px;white-space:nowrap}
+table.t td.zdiff{background:#fdf0c4}
+table.t td.txt{max-width:320px}
+table.t td.hint{min-width:260px;max-width:520px;font-size:13px}
+table.t tr.selrow td{background:#e8f1fc}
