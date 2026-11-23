@@ -799,15 +799,28 @@ async function ensureLeaflet() {
   await loadScript('v1/vendor/leaflet.js');
 }
 // Verkehrsmittel-Symbol je Linie: [Symbol, Bezeichnung, Nachtlinie]
+// Einfache 2D-Piktogramme im Stil der öV-Signaletik Schweiz (weisses Symbol auf dunklem Quadrat)
+const PICTO_GLYPH = {
+  bus: '<rect x="5" y="3.5" width="10" height="11.5" rx="2" fill="#fff"/><rect x="6.3" y="5" width="7.4" height="4.6" rx=".6"/><circle cx="7.3" cy="12.3" r=".9"/><circle cx="12.7" cy="12.3" r=".9"/><rect x="6" y="15" width="2" height="2" rx=".5" fill="#fff"/><rect x="12" y="15" width="2" height="2" rx=".5" fill="#fff"/>',
+  tram: '<path d="M7.5 2.2h5M10 2.2v2.3" stroke="#fff" stroke-width="1.1" fill="none"/><rect x="5.5" y="4.5" width="9" height="10.5" rx="1.5" fill="#fff"/><rect x="6.7" y="6" width="6.6" height="4" rx=".5"/><circle cx="7.8" cy="12.6" r=".8"/><circle cx="12.2" cy="12.6" r=".8"/><path d="M7 15l-1.6 2.6M13 15l1.6 2.6" stroke="#fff" stroke-width="1.1"/>',
+  train: '<path d="M6.5 3.5h7a2 2 0 0 1 2 2V14a1 1 0 0 1-1 1h-9a1 1 0 0 1-1-1V5.5a2 2 0 0 1 2-2z" fill="#fff"/><rect x="6.2" y="5" width="7.6" height="4.2" rx=".5"/><circle cx="7.4" cy="12.2" r=".9"/><circle cx="12.6" cy="12.2" r=".9"/><path d="M7 15l-2 2.8M13 15l2 2.8M6 17h8" stroke="#fff" stroke-width="1.1"/>',
+  ship: '<rect x="7" y="6.5" width="6" height="3.5" fill="#fff"/><rect x="9.2" y="4" width="1.6" height="2.5" fill="#fff"/><path d="M3 10.5h14l-2.3 4h-9.4z" fill="#fff"/><path d="M3 16.6c1.2-1 2.3-1 3.5 0s2.3 1 3.5 0 2.3-1 3.5 0 2.3 1 3.5 0" stroke="#fff" stroke-width="1" fill="none"/>',
+  funi: '<path d="M2.5 17.5L17.5 6.5" stroke="#fff" stroke-width="1.1"/><path d="M5 13.4l8.5-6.2 1.6 2.2v3.4l-8.4 6.1H5z" fill="#fff"/><path d="M7.3 13.1l5.4-3.9" stroke="#000" stroke-width="1.6"/>',
+  cable: '<path d="M2.5 5.5L17.5 2.5" stroke="#fff" stroke-width="1.1"/><path d="M10 4v3.5" stroke="#fff" stroke-width="1.1"/><rect x="5.5" y="7.5" width="9" height="8.5" rx="1.2" fill="#fff"/><rect x="6.8" y="9" width="6.4" height="3.2" rx=".4"/>',
+  night: '<path d="M12.8 3.6a6.6 6.6 0 1 0 3.9 10.3 5.4 5.4 0 1 1-3.9-10.3z" fill="#fff"/>',
+};
+const pictoSvg = (k, bg = '#1a1a19', s = 14) => `<svg class="picto" viewBox="0 0 20 20" width="${s}" height="${s}" aria-hidden="true"><rect width="20" height="20" rx="3" fill="${bg}"/>${PICTO_GLYPH[k]}</svg>`;
+// [Piktogramm-HTML, Bezeichnung, Nachtlinie]
 function lineSymbol(l) {
   const c = l.cat, n = l.meta.line || '';
-  if (c === 'BN' || /^N\d/.test(n)) return ['🌙', 'Nachtlinie', true];
-  if (c === 'T') return ['🚋', 'Tram', false];
-  if (c === 'FUN') return ['🚞', 'Standseilbahn', false];
-  if (c === 'PB') return ['🚡', 'Pendelbahn', false];
-  if (c === 'RUB') return ['📞', 'Rufbus', false];
-  if (/^S/.test(c)) return ['🚆', 'S-Bahn', false];
-  return ['🚌', 'Bus', false];
+  if (c === 'BN' || /^N\d/.test(n)) return [pictoSvg('night', '#1f2a5c'), 'Nachtlinie', true];
+  if (c === 'T') return [pictoSvg('tram'), 'Tram', false];
+  if (c === 'FUN') return [pictoSvg('funi'), 'Standseilbahn', false];
+  if (c === 'PB') return [pictoSvg('cable'), 'Pendelbahn', false];
+  if (/^(BAT|SCH|Schiff)/i.test(c)) return [pictoSvg('ship'), 'Schiff', false];
+  if (c === 'RUB') return [pictoSvg('bus', '#6b6a66'), 'Rufbus', false];
+  if (/^S/.test(c)) return [pictoSvg('train'), 'S-Bahn', false];
+  return [pictoSvg('bus'), 'Bus', false];
 }
 const segClass = m => (MAP_CLASSES.find(c => c[2](m)) || ['none'])[0];
 const stageList = m => ['ref', ...STAGES].map(k => `${m & M.bits[k] ? '✓' : '✗'} ${esc(sname(k))}`).join('<br>');
@@ -832,7 +845,8 @@ async function viewMap() {
       <span class="muted small" id="mcnt"></span>
     </div>
     <div class="legend" id="mleg">${MAP_CLASSES.map(([k, l]) => `<label><input type="checkbox" data-k="${k}" ${mstate.show[k] ? 'checked' : ''}><i class="sw c-${k}"></i>${esc(l)} <span class="muted">(${fmt(cnt[k] || 0)})</span></label>`).join('')}</div>
-    <div class="legend">${[['🚌', 'Bus'], ['🌙', 'Nachtlinie (N)'], ['🚋', 'Tram'], ['🚆', 'S-Bahn'], ['🚞', 'Standseilbahn'], ['🚡', 'Pendelbahn'], ['📞', 'Rufbus']]
+    <div class="legend">${[[pictoSvg('bus'), 'Bus'], [pictoSvg('bus', '#6b6a66'), 'Rufbus'], [pictoSvg('night', '#1f2a5c'), 'Nachtlinie (N)'], [pictoSvg('tram'), 'Tram'], [pictoSvg('train'), 'S-Bahn'],
+      [pictoSvg('ship'), 'Schiff'], [pictoSvg('funi'), 'Standseilbahn'], [pictoSvg('cable'), 'Pendelbahn'], ['<i class="term"></i>', 'Start / Ziel']]
       .map(([s, t]) => `<span>${s} ${t}</span>`).join('')}<span class="muted">· Rahmen der Beschriftung = schlechtester Abschnitt der Linie · Beschriftung anklicken öffnet die Fahrtenmatrix</span></div>
     <div id="lmap"></div></div>`;
   if (lmap) { lmap.remove(); lmap = null; }
@@ -843,7 +857,6 @@ async function viewMap() {
   const esri = 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/';
   const base = L.tileLayer(esri + 'World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', { maxZoom: 19, maxNativeZoom: 16, className: 'basemap-light',
     attribution: 'Grundkarte &copy; Esri, HERE, Garmin, &copy; OpenStreetMap' }).addTo(lmap);
-  L.tileLayer(esri + 'World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}', { maxZoom: 19, maxNativeZoom: 16, className: 'basemap-ref' }).addTo(lmap);
   let tileErr = 0;
   base.on('tileerror', () => {
     if (++tileErr === 4) { base.remove(); L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, className: 'basemap', attribution: osmAttr }).addTo(lmap); }
@@ -861,7 +874,8 @@ async function viewMap() {
       if (r.x1 < 0 || r.y1 < 0 || r.x0 > size.x || r.y0 > size.y) continue;
       if (placed.some(p => r.x0 < p.x1 + 3 && r.x1 > p.x0 - 3 && r.y0 < p.y1 + 3 && r.y1 > p.y0 - 3)) continue;
       placed.push(r);
-      L.marker(lb.ll, { icon: L.divIcon({ className: 'lbl-wrap', html: lb.html, iconSize: [w, h], iconAnchor: [w / 2, h / 2] }), keyboard: false, title: lb.title })
+      L.marker(lb.ll, { icon: L.divIcon({ className: 'lbl-wrap', html: lb.html, iconSize: [w, h], iconAnchor: [w / 2, h / 2] }), keyboard: false })
+        .bindTooltip(lb.tip, { direction: 'top', offset: [0, -10] })
         .on('click', () => go('fahrten', { linie: lb.id })).addTo(labelLayer);
     }
   };
@@ -905,8 +919,15 @@ async function viewMap() {
       const s = M.stops[l.p[Math.floor(l.p.length / 2)]];
       const sym = lineSymbol(l);
       const txt = l.meta.line;
-      labels.push({ id: l.id, ll: [s[0], s[1]], rank: rank[worst], line: txt, w: 30 + 7.5 * txt.length, title: `${l.meta.op} ${txt} · ${sym[1]}`,
-        html: `<span class="lbl ${sym[2] ? 'night' : ''}" style="border-color:${MAP_COLORS[worst]}"><span class="sym">${sym[0]}</span>${esc(txt)}</span>` });
+      const a = M.stops[l.p[0]], b = M.stops[l.p[l.p.length - 1]];
+      // Start und Ziel des längsten Fahrwegs
+      for (const [st, role] of [[a, 'Start'], [b, 'Ziel']]) {
+        L.circleMarker([st[0], st[1]], { renderer, radius: 4, color: '#1a1a19', weight: 2, fillColor: '#fff', fillOpacity: 1 })
+          .bindTooltip(`<b>${esc(l.meta.op)} ${esc(txt)}</b> · ${role}<br>${esc(st[2])}`).addTo(mlayer);
+      }
+      labels.push({ id: l.id, ll: [s[0], s[1]], rank: rank[worst], line: txt, w: 30 + 7.5 * txt.length,
+        tip: `<b>${esc(l.meta.op)} ${esc(txt)}</b> · ${esc(sym[1])}<br>${esc(a[2])} → ${esc(b[2])}`,
+        html: `<span class="lbl" style="border-color:${MAP_COLORS[worst]}">${sym[0]}${esc(txt)}</span>` });
     }
     labels.sort((a, b) => a.rank - b.rank || a.line.localeCompare(b.line, 'de', { numeric: true }));
     $('#mcnt').textContent = `${fmt(sel.length)} Linien`;
