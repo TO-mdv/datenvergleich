@@ -145,3 +145,6 @@ table.t td.zdiff{background:#fdf0c4}
 table.t td.txt{max-width:320px}
 table.t td.hint{min-width:260px;max-width:520px;font-size:13px}
 table.t tr.selrow td{background:#e8f1fc}
+#lmap{height:72vh;min-height:420px;border:1px solid var(--line);border-radius:var(--radius);margin-top:8px}
+.basemap{filter:grayscale(1) contrast(.85) brightness(1.05)}
+#mleg label{display:inline-flex;align-items:center;gap:6px;cursor:pointer}

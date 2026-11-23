@@ -75,7 +75,7 @@ function badge(k, txt) { return `<span class="badge"><i class="sw c-${k}"></i>${
 
 /* ---------- Router */
 const VIEWS = { uebersicht: viewOverview, linien: viewLines, kalender: viewCalendar, fahrten: viewTrips,
-  zieltexte: viewZiel, angebote: viewAngebote, hinweise: viewHinweise, methodik: viewMethod };
+  zieltexte: viewZiel, angebote: viewAngebote, hinweise: viewHinweise, karte: viewMap, methodik: viewMethod };
 function route() {
   const [name, query] = (location.hash.slice(1) || 'uebersicht').split('?');
   const params = new URLSearchParams(query || '');
@@ -545,6 +545,7 @@ function viewMethod() {
     <li><b>Zieltexte</b> – zeigt die Auskunft dieselbe Richtung an? DINO-Fahrtziel bzw. HRDF-Richtungstext, ersatzweise der Endhalt.</li>
     <li><b>Angebote</b> – bleiben HRDF-Attribute (Niederflur, Reservation, Gruppen …) an den Fahrten erhalten?</li>
     <li><b>Verkehrshinweise</b> – bleiben Infotexte bzw. DINO-Notizen an den Fahrten erhalten?</li>
+    <li><b>Karte</b> – längster Fahrweg je Linie; jeder Abschnitt ist danach eingefärbt, in welchen Ständen er befahren wird (nur Referenz, auch in Zwischenschritten, überall).</li>
   </ul>
   <p class="muted small">Zieltexte, Angebote und Hinweise werden je Fahrt verglichen (vorhanden ja/nein), nicht je Verkehrstag oder Teilstrecke; gezählt werden nur Fahrten, die in Referenz und Datenstand vorkommen.
   Durchbindungen und Karte: <a href="v1/">bisherige Detailansicht</a>.
@@ -776,6 +777,92 @@ async function viewHinweise() {
   $('#hq').oninput = e => { hstate.q = e.target.value; draw(); };
   $('#xop').onchange = e => { hstate.op = e.target.value; draw(); };
   $('#ho').onchange = e => { hstate.only = e.target.checked; draw(); };
+  draw();
+}
+
+/* ================================================================ Karte */
+// Abschnittsklassen nach Bitmaske (ref=1, dino=2, nered=4, info=8)
+const MAP_CLASSES = [
+  ['ok', 'in allen Ständen', m => m === 15],
+  ['time', 'in Referenz und INFO+, fehlt in DINO oder NeRED', m => (m & 1) && (m & 8) && m !== 15],
+  ['days', 'in Referenz, fehlt in INFO+ (aber in DINO/NeRED)', m => (m & 1) && !(m & 8) && m !== 1],
+  ['missing', 'nur in Referenz', m => m === 1],
+  ['extra', 'nicht in Referenz (nur neue Stände)', m => !(m & 1) && m > 0]];
+const MAP_COLORS = { ok: '#008300', time: '#eda100', days: '#e87ba4', missing: '#d03b3b', extra: '#2a78d6' };
+const mstate = { show: { ok: true, time: true, days: true, missing: true, extra: true }, op: '', cat: '', q: '', fitted: false };
+let M = null, lmap = null, mlayer = null;
+function loadScript(src) { return new Promise((res, rej) => { const s = document.createElement('script'); s.src = src; s.onload = res; s.onerror = rej; document.head.appendChild(s); }); }
+async function ensureLeaflet() {
+  if (window.L) return;
+  const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = 'v1/vendor/leaflet.css'; document.head.appendChild(l);
+  await loadScript('v1/vendor/leaflet.js');
+}
+const segClass = m => (MAP_CLASSES.find(c => c[2](m)) || ['none'])[0];
+const stageList = m => ['ref', ...STAGES].map(k => `${m & M.bits[k] ? '✓' : '✗'} ${esc(sname(k))}`).join('<br>');
+async function viewMap() {
+  $('#main').innerHTML = '<p class="loading">Lade Karte …</p>';
+  await ensureLeaflet();
+  if (!M) {
+    M = await (await fetch('data/map.json')).json();
+    const byId = Object.fromEntries(S.lines.map(l => [l.id, l]));
+    M.lines.forEach(l => { l.meta = byId[l.id] || { op: '?', line: l.id }; l.cls = [...new Set(l.m.map(segClass))]; });
+  }
+  const ops = [...new Set(M.lines.map(l => l.meta.op))].sort();
+  const cats = [...new Set(M.lines.map(l => l.cat).filter(Boolean))].sort();
+  const cnt = {}; M.lines.forEach(l => l.m.forEach(m => { const c = segClass(m); cnt[c] = (cnt[c] || 0) + 1; }));
+  $('#main').innerHTML = `<div class="card"><h2>Karte</h2>
+    <p class="muted small">Je Linie der längste Fahrweg (aus der Referenz, sonst aus dem neuesten Stand), als Luftlinie von Halt zu Halt.
+      Jeder Abschnitt ist danach eingefärbt, in welchen Datenständen eine Fahrt der Linie ihn befährt. Abschnitt anklicken für Details und Link zur Fahrtenmatrix.</p>
+    <div class="toolbar">
+      <input type="search" id="mq" placeholder="Linie suchen" value="${esc(mstate.q)}">
+      <label>Betreiber <select id="mop"><option value="">alle</option>${ops.map(o => `<option ${o === mstate.op ? 'selected' : ''}>${esc(o)}</option>`).join('')}</select></label>
+      <label>Verkehrsmittel <select id="mcat"><option value="">alle</option>${cats.map(o => `<option ${o === mstate.cat ? 'selected' : ''}>${esc(o)}</option>`).join('')}</select></label>
+      <span class="muted small" id="mcnt"></span>
+    </div>
+    <div class="legend" id="mleg">${MAP_CLASSES.map(([k, l]) => `<label><input type="checkbox" data-k="${k}" ${mstate.show[k] ? 'checked' : ''}><i class="sw c-${k}"></i>${esc(l)} <span class="muted">(${fmt(cnt[k] || 0)})</span></label>`).join('')}</div>
+    <div id="lmap"></div></div>`;
+  if (lmap) { lmap.remove(); lmap = null; }
+  lmap = L.map('lmap', { preferCanvas: true }).setView([47.38, 8.6], 10);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, className: 'basemap',
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>' }).addTo(lmap);
+  const renderer = L.canvas({ padding: 0.5, tolerance: 6 });
+  const draw = () => {
+    if (mlayer) mlayer.remove();
+    mlayer = L.layerGroup().addTo(lmap);
+    const q = mstate.q.toLowerCase();
+    const sel = M.lines.filter(l => (!mstate.op || l.meta.op === mstate.op) && (!mstate.cat || l.cat === mstate.cat) &&
+      (!q || (l.meta.op + ' ' + l.meta.line).toLowerCase().includes(q)) && l.cls.some(c => mstate.show[c]));
+    const order = ['ok', 'extra', 'time', 'days', 'missing'];     // Probleme oben zeichnen
+    const bounds = [];
+    for (const cls of order) {
+      if (!mstate.show[cls]) continue;
+      for (const l of sel) {
+        let run = null;
+        const flush = () => {
+          if (!run) return;
+          const pts = run.stops.map(u => M.stops[u]).map(s => [s[0], s[1]]);
+          bounds.push(...pts);
+          const pl = L.polyline(pts, { renderer, color: MAP_COLORS[cls], weight: cls === 'ok' ? 3 : 4, opacity: cls === 'ok' ? 0.55 : 0.9 }).addTo(mlayer);
+          const a = M.stops[run.stops[0]][2], b = M.stops[run.stops[run.stops.length - 1]][2];
+          pl.bindTooltip(`<b>${esc(l.meta.op)} ${esc(l.meta.line)}</b><br>${esc(a)} – ${esc(b)}<br>${stageList(run.m)}`, { sticky: true });
+          pl.bindPopup(`<b>${esc(l.meta.op)} ${esc(l.meta.line)}</b><br>${esc(a)} – ${esc(b)}<br>${stageList(run.m)}<br><a href="#fahrten?linie=${encodeURIComponent(l.id)}">Fahrtenmatrix öffnen</a>`);
+          run = null;
+        };
+        l.m.forEach((m, i) => {
+          if (segClass(m) !== cls) { flush(); return; }
+          if (run && run.m === m) run.stops.push(l.p[i + 1]);
+          else { flush(); run = { m, stops: [l.p[i], l.p[i + 1]] }; }
+        });
+        flush();
+      }
+    }
+    $('#mcnt').textContent = `${fmt(sel.length)} Linien`;
+    if ((mstate.q || mstate.op || mstate.cat) && bounds.length) lmap.fitBounds(bounds, { padding: [20, 20], maxZoom: 15 });
+  };
+  $('#mq').oninput = e => { mstate.q = e.target.value; draw(); };
+  $('#mop').onchange = e => { mstate.op = e.target.value; draw(); };
+  $('#mcat').onchange = e => { mstate.cat = e.target.value; draw(); };
+  document.querySelectorAll('#mleg input').forEach(cb => cb.onchange = () => { mstate.show[cb.dataset.k] = cb.checked; draw(); });
   draw();
 }
 

@@ -499,6 +499,12 @@ def build(base, out, cache):
         json.dump(extras, f, ensure_ascii=False, separators=(',', ':'))
     log('Zieltexte', len(extras['zt']), 'Angebote', len(extras['att']), 'Hinweise', len(extras['hint']))
 
+    # --- Karte: längster Fahrweg je Linie, Abschnitte mit Vorkommen je Stand
+    mp = build_map(base, by, trips_out, stopnames, lines)
+    with open(os.path.join(out, 'map.json'), 'w', encoding='utf-8') as f:
+        json.dump(mp, f, ensure_ascii=False, separators=(',', ':'))
+    log('Karte', len(mp['lines']), 'Linien,', len(mp['stops']), 'Halte')
+
     # --- Ausgabe
     os.makedirs(os.path.join(out, 'lines'), exist_ok=True)
     for f in glob.glob(os.path.join(out, 'lines', '*.json')):
@@ -733,6 +739,70 @@ def build_extras(base, by, trips_out, stopnames):
     return {'attrNames': attr_names(base), 'noteCodes': NOTE_CODES,
             'ztLines': {lid: {k: dict(c) for k, c in v.items()} for lid, v in zt_line.items()},
             'zt': zt_rows, 'att': att_rows, 'hint': hint_rows}
+
+
+MAP_BITS = {'ref': 1, 'dino': 2, 'nered': 4, 'info': 8}
+
+
+def read_coords(base):
+    coords = {}
+    for sub, fn in (('ZVV 2027 NeRED V2', 'bfkoord_wgs'), ('ZVV 2027', 'BFKOORD_WGS'), ('Gesamt 2027', 'BFKOORD_WGS')):
+        path = os.path.join(base, sub, fn)
+        if not os.path.exists(path):
+            continue
+        with open(path, encoding='utf-8', errors='replace') as f:
+            for line in f:
+                p = line.split()
+                if len(p) >= 3 and p[0].isdigit():
+                    try:
+                        lon, lat = float(p[1]), float(p[2])
+                    except ValueError:
+                        continue
+                    if 45 < lat < 48.5 and 5 < lon < 11:
+                        coords[p[0]] = (round(lat, 5), round(lon, 5))
+    return coords
+
+
+def build_map(base, by, trips_out, stopnames, lines):
+    """Je Linie der längste Laufweg (Referenz bevorzugt); je Abschnitt Bitmaske der Stände,
+    in denen eine Fahrt der Linie diesen Abschnitt (in einer Richtung) befährt."""
+    coords = read_coords(base)
+    out_lines = []
+    used = set()
+    for lid, recs in trips_out.items():
+        pairs = {k: set() for k in MAP_BITS}
+        best = None
+        for rec in recs:
+            for k in MAP_BITS:
+                for t in by[k].get(rec['sj'], []):
+                    st = [s[0] for s in t['stops'] if s[0] in coords]
+                    for a, b in zip(st, st[1:]):
+                        if a != b:
+                            pairs[k].add((a, b))
+                    rank = (k == 'ref', len(st))
+                    if len(st) >= 2 and (best is None or rank > best[0]):
+                        best = (rank, st)
+        if best is None:
+            continue
+        path = best[1]
+        masks = []
+        for a, b in zip(path, path[1:]):
+            m = 0
+            for k, bit in MAP_BITS.items():
+                if (a, b) in pairs[k] or (b, a) in pairs[k]:
+                    m |= bit
+            masks.append(m)
+        lm = 0
+        for k, bit in MAP_BITS.items():
+            if pairs[k]:
+                lm |= bit
+        used.update(path)
+        L = lines[lid]
+        out_lines.append({'id': lid, 'cat': L['cats'].most_common(1)[0][0] if L['cats'] else '',
+                          'p': path, 'm': masks, 'lm': lm})
+    return {'bits': MAP_BITS,
+            'stops': {u: [*coords[u], stopnames.get(u, u)] for u in sorted(used)},
+            'lines': out_lines}
 
 
 def natkey(s):

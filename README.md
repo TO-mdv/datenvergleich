@@ -16,6 +16,7 @@ Referenz ist der **Gesamtexport 2027** aus INFO+, so wie die Daten bisher an die
 | **Zieltexte** | Stimmt die angezeigte Richtung? | Zieltext je Fahrt (DINO-Fahrtziel, HRDF-Richtung, sonst Endhalt) je Stand gegenüber der Referenz |
 | **Angebote** | Bleiben Attribute erhalten? | HRDF-Attribute (`*A`, z. B. Niederflur, Reservation) je Code und Linie: vorhanden / fehlt / zusätzlich |
 | **Verkehrshinweise** | Bleiben Hinweise erhalten? | Infotexte (`*I`) bzw. DINO-Notizen je Text und Linie: vorhanden / fehlt / zusätzlich |
+| **Karte** | Wo fehlen Abschnitte? | Längster Fahrweg je Linie; Abschnitte gefärbt nach Vorkommen: überall, nur Referenz, teilweise, nur neu |
 | **Methodik** | Wie wurde verglichen? | Abgleichregeln und Statusdefinitionen |
 
 Die frühere Detailansicht (Karte, Attribute, Infotexte, Durchbindungen) bleibt unter
@@ -40,7 +41,7 @@ python tools/build_compare.py --base '<Datenordner>' --out docs/data --cache .ca
 ```
 
 Laufzeit rund 3 Minuten (Gesamtexport 1,4 GB). Bei geänderten Rohdaten vorher `.cache` löschen.
-Ergebnis: `docs/data/summary.json`, `docs/data/extras.json` (Zieltexte, Angebote, Hinweise) und je Linie `docs/data/lines/<hash>.json`.
+Ergebnis: `docs/data/summary.json`, `docs/data/extras.json` (Zieltexte, Angebote, Hinweise), `docs/data/map.json` (Karte) und je Linie `docs/data/lines/<hash>.json`.
 Die Seite ist rein statisch (kein Build-Schritt, keine Bibliotheken).
 
 Lokal ansehen:
