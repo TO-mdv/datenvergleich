@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="de-CH"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fahrplanvergleich ZVV · DINO, NeRED und INFO+</title><link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="style.css"></head>
+<html lang="de-CH"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fahrplanvergleich ZVV · DINO, NeRED und INFO+</title><link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="style.css?v=20261123-pages3"></head>
 <body>
 <div class="workspace">
  <aside>
@@ -20,7 +20,7 @@
  <main>
   <section class="map-panel" aria-label="Kartenvergleich">
    <div class="map-tools"><div class="switches"><label><input id="show-lines" type="checkbox" checked> Linien</label><label><input id="show-stops" type="checkbox"> Haltestellen</label><label><input id="show-platforms" type="checkbox"> Steige <small>ab Zoom 15</small></label><label><input id="only-selected" type="checkbox" checked> Nur gewählte Linie</label></div><label class="basemap-picker">Karte <select id="basemap" title="Stadia hell benötigt die Freigabe dieser Domain im Stadia-Konto."><option value="osm">OSM hell</option><option value="stadia">Stadia hell</option></select></label><button id="home" class="secondary">ZVV-Ausschnitt</button></div>
-   <div id="map"></div><div id="tile-warning" class="tile-warning" hidden>Kartenkacheln sind aktuell nicht erreichbar. Stadia hell bleibt ausgewählt; die Fahrplandaten bleiben bedienbar.</div>
+   <div id="map"></div><div id="tile-warning" class="tile-warning" hidden>Grundkarte momentan nicht erreichbar. Die Fahrplandaten bleiben verfügbar.</div>
    <div class="map-footer"><span id="map-status" aria-live="polite">Karte wird geladen …</span><span>DINO: vorhandene Link-Geometrien · HRDF: schematische Haltefolgen</span></div>
   </section>
   <div id="schedule-resizer" class="pane-resizer vertical" role="separator" aria-label="Breite von Karte und Fahrplantabelle ändern" aria-orientation="vertical" tabindex="0" title="Karte und Fahrplantabelle nebeneinander verstellen"><span></span></div>
@@ -35,5 +35,5 @@
 </div>
 <div id="error" class="error" role="alert" hidden></div>
 <dialog id="comparison-dialog"><div id="comparison-content"></div></dialog>
-<script src="vendor/leaflet.js"></script><script src="compare-view.js"></script><script src="static-api.js"></script><script src="app.js"></script>
+<script src="vendor/leaflet.js"></script><script src="compare-view.js?v=20261123-pages3"></script><script src="static-api.js?v=20261123-pages3"></script><script src="app.js?v=20261123-pages3"></script>
 </body></html>
