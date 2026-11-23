@@ -1,79 +1,47 @@
 # Datenvergleich
 
-Interaktiver Fahrplanvergleich **DINO ZVV → HRDF NeRED V2 → INFO+**.
+Prüfung der Fahrplandaten ZVV auf ihrem neuen Weg **DINO (ZVV) → NeRED (HRDF) → INFO+ (HRDF) → OJP**.
+Referenz ist der **Gesamtexport 2027** aus INFO+, so wie die Daten bisher an die OJP-Auskunft gingen.
 
 **Seite:** https://to-mdv.github.io/datenvergleich/
 
-Die Ansicht bietet eine Karte, eine Fahrplantabelle mit einer Spalte je SJYID,
-Kalender, Quellblöcke und einen fachlichen Vergleich. Datenstände lassen sich einzeln
-einblenden; die Bereiche sind über Trennleisten verstellbar. Die ausgewählte Linie
-zeigt ihre Haltestellen stets als rote Punkte.
+## Ansichten
 
-## Enthaltene Daten
+| Ansicht | Frage | Inhalt |
+|---|---|---|
+| **Übersicht** | Kommt alles an? | Eine Kennzahl je Datenstand (Anteil korrekter Fahrtage), Verluste je Verarbeitungsschritt, grösste Abweichungen, Datenqualitätshinweise |
+| **Linien-Ampel** | Wo sind die Probleme? | Sortier- und filterbare Tabelle je Linie, wahlweise gegen die Referenz oder gegen die Vorstufe |
+| **Kalender** | Wann fehlt etwas? | Fahrten pro Verkehrstag im Verhältnis zur Referenz (alle Linien oder eine Linie), auffällige Tage |
+| **Fahrtenmatrix** | Welche Fahrt genau? | Jede Fahrt einer Linie mit Status je Stand; Klick zeigt Verkehrstage und Fahrplan nebeneinander |
+| **Methodik** | Wie wurde verglichen? | Abgleichregeln und Statusdefinitionen |
 
-Fahrplanperiode: **13.12.2026–11.12.2027**. Aufbereitung: **23.11.2026**.
+Die frühere Detailansicht (Karte, Attribute, Infotexte, Durchbindungen) bleibt unter
+[`/v1/`](https://to-mdv.github.io/datenvergleich/v1/) erreichbar.
 
-| Datenstand | Quellblöcke |
-|---|---:|
-| DINO ZVV | 116’863 |
-| HRDF NeRED V2 | 85’935 |
-| INFO+ ZVV 12.11. | 107’174 |
-| INFO+ Gesamt 30.10. | 921’325 |
+## Vergleichslogik (kurz)
 
-V1 wird nicht ausgeliefert. Der nationale Gesamtbestand ist der bestätigte ältere
-Vergleichsstand vom 30.10.2026. Der genaue fachliche Stand von DINO und NeRED ist
-offen; INFO+ ist kein nachgewiesener Nachlauf von V2. Farbmarkierungen zeigen
-Unterschiede und beweisen allein keinen Datenverlust. METABHF und UMSTEIGB sind
-ausgeschlossen, da INFO+ dafür Master ist.
+- Schlüssel ist die SJYID (DINO `trip.GLOBAL_ID`, HRDF `*I JY`). Fahrten ohne SJYID oder mit neu
+  vergebener SJYID werden über ersten/letzten Halt und Zeiten zugeordnet.
+- Vergleichseinheit ist der **Fahrtag** (Fahrt × Verkehrstag): vorhanden? gleiche Halte? gleiche Zeiten (±1 Min)?
+- Fehlt ein Fahrtag, gibt es aber am selben Tag auf der Linie eine überzählige Fahrt mit identischem Fahrplan,
+  zählt er als «gleicher Fahrplan, andere SJYID» (INFO+ legt solche Fahrten teilweise zusammen).
+- Die Datenstände haben unterschiedliche Stichtage; ein Teil der Abweichungen sind echte Fahrplanänderungen.
 
-Verglichen werden Halte und Zeiten, Verkehrstage, Richtungstexte (*R/RICHTUNG),
-Verkehrsmittel (*G/ZUGART), Linienbezeichnungen (*L/LINIE), Haltecodes,
-Attribute (*A/ATTRIBUT), Verkehrshinweise (*I hi) und weitere Infotexte sowie
-Durchbindungen (DURCHBI). Referenzen werden aufgelöst; Halteabschnitte und
-Verkehrstage bleiben erhalten. Unklare oder nicht direkt abbildbare Merkmale
-werden als solche angezeigt. DINO-Anschlussregeln mit allgemeinen Zeitfenstern
-werden nicht durch eine geratene Auswahl in konkrete DURCHBI-Paare umgewandelt.
+## Daten neu aufbereiten
 
-OJP-Demo-Links fragen den aktuellen Auskunftsbestand ab und sind keine Abfrage
-der hier veröffentlichten historischen Lieferung.
+Die Rohdaten werden nicht hochgeladen. Erwartet wird ein Ordner mit den Unterordnern
+`DINO_2_3_*`, `ZVV 2027 NeRED V2`, `ZVV 2027` und `Gesamt 2027`:
 
-## Betrieb auf GitHub Pages
+```powershell
+python tools/build_compare.py --base '<Datenordner>' --out docs/data --cache .cache
+```
 
-`docs/` ist die vollständig statische Website. GitHub Pages veröffentlicht diesen
-Ordner vom Branch `main`. Es gibt keinen Python-Webserver und keine Verbindung
-zu einem lokalen Rechner. Der Browser führt die vorhandene Vergleichslogik in
-einem Web Worker mit **Pyodide 314.0.8** aus. SQLite-Daten werden komprimiert und
-pro Linie nachgeladen. Die Übersicht lädt einmalig rund 11,5 MB Kartendaten;
-einzelne Linien benötigen höchstens rund 1,6 MB komprimierte Fahrplandaten.
+Laufzeit rund 3 Minuten (Gesamtexport 1,4 GB). Bei geänderten Rohdaten vorher `.cache` löschen.
+Ergebnis: `docs/data/summary.json` und je Linie `docs/data/lines/<hash>.json`.
+Die Seite ist rein statisch (kein Build-Schritt, keine Bibliotheken).
 
-Ein moderner Browser mit WebAssembly und Internetzugriff für die Grundkarte ist
-erforderlich. Der erste Start lädt zusätzlich die gebündelte Python-Laufzeit.
-
-Lokal prüfen:
+Lokal ansehen:
 
 ```powershell
 python -m http.server 8878 --bind 127.0.0.1 --directory docs
 ```
-
-## Daten neu aufbereiten
-
-Die ursprüngliche lokale SQLite-Datei wird nicht hochgeladen. Die sichtbaren
-Daten werden über einen expliziten Eingabepfad exportiert:
-
-```powershell
-python tools/export_data.py --source '<Pfad>/timetables.sqlite' --output docs/data
-python tools/verify_export.py --source '<Pfad>/timetables.sqlite'
-```
-
-`docs/data/manifest.json` enthält die Zuordnung von Linien zu Dateien,
-Quellzählungen, Dateigrössen und SHA-256-Prüfsummen.
-
-## Bibliotheken und Karten
-
-- [Leaflet 1.9.4](https://leafletjs.com/) – BSD-2-Clause, Lizenz unter `docs/vendor/`.
-- [Pyodide 314.0.8](https://pyodide.org/) – gebündelte Laufzeit und Lizenzhinweise unter `docs/vendor/pyodide/`.
-- Helle Grundkarte: Stadia Maps Alidade Smooth, OpenMapTiles und OpenStreetMap.
-  Stadia verlangt für öffentliche Domains eine passende Domainfreigabe.
-  Die öffentliche Domain ist noch nicht freigegeben. Deshalb startet die Online-Version mit
-  einer hell dargestellten OpenStreetMap-Ersatzkarte. Stadia hell bleibt im Kartenmenü
-  auswählbar. Lokal startet weiterhin Stadia hell. Die Kartenattribution bleibt sichtbar.
