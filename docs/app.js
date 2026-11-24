@@ -27,6 +27,10 @@ const pct = (a, b) => b ? (100 * a / b) : null;
 const pctTxt = (v, d = 1) => v == null ? '–' : (v >= 99.95 && v < 100 ? '>99.9' : v.toFixed(d)) + ' %';
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const stageMeta = id => S.stages.find(s => s.id === id);
+// Unternehmen: Kurzname anzeigen, voller Name bei Mouseover
+const opFull = op => (S && S.opNames && S.opNames[op]) || op;
+const opHtml = op => `<span class="op" data-tip="${esc(opFull(op))}">${esc(op)}</span>`;
+const opOption = (o, sel) => `<option value="${esc(o)}" title="${esc(opFull(o))}" ${o === sel ? 'selected' : ''}>${esc(o)}${opFull(o) !== o ? ' – ' + esc(opFull(o)) : ''}</option>`;
 const sname = id => stageMeta(id).label;
 function dateOf(i) { const d = new Date(Date.UTC(2026, 11, 13 + i)); return d; }
 function dateTxt(i, wd = true) {
@@ -75,7 +79,7 @@ function badge(k, txt) { return `<span class="badge"><i class="sw c-${k}"></i>${
 
 /* ---------- Router */
 const VIEWS = { uebersicht: viewOverview, linien: viewLines, kalender: viewCalendar, fahrten: viewTrips,
-  zieltexte: viewZiel, angebote: viewAngebote, hinweise: viewHinweise, karte: viewMap, methodik: viewMethod };
+  zieltexte: viewZiel, angebote: viewAngebote, hinweise: viewHinweise, karte: viewMap, verluste: viewLost, methodik: viewMethod };
 function route() {
   const [name, query] = (location.hash.slice(1) || 'uebersicht').split('?');
   const params = new URLSearchParams(query || '');
@@ -140,7 +144,7 @@ function viewOverview() {
   const worst = k => S.lines.filter(l => l.ref.days > 0).map(l => ({ l, miss: (l.st[k].days.missing || 0) + (l.st[k].days.stops || 0) + (l.st[k].days.time || 0) }))
     .filter(x => x.miss > 0).sort((a, b) => b.miss - a.miss).slice(0, 10);
   const topList = k => `<table class="t"><thead><tr><th>Linie</th><th class="num">Fahrtage abweichend</th><th class="num">korrekt</th></tr></thead><tbody>${
-    worst(k).map(({ l, miss }) => `<tr class="row" data-line="${esc(l.id)}"><td>${esc(l.op)} <b>${esc(l.line)}</b></td><td class="num">${fmt(miss)}</td><td class="num">${pctTxt(pct(dayCounts(l.st[k].days).ok + dayCounts(l.st[k].days).merged, l.ref.days))}</td></tr>`).join('')
+    worst(k).map(({ l, miss }) => `<tr class="row" data-line="${esc(l.id)}"><td>${opHtml(l.op)} <b>${esc(l.line)}</b></td><td class="num">${fmt(miss)}</td><td class="num">${pctTxt(pct(dayCounts(l.st[k].days).ok + dayCounts(l.st[k].days).merged, l.ref.days))}</td></tr>`).join('')
   }</tbody></table>`;
 
   const n = S.nosj;
@@ -199,7 +203,7 @@ function viewLines(params) {
     <div class="toolbar">
       <span class="seg" id="mode"><button data-m="ref" class="${state.mode === 'ref' ? 'on' : ''}">Basis: Referenz Gesamt 2027</button><button data-m="chain" class="${state.mode === 'chain' ? 'on' : ''}">Basis: Vorstufe</button></span>
       <input type="search" id="q" placeholder="Linie oder Betreiber suchen" value="${esc(state.q)}">
-      <label>Betreiber <select id="op"><option value="">alle</option>${ops.map(o => `<option ${o === state.op ? 'selected' : ''}>${esc(o)}</option>`).join('')}</select></label>
+      <label>Betreiber <select id="op"><option value="">alle</option>${ops.map(o => opOption(o, state.op)).join('')}</select></label>
       <label><input type="checkbox" id="only" ${state.onlyDiff ? 'checked' : ''}> nur Linien mit Abweichungen</label>
       <span class="muted small" id="cnt"></span>
     </div>
@@ -219,7 +223,7 @@ function viewLines(params) {
     const val = r => key === 'op' ? r.l.op : key === 'line' ? r.l.line : key === 'cat' ? r.l.cat : key === 'trips' ? r.l.ref.trips : key === 'days' ? r.l.ref.days : (r.c[key] ? r.c[key].v : 0);
     rows.sort((a, b) => { const x = val(a), y = val(b); const r = typeof x === 'number' ? x - y : String(x).localeCompare(String(y), 'de', { numeric: true }); return asc ? r : -r; });
     $('#cnt').textContent = fmt(rows.length) + ' Linien';
-    $('#lt tbody').innerHTML = rows.map(({ l, c }) => `<tr class="row" data-line="${esc(l.id)}"><td>${esc(l.op)}</td><td><b>${esc(l.line)}</b></td><td>${esc(l.cat)}</td>
+    $('#lt tbody').innerHTML = rows.map(({ l, c }) => `<tr class="row" data-line="${esc(l.id)}"><td>${opHtml(l.op)}</td><td><b>${esc(l.line)}</b></td><td>${esc(l.cat)}</td>
       <td class="num">${fmt(l.ref.trips)}</td><td class="num">${fmt(l.ref.days)}</td>${cols.map(k => `<td>${c[k.k].html}</td>`).join('')}</tr>`).join('')
       || `<tr><td colspan="8" class="empty">Keine Linien.</td></tr>`;
     document.querySelectorAll('#lt th').forEach(th => { th.classList.toggle('sorted', th.dataset.s === key); th.classList.toggle('asc', asc); });
@@ -288,7 +292,7 @@ function dayClasses(d, trip, k) {
 function lineOptions(sel, withAll) {
   const ls = [...S.lines].sort((a, b) => a.op.localeCompare(b.op) || a.line.localeCompare(b.line, 'de', { numeric: true }));
   return (withAll ? `<option value="">Alle Linien (ZVV-Umfang)</option>` : '') +
-    ls.map(l => `<option value="${esc(l.id)}" ${l.id === sel ? 'selected' : ''}>${esc(l.op)} · ${esc(l.line)}</option>`).join('');
+    ls.map(l => `<option value="${esc(l.id)}" title="${esc(opFull(l.op))}" ${l.id === sel ? 'selected' : ''}>${esc(l.op)} · ${esc(l.line)}</option>`).join('');
 }
 // Rot = weniger Fahrten als Referenz, Grün = gleich viele, Blau = mehr (Intensität = Grösse der Abweichung)
 const DIV = [['#d03b3b', 'weniger: < 90 %'], ['#e98a8a', 'weniger: 90–99 %'], ['#f5c4c4', 'weniger: > 99 %'], ['#008300', 'gleich viele'],
@@ -546,6 +550,7 @@ function viewMethod() {
     <li><b>Zieltexte</b> – zeigt die Auskunft dieselbe Richtung an? DINO-Fahrtziel bzw. HRDF-Richtungstext, ersatzweise der Endhalt.</li>
     <li><b>Angebote</b> – bleiben HRDF-Attribute (Niederflur, Reservation, Gruppen …) an den Fahrten erhalten?</li>
     <li><b>Verkehrshinweise</b> – bleiben Infotexte bzw. DINO-Notizen an den Fahrten erhalten?</li>
+    <li><b>NeRED → INFO+</b> – welche Fahrten gehen im Schritt von NeRED zu INFO+ verloren (ganze Fahrten oder einzelne Verkehrstage), je Linie und je Fahrt.</li>
     <li><b>Karte</b> – längster Fahrweg je Linie; jeder Abschnitt ist danach eingefärbt, in welchen Ständen er befahren wird (nur Referenz, auch in Zwischenschritten, überall).</li>
   </ul>
   <p class="muted small">Zieltexte, Angebote und Hinweise werden je Fahrt verglichen (vorhanden ja/nein), nicht je Verkehrstag oder Teilstrecke; gezählt werden nur Fahrten, die in Referenz und Datenstand vorkommen.
@@ -563,12 +568,12 @@ async function loadExtras() {
   }
   return X;
 }
-const lineLbl = id => { const l = X.lineById[id]; return l ? `${esc(l.op)} <b>${esc(l.line)}</b>` : esc(id); };
+const lineLbl = id => { const l = X.lineById[id]; return l ? `${opHtml(l.op)} <b>${esc(l.line)}</b>` : esc(id); };
 const lineTxt = id => { const l = X.lineById[id]; return l ? l.op + ' ' + l.line : id; };
 const opOf = id => (X.lineById[id] || {}).op || '';
 function opSelect(sel) {
   const ops = [...new Set(S.lines.map(l => l.op))].sort();
-  return `<label>Betreiber <select id="xop"><option value="">alle</option>${ops.map(o => `<option ${o === sel ? 'selected' : ''}>${esc(o)}</option>`).join('')}</select></label>`;
+  return `<label>Betreiber <select id="xop"><option value="">alle</option>${ops.map(o => opOption(o, sel)).join('')}</select></label>`;
 }
 // c = [vorhanden, fehlt, zusätzlich, Referenzfahrten im Stand]
 function keepCell(c) {
@@ -851,7 +856,7 @@ async function viewMap() {
       Jeder Abschnitt ist danach eingefärbt, in welchen Datenständen eine Fahrt der Linie ihn befährt. Abschnitt anklicken für Details und Link zur Fahrtenmatrix.</p>
     <div class="toolbar">
       <input type="search" id="mq" placeholder="Linie suchen" value="${esc(mstate.q)}">
-      <label>Betreiber <select id="mop"><option value="">alle</option>${ops.map(o => `<option ${o === mstate.op ? 'selected' : ''}>${esc(o)}</option>`).join('')}</select></label>
+      <label>Betreiber <select id="mop"><option value="">alle</option>${ops.map(o => opOption(o, mstate.op)).join('')}</select></label>
       <span class="muted small" id="mcnt"></span>
     </div>
     <div class="legend" id="mleg">${MAP_CLASSES.map(([k, l]) => `<label><input type="checkbox" data-k="${k}" ${mstate.show[k] ? 'checked' : ''}><i class="sw c-${k}"></i>${esc(l)} <span class="muted">(${fmt(cnt[k] || 0)})</span></label>`).join('')}</div>
@@ -907,8 +912,8 @@ async function viewMap() {
           bounds.push(...pts);
           const pl = L.polyline(pts, { renderer, color: MAP_COLORS[cls], weight: cls === 'ok' ? 3 : 4, opacity: cls === 'ok' ? 0.55 : 0.9 }).addTo(mlayer);
           const a = M.stops[run.stops[0]][2], b = M.stops[run.stops[run.stops.length - 1]][2];
-          pl.bindTooltip(`<b>${esc(l.meta.op)} ${esc(l.meta.line)}</b><br>${esc(a)} – ${esc(b)}<br>${stageList(run.m)}`, { sticky: true });
-          pl.bindPopup(`<b>${esc(l.meta.op)} ${esc(l.meta.line)}</b><br>${esc(a)} – ${esc(b)}<br>${stageList(run.m)}<br><a href="#fahrten?linie=${encodeURIComponent(l.id)}">Fahrtenmatrix öffnen</a>`);
+          pl.bindTooltip(`<b>${esc(l.meta.op)} ${esc(l.meta.line)}</b> · ${esc(opFull(l.meta.op))}<br>${esc(a)} – ${esc(b)}<br>${stageList(run.m)}`, { sticky: true });
+          pl.bindPopup(`<b>${esc(l.meta.op)} ${esc(l.meta.line)}</b> · ${esc(opFull(l.meta.op))}<br>${esc(a)} – ${esc(b)}<br>${stageList(run.m)}<br><a href="#fahrten?linie=${encodeURIComponent(l.id)}">Fahrtenmatrix öffnen</a>`);
           run = null;
         };
         l.m.forEach((m, i) => {
@@ -931,10 +936,10 @@ async function viewMap() {
       // Start und Ziel des längsten Fahrwegs
       for (const [st, role] of [[a, 'Start'], [b, 'Ziel']]) {
         L.circleMarker([st[0], st[1]], { renderer, radius: 4, color: '#1a1a19', weight: 2, fillColor: '#fff', fillOpacity: 1 })
-          .bindTooltip(`<b>${esc(l.meta.op)} ${esc(txt)}</b> · ${role}<br>${esc(st[2])}`).addTo(mlayer);
+          .bindTooltip(`<b>${esc(l.meta.op)} ${esc(txt)}</b> · ${role}<br>${esc(opFull(l.meta.op))}<br>${esc(st[2])}`).addTo(mlayer);
       }
       labels.push({ id: l.id, ll: [s[0], s[1]], rank: rank[worst], line: txt, w: 36 + 7.5 * txt.length,
-        tip: `<b>${esc(l.meta.op)} ${esc(txt)}</b> · ${esc(MOTS[mk][0])}<br>${esc(a[2])} → ${esc(b[2])}`,
+        tip: `<b>${esc(l.meta.op)} ${esc(txt)}</b> · ${esc(MOTS[mk][0])}<br>${esc(opFull(l.meta.op))}<br>${esc(a[2])} → ${esc(b[2])}`,
         html: `<span class="lbl" style="border-color:${MAP_COLORS[worst]}">${icon(mk, 20)}${esc(txt)}</span>` });
     }
     labels.sort((a, b) => a.rank - b.rank || a.line.localeCompare(b.line, 'de', { numeric: true }));
@@ -963,6 +968,79 @@ async function viewMap() {
   new MotCtl().addTo(lmap);
   document.querySelectorAll('#mleg input').forEach(cb => cb.onchange = () => { mstate.show[cb.dataset.k] = cb.checked; draw(); });
   draw();
+}
+
+/* ================================================================ Verluste NeRED → INFO+ */
+let LOST = null;
+const lstate = { line: '', q: '', kind: 'all', sort: { key: 'lost', asc: false } };
+async function viewLost(params) {
+  $('#main').innerHTML = '<p class="loading">Lade …</p>';
+  if (!LOST) LOST = await (await fetch('data/lost.json')).json();
+  if (params && params.get('linie') != null) lstate.line = params.get('linie');
+  const byId = Object.fromEntries(S.lines.map(l => [l.id, l]));
+  const lbl = id => { const l = byId[id]; return l ? `${opHtml(l.op)} <b>${esc(l.line)}</b>` : esc(id); };
+  const txtOf = id => { const l = byId[id]; return l ? l.op + ' ' + opFull(l.op) + ' ' + l.line : id; };
+  const T = LOST.trips, Ls = LOST.lines;
+  const whole = Ls.filter(l => l.whole);
+  const nWhole = T.filter(t => t.k === 'ganz').length, nPart = T.length - nWhole;
+  const lostDays = T.reduce((a, t) => a + t.ld, 0);
+  const inWhole = whole.reduce((a, l) => a + l.lost, 0);
+  const nered = stageMeta('nered'), info = stageMeta('info');
+  $('#main').innerHTML = `
+    <p class="lead">Fahrten, die in <b>${esc(nered.label)}</b> (${esc(nered.date)}) vorhanden sind, in <b>${esc(info.label)}</b> (${esc(info.date)}) aber ganz oder an einzelnen Verkehrstagen fehlen.
+      Abgleich über die SJYID (bzw. Laufweg/Zeiten bei neu vergebener SJYID); Fahrten mit gleichem Fahrplan unter anderer SJYID in INFO+ sind separat markiert.</p>
+    <div class="grid3">
+      <div class="card kpi"><div class="stage"><b>Fahrten fehlen in INFO+</b></div><div class="hero">${fmt(nWhole)}</div>
+        <div class="kv"><span>davon auf Linien, die in INFO+ ganz fehlen</span><span class="neg">${fmt(inWhole)}</span><span>Fahrtage betroffen</span><span>${fmt(lostDays)}</span></div></div>
+      <div class="card kpi"><div class="stage"><b>Linien fehlen ganz in INFO+</b></div><div class="hero">${fmt(whole.length)}</div>
+        <div class="small">${whole.map(l => lbl(l.l)).join(' · ')}</div></div>
+      <div class="card kpi"><div class="stage"><b>Fahrten mit fehlenden Verkehrstagen</b></div><div class="hero">${fmt(nPart)}</div>
+        <div class="kv"><span>Fahrt in INFO+ vorhanden, aber an einzelnen Tagen nicht</span><span></span></div></div>
+    </div>
+    <div class="card"><h2>Je Linie</h2>
+      <p class="muted small">Zeile anklicken zeigt unten die betroffenen Fahrten. <span class="badge">fehlt ganz</span> = die Linie hat in INFO+ keine einzige Fahrt.</p>
+      <div class="tablewrap" style="max-height:45vh"><table class="t" id="llt"></table></div></div>
+    <div class="card" id="ltrips"></div>`;
+  const drawLines = () => {
+    const rows = [...Ls];
+    sortRows(rows, (r, k) => k === 'l' ? txtOf(r.l) : r[k], lstate.sort);
+    $('#llt').innerHTML = `<thead><tr><th data-s="l">Linie</th><th data-s="lost" class="num">Fahrten fehlen</th><th data-s="part" class="num">Fahrten mit fehlenden Tagen</th>
+      <th data-s="lostDays" class="num">Fahrtage fehlen</th><th data-s="nered" class="num">Fahrten NeRED</th><th data-s="info" class="num">Fahrten INFO+</th><th data-s="ref" class="num">Fahrten Referenz</th></tr></thead><tbody>${
+      rows.map(r => `<tr class="row ${r.l === lstate.line ? 'selrow' : ''}" data-l="${esc(r.l)}"><td>${lbl(r.l)} ${r.whole ? '<span class="badge"><i class="sw c-missing"></i>fehlt ganz</span>' : ''}</td>
+        <td class="num ${r.lost ? 'neg' : ''}">${fmt(r.lost)}</td><td class="num">${fmt(r.part)}</td><td class="num">${fmt(r.lostDays)}</td>
+        <td class="num">${fmt(r.nered)}</td><td class="num">${fmt(r.info)}</td><td class="num">${fmt(r.ref)}</td></tr>`).join('')}</tbody>`;
+    bindSort('#llt', lstate.sort, drawLines);
+    document.querySelectorAll('#llt tr[data-l]').forEach(tr => tr.onclick = () => { lstate.line = lstate.line === tr.dataset.l ? '' : tr.dataset.l; drawLines(); drawTrips(); $('#ltrips').scrollIntoView({ behavior: 'smooth' }); });
+  };
+  const drawTrips = () => {
+    $('#ltrips').innerHTML = `<h2>Betroffene Fahrten${lstate.line ? ' · ' + lbl(lstate.line) : ' · alle Linien'}</h2>
+      <div class="toolbar">
+        <span class="seg" id="lk"><button data-k="all">alle</button><button data-k="ganz">Fahrt fehlt</button><button data-k="tage">Tage fehlen</button></span>
+        <input type="search" id="lq" placeholder="SJYID, Halt oder Linie" value="${esc(lstate.q)}">
+        ${lstate.line ? '<button class="link" id="lall">alle Linien zeigen</button>' : ''}<span class="muted small" id="lcnt"></span></div>
+      <div class="tablewrap"><table class="t" id="ltt"></table></div>`;
+    document.querySelectorAll('#lk button').forEach(b => { b.classList.toggle('on', b.dataset.k === lstate.kind); b.onclick = () => { lstate.kind = b.dataset.k; drawTrips(); }; });
+    if ($('#lall')) $('#lall').onclick = () => { lstate.line = ''; drawLines(); drawTrips(); };
+    const body = () => {
+      const q = lstate.q.toLowerCase();
+      const rows = T.filter(t => (!lstate.line || t.l === lstate.line) && (lstate.kind === 'all' || t.k === lstate.kind) &&
+        (!q || (t.sj + ' ' + t.from + ' ' + t.to + ' ' + txtOf(t.l)).toLowerCase().includes(q)));
+      $('#lcnt').textContent = `${fmt(rows.length)} Fahrten`;
+      const note = t => [t.ref ? '' : 'nicht in Referenz', t.refInfo === 'merged' ? 'in INFO+ mit gleichem Fahrplan unter anderer SJYID' : '',
+        t.nosj ? 'NeRED ohne SJYID (über Laufweg zugeordnet)' : '', t.sjold ? 'NeRED mit anderer SJYID ↻' : ''].filter(Boolean).join(' · ');
+      $('#ltt').innerHTML = `<thead><tr><th>Linie</th><th>Ab</th><th>Von → Nach</th><th>Art</th><th class="num">Tage NeRED</th><th class="num">Tage fehlen</th><th>Zeitraum fehlend</th><th>Hinweis</th></tr></thead><tbody>${
+        rows.slice(0, 2000).map(t => `<tr class="row" data-l="${esc(t.l)}" data-sj="${esc(t.sj)}"><td>${lbl(t.l)}</td><td class="num">${hhmm(t.dep)}</td>
+          <td>${esc(t.from)} → ${esc(t.to)}</td><td>${t.k === 'ganz' ? '<span class="badge"><i class="sw c-missing"></i>Fahrt fehlt</span>' : '<span class="badge"><i class="sw c-days"></i>Tage fehlen</span>'}</td>
+          <td class="num">${fmt(t.nd)}</td><td class="num">${fmt(t.ld)}</td><td class="small">${dateTxt(t.f, false)} – ${dateTxt(t.e, false)}</td>
+          <td class="small muted" data-tip="${esc(t.sj)}">${esc(note(t)) || '–'}</td></tr>`).join('') ||
+        '<tr><td colspan="8" class="empty">Keine Fahrten.</td></tr>'}</tbody>` +
+        (rows.length > 2000 ? `<p class="muted small" style="padding:8px">… ${fmt(rows.length - 2000)} weitere – Linie wählen oder suchen.</p>` : '');
+      document.querySelectorAll('#ltt tr[data-sj]').forEach(tr => tr.onclick = () => go('fahrten', { linie: tr.dataset.l, fahrt: tr.dataset.sj }));
+    };
+    $('#lq').oninput = e => { lstate.q = e.target.value; body(); };
+    body();
+  };
+  drawLines(); drawTrips();
 }
 
 /* ---------- Start */

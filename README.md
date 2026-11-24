@@ -13,6 +13,7 @@ Referenz ist der **Gesamtexport 2027** aus INFO+, so wie die Daten bisher an die
 | **Linien-Ampel** | Wo sind die Probleme? | Sortier- und filterbare Tabelle je Linie, wahlweise gegen die Referenz oder gegen die Vorstufe |
 | **Kalender** | Wann fehlt etwas? | Fahrten pro Verkehrstag im Verhältnis zur Referenz (alle Linien oder eine Linie), auffällige Tage |
 | **Fahrtenmatrix** | Welche Fahrt genau? | Jede Fahrt einer Linie mit Status je Stand; Klick zeigt Verkehrstage und Fahrplan nebeneinander |
+| **NeRED → INFO+** | Was geht bei INFO+ verloren? | Fahrten (und einzelne Verkehrstage), die in NeRED vorhanden sind und in INFO+ fehlen, je Linie und je Fahrt |
 | **Zieltexte** | Stimmt die angezeigte Richtung? | Zieltext je Fahrt (DINO-Fahrtziel, HRDF-Richtung, sonst Endhalt) je Stand gegenüber der Referenz |
 | **Angebote** | Bleiben Attribute erhalten? | HRDF-Attribute (`*A`, z. B. Niederflur, Reservation) je Code und Linie: vorhanden / fehlt / zusätzlich |
 | **Verkehrshinweise** | Bleiben Hinweise erhalten? | Infotexte (`*I`) bzw. DINO-Notizen je Text und Linie: vorhanden / fehlt / zusätzlich |
@@ -41,7 +42,7 @@ python tools/build_compare.py --base '<Datenordner>' --out docs/data --cache .ca
 ```
 
 Laufzeit rund 3 Minuten (Gesamtexport 1,4 GB). Bei geänderten Rohdaten vorher `.cache` löschen.
-Ergebnis: `docs/data/summary.json`, `docs/data/extras.json` (Zieltexte, Angebote, Hinweise), `docs/data/map.json` (Karte) und je Linie `docs/data/lines/<hash>.json`.
+Ergebnis: `docs/data/summary.json`, `docs/data/extras.json` (Zieltexte, Angebote, Hinweise), `docs/data/map.json` (Karte), `docs/data/lost.json` (Verluste NeRED → INFO+) und je Linie `docs/data/lines/<hash>.json`.
 Die Seite ist rein statisch (kein Build-Schritt, keine Bibliotheken).
 
 Lokal ansehen:

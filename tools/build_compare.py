@@ -356,6 +356,7 @@ def build(base, out, cache):
     for a, b in chain:
         pair_tot[a + '>' + b] = C.Counter()
 
+    op_full = C.defaultdict(C.Counter)    # Kurzname → voller Name (über SBOID der SJYID)
     log('Vergleiche', len(universe), 'Fahrten')
     vcache = {}
 
@@ -367,6 +368,8 @@ def build(base, out, cache):
 
     for n, sj in enumerate(sorted(universe)):
         op, line, cat, org = meta_of(sj)
+        if org and org in orgn:
+            op_full[op][orgn[org][1]] += 1
         lid = op + ' · ' + line
         L = lines.get(lid)
         if L is None:
@@ -510,6 +513,12 @@ def build(base, out, cache):
         json.dump(extras, f, ensure_ascii=False, separators=(',', ':'))
     log('Zieltexte', len(extras['zt']), 'Angebote', len(extras['att']), 'Hinweise', len(extras['hint']))
 
+    # --- Verluste NeRED → INFO+: Fahrten (oder Verkehrstage), die in NeRED vorhanden sind und in INFO+ fehlen
+    lost = build_lost(trips_out, lines, stopnames, V)
+    with open(os.path.join(out, 'lost.json'), 'w', encoding='utf-8') as f:
+        json.dump(lost, f, ensure_ascii=False, separators=(',', ':'))
+    log('Verluste NeRED>INFO+', len(lost['trips']), 'Fahrten auf', len(lost['lines']), 'Linien')
+
     # --- Karte: längster Fahrweg je Linie, Abschnitte mit Vorkommen je Stand
     mp = build_map(base, by, trips_out, stopnames, lines)
     with open(os.path.join(out, 'map.json'), 'w', encoding='utf-8') as f:
@@ -601,6 +610,8 @@ def build(base, out, cache):
         'chain': {k: dict(v) for k, v in pair_tot.items()},
         'nosj': nosj,
         'remapped': remapped,
+        # Kurzname → voller Unternehmensname (BETRIEB_DE des Gesamtexports)
+        'opNames': {k: c.most_common(1)[0][0] for k, c in sorted(op_full.items()) if c},
         'calendar': cal,
         'lines': line_list,
     }
@@ -750,6 +761,48 @@ def build_extras(base, by, trips_out, stopnames):
     return {'attrNames': attr_names(base), 'noteCodes': NOTE_CODES,
             'ztLines': {lid: {k: dict(c) for k, c in v.items()} for lid, v in zt_line.items()},
             'zt': zt_rows, 'att': att_rows, 'hint': hint_rows}
+
+
+def build_lost(trips_out, lines, stopnames, V):
+    """Fahrten, die in NeRED vorkommen, in INFO+ aber ganz oder an einzelnen Tagen fehlen."""
+    def days(k, sj):
+        m = 0
+        for x in V(k, sj).values():
+            m |= x
+        return m
+
+    def first_last(m):
+        return (m & -m).bit_length() - 1, m.bit_length() - 1
+
+    out_trips = []
+    per = {}
+    for lid, recs in trips_out.items():
+        L = {'l': lid, 'lost': 0, 'part': 0, 'lostDays': 0, 'nered': 0, 'info': 0, 'ref': 0}
+        for rec in recs:
+            sj = rec['sj']
+            nd, idays, rd = days('nered', sj), days('info', sj), days('ref', sj)
+            L['nered'] += bool(nd)
+            L['info'] += bool(idays)
+            L['ref'] += bool(rd)
+            miss = nd & ~idays
+            if not miss:
+                continue
+            kind = 'ganz' if not idays else 'tage'
+            L['lost' if kind == 'ganz' else 'part'] += 1
+            L['lostDays'] += popcount(miss)
+            f, l_ = first_last(miss)
+            st = rec['st']
+            out_trips.append({'l': lid, 'sj': sj, 'k': kind, 'dep': rec.get('dep'),
+                              'from': stopnames.get(rec.get('from'), rec.get('from')),
+                              'to': stopnames.get(rec.get('to'), rec.get('to')),
+                              'nd': popcount(nd), 'ld': popcount(miss), 'f': f, 'e': l_,
+                              'ref': bool(rd), 'refInfo': st['info'].get('s'),
+                              'nosj': bool(st['nered'].get('nosj')), 'sjold': st['nered'].get('sjold', '')})
+        if L['lost'] or L['part']:
+            L['whole'] = L['nered'] > 0 and L['info'] == 0
+            per[lid] = L
+    out_trips.sort(key=lambda t: (t['l'], t['dep'] if t['dep'] is not None else 99999))
+    return {'lines': sorted(per.values(), key=lambda x: -x['lost'] - x['part']), 'trips': out_trips}
 
 
 MAP_BITS = {'ref': 1, 'dino': 2, 'nered': 4, 'info': 8}
