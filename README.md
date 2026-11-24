@@ -41,6 +41,9 @@ Die Rohdaten werden nicht hochgeladen. Erwartet wird ein Ordner mit den Unterord
 python tools/build_compare.py --base '<Datenordner>' --out docs/data --cache .cache
 ```
 
+Optional `--mapping '<Zuordnung Linien.csv>'` (DINO-Liniennummer → DIVA-Linie, Importieren ja/nein; Standard: `<Datenordner>/Zuordnung Linien.csv`):
+damit werden NeRED-Linien ohne DINO-Herkunft als «nicht aus DINO» markiert.
+
 Laufzeit rund 3 Minuten (Gesamtexport 1,4 GB). Bei geänderten Rohdaten vorher `.cache` löschen.
 Ergebnis: `docs/data/summary.json`, `docs/data/extras.json` (Zieltexte, Angebote, Hinweise), `docs/data/map.json` (Karte), `docs/data/lost.json` (Verluste NeRED → INFO+) und je Linie `docs/data/lines/<hash>.json`.
 Die Seite ist rein statisch (kein Build-Schritt, keine Bibliotheken).

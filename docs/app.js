@@ -29,6 +29,9 @@ const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '
 const stageMeta = id => S.stages.find(s => s.id === id);
 // Unternehmen: Kurzname anzeigen, voller Name bei Mouseover
 const opFull = op => (S && S.opNames && S.opNames[op]) || op;
+const NODINO_TIP = l => `Linie ist nicht im DINO-Export des ZVV und hat keinen Eintrag in der Zuordnung DINO-Linie → DIVA-Linie. NeRED führt sie als ${(l.diva || []).join(', ')}.`;
+const nodinoBadge = l => l && l.src === 'nodino' ? ` <span class="badge" data-tip="${esc(NODINO_TIP(l))}"><i class="sw c-none"></i>nicht aus DINO</span>` : '';
+const divaTip = l => esc([l.diva && l.diva.length ? 'DIVA-Linie (NeRED): ' + l.diva.join(', ') : '', l.dinoNr && l.dinoNr.length ? 'DINO-Liniennummer: ' + l.dinoNr.join(', ') : ''].filter(Boolean).join('<br>'));
 const opHtml = op => `<span class="op" data-tip="${esc(opFull(op))}">${esc(op)}</span>`;
 const opOption = (o, sel) => `<option value="${esc(o)}" title="${esc(opFull(o))}" ${o === sel ? 'selected' : ''}>${esc(o)}${opFull(o) !== o ? ' – ' + esc(opFull(o)) : ''}</option>`;
 const sname = id => stageMeta(id).label;
@@ -166,6 +169,9 @@ function viewOverview() {
       <li>DINO: ${fmt((n.dino.matched || 0) + (n.dino.unmatched || 0))} Fahrten ohne GLOBAL_ID.</li>
       <li><b>Neu vergebene SJYID</b>: Fahrten, die gegenüber der Referenz eine andere SJYID tragen, aber gleichen Laufweg und gleiche Zeiten haben, werden als dieselbe Fahrt gezählt
           (DINO ${fmt(S.remapped?.dino)}, NeRED ${fmt(S.remapped?.nered)}, INFO+ ${fmt(S.remapped?.info)}). In der Fahrtenmatrix sind sie mit ↻ markiert.</li>
+      ${S.mapping ? `<li><b>Zuordnung DINO-Linie → DIVA-Linie</b> (${fmt(S.mapping.rows)} Einträge): ${fmt(S.mapping.neredOnly.length)} Linien sind in NeRED, aber nicht im DINO-Export und ohne Eintrag in der Zuordnung –
+          ${S.mapping.neredOnly.map(x => { const l = S.lines.find(y => y.id === x.l); return l ? `${opHtml(l.op)} ${esc(l.line)} <span class="muted">(${esc(x.diva.join(', '))})</span>` : esc(x.l); }).join(', ')}.
+          Für sie zeigt die DINO-Spalte «nicht aus DINO». ${fmt(S.mapping.notImported.reduce((a, x) => a + x.n, 0))} DINO-Fahrten gehören zu Linien mit «Importieren = Nein» (${esc([...new Set(S.mapping.notImported.filter(x => x.n).map(x => x.name))].join(', '))}).</li>` : ''}
       <li>Referenz-Umfang: ${fmt(S.scope.id)} Fahrten über SJYID, ${fmt(S.scope.area)} weitere Fahrten der ZVV-Betreiber im ZVV-Gebiet, die in keinem neuen Stand vorkommen.</li>
     </ul></div>`;
   document.querySelectorAll('tr[data-line]').forEach(tr => tr.onclick = () => go('fahrten', { linie: tr.dataset.line }));
@@ -173,6 +179,9 @@ function viewOverview() {
 
 /* ================================================================ Linien-Ampel */
 function lineCell(l, k) {
+  if (l.src === 'nodino' && (k === 'dino' || (state.mode !== 'ref' && k === 'nered'))) {
+    return { v: 102, html: `<span class="muted small" data-tip="${esc(NODINO_TIP(l))}">nicht aus DINO · ${esc((l.diva || []).join(', '))}</span>` };
+  }
   if (state.mode === 'ref') {
     const d = dayCounts(l.st[k].days), tot = l.ref.days;
     if (!tot) return { v: 101, html: `<span class="muted small">nicht in Referenz · ${fmt(l.st[k].trips.extra || 0)} Fahrten</span>` };
@@ -218,12 +227,12 @@ function viewLines(params) {
     const q = state.q.toLowerCase();
     let rows = S.lines.filter(l => (!state.op || l.op === state.op) && (!q || (l.op + ' ' + l.line).toLowerCase().includes(q)))
       .map(l => ({ l, c: Object.fromEntries(cols.map(c => [c.k, lineCell(l, c.k)])) }));
-    if (state.onlyDiff) rows = rows.filter(r => cols.some(c => r.c[c.k].v < 99.95 || r.c[c.k].v === 101));
+    if (state.onlyDiff) rows = rows.filter(r => cols.some(c => r.c[c.k].v < 99.95 || r.c[c.k].v >= 101));
     const { key, asc } = state.sort;
     const val = r => key === 'op' ? r.l.op : key === 'line' ? r.l.line : key === 'cat' ? r.l.cat : key === 'trips' ? r.l.ref.trips : key === 'days' ? r.l.ref.days : (r.c[key] ? r.c[key].v : 0);
     rows.sort((a, b) => { const x = val(a), y = val(b); const r = typeof x === 'number' ? x - y : String(x).localeCompare(String(y), 'de', { numeric: true }); return asc ? r : -r; });
     $('#cnt').textContent = fmt(rows.length) + ' Linien';
-    $('#lt tbody').innerHTML = rows.map(({ l, c }) => `<tr class="row" data-line="${esc(l.id)}"><td>${opHtml(l.op)}</td><td><b>${esc(l.line)}</b></td><td>${esc(l.cat)}</td>
+    $('#lt tbody').innerHTML = rows.map(({ l, c }) => `<tr class="row" data-line="${esc(l.id)}"><td>${opHtml(l.op)}</td><td><b data-tip="${divaTip(l)}">${esc(l.line)}</b>${nodinoBadge(l)}</td><td>${esc(l.cat)}</td>
       <td class="num">${fmt(l.ref.trips)}</td><td class="num">${fmt(l.ref.days)}</td>${cols.map(k => `<td>${c[k.k].html}</td>`).join('')}</tr>`).join('')
       || `<tr><td colspan="8" class="empty">Keine Linien.</td></tr>`;
     document.querySelectorAll('#lt th').forEach(th => { th.classList.toggle('sorted', th.dataset.s === key); th.classList.toggle('asc', asc); });
@@ -405,7 +414,7 @@ async function viewTrips(params) {
   $('#fl').onchange = e => { state.fmTrip = null; go('fahrten', { linie: e.target.value }); };
   const d = await loadLine(state.fmLine);
   const m = d.meta;
-  $('#fmsum').innerHTML = `<div class="grid3" style="margin-bottom:12px">${STAGES.map(k => {
+  $('#fmsum').innerHTML = `<p class="small muted" style="margin:0 0 8px">${opHtml(m.op)} · ${esc(opFull(m.op))}${m.diva && m.diva.length ? ' · DIVA-Linie (NeRED) ' + esc(m.diva.join(', ')) : ''}${m.dinoNr && m.dinoNr.length ? ' · DINO-Liniennummer ' + esc(m.dinoNr.join(', ')) : ''}${nodinoBadge(m)}</p><div class="grid3" style="margin-bottom:12px">${STAGES.map(k => {
     const t = m.st[k].trips, tot = Object.values(t).reduce((a, b) => a + b, 0);
     return `<div><div class="small"><b>${esc(sname(k))}</b> · ${fmt(tot)} Fahrten</div>${stackBar(TRIP_CLASSES.map(c => [c[0], (t[c[0]] || 0) + (c[0] === 'ok' ? (t.tol || 0) : 0)]), tot)}</div>`;
   }).join('')}</div>`;
@@ -529,6 +538,8 @@ function viewMethod() {
       Halte (DIDOK/UIC) und Zeiten übereinstimmen. Abweichungen ≤ 1 Minute gelten als identisch (DINO rechnet in Sekunden, HRDF in Minuten).</li>
     <li><b>ZVV-Umfang der Referenz</b>: alle Fahrten des Gesamtexports, deren SJYID in einem der neuen Stände vorkommt, plus Fahrten derselben Betreiber,
       die mehrheitlich an Haltestellen aus DINO halten.</li>
+    <li><b>Herkunft der Linien</b>: Die NeRED-Fahrten tragen die DIVA-Linie im Kommentar (z. B. <code>70-188-M-j27</code>). Über die Tabelle «Zuordnung Linien» (DINO-Liniennummer → DIVA-Linie, Importieren ja/nein)
+      wird erkannt, welche NeRED-Linien nicht aus dem DINO-Export stammen («nicht aus DINO») und welche DINO-Linien nicht importiert werden.</li>
     <li>DINO-Halte werden über die SLOID auf die UIC-Nummer abgebildet (85 + SLOID). Halte ohne SLOID gelten beim Vergleich als Platzhalter.</li>
     <li>Verkehrstage: HRDF-Bitfelder (2 Füllbits, dann ab 13.12.2026), DINO über Tagesarten × Einschränkungen (RESTRICTION_DAYS je Monat 32 Bit).</li>
   </ul>
@@ -978,7 +989,7 @@ async function viewLost(params) {
   if (!LOST) LOST = await (await fetch('data/lost.json')).json();
   if (params && params.get('linie') != null) lstate.line = params.get('linie');
   const byId = Object.fromEntries(S.lines.map(l => [l.id, l]));
-  const lbl = id => { const l = byId[id]; return l ? `${opHtml(l.op)} <b>${esc(l.line)}</b>` : esc(id); };
+  const lbl = id => { const l = byId[id]; return l ? `${opHtml(l.op)} <b data-tip="${divaTip(l)}">${esc(l.line)}</b>` : esc(id); };
   const txtOf = id => { const l = byId[id]; return l ? l.op + ' ' + opFull(l.op) + ' ' + l.line : id; };
   const T = LOST.trips, Ls = LOST.lines;
   const whole = Ls.filter(l => l.whole);
@@ -993,7 +1004,8 @@ async function viewLost(params) {
       <div class="card kpi"><div class="stage"><b>Fahrten fehlen in INFO+</b></div><div class="hero">${fmt(nWhole)}</div>
         <div class="kv"><span>davon auf Linien, die in INFO+ ganz fehlen</span><span class="neg">${fmt(inWhole)}</span><span>Fahrtage betroffen</span><span>${fmt(lostDays)}</span></div></div>
       <div class="card kpi"><div class="stage"><b>Linien fehlen ganz in INFO+</b></div><div class="hero">${fmt(whole.length)}</div>
-        <div class="small">${whole.map(l => lbl(l.l)).join(' · ')}</div></div>
+        <div class="small">${whole.map(l => lbl(l.l)).join(' · ')}</div>
+        ${(() => { const nd = whole.filter(l => byId[l.l] && byId[l.l].src === 'nodino').length; return nd ? `<div class="small" style="margin-top:6px">${fmt(nd)} davon sind <b>nicht aus DINO</b>: sie stehen in NeRED als eigene DIVA-Linien ohne Eintrag in der Zuordnung DINO → DIVA.</div>` : ''; })()}</div>
       <div class="card kpi"><div class="stage"><b>Fahrten mit fehlenden Verkehrstagen</b></div><div class="hero">${fmt(nPart)}</div>
         <div class="kv"><span>Fahrt in INFO+ vorhanden, aber an einzelnen Tagen nicht</span><span></span></div></div>
     </div>
@@ -1006,7 +1018,7 @@ async function viewLost(params) {
     sortRows(rows, (r, k) => k === 'l' ? txtOf(r.l) : r[k], lstate.sort);
     $('#llt').innerHTML = `<thead><tr><th data-s="l">Linie</th><th data-s="lost" class="num">Fahrten fehlen</th><th data-s="part" class="num">Fahrten mit fehlenden Tagen</th>
       <th data-s="lostDays" class="num">Fahrtage fehlen</th><th data-s="nered" class="num">Fahrten NeRED</th><th data-s="info" class="num">Fahrten INFO+</th><th data-s="ref" class="num">Fahrten Referenz</th></tr></thead><tbody>${
-      rows.map(r => `<tr class="row ${r.l === lstate.line ? 'selrow' : ''}" data-l="${esc(r.l)}"><td>${lbl(r.l)} ${r.whole ? '<span class="badge"><i class="sw c-missing"></i>fehlt ganz</span>' : ''}</td>
+      rows.map(r => `<tr class="row ${r.l === lstate.line ? 'selrow' : ''}" data-l="${esc(r.l)}"><td>${lbl(r.l)} ${r.whole ? '<span class="badge"><i class="sw c-missing"></i>fehlt ganz</span>' : ''}${nodinoBadge(byId[r.l])}</td>
         <td class="num ${r.lost ? 'neg' : ''}">${fmt(r.lost)}</td><td class="num">${fmt(r.part)}</td><td class="num">${fmt(r.lostDays)}</td>
         <td class="num">${fmt(r.nered)}</td><td class="num">${fmt(r.info)}</td><td class="num">${fmt(r.ref)}</td></tr>`).join('')}</tbody>`;
     bindSort('#llt', lstate.sort, drawLines);

@@ -207,7 +207,28 @@ def trip_status(counts, in_ref, in_stage, carrier=0):
     return 'ok'
 
 
-def build(base, out, cache):
+def read_mapping(path):
+    """Zuordnung DINO-Linie → DIVA-Linie (NeRED), CSV mit Spalten
+    Interne Liniennummer;Betriebszweig;Name;DIVA Linie;Importieren;..."""
+    import csv
+    if not path or not os.path.exists(path):
+        return None
+    for enc in ('utf-8-sig', 'cp1252'):
+        try:
+            with open(path, encoding=enc, newline='') as f:
+                return [{k.strip(): (v or '').strip() for k, v in r.items()} for r in csv.DictReader(f, delimiter=';')]
+        except UnicodeDecodeError:
+            continue
+    return None
+
+
+def diva_line(tag):
+    """NeRED-Kommentar «70-188-M-1-j27» → DIVA-Linie «70-188-M-j27»."""
+    p = (tag or '').split('-')
+    return '-'.join([p[0], p[1], p[2], p[-1]]) if len(p) >= 5 else ''
+
+
+def build(base, out, cache, mapping=None):
     data, dino_dir = load(base, cache)
     orgn = org_names(base)
     stopnames = {}
@@ -525,6 +546,31 @@ def build(base, out, cache):
         json.dump(mp, f, ensure_ascii=False, separators=(',', ':'))
     log('Karte', len(mp['lines']), 'Linien,', len(mp['stops']), 'Halte')
 
+    # --- Herkunft je Linie: DIVA-Linie in NeRED und Zuordnung zur DINO-Linie
+    mp = read_mapping(mapping)
+    by_diva = {r['DIVA Linie']: r for r in (mp or []) if r.get('DIVA Linie')}
+    by_int = {r['Interne Liniennummer']: r for r in (mp or [])}
+    line_src = {}
+    for lid, recs in trips_out.items():
+        divas = sorted({diva_line(t['tag']) for rec in recs for t in by['nered'].get(rec['sj'], [])} - {''})
+        dino_lines = sorted({t['tag'].split('/')[0] for rec in recs for t in by['dino'].get(rec['sj'], [])})
+        info = {'diva': divas, 'dinoNr': dino_lines}
+        if mp is not None:
+            if divas and not dino_lines and not any(d in by_diva for d in divas):
+                info['src'] = 'nodino'        # Linie in NeRED, aber ohne DINO-Linie in der Zuordnung
+            elif dino_lines and all(by_int.get(n, {}).get('Importieren') == 'Nein' for n in dino_lines):
+                info['src'] = 'noimport'      # DINO-Linie mit Importieren = Nein
+        line_src[lid] = info
+    mapping_info = None
+    if mp is not None:
+        mapping_info = {
+            'neredOnly': [{'l': lid, 'diva': v['diva'], 'n': len(trips_out[lid])} for lid, v in line_src.items() if v.get('src') == 'nodino'],
+            'notImported': [{'nr': r['Interne Liniennummer'], 'name': r['Name'],
+                             'n': sum(1 for t in data['dino'][0] if t['tag'].split('/')[0] == r['Interne Liniennummer'])}
+                            for r in mp if r.get('Importieren') == 'Nein'],
+            'rows': len(mp)}
+        log('Zuordnung:', len(mp), 'Zeilen; NeRED-Linien ohne DINO:', len(mapping_info['neredOnly']))
+
     # --- Ausgabe
     os.makedirs(os.path.join(out, 'lines'), exist_ok=True)
     for f in glob.glob(os.path.join(out, 'lines', '*.json')):
@@ -583,7 +629,8 @@ def build(base, out, cache):
                           'cat': L['cats'].most_common(1)[0][0] if L['cats'] else '',
                           'ref': L['ref'], 'n': len(trs),
                           'chain': {k: dict(v) for k, v in L['chain'].items()},
-                          'st': {k: {'trips': dict(v['trips']), 'days': dict(v['days'])} for k, v in L['st'].items()}})
+                          'st': {k: {'trips': dict(v['trips']), 'days': dict(v['days'])} for k, v in L['st'].items()},
+                          **line_src.get(lid, {})})
     line_list.sort(key=lambda x: (x['op'], natkey(x['line'])))
     base_name = os.path.basename(dino_dir)
     stages_meta = []
@@ -611,6 +658,7 @@ def build(base, out, cache):
         'nosj': nosj,
         'remapped': remapped,
         # Kurzname → voller Unternehmensname (BETRIEB_DE des Gesamtexports)
+        'mapping': mapping_info,
         'opNames': {k: c.most_common(1)[0][0] for k, c in sorted(op_full.items()) if c},
         'calendar': cal,
         'lines': line_list,
@@ -878,5 +926,6 @@ if __name__ == '__main__':
     p.add_argument('--base', required=True)
     p.add_argument('--out', required=True)
     p.add_argument('--cache', default='.cache')
+    p.add_argument('--mapping', default=None, help='CSV «Zuordnung Linien» (DINO-Linie → DIVA-Linie); Standard: <base>/Zuordnung Linien.csv')
     a = p.parse_args()
-    build(a.base, a.out, a.cache)
+    build(a.base, a.out, a.cache, a.mapping or os.path.join(a.base, 'Zuordnung Linien.csv'))
