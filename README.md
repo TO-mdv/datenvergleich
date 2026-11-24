@@ -34,7 +34,7 @@ Die frühere Detailansicht (Karte, Attribute, Infotexte, Durchbindungen) bleibt 
 ## Daten neu aufbereiten
 
 Die Rohdaten werden nicht hochgeladen. Erwartet wird ein Ordner mit den Unterordnern
-`DINO_2_3_*`, `ZVV 2027 NeRED V2`, `ZVV 2027` und `Gesamt 2027`:
+`DINO_2_3_*`, `ZVV 2027 NeRED V2`, `ZVV 2027 INFO+ V2` (korrigierter INFO+-Export; ersatzweise `ZVV 2027`) und `Gesamt 2027`:
 
 ```powershell
 python tools/build_compare.py --base '<Datenordner>' --out docs/data --cache .cache

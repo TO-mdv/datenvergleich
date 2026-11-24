@@ -6,7 +6,7 @@ Aufruf:
 Erwartete Unterordner in --base:
     DINO_2_3_*            DINO-Export ZVV
     ZVV 2027 NeRED V2     HRDF aus NeRED
-    ZVV 2027              HRDF aus INFO+ (ZVV-Teil)
+    ZVV 2027 INFO+ V2     HRDF aus INFO+ (ZVV-Teil; ersatzweise «ZVV 2027»)
     Gesamt 2027           HRDF Gesamtexport INFO+ (Referenz)
 
 Vergleichseinheit ist der *Fahrtag*: eine Fahrt (SJYID) an einem Verkehrstag.
@@ -29,10 +29,21 @@ sys.path.insert(0, os.path.dirname(__file__))
 from parse_sources import (ALL, HRDF_INFO, HRDF_NERED, NDAYS, START, parse_dino,  # noqa: E402
                            parse_hrdf)
 
+# INFO+ ZVV: neuester Export verwenden (V2 = korrigierter Export vom 24.11.2026)
+INFO_DIRS = ['ZVV 2027 INFO+ V2', 'ZVV 2027']
+
+
+def info_sub(base):
+    for d in INFO_DIRS:
+        if os.path.isdir(os.path.join(base, d)):
+            return d
+    return INFO_DIRS[-1]
+
+
 STAGES = [
     {'id': 'dino', 'label': 'DINO ZVV', 'short': 'DINO', 'desc': 'Quelle ZVV (DINO 2.3)'},
     {'id': 'nered', 'label': 'NeRED V2', 'short': 'NeRED', 'desc': 'HRDF aus NeRED'},
-    {'id': 'info', 'label': 'INFO+ ZVV', 'short': 'INFO+', 'desc': 'HRDF aus INFO+ (neu, ZVV-Teil)'},
+    {'id': 'info', 'label': 'INFO+ ZVV V2', 'short': 'INFO+', 'desc': 'HRDF aus INFO+ (neu, ZVV-Teil, korrigierter Export V2)'},
 ]
 REF = {'id': 'ref', 'label': 'Gesamt 2027', 'short': 'Referenz', 'desc': 'INFO+ Gesamtexport (bisher an OJP)'}
 
@@ -74,7 +85,7 @@ def load(base, cache):
     log('DINO', len(data['dino'][0]))
     data['nered'] = cached('nered', lambda: parse_hrdf(os.path.join(base, 'ZVV 2027 NeRED V2'), HRDF_NERED))
     log('NeRED', len(data['nered'][0]))
-    data['info'] = cached('info', lambda: parse_hrdf(os.path.join(base, 'ZVV 2027'), HRDF_INFO))
+    data['info'] = cached('info', lambda: parse_hrdf(os.path.join(base, info_sub(base)), HRDF_INFO))
     log('INFO+', len(data['info'][0]))
     union = {t['sj'] for k in ('dino', 'nered', 'info') for t in data[k][0] if t['sj']}
     orgs = {sj.split(':')[3] for sj in union}
@@ -574,7 +585,7 @@ def build(base, out, cache):
         elif s['id'] == 'nered':
             m['date'] = time.strftime('%d.%m.%Y', time.localtime(os.path.getmtime(os.path.join(base, 'ZVV 2027 NeRED V2', 'fplan'))))
         elif s['id'] == 'info':
-            m['date'] = eckdaten(os.path.join(base, 'ZVV 2027', 'ECKDATEN')).split()[0]
+            m['date'] = eckdaten(os.path.join(base, info_sub(base), 'ECKDATEN')).split()[0]
         else:
             m['date'] = eckdaten(os.path.join(base, 'Gesamt 2027', 'ECKDATEN')).split()[0]
         m['records'] = len(data[s['id']][0])
@@ -606,7 +617,7 @@ def norm_text(t):
 def attr_names(base):
     """Attributbezeichnungen (deutsch) aus ATTRIBUT der HRDF-Stände."""
     names = {}
-    for sub, fn in (('Gesamt 2027', 'ATTRIBUT'), ('ZVV 2027', 'ATTRIBUT'), ('ZVV 2027 NeRED V2', 'attribut')):
+    for sub, fn in (('Gesamt 2027', 'ATTRIBUT'), (info_sub(base), 'ATTRIBUT'), ('ZVV 2027 NeRED V2', 'attribut')):
         path = os.path.join(base, sub, fn)
         if not os.path.exists(path):
             continue
@@ -746,7 +757,7 @@ MAP_BITS = {'ref': 1, 'dino': 2, 'nered': 4, 'info': 8}
 
 def read_coords(base):
     coords = {}
-    for sub, fn in (('ZVV 2027 NeRED V2', 'bfkoord_wgs'), ('ZVV 2027', 'BFKOORD_WGS'), ('Gesamt 2027', 'BFKOORD_WGS')):
+    for sub, fn in (('ZVV 2027 NeRED V2', 'bfkoord_wgs'), (info_sub(base), 'BFKOORD_WGS'), ('Gesamt 2027', 'BFKOORD_WGS')):
         path = os.path.join(base, sub, fn)
         if not os.path.exists(path):
             continue

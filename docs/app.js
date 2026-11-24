@@ -127,10 +127,10 @@ function viewOverview() {
     // Für den letzten Schritt ist die Referenz der ältere Stand: Richtung umdrehen.
     const lost = b === 'ref' ? c.extra : c.missing, added = b === 'ref' ? c.missing : c.extra;
     const lostTxt = b === 'ref' ? 'nur in Referenz' : 'nicht übernommen';
-    const addTxt = b === 'ref' ? 'nur in INFO+ ZVV' : 'neu';
+    const addTxt = b === 'ref' ? 'nur in ' + sname('info') : 'neu';
     return `<div class="arrow">
-      <div data-tip="${b === 'ref' ? 'Fahrten der Referenz, die in INFO+ ZVV fehlen' : 'Fahrten aus ' + esc(sname(a)) + ', die in ' + esc(sname(b)) + ' fehlen'}"><span class="neg">−${fmt(lost)}</span> ${lostTxt}</div>
-      <div data-tip="${b === 'ref' ? 'Fahrten in INFO+ ZVV, die nicht in der Referenz sind' : 'Fahrten, die erst in ' + esc(sname(b)) + ' auftauchen'}"><span class="pos">+${fmt(added)}</span> ${addTxt}</div>
+      <div data-tip="${b === 'ref' ? 'Fahrten der Referenz, die in ' + esc(sname('info')) + ' fehlen' : 'Fahrten aus ' + esc(sname(a)) + ', die in ' + esc(sname(b)) + ' fehlen'}"><span class="neg">−${fmt(lost)}</span> ${lostTxt}</div>
+      <div data-tip="${b === 'ref' ? 'Fahrten in ' + esc(sname('info')) + ', die nicht in der Referenz sind' : 'Fahrten, die erst in ' + esc(sname(b)) + ' auftauchen'}"><span class="pos">+${fmt(added)}</span> ${addTxt}</div>
       <div data-tip="Fahrten in beiden Ständen, aber mit anderen Verkehrstagen, Halten oder Zeiten">~${fmt(changed)} verändert</div>
     </div>`;
   };
@@ -148,7 +148,7 @@ function viewOverview() {
     <p class="lead">Referenz ist der <b>Gesamtexport 2027</b> (${esc(stageMeta('ref').date)}), so wie die Daten bisher an die OJP-Auskunft gingen.
       Im ZVV-Umfang enthält er <b>${fmt(S.ref.trips)} Fahrten</b> mit <b>${fmt(S.ref.days)} Fahrtagen</b> (Fahrt × Verkehrstag).
       Für jeden Datenstand wird gezeigt, welcher Anteil dieser Fahrtage unverändert ankommt.</p>
-    <div class="callout">Die Datenstände haben unterschiedliche Stichtage (Referenz ${esc(stageMeta('ref').date)}, DINO ${esc(stageMeta('dino').date)}, INFO+ ZVV ${esc(stageMeta('info').date)}).
+    <div class="callout">Die Datenstände haben unterschiedliche Stichtage (Referenz ${esc(stageMeta('ref').date)}, DINO ${esc(stageMeta('dino').date)}, ${esc(sname('info'))} ${esc(stageMeta('info').date)}).
       Ein Teil der Abweichungen sind deshalb echte Fahrplanänderungen und keine Verarbeitungsfehler.</div>
     <div class="grid3">${cards}</div>
     ${legend([['ok', 'identisch (±1 Min)'], ['merged', 'gleicher Fahrplan, andere SJYID'], ['time', 'Zeiten > 1 Min'], ['stops', 'Halte abweichend'], ['missing', 'fehlt']])}
@@ -156,7 +156,7 @@ function viewOverview() {
       <p class="muted small">Jeder Pfeil vergleicht einen Stand mit seinem Vorgänger (Fahrt-Ebene, über SJYID).</p>${chain}</div>
     <div class="grid3">${STAGES.map(k => `<div class="card"><h3>Grösste Abweichungen · ${esc(sname(k))}</h3>${topList(k)}</div>`).join('')}</div>
     <div class="card"><h3>Hinweise zur Datenqualität</h3><ul class="list">
-      <li>INFO+ ZVV: <b>${fmt(n.info.outside || 0)}</b> Fahrten ohne SJYID ausserhalb des ZVV-Gebiets (PostAuto national) wurden ignoriert;
+      <li>${esc(sname('info'))}: <b>${fmt(n.info.outside || 0)}</b> Fahrten ohne SJYID ausserhalb des ZVV-Gebiets (PostAuto national) wurden ignoriert;
           ${fmt(n.info.matched || 0)} Fahrten ohne SJYID wurden über Laufweg und Zeiten zugeordnet, ${fmt(n.info.unmatched || 0)} nicht zuordenbar.</li>
       <li>NeRED V2: ${fmt((n.nered.matched || 0) + (n.nered.unmatched || 0))} Fahrten ohne SJYID (*I JY) – davon ${fmt(n.nered.matched || 0)} über Laufweg zugeordnet.</li>
       <li>DINO: ${fmt((n.dino.matched || 0) + (n.dino.unmatched || 0))} Fahrten ohne GLOBAL_ID.</li>
@@ -694,7 +694,7 @@ async function viewAngebote(params) {
     <p class="lead">Angebote sind die HRDF-Attribute einer Fahrt (<code>*A</code>, z. B. Niederflur, Reservation, Gruppen, Velo).
       Für jede Referenzfahrt wird geprüft, ob ihre Attribute im neuen Datenstand erhalten bleiben. Gezählt werden nur Fahrten, die es in Referenz und Datenstand gibt.</p>
     <div class="callout">DINO kennt diese Angebote nicht als Fahrtattribute (Bemerkungen wie Rufbus-Reservationen stehen dort als Notiz – siehe <a href="#hinweise">Verkehrshinweise</a>).
-      Verglichen werden deshalb NeRED und INFO+ ZVV mit der Referenz.</div>
+      Verglichen werden deshalb NeRED und ${esc(sname('info'))} mit der Referenz.</div>
     <div class="grid2">${ASTAGES.map(k => kpiKeep(k, totals[k], 'Attribut-Zuweisungen')).join('')}</div>
     ${legend([['ok', 'Attribut vorhanden'], ['missing', 'Attribut fehlt'], ['extra', 'Attribut zusätzlich (nicht in Referenz)']])}
     <div class="card"><h2>Angebote</h2><p class="muted small">Zeile anklicken zeigt die Linien mit diesem Angebot.</p>
