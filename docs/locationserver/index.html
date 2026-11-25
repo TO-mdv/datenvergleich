@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Aufgezeichnete OJP-Haltestellensuche testen: Deutsch und Englisch gemeinsam durch die Eingabe navigieren.">
   <title>LIR Tester · Haltestellensuche</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20261125-layout2">
 </head>
 <body>
   <header class="page-header">
@@ -19,20 +19,17 @@
         <label>Datenstand<select id="profile"></select></label>
         <label>Testfall<select id="case"></select></label>
         <label>Eingabeschritt<select id="step"></select></label>
-      </div>
-      <div class="navigation">
-        <div class="button-group"><button id="previous-case" type="button">Vorheriger Testfall</button><button id="next-case" type="button">Nächster Testfall</button></div>
-        <div class="button-group"><button id="previous-step" type="button">Weniger Buchstaben</button><button id="next-step" type="button">Mehr Buchstaben</button></div>
         <label class="toggle"><input id="all" type="checkbox"> Alle Treffer</label>
+        <p class="keyboard"><kbd>↑</kbd><kbd>↓</kbd> Schritt <span>·</span> <kbd>←</kbd><kbd>→</kbd> Testfall</p>
       </div>
-      <div class="selected-line"><p id="selection" aria-live="polite"></p><p class="keyboard"><kbd>↑</kbd><kbd>↓</kbd> Eingabeschritt <span>·</span> <kbd>←</kbd><kbd>→</kbd> Testfall <span>·</span> beide Sprachen gemeinsam</p></div>
+      <p id="navigation-status" class="sr-only" aria-live="polite"></p>
     </section>
     <p id="loading" role="status">Testergebnisse werden geladen …</p>
     <div id="languages"></div>
     <section class="test-summary" aria-labelledby="summary-heading"><h2 id="summary-heading">Vollständige Testläufe</h2><div id="summary"></div><p>Die Rangprüfung oben verwendet für alle Datenstände dieselben aktuellen Erwartungen. Die Zahlen hier stammen aus den jeweiligen ursprünglichen Testläufen. «LIR Finetuning» enthält unveränderte Namensprüfungen; abweichende Namensvarianten können deshalb fehlschlagen.</p></section>
     <details class="configuration"><summary>Geprüfte DEV-Konfiguration und bekannte Abweichungen</summary><div id="configuration"></div></details>
   </main>
-  <footer><p>Die Seite sendet keine Suchanfragen an DEV oder INT. CH-Zuordnung gemäss OMC im jeweiligen SYS-Datenstand. Qualität: Bewertungswert von 0 bis 1000.</p><p id="provenance"></p></footer>
-  <script type="module" src="app.js"></script>
+  <footer><p>Die Seite sendet keine Suchanfragen an DEV oder INT. Länderkennzeichen aus DiDok/Global-ID, ergänzend SYS-Geografie; «?» bei fehlender Zuordnung. CH-Prüfungen verwenden die ursprüngliche OMC-Zuordnung. Qualität: 0 bis 1000.</p><p id="provenance"></p></footer>
+  <script type="module" src="app.js?v=20261125-layout2"></script>
 </body>
 </html>

@@ -1,5 +1,6 @@
 const $ = id => document.getElementById(id);
 const languages = [['de','Deutsch'],['en','Englisch']];
+const countryNames = new Intl.DisplayNames(['de'],{type:'region'});
 const state = {profile:'deployed',caseIndex:2,step:1,all:false};
 let data;
 function node(tag,text,cls){const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e;}
@@ -39,7 +40,10 @@ function renderLanguage(lang,label,prefix){
   const hits=record.hits.slice(0,state.all?record.hits.length:20);const list=node('ol',undefined,'results'+(state.all?' all':''));list.setAttribute('aria-label',label+': Treffer für '+prefix);
   for(let i=0;i<hits.length;i++){
     const hit=hits[i];const li=node('li',undefined,'result');const details=node('details',undefined,'stop-details');const summary=node('summary',undefined,'hit');
-    summary.append(node('span',String(i+1),'rank'),node('span',hit.ch?'CH':'Nicht-CH','country'+(hit.ch?' ch':'')),node('span',hit.name,'stop-name'),node('span',String(hit.quality??'–'),'quality'));
+    const code=hit.country&&hit.country!=='?'?hit.country:hit.ch?'CH':'?';
+    const country=node('span',code,'country country-'+(code==='?'?'unknown':code.toLowerCase()));
+    country.title=code==='?'?'Keine eindeutige Länderzuordnung':countryNames.of(code)+' · '+(hit.country&&hit.country!=='?'?hit.countrySource:'CH-Zuordnung aus SYS/OMC');
+    summary.append(node('span',String(i+1),'rank'),country,node('span',hit.name,'stop-name'),node('span',String(hit.quality??'–'),'quality'));
     const efaRank=pair.EFA.hits.findIndex(x=>x.id===hit.id)+1;
     details.append(summary,node('p',hit.id+' · EFA-Rang: '+(efaRank||'nicht enthalten'),'stop-detail-text'));li.append(details);list.append(li);
   }
@@ -49,9 +53,7 @@ function render(){
   const ps=prefixes();state.step=Math.max(0,Math.min(state.step,ps.length-1));const prefix=ps[state.step];
   $('case').value=String(state.caseIndex);$('profile').value=state.profile;$('all').checked=state.all;
   $('step').replaceChildren(...ps.map((p,i)=>{const o=node('option',p+' · '+(i+1)+'/'+ps.length);o.value=String(i);return o;}));$('step').value=String(state.step);
-  $('selection').textContent='Eingabe «'+prefix+'» · Testfall '+(state.caseIndex+1)+'/'+data.cases.length+' · Schritt '+(state.step+1)+'/'+ps.length;
-  $('previous-case').disabled=state.caseIndex===0;$('next-case').disabled=state.caseIndex===data.cases.length-1;
-  $('previous-step').disabled=state.step===0;$('next-step').disabled=state.step===ps.length-1;
+  $('navigation-status').textContent='Eingabe «'+prefix+'» · Testfall '+(state.caseIndex+1)+'/'+data.cases.length+' · Schritt '+(state.step+1)+'/'+ps.length;
   $('languages').replaceChildren(...languages.map(([lang,label])=>renderLanguage(lang,label,prefix)));
   $('summary').replaceChildren(...languages.map(([lang,label])=>{const run=profile().languages[lang];const line=node('div',undefined,'summary-line');line.append(node('strong',lang.toUpperCase()),node('p','268/268 EFA/OJP-Antworten · '+run.originalFailures+' Fehlprüfungen. LIR Finetuning: 47/47 Antworten · '+run.finetuningFailures+' Fehlprüfungen.'));return line;}));$('summary').className='summary-grid';
   $('provenance').textContent='Config-Commit '+data.configCommit.slice(0,8)+' · DEV-Deployment #'+data.deploymentTask+' · angezeigter SYS '+profile().languages.de.sys.join(', ')+' · Zeitangaben Europe/Zurich.';
@@ -70,7 +72,6 @@ async function start(){
   const step=Number(query.get('step'));if(Number.isInteger(step)&&step>0)state.step=step-1;if(data.profiles.some(x=>x.key===query.get('run')))state.profile=query.get('run');state.all=query.get('all')==='1';
   $('case').addEventListener('change',()=>{state.caseIndex=Number($('case').value);state.step=0;render();});
   $('profile').addEventListener('change',()=>{state.profile=$('profile').value;render();});$('step').addEventListener('change',()=>{state.step=Number($('step').value);render();});$('all').addEventListener('change',()=>{state.all=$('all').checked;render();});
-  for(const [id,axis,delta] of [['previous-case','case',-1],['next-case','case',1],['previous-step','step',-1],['next-step','step',1]])$(id).addEventListener('click',()=>move(axis,delta));
   document.addEventListener('keydown',e=>{const editingText=e.target.tagName==='TEXTAREA'||(e.target.tagName==='INPUT'&&!['checkbox','radio','button'].includes(e.target.type));if(e.altKey||e.ctrlKey||e.metaKey||e.target.isContentEditable||editingText)return;const keys={ArrowUp:['step',-1],ArrowDown:['step',1],ArrowLeft:['case',-1],ArrowRight:['case',1]};if(keys[e.key]){e.preventDefault();move(...keys[e.key]);}});
   const c=data.configuration;const info=node('ul');for(const text of ['Sortierung: '+c.sorter,'Klammerzusätze nicht bewerten; Namensabdeckung: '+c.findSearchTermRatio+'; Teilwort-Abzug: '+c.partialWordPenalty,'Suchkandidaten: '+c.candidateLimit,'Relevanz: '+Object.entries(c.relevance).map(([name,value])=>name+' '+value).join(' · '),'Bekannte Abweichungen des geprüften Profils: Stein und Berlingen bei «Berlin». Bei «Mu» erscheint Muri bei Bern unter einer anderen Namensvariante.'])info.append(node('li',text));$('configuration').append(info);
   $('provenance').textContent='Config-Commit '+data.configCommit.slice(0,8)+' · DEV-Deployment #'+data.deploymentTask+' · SYS '+profile().languages.de.sys.join(', ')+' · Zeitangaben Europe/Zurich.';
