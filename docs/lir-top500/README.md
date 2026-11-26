@@ -120,3 +120,33 @@ Updates und der Prüfung beider Dienste gemessen. `stage_windows` dokumentiert
 die getrennten Messzeiträume. `merge-ranking-runs.py` prüft vor dem Zusammenführen
 identische Eingaben und disjunkte Stages. `capture-ranking-controls.py` zeichnet
 die zusätzlichen festen Abfragen auf.
+
+## Spaltenweise filtern, sortieren und ausblenden
+
+Jede Tabellenspalte hat eigene Filter direkt unter ihrem Spaltenkopf. Mehrere
+Spaltenfilter und die bisherigen Such-/Gruppenfilter wirken gemeinsam.
+
+- Gruppe/Rang: beispielsweise `CH`, `DE`/`DB`, `>=10` oder `1–50`.
+- Bahnhof/Bedeutung: Textsuche nach Name, Kanton, Kennung oder angezeigter Bedeutung.
+- DEV/TEST/INT: Zeichenzahl (`3` exakt, `≤3`, `>=4`, `2–5`), Eingabetext oder
+  Bewertung; zusätzlich ein eigener Trefferstatus je System.
+- DEV/TEST-Vergleich: Vergleichsstatus und Betrag des Zeichenunterschieds,
+  beispielsweise «DEV früher» zusammen mit `>=2`.
+
+Ein Klick auf einen Spaltenkopf sortiert auf- oder absteigend. Bei den Systemen
+wird numerisch nach benötigter Zeichenzahl sortiert; fehlende Werte bleiben in
+beiden Richtungen am Ende. Der Vergleich wird von «DEV früher» nach «DEV später»
+oder umgekehrt sortiert. Gruppe/Rang ordnet nach Gruppe und Auswahlrang,
+Bahnhof/Bedeutung alphabetisch nach Bahnhofname. Die aktive Sortierung steht
+auch als Text über der Tabelle und wird über aria-sort kenntlich gemacht.
+
+Über «Spalten» kann jede Spalte vollständig ausgeblendet werden, einschliesslich
+ihrer Filterzellen. Mindestens eine Spalte bleibt sichtbar. Filter und Sortierung
+ausgeblendeter Spalten bleiben wirksam und werden ausdrücklich angezeigt.
+«Alle Spalten anzeigen» ändert nur die Sichtbarkeit. «Ansicht zurücksetzen»
+löscht Tabellen- und globale Suchfilter, zeigt alle Spalten und stellt den
+Auswahlrang wieder her. Die Tabellenansicht wird lokal im jeweiligen Browser
+gespeichert; ohne verfügbaren Browserspeicher bleiben alle Funktionen nutzbar.
+
+`table-view.js` ergänzt die bestehende Ansicht; die aufgezeichneten Ergebnisse
+und die Konfiguration der Testsysteme werden dadurch nicht geändert.
