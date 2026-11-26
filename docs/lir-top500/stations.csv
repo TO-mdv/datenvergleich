@@ -3,22 +3,22 @@
 2;Bern;BE;ch:1:sloid:7000;177000.0;2025;2;hit;2;hit
 3;Luzern;LU;ch:1:sloid:5000;108800.0;2025;3;hit;2;hit
 4;Basel SBB;BS;ch:1:sloid:10;103800.0;2025;3;hit;3;hit
-5;Winterthur;ZH;ch:1:sloid:6000;103800.0;2025;3;hit;4;hit
+5;Winterthur;ZH;ch:1:sloid:6000;103800.0;2025;3;hit;3;hit
 6;Lausanne;VD;ch:1:sloid:1120;97500.0;2025;4;hit;3;hit
-7;Zürich Oerlikon;ZH;ch:1:sloid:3006;86200.0;2025;4;hit;8;hit
+7;Zürich Oerlikon;ZH;ch:1:sloid:3006;86200.0;2025;2;hit;8;hit
 8;Genève;GE;ch:1:sloid:1008;83100.0;2025;3;hit;2;hit
 9;Olten;SO;ch:1:sloid:218;81600.0;2025;1;hit;1;hit
 10;Zürich Stadelhofen;ZH;ch:1:sloid:3003;75200.0;2025;8;hit;1;hit
-11;Zürich Flughafen;ZH;ch:1:sloid:3016;53300.0;2025;8;hit;9;hit
-12;Zürich Hardbrücke;ZH;ch:1:sloid:3020;52900.0;2025;8;hit;12;hit
+11;Zürich Flughafen;ZH;ch:1:sloid:3016;53300.0;2025;4;hit;8;hit
+12;Zürich Hardbrücke;ZH;ch:1:sloid:3020;52900.0;2025;2;hit;10;hit
 13;Biel/Bienne;BE;ch:1:sloid:4300;48400.0;2025;3;hit;2;hit
 14;Renens VD;VD;ch:1:sloid:1118;47400.0;2025;3;hit;2;hit
 15;St. Gallen;SG;ch:1:sloid:6302;46900.0;2025;2;hit;5;hit
-16;Zug;ZG;ch:1:sloid:2204;42100.0;2025;2;hit;2;hit
+16;Zug;ZG;ch:1:sloid:2204;42100.0;2025;2;hit;1;hit
 17;Zürich Altstetten;ZH;ch:1:sloid:3001;40500.0;2025;2;hit;8;hit
 18;Aarau;AG;ch:1:sloid:2113;40100.0;2025;3;hit;3;hit
 19;Baden;AG;ch:1:sloid:3504;34000.0;2025;3;hit;3;hit
-20;Thun;BE;ch:1:sloid:7100;32800.0;2025;1;hit;3;hit
+20;Thun;BE;ch:1:sloid:7100;32800.0;2025;1;hit;2;hit
 21;Lugano;TI;ch:1:sloid:5300;32300.0;2025;3;hit;2;hit
 22;Fribourg/Freiburg;FR;ch:1:sloid:4100;30800.0;2025;4;hit;3;hit
 23;Chur;GR;ch:1:sloid:9000;29800.0;2025;2;hit;2;hit
@@ -29,7 +29,7 @@
 28;Wetzikon ZH;ZH;ch:1:sloid:3123;26000.0;2025;3;hit;3;hit
 29;Uster;ZH;ch:1:sloid:3125;25500.0;2025;1;hit;2;hit
 30;Rapperswil SG;SG;ch:1:sloid:3110;25300.0;2025;3;hit;3;hit
-31;Stettbach;ZH;ch:1:sloid:3147;25200.0;2025;2;hit;6;hit
+31;Stettbach;ZH;ch:1:sloid:3147;25200.0;2025;2;hit;4;hit
 32;Schaffhausen;SH;ch:1:sloid:3424;25100.0;2025;3;hit;4;hit
 33;Brugg AG;AG;ch:1:sloid:309;22800.0;2025;2;hit;4;hit
 34;Brig;VS;ch:1:sloid:1609;21200.0;2025;2;hit;2;hit
@@ -37,18 +37,18 @@
 36;Bellinzona;TI;ch:1:sloid:5213;20700.0;2025;2;hit;2;hit
 37;Arth-Goldau;SZ;ch:1:sloid:5004;20100.0;2025;2;hit;2;hit
 38;Montreux;VD;ch:1:sloid:1300;19500.0;2025;2;hit;2;hit
-39;Nyon;VD;ch:1:sloid:1030;19300.0;2025;2;hit;2;hit
+39;Nyon;VD;ch:1:sloid:1030;19300.0;2025;2;hit;1;hit
 40;Yverdon-les-Bains;VD;ch:1:sloid:4200;19300.0;2025;1;hit;1;hit
 41;Landquart;GR;ch:1:sloid:9002;19100.0;2025;3;hit;3;hit
 42;Spiez;BE;ch:1:sloid:7483;18600.0;2025;3;hit;2;hit
 43;Wädenswil;ZH;ch:1:sloid:3206;18600.0;2025;2;hit;2;hit
-44;Wil SG;SG;ch:1:sloid:6206;18300.0;2025;5;hit;5;hit
+44;Wil SG;SG;ch:1:sloid:6206;18300.0;2025;5;hit;3;hit
 45;Interlaken Ost;BE;ch:1:sloid:7492;17700.0;2025;1;hit;1;hit
 46;Thalwil;ZH;ch:1:sloid:3202;17700.0;2025;1;hit;2;hit
 47;Morges;VD;ch:1:sloid:1037;17500.0;2025;2;hit;2;hit
 48;Effretikon;ZH;ch:1:sloid:3305;17400.0;2025;3;hit;2;hit
 49;Pfäffikon SZ;SZ;ch:1:sloid:3209;16700.0;2025;3;hit;3;hit
-50;Weinfelden;TG;ch:1:sloid:6105;16500.0;2025;3;hit;3;hit
+50;Weinfelden;TG;ch:1:sloid:6105;16500.0;2025;3;hit;2;hit
 51;Liestal;BL;ch:1:sloid:23;16200.0;2025;3;hit;3;hit
 52;Burgdorf;BE;ch:1:sloid:8005;16000.0;2025;2;hit;3;hit
 53;Sargans;SG;ch:1:sloid:9411;16000.0;2025;2;hit;3;hit
@@ -57,21 +57,21 @@
 56;Solothurn;SO;ch:1:sloid:207;15600.0;2025;3;hit;2;hit
 57;Rotkreuz;ZG;ch:1:sloid:2202;15300.0;2025;3;hit;4;hit
 58;Zürich Enge;ZH;ch:1:sloid:3010;15300.0;2025;2;hit;8;hit
-59;Bern Wankdorf;BE;ch:1:sloid:16161;15000.0;2025;2;hit;8;hit
+59;Bern Wankdorf;BE;ch:1:sloid:16161;15000.0;2025;2;hit;7;hit
 60;Sion;VS;ch:1:sloid:1506;14300.0;2025;3;hit;3;hit
 61;Sursee;LU;ch:1:sloid:2007;13400.0;2025;3;hit;3;hit
 62;Wallisellen;ZH;ch:1:sloid:3129;13300.0;2025;2;hit;4;hit
 63;Schlieren;ZH;ch:1:sloid:3509;12800.0;2025;3;hit;4;hit
-64;Zürich Wiedikon;ZH;ch:1:sloid:3011;12700.0;2025;8;hit;9;hit
+64;Zürich Wiedikon;ZH;ch:1:sloid:3011;12700.0;2025;3;hit;8;hit
 65;Martigny;VS;ch:1:sloid:1500;12200.0;2025;3;hit;2;hit
 66;Ziegelbrücke;SG;ch:1:sloid:3225;12000.0;2025;2;hit;2;hit
 67;Rüti ZH;ZH;ch:1:sloid:3121;12000.0;2025;2;hit;3;hit
-68;Zermatt;VS;ch:1:sloid:1689;11900.0;2025;2;hit;3;hit
+68;Zermatt;VS;ch:1:sloid:1689;11900.0;2025;2;hit;2;hit
 69;Romanshorn;TG;ch:1:sloid:6121;11800.0;2025;3;hit;3;hit
 70;Aigle;VD;ch:1:sloid:1400;11500.0;2025;2;hit;2;hit
 71;Locarno;TI;ch:1:sloid:5400;10800.0;2025;2;hit;2;hit
 72;Frauenfeld;TG;ch:1:sloid:6100;10600.0;2025;3;hit;4;hit
-73;Langenthal;BE;ch:1:sloid:8100;10500.0;2025;3;hit;7;hit
+73;Langenthal;BE;ch:1:sloid:8100;10500.0;2025;3;hit;5;hit
 74;La Chaux-de-Fonds;NE;ch:1:sloid:4314;10200.0;2025;4;hit;8;hit
 75;Schwerzenbach ZH;ZH;ch:1:sloid:3127;10100.0;2025;3;hit;6;hit
 76;Zofingen;AG;ch:1:sloid:2001;10100.0;2025;2;hit;2;hit
@@ -82,41 +82,41 @@
 81;Horgen;ZH;ch:1:sloid:3204;9200.0;2025;3;hit;2;hit
 82;Baar;ZG;ch:1:sloid:2206;9100.0;2025;3;hit;3;hit
 83;Chiasso;TI;ch:1:sloid:5307;9100.0;2025;3;hit;3;hit
-84;Rheinfelden;AG;ch:1:sloid:301;9000.0;2025;3;hit;3;hit
+84;Rheinfelden;AG;ch:1:sloid:301;9000.0;2025;3;hit;2;hit
 85;Lancy-Pont-Rouge;GE;ch:1:sloid:16155;8700.0;2025;4;hit;5;hit
-86;Pratteln;BL;ch:1:sloid:21;8700.0;2025;4;hit;4;hit
+86;Pratteln;BL;ch:1:sloid:21;8700.0;2025;4;hit;3;hit
 87;Dübendorf;ZH;ch:1:sloid:3128;8500.0;2025;2;hit;2;hit
 88;Wattwil;SG;ch:1:sloid:6200;8300.0;2025;3;hit;3;hit
 89;Dietlikon;ZH;ch:1:sloid:3306;8200.0;2025;4;hit;4;hit
-90;Meilen;ZH;ch:1:sloid:3104;8200.0;2025;4;hit;3;hit
-91;Aesch BL;BL;ch:1:sloid:117;8200.0;2025;3;hit;7;hit
-92;Delémont;JU;ch:1:sloid:109;7800.0;2025;4;hit;4;hit
+90;Meilen;ZH;ch:1:sloid:3104;8200.0;2025;2;hit;2;hit
+91;Aesch BL;BL;ch:1:sloid:117;8200.0;2025;3;hit;3;hit
+92;Delémont;JU;ch:1:sloid:109;7800.0;2025;4;hit;3;hit
 93;Gossau SG;SG;ch:1:sloid:6210;7700.0;2025;3;hit;3;hit
 94;Sissach;BL;ch:1:sloid:26;7700.0;2025;3;hit;3;hit
-95;Coppet;VD;ch:1:sloid:1023;7600.0;2025;3;hit;3;hit
+95;Coppet;VD;ch:1:sloid:1023;7600.0;2025;3;hit;2;hit
 96;Konolfingen;BE;ch:1:sloid:8202;7600.0;2025;3;hit;3;hit
-97;Kreuzlingen;TG;ch:1:sloid:6131;7500.0;2025;3;hit;4;hit
+97;Kreuzlingen;TG;ch:1:sloid:6131;7500.0;2025;3;hit;3;hit
 98;Sierre/Siders;VS;ch:1:sloid:1509;7500.0;2025;3;hit;3;hit
-99;Genève-Champel;GE;ch:1:sloid:16272;7400.0;2025;9;hit;9;hit
+99;Genève-Champel;GE;ch:1:sloid:16272;7400.0;2025;8;hit;8;hit
 100;Gland;VD;ch:1:sloid:1031;7400.0;2025;3;hit;2;hit
-101;Glattbrugg;ZH;ch:1:sloid:3310;7400.0;2025;4;hit;4;hit
-102;Oberglatt ZH;ZH;ch:1:sloid:3312;7400.0;2025;3;hit;1;hit
+101;Glattbrugg;ZH;ch:1:sloid:3310;7400.0;2025;3;hit;3;hit
+102;Oberglatt ZH;ZH;ch:1:sloid:3312;7400.0;2025;1;hit;1;hit
 103;Affoltern am Albis;ZH;ch:1:sloid:2224;7300.0;2025;3;hit;4;hit
-104;Regensdorf-Watt;ZH;ch:1:sloid:3526;7300.0;2025;5;hit;4;hit
+104;Regensdorf-Watt;ZH;ch:1:sloid:3526;7300.0;2025;4;hit;3;hit
 105;Rorschach;SG;ch:1:sloid:6311;7200.0;2025;3;hit;2;hit
 106;Stans;NW;ch:1:sloid:8391;7100.0;2025;4;hit;4;hit
 107;Bern Europaplatz;BE;ch:1:sloid:4108;7000.0;2025;6;hit;6;hit
-108;Chêne-Bourg;GE;ch:1:sloid:16274;7000.0;2025;4;hit;7;hit
+108;Chêne-Bourg;GE;ch:1:sloid:16274;7000.0;2025;4;hit;5;hit
 109;St-Maurice;VS;ch:1:sloid:1403;7000.0;2025;2;hit;4;hit
 110;Uznach;SG;ch:1:sloid:3116;7000.0;2025;1;hit;1;hit
-111;Prilly-Malley;VD;ch:1:sloid:18452;7000.0;2025;6;hit;5;hit
+111;Prilly-Malley;VD;ch:1:sloid:18452;7000.0;2025;4;hit;4;hit
 112;Turgi;AG;ch:1:sloid:3503;6900.0;2025;2;hit;2;hit
 113;Täsch;VS;ch:1:sloid:1688;6900.0;2025;2;hit;2;hit
-114;Interlaken West;BE;ch:1:sloid:7493;6700.0;2025;12;hit;4;hit
-115;Payerne;VD;ch:1:sloid:4134;6700.0;2025;3;hit;3;hit
-116;Münsingen;BE;ch:1:sloid:7006;6600.0;2025;4;hit;4;hit
+114;Interlaken West;BE;ch:1:sloid:7493;6700.0;2025;1;hit;4;hit
+115;Payerne;VD;ch:1:sloid:4134;6700.0;2025;3;hit;2;hit
+116;Münsingen;BE;ch:1:sloid:7006;6600.0;2025;3;hit;2;hit
 117;Palézieux;VD;ch:1:sloid:4014;6500.0;2025;3;hit;2;hit
-118;Laufen;BL;ch:1:sloid:113;6300.0;2025;5;hit;4;hit
+118;Laufen;BL;ch:1:sloid:113;6300.0;2025;5;hit;3;hit
 119;Wohlen AG;AG;ch:1:sloid:2213;6100.0;2025;3;hit;2;hit
 120;Bussigny;VD;ch:1:sloid:1117;6100.0;2025;4;hit;4;hit
 121;Zürich Wollishofen;ZH;ch:1:sloid:3009;6000.0;2025;9;hit;9;hit
@@ -125,14 +125,14 @@
 124;Muttenz;BL;ch:1:sloid:20;5900.0;2025;3;hit;3;hit
 125;St. Moritz;GR;ch:1:sloid:9253;5900.0;2025;5;hit;5;hit
 126;Emmenbrücke;LU;ch:1:sloid:2021;5900.0;2025;3;hit;3;hit
-127;Bassersdorf;ZH;ch:1:sloid:3307;5800.0;2025;4;hit;5;hit
-128;Herisau;AR;ch:1:sloid:6290;5800.0;2025;4;hit;4;hit
+127;Bassersdorf;ZH;ch:1:sloid:3307;5800.0;2025;4;hit;4;hit
+128;Herisau;AR;ch:1:sloid:6290;5800.0;2025;4;hit;3;hit
 129;Küsnacht ZH;ZH;ch:1:sloid:3101;5800.0;2025;3;hit;3;hit
 130;Pfäffikon ZH;ZH;ch:1:sloid:3301;5800.0;2025;3;hit;2;hit
 131;Giubiasco;TI;ch:1:sloid:5214;5700.0;2025;3;hit;2;hit
 132;Stäfa;ZH;ch:1:sloid:3107;5700.0;2025;3;hit;3;hit
 133;Romont FR;FR;ch:1:sloid:4023;5700.0;2025;4;hit;3;hit
-134;Buchs SG;SG;ch:1:sloid:9404;5600.0;2025;5;hit;5;hit
+134;Buchs SG;SG;ch:1:sloid:9404;5600.0;2025;3;hit;4;hit
 135;Bubikon;ZH;ch:1:sloid:3122;5600.0;2025;3;hit;3;hit
 136;Uzwil;SG;ch:1:sloid:6208;5500.0;2025;2;hit;2;hit
 137;Kloten;ZH;ch:1:sloid:3308;5400.0;2025;3;hit;2;hit
@@ -140,105 +140,105 @@
 139;Belp;BE;ch:1:sloid:7076;5200.0;2025;4;hit;3;hit
 140;Männedorf;ZH;ch:1:sloid:3106;5200.0;2025;2;hit;2;hit
 141;Oensingen;SO;ch:1:sloid:212;5200.0;2025;3;hit;2;hit
-142;Killwangen-Spreitenbach;AG;ch:1:sloid:3506;5100.0;2025;6;hit;5;hit
+142;Killwangen-Spreitenbach;AG;ch:1:sloid:3506;5100.0;2025;5;hit;5;hit
 143;Langnau i.E.;BE;ch:1:sloid:8207;5000.0;2025;5;hit;5;hit
 144;Wettingen;AG;ch:1:sloid:3505;5000.0;2025;3;hit;3;hit
 145;Nänikon-Greifensee;ZH;ch:1:sloid:3126;5000.0;2025;2;hit;2;hit
 146;Allaman;VD;ch:1:sloid:1035;4900.0;2025;2;hit;2;hit
 147;Uetikon;ZH;ch:1:sloid:3105;4900.0;2025;3;hit;2;hit
-148;Rümlang;ZH;ch:1:sloid:3311;4900.0;2025;3;hit;3;hit
-149;Birmensdorf ZH;ZH;ch:1:sloid:2221;4800.0;2025;3;hit;3;hit
+148;Rümlang;ZH;ch:1:sloid:3311;4900.0;2025;3;hit;2;hit
+149;Birmensdorf ZH;ZH;ch:1:sloid:2221;4800.0;2025;3;hit;2;hit
 150;Frick;AG;ch:1:sloid:305;4800.0;2025;4;hit;3;hit
-151;Grenchen Süd;SO;ch:1:sloid:202;4800.0;2025;10;hit;10;hit
-152;Zweisimmen;BE;ch:1:sloid:7290;4800.0;2025;3;hit;3;hit
-153;Gelterkinden;BL;ch:1:sloid:27;4700.0;2025;4;hit;4;hit
+151;Grenchen Süd;SO;ch:1:sloid:202;4800.0;2025;5;hit;5;hit
+152;Zweisimmen;BE;ch:1:sloid:7290;4800.0;2025;3;hit;2;hit
+153;Gelterkinden;BL;ch:1:sloid:27;4700.0;2025;3;hit;3;hit
 154;Versoix;GE;ch:1:sloid:1022;4700.0;2025;5;hit;4;hit
-155;Dornach-Arlesheim;SO;ch:1:sloid:118;4500.0;2025;7;hit;9;hit
+155;Dornach-Arlesheim;SO;ch:1:sloid:118;4500.0;2025;5;hit;9;hit
 156;Heerbrugg;SG;ch:1:sloid:6317;4500.0;2025;3;hit;3;hit
-157;Rolle;VD;ch:1:sloid:1033;4500.0;2025;3;hit;3;hit
+157;Rolle;VD;ch:1:sloid:1033;4500.0;2025;3;hit;2;hit
 158;Villeneuve VD;VD;ch:1:sloid:1303;4500.0;2025;6;hit;6;hit
 159;Einsiedeln;SZ;ch:1:sloid:3283;4300.0;2025;3;hit;2;hit
 160;Kilchberg ZH;ZH;ch:1:sloid:3200;4300.0;2025;3;hit;3;hit
 161;Pont-Céard;GE;ch:1:sloid:1013;4200.0;2025;4;hit;6;hit
-162;Zollikofen;BE;ch:1:sloid:4410;4200.0;2025;3;hit;3;hit
+162;Zollikofen;BE;ch:1:sloid:4410;4200.0;2025;2;hit;2;hit
 163;Herrliberg-Feldmeilen;ZH;ch:1:sloid:3103;4200.0;2025;12;hit;12;hit
-164;Koblenz;AG;ch:1:sloid:329;4200.0;2025;3;hit;3;hit
+164;Koblenz;AG;ch:1:sloid:329;4200.0;2025;3;hit;2;hit
 165;St. Margrethen SG;SG;ch:1:sloid:6314;4200.0;2025;7;hit;7;hit
 166;Meiringen;BE;ch:1:sloid:8308;4100.0;2025;4;hit;3;hit
 167;Zürich Tiefenbrunnen;ZH;ch:1:sloid:3004;4100.0;2025;8;hit;1;hit
 168;Pully;VD;ch:1:sloid:1121;4000.0;2025;2;hit;2;hit
-169;Samedan;GR;ch:1:sloid:9251;4000.0;2025;3;hit;2;hit
+169;Samedan;GR;ch:1:sloid:9251;4000.0;2025;2;hit;2;hit
 170;Zürich Affoltern;ZH;ch:1:sloid:3008;4000.0;2025;9;hit;9;hit
 171;Cossonay-Penthalaz;VD;ch:1:sloid:1115;3900.0;2025;4;hit;4;hit
 172;Gümligen;BE;ch:1:sloid:7003;3900.0;2025;2;hit;2;hit
 173;Sarnen;OW;ch:1:sloid:8314;3900.0;2025;3;hit;3;hit
-174;Erlenbach ZH;ZH;ch:1:sloid:3102;3800.0;2025;6;hit;6;hit
+174;Erlenbach ZH;ZH;ch:1:sloid:3102;3800.0;2025;3;hit;4;hit
 175;Kriens Mattenhof;LU;ch:1:sloid:16351;3800.0;2025;8;hit;8;hit
 176;Mellingen Heitersberg;AG;ch:1:sloid:16219;3800.0;2025;3;hit;3;hit
-177;Ostermundigen;BE;ch:1:sloid:7002;3800.0;2025;5;hit;4;hit
-178;Oberwinterthur;ZH;ch:1:sloid:6016;3800.0;2025;7;hit;7;hit
+177;Ostermundigen;BE;ch:1:sloid:7002;3800.0;2025;4;hit;4;hit
+178;Oberwinterthur;ZH;ch:1:sloid:6016;3800.0;2025;5;hit;6;hit
 179;Düdingen;FR;ch:1:sloid:4101;3700.0;2025;2;hit;2;hit
 180;Emmenbrücke Gersag;LU;ch:1:sloid:2028;3700.0;2025;13;hit;13;hit
 181;Murten/Morat;FR;ch:1:sloid:4128;3700.0;2025;2;hit;2;hit
-182;Bonstetten-Wettswil;ZH;ch:1:sloid:2222;3700.0;2025;7;hit;6;hit
-183;Flawil;SG;ch:1:sloid:6209;3600.0;2025;3;hit;3;hit
-184;Glanzenberg;ZH;ch:1:sloid:3512;3600.0;2025;5;hit;4;hit
-185;Münchenbuchsee;BE;ch:1:sloid:4411;3600.0;2025;4;hit;6;hit
-186;Frenkendorf-Füllinsdorf;BL;ch:1:sloid:22;3500.0;2025;13;hit;13;hit
+182;Bonstetten-Wettswil;ZH;ch:1:sloid:2222;3700.0;2025;5;hit;5;hit
+183;Flawil;SG;ch:1:sloid:6209;3600.0;2025;3;hit;2;hit
+184;Glanzenberg;ZH;ch:1:sloid:3512;3600.0;2025;4;hit;4;hit
+185;Münchenbuchsee;BE;ch:1:sloid:4411;3600.0;2025;4;hit;4;hit
+186;Frenkendorf-Füllinsdorf;BL;ch:1:sloid:22;3500.0;2025;5;hit;5;hit
 187;Lachen SZ;SZ;ch:1:sloid:3220;3500.0;2025;4;hit;3;hit
 188;Bex;VD;ch:1:sloid:1402;3400.0;2025;3;hit;3;hit
-189;Horw;LU;ch:1:sloid:8319;3400.0;2025;4;hit;4;hit
-190;Siebnen-Wangen;SZ;ch:1:sloid:3221;3400.0;2025;9;hit;9;hit
-191;Herzogenbuchsee;BE;ch:1:sloid:8008;3400.0;2025;4;hit;5;hit
+189;Horw;LU;ch:1:sloid:8319;3400.0;2025;4;hit;2;hit
+190;Siebnen-Wangen;SZ;ch:1:sloid:3221;3400.0;2025;4;hit;4;hit
+191;Herzogenbuchsee;BE;ch:1:sloid:8008;3400.0;2025;4;hit;4;hit
 192;Möhlin;AG;ch:1:sloid:302;3400.0;2025;2;hit;2;hit
 193;Andermatt;UR;ch:1:sloid:5165;3300.0;2025;4;hit;3;hit
 194;Biberbrugg;SZ;ch:1:sloid:3284;3300.0;2025;3;hit;3;hit
-195;Altstätten SG;SG;ch:1:sloid:6319;3200.0;2025;4;hit;6;hit
+195;Altstätten SG;SG;ch:1:sloid:6319;3200.0;2025;4;hit;4;hit
 196;Amriswil;TG;ch:1:sloid:6109;3200.0;2025;3;hit;3;hit
-197;Glarus;GL;ch:1:sloid:3230;3200.0;2025;3;hit;3;hit
-198;Klosters Platz;GR;ch:1:sloid:9068;3200.0;2025;10;hit;8;hit
+197;Glarus;GL;ch:1:sloid:3230;3200.0;2025;3;hit;2;hit
+198;Klosters Platz;GR;ch:1:sloid:9068;3200.0;2025;4;hit;8;hit
 199;Kerzers;FR;ch:1:sloid:4400;3200.0;2025;3;hit;2;hit
-200;Moutier;BE;ch:1:sloid:105;3200.0;2025;3;hit;3;hit
-201;Brunnen;SZ;ch:1:sloid:5007;3200.0;2025;4;hit;4;hit
-202;Wolhusen;LU;ch:1:sloid:8215;3200.0;2025;3;hit;3;hit
+200;Moutier;BE;ch:1:sloid:105;3200.0;2025;2;hit;2;hit
+201;Brunnen;SZ;ch:1:sloid:5007;3200.0;2025;4;hit;3;hit
+202;Wolhusen;LU;ch:1:sloid:8215;3200.0;2025;3;hit;2;hit
 203;Bern Bümpliz Süd;BE;ch:1:sloid:4106;3100.0;2025;6;hit;6;hit
 204;Dielsdorf;ZH;ch:1:sloid:3315;3100.0;2025;4;hit;4;hit
-205;Malters;LU;ch:1:sloid:8218;3100.0;2025;3;hit;4;hit
+205;Malters;LU;ch:1:sloid:8218;3100.0;2025;3;hit;3;hit
 206;Porrentruy;JU;ch:1:sloid:126;3100.0;2025;3;hit;3;hit
-207;Stein-Säckingen;AG;ch:1:sloid:320;3100.0;2025;8;hit;8;hit
+207;Stein-Säckingen;AG;ch:1:sloid:320;3100.0;2025;5;hit;8;hit
 208;Fehraltorf;ZH;ch:1:sloid:3302;3100.0;2025;3;hit;3;hit
 209;Rüschlikon;ZH;ch:1:sloid:3201;3000.0;2025;3;hit;3;hit
 210;Küssnacht am Rigi;SZ;ch:1:sloid:5002;2900.0;2025;4;hit;4;hit
 211;Bern Brünnen Westside;BE;ch:1:sloid:16154;2900.0;2025;8;hit;8;hit
 212;Göschenen;UR;ch:1:sloid:5119;2800.0;2025;3;hit;2;hit
 213;Le Locle;NE;ch:1:sloid:4316;2800.0;2025;5;hit;4;hit
-214;St. Gallen St. Fiden;SG;ch:1:sloid:6303;2800.0;2025;5;hit;5;hit
+214;St. Gallen St. Fiden;SG;ch:1:sloid:6303;2800.0;2025;2;hit;5;hit
 215;La Tour-de-Peilz;VD;ch:1:sloid:1201;2800.0;2025;7;hit;9;hit
-216;Andelfingen;ZH;ch:1:sloid:6047;2800.0;2025;5;hit;4;hit
+216;Andelfingen;ZH;ch:1:sloid:6047;2800.0;2025;4;hit;3;hit
 217;Cully;VD;ch:1:sloid:1124;2800.0;2025;2;hit;2;hit
 218;Muri AG;AG;ch:1:sloid:2215;2800.0;2025;4;hit;4;hit
 219;Schwyz;SZ;ch:1:sloid:5006;2800.0;2025;4;hit;4;hit
-220;Bad Ragaz;SG;ch:1:sloid:9004;2800.0;2025;5;hit;5;hit
-221;Buchs-Dällikon;ZH;ch:1:sloid:3527;2800.0;2025;7;hit;7;hit
+220;Bad Ragaz;SG;ch:1:sloid:9004;2800.0;2025;3;hit;3;hit
+221;Buchs-Dällikon;ZH;ch:1:sloid:3527;2800.0;2025;7;hit;5;hit
 222;Luzern Allmend/Messe;LU;ch:1:sloid:8321;2700.0;2025;3;hit;2;hit
 223;Cadenazzo;TI;ch:1:sloid:5404;2700.0;2025;3;hit;3;hit
-224;Engelberg;OW;ch:1:sloid:8399;2700.0;2025;6;hit;5;hit
+224;Engelberg;OW;ch:1:sloid:8399;2700.0;2025;6;hit;4;hit
 225;Genève-Sécheron;GE;ch:1:sloid:16283;2700.0;2025;8;hit;8;hit
-226;Hergiswil NW;NW;ch:1:sloid:8318;2700.0;2025;5;hit;5;hit
+226;Hergiswil NW;NW;ch:1:sloid:8318;2700.0;2025;5;hit;4;hit
 227;Hinwil;ZH;ch:1:sloid:3130;2700.0;2025;3;hit;2;hit
 228;Brienz;BE;ch:1:sloid:8305;2700.0;2025;3;hit;3;hit
 229;Biasca;TI;ch:1:sloid:5209;2600.0;2025;3;hit;3;hit
-230;Buchrain;LU;ch:1:sloid:16350;2600.0;2025;5;hit;4;hit
-231;Castione-Arbedo;TI;ch:1:sloid:5212;2600.0;2025;6;hit;6;hit
-232;Davos Platz;GR;ch:1:sloid:9073;2600.0;2025;7;hit;3;hit
+230;Buchrain;LU;ch:1:sloid:16350;2600.0;2025;5;hit;3;hit
+231;Castione-Arbedo;TI;ch:1:sloid:5212;2600.0;2025;5;hit;5;hit
+232;Davos Platz;GR;ch:1:sloid:9073;2600.0;2025;4;hit;3;hit
 233;Frutigen;BE;ch:1:sloid:7478;2600.0;2025;3;hit;3;hit
-234;Bern Bümpliz Nord;BE;ch:1:sloid:4489;2600.0;2025;14;hit;14;hit
-235;Hasle-Rüegsau;BE;ch:1:sloid:8265;2600.0;2025;5;hit;5;hit
-236;Aarburg-Oftringen;AG;ch:1:sloid:2000;2500.0;2025;5;hit;5;hit
+234;Bern Bümpliz Nord;BE;ch:1:sloid:4489;2600.0;2025;7;hit;7;hit
+235;Hasle-Rüegsau;BE;ch:1:sloid:8265;2600.0;2025;4;hit;3;hit
+236;Aarburg-Oftringen;AG;ch:1:sloid:2000;2500.0;2025;4;hit;5;hit
 237;Döttingen;AG;ch:1:sloid:3501;2500.0;2025;2;hit;2;hit
 238;Horgen Oberdorf;ZH;ch:1:sloid:2208;2500.0;2025;8;hit;8;hit
-239;Paradiso;TI;ch:1:sloid:5301;2500.0;2025;4;hit;3;hit
-240;Rorschach Stadt;SG;ch:1:sloid:6322;2500.0;2025;11;hit;11;hit
+239;Paradiso;TI;ch:1:sloid:5301;2500.0;2025;3;hit;3;hit
+240;Rorschach Stadt;SG;ch:1:sloid:6322;2500.0;2025;9;hit;4;hit
 241;Winterthur Seen;ZH;ch:1:sloid:6002;2500.0;2025;12;hit;12;hit
 242;Zürich Wipkingen;ZH;ch:1:sloid:3015;2500.0;2025;9;hit;9;hit
 243;Tenero;TI;ch:1:sloid:5401;2500.0;2025;2;hit;2;hit
@@ -246,29 +246,29 @@
 245;Leuk;VS;ch:1:sloid:1601;2400.0;2025;3;hit;3;hit
 246;Sempach-Neuenkirch;LU;ch:1:sloid:2009;2400.0;2025;3;hit;3;hit
 247;Altdorf UR;UR;ch:1:sloid:5113;2400.0;2025;4;hit;4;hit
-248;Ins;BE;ch:1:sloid:4483;2400.0;2025;3;hit;2;hit
-249;Kaiseraugst;AG;ch:1:sloid:300;2400.0;2025;4;hit;3;hit
+248;Ins;BE;ch:1:sloid:4483;2400.0;2025;3;hit;1;hit
+249;Kaiseraugst;AG;ch:1:sloid:300;2400.0;2025;3;hit;3;hit
 250;Schüpfheim;LU;ch:1:sloid:8211;2400.0;2025;4;hit;4;hit
 251;Clarens;VD;ch:1:sloid:1203;2300.0;2025;2;hit;2;hit
-252;Pontresina;GR;ch:1:sloid:9255;2300.0;2025;3;hit;5;hit
+252;Pontresina;GR;ch:1:sloid:9255;2300.0;2025;3;hit;3;hit
 253;Sonceboz-Sombeval;BE;ch:1:sloid:4304;2300.0;2025;4;hit;4;hit
-254;Thusis;GR;ch:1:sloid:9189;2300.0;2025;2;hit;2;hit
+254;Thusis;GR;ch:1:sloid:9189;2300.0;2025;1;hit;2;hit
 255;Monthey;VS;ch:1:sloid:1421;2300.0;2025;5;hit;4;hit
-256;Schönenwerd SO;SO;ch:1:sloid:2112;2300.0;2025;7;hit;7;hit
-257;Chavornay;VD;ch:1:sloid:1112;2300.0;2025;5;hit;4;hit
+256;Schönenwerd SO;SO;ch:1:sloid:2112;2300.0;2025;6;hit;7;hit
+257;Chavornay;VD;ch:1:sloid:1112;2300.0;2025;4;hit;4;hit
 258;Basel Dreispitz;BS;ch:1:sloid:136;2200.0;2025;7;hit;7;hit
 259;Lutry;VD;ch:1:sloid:1122;2200.0;2025;3;hit;3;hit
 260;Schiers;GR;ch:1:sloid:9060;2200.0;2025;4;hit;4;hit
-261;Satigny;GE;ch:1:sloid:1003;2200.0;2025;4;hit;3;hit
-262;Disentis/Mustér;GR;ch:1:sloid:9179;2200.0;2025;4;hit;4;hit
+261;Satigny;GE;ch:1:sloid:1003;2200.0;2025;3;hit;3;hit
+262;Disentis/Mustér;GR;ch:1:sloid:9179;2200.0;2025;4;hit;3;hit
 263;Hedingen;ZH;ch:1:sloid:2223;2200.0;2025;3;hit;3;hit
 264;Urdorf;ZH;ch:1:sloid:2220;2200.0;2025;3;hit;2;hit
 265;Willisau;LU;ch:1:sloid:8295;2200.0;2025;4;hit;4;hit
 266;Arbon;TG;ch:1:sloid:6308;2100.0;2025;2;hit;2;hit
 267;Illnau;ZH;ch:1:sloid:3303;2100.0;2025;3;hit;2;hit
-268;Ilanz;GR;ch:1:sloid:9171;2100.0;2025;3;hit;2;hit
-269;Kreuzlingen Hafen;TG;ch:1:sloid:6128;2100.0;2025;7;hit;7;hit
-270;Näfels-Mollis;GL;ch:1:sloid:3227;2100.0;2025;8;hit;8;hit
+268;Ilanz;GR;ch:1:sloid:9171;2100.0;2025;2;hit;2;hit
+269;Kreuzlingen Hafen;TG;ch:1:sloid:6128;2100.0;2025;6;hit;6;hit
+270;Näfels-Mollis;GL;ch:1:sloid:3227;2100.0;2025;3;hit;3;hit
 271;Niederwangen;BE;ch:1:sloid:4105;2100.0;2025;7;hit;7;hit
 272;Opfikon;ZH;ch:1:sloid:3340;2100.0;2025;2;hit;2;hit
 273;Rupperswil;AG;ch:1:sloid:2114;2100.0;2025;3;hit;3;hit
@@ -279,223 +279,223 @@
 278;Suhr;AG;ch:1:sloid:2103;2000.0;2025;3;hit;2;hit
 279;Hochdorf;LU;ch:1:sloid:2024;2000.0;2025;3;hit;3;hit
 280;Scuol-Tarasp;GR;ch:1:sloid:9268;2000.0;2025;3;hit;3;hit
-281;Les Tuileries;GE;ch:1:sloid:1011;2000.0;2025;5;hit;6;hit
+281;Les Tuileries;GE;ch:1:sloid:1011;2000.0;2025;5;hit;5;hit
 282;Gstaad;BE;ch:1:sloid:1399;1900.0;2024;3;hit;2;hit
 283;Mettmenstetten;ZH;ch:1:sloid:2225;1900.0;2025;5;hit;5;hit
 284;Neuhausen;SH;ch:1:sloid:3423;1900.0;2025;4;hit;4;hit
 285;St-Imier;BE;ch:1:sloid:4310;1900.0;2025;6;hit;4;hit
-286;Stein am Rhein;SH;ch:1:sloid:6139;1900.0;2025;7;hit;7;hit
+286;Stein am Rhein;SH;ch:1:sloid:6139;1900.0;2025;5;hit;7;hit
 287;Uerikon;ZH;ch:1:sloid:3108;1900.0;2025;3;hit;2;hit
 288;Urdorf Weihermatt;ZH;ch:1:sloid:2229;1900.0;2025;8;hit;8;hit
 289;Walenstadt;SG;ch:1:sloid:9414;1900.0;2025;4;hit;4;hit
 290;Winterthur Grüze;ZH;ch:1:sloid:6001;1900.0;2025;12;hit;12;hit
 291;Zimeysa;GE;ch:1:sloid:1000;1900.0;2025;3;hit;2;hit
-292;Dottikon-Dintikon;AG;ch:1:sloid:2212;1900.0;2025;4;hit;5;hit
+292;Dottikon-Dintikon;AG;ch:1:sloid:2212;1900.0;2025;4;hit;3;hit
 293;Aadorf;TG;ch:1:sloid:6013;1800.0;2025;3;hit;3;hit
 294;Davos Dorf;GR;ch:1:sloid:9072;1800.0;2025;3;hit;3;hit
 295;Elgg;ZH;ch:1:sloid:6014;1800.0;2025;3;hit;2;hit
-296;Embrach-Rorbas;ZH;ch:1:sloid:6041;1800.0;2025;4;hit;5;hit
+296;Embrach-Rorbas;ZH;ch:1:sloid:6041;1800.0;2025;3;hit;3;hit
 297;Marthalen;ZH;ch:1:sloid:6048;1800.0;2025;4;hit;4;hit
 298;Othmarsingen;AG;ch:1:sloid:2105;1800.0;2025;2;hit;2;hit
 299;Rafz;ZH;ch:1:sloid:3404;1800.0;2025;3;hit;3;hit
-300;Schwarzenburg;BE;ch:1:sloid:7089;1800.0;2025;6;hit;6;hit
-301;Schwanden GL;GL;ch:1:sloid:3233;1800.0;2025;8;hit;7;hit
-302;Zollikon;ZH;ch:1:sloid:3100;1800.0;2025;3;hit;2;hit
-303;Genthod-Bellevue;GE;ch:1:sloid:1021;1800.0;2025;5;hit;9;hit
+300;Schwarzenburg;BE;ch:1:sloid:7089;1800.0;2025;5;hit;6;hit
+301;Schwanden GL;GL;ch:1:sloid:3233;1800.0;2025;6;hit;7;hit
+302;Zollikon;ZH;ch:1:sloid:3100;1800.0;2025;2;hit;2;hit
+303;Genthod-Bellevue;GE;ch:1:sloid:1021;1800.0;2025;5;hit;7;hit
 304;Alpnach Dorf;OW;ch:1:sloid:8316;1700.0;2025;4;hit;4;hit
-305;Domat/Ems;GR;ch:1:sloid:9181;1700.0;2025;4;hit;4;hit
+305;Domat/Ems;GR;ch:1:sloid:9181;1700.0;2025;4;hit;3;hit
 306;Estavayer-le-Lac;FR;ch:1:sloid:4132;1700.0;2025;4;hit;4;hit
 307;Etoy;VD;ch:1:sloid:1042;1700.0;2025;3;hit;2;hit
-308;Fiesch;VS;ch:1:sloid:1672;1700.0;2025;3;hit;2;hit
-309;Goldach;SG;ch:1:sloid:6305;1700.0;2025;3;hit;3;hit
+308;Fiesch;VS;ch:1:sloid:1672;1700.0;2025;2;hit;2;hit
+309;Goldach;SG;ch:1:sloid:6305;1700.0;2025;2;hit;2;hit
 310;Hüntwangen-Wil;ZH;ch:1:sloid:3403;1700.0;2025;4;hit;4;hit
 311;Kempten;ZH;ch:1:sloid:3300;1700.0;2025;3;hit;3;hit
 312;Lamone-Cadempino;TI;ch:1:sloid:5219;1700.0;2025;4;hit;4;hit
 313;Pfungen;ZH;ch:1:sloid:6042;1700.0;2025;3;hit;2;hit
 314;Rheineck;SG;ch:1:sloid:6313;1700.0;2025;3;hit;2;hit
 315;Rubigen;BE;ch:1:sloid:7005;1700.0;2025;3;hit;3;hit
-316;Siggenthal-Würenlingen;AG;ch:1:sloid:3502;1700.0;2025;4;hit;7;hit
-317;Flamatt;FR;ch:1:sloid:4103;1700.0;2025;3;hit;3;hit
+316;Siggenthal-Würenlingen;AG;ch:1:sloid:3502;1700.0;2025;4;hit;6;hit
+317;Flamatt;FR;ch:1:sloid:4103;1700.0;2025;3;hit;2;hit
 318;Kollbrunn;ZH;ch:1:sloid:6004;1700.0;2025;3;hit;3;hit
-319;La Plaine;GE;ch:1:sloid:1001;1700.0;2025;6;hit;6;hit
+319;La Plaine;GE;ch:1:sloid:1001;1700.0;2025;6;hit;4;hit
 320;Burier;VD;ch:1:sloid:1202;1700.0;2025;3;hit;3;hit
 321;Stansstad;NW;ch:1:sloid:8390;1700.0;2025;4;hit;4;hit
 322;Arosa;GR;ch:1:sloid:9157;1600.0;2025;3;hit;3;hit
-323;Burgdorf Steinhof;BE;ch:1:sloid:8081;1600.0;2025;10;hit;10;hit
-324;Kandersteg;BE;ch:1:sloid:7475;1600.0;2025;4;hit;3;hit
-325;Küsnacht Goldbach;ZH;ch:1:sloid:3141;1600.0;2025;8;hit;4;hit
+323;Burgdorf Steinhof;BE;ch:1:sloid:8081;1600.0;2025;8;hit;6;hit
+324;Kandersteg;BE;ch:1:sloid:7475;1600.0;2025;3;hit;3;hit
+325;Küsnacht Goldbach;ZH;ch:1:sloid:3141;1600.0;2025;3;hit;3;hit
 326;Köniz;BE;ch:1:sloid:7083;1600.0;2025;2;hit;2;hit
-327;Lausen;BL;ch:1:sloid:24;1600.0;2025;4;hit;4;hit
+327;Lausen;BL;ch:1:sloid:24;1600.0;2025;4;hit;3;hit
 328;Nebikon;LU;ch:1:sloid:2005;1600.0;2025;3;hit;3;hit
-329;Oberrieden Dorf;ZH;ch:1:sloid:2209;1600.0;2025;10;hit;9;hit
+329;Oberrieden Dorf;ZH;ch:1:sloid:2209;1600.0;2025;6;hit;6;hit
 330;Reiden;LU;ch:1:sloid:2003;1600.0;2025;3;hit;3;hit
 331;Saxon;VS;ch:1:sloid:1502;1600.0;2025;4;hit;3;hit
 332;Thörishaus Dorf;BE;ch:1:sloid:4115;1600.0;2025;3;hit;3;hit
-333;Wabern bei Bern;BE;ch:1:sloid:7078;1600.0;2025;5;hit;8;hit
-334;Busswil BE;BE;ch:1:sloid:4415;1600.0;2025;5;hit;5;hit
+333;Wabern bei Bern;BE;ch:1:sloid:7078;1600.0;2025;3;hit;8;hit
+334;Busswil BE;BE;ch:1:sloid:4415;1600.0;2025;4;hit;4;hit
 335;Ramsei;BE;ch:1:sloid:8267;1600.0;2025;3;hit;3;hit
 336;Wichtrach;BE;ch:1:sloid:7007;1600.0;2025;3;hit;3;hit
 337;Filisur;GR;ch:1:sloid:9195;1600.0;2025;3;hit;3;hit
-338;Cham Alpenblick;ZG;ch:1:sloid:15995;1500.0;2025;7;hit;6;hit
+338;Cham Alpenblick;ZG;ch:1:sloid:15995;1500.0;2025;6;hit;6;hit
 339;Giswil;OW;ch:1:sloid:8312;1500.0;2025;3;hit;3;hit
-340;Grenchen Nord;SO;ch:1:sloid:159;1500.0;2025;5;hit;5;hit
-341;Gisikon-Root;LU;ch:1:sloid:2201;1500.0;2025;3;hit;4;hit
-342;Kehrsatz;BE;ch:1:sloid:7077;1500.0;2025;5;hit;4;hit
-343;Niederweningen;ZH;ch:1:sloid:3319;1500.0;2025;7;hit;8;hit
-344;St. Gallen Winkeln;SG;ch:1:sloid:6300;1500.0;2025;13;hit;12;hit
+340;Grenchen Nord;SO;ch:1:sloid:159;1500.0;2025;4;hit;5;hit
+341;Gisikon-Root;LU;ch:1:sloid:2201;1500.0;2025;3;hit;3;hit
+342;Kehrsatz;BE;ch:1:sloid:7077;1500.0;2025;4;hit;3;hit
+343;Niederweningen;ZH;ch:1:sloid:3319;1500.0;2025;7;hit;7;hit
+344;St. Gallen Winkeln;SG;ch:1:sloid:6300;1500.0;2025;12;hit;12;hit
 345;Wildegg;AG;ch:1:sloid:2115;1500.0;2025;4;hit;3;hit
 346;Wittenbach;SG;ch:1:sloid:6393;1500.0;2025;3;hit;3;hit
 347;Bad Zurzach;AG;ch:1:sloid:3409;1500.0;2025;3;hit;3;hit
-348;Henggart;ZH;ch:1:sloid:6046;1500.0;2025;5;hit;4;hit
+348;Henggart;ZH;ch:1:sloid:6046;1500.0;2025;4;hit;4;hit
 349;Moudon;VD;ch:1:sloid:4120;1500.0;2025;3;hit;3;hit
-350;St-Prex;VD;ch:1:sloid:1036;1500.0;2025;5;hit;4;hit
+350;St-Prex;VD;ch:1:sloid:1036;1500.0;2025;4;hit;4;hit
 351;Oberrieden;ZH;ch:1:sloid:3203;1500.0;2025;5;hit;5;hit
-352;Beinwil am See;AG;ch:1:sloid:2034;1400.0;2025;5;hit;5;hit
+352;Beinwil am See;AG;ch:1:sloid:2034;1400.0;2025;4;hit;5;hit
 353;Eschlikon TG;TG;ch:1:sloid:6011;1400.0;2025;3;hit;5;hit
-354;Huttwil;BE;ch:1:sloid:8187;1400.0;2025;3;hit;3;hit
-355;Maienfeld;GR;ch:1:sloid:9003;1400.0;2025;3;hit;4;hit
-356;Niederglatt ZH;ZH;ch:1:sloid:3313;1400.0;2025;7;hit;8;hit
-357;Neuhausen Rheinfall;SH;ch:1:sloid:18924;1400.0;2025;12;hit;13;hit
+354;Huttwil;BE;ch:1:sloid:8187;1400.0;2025;3;hit;2;hit
+355;Maienfeld;GR;ch:1:sloid:9003;1400.0;2025;3;hit;3;hit
+356;Niederglatt ZH;ZH;ch:1:sloid:3313;1400.0;2025;7;hit;7;hit
+357;Neuhausen Rheinfall;SH;ch:1:sloid:18924;1400.0;2025;11;hit;11;hit
 358;La Neuveville;BE;ch:1:sloid:4226;1400.0;2025;4;hit;4;hit
-359;Emmenbrücke Kapf;LU;ch:1:sloid:2012;1400.0;2025;13;hit;13;hit
+359;Emmenbrücke Kapf;LU;ch:1:sloid:2012;1400.0;2025;6;hit;6;hit
 360;St. Niklaus VS;VS;ch:1:sloid:1685;1400.0;2025;5;hit;5;hit
 361;Turbenthal;ZH;ch:1:sloid:6007;1400.0;2025;3;hit;4;hit
-362;Unterterzen;SG;ch:1:sloid:9416;1400.0;2025;6;hit;5;hit
+362;Unterterzen;SG;ch:1:sloid:9416;1400.0;2025;6;hit;3;hit
 363;Otelfingen;ZH;ch:1:sloid:3528;1400.0;2025;2;hit;2;hit
-364;Schmitten FR;FR;ch:1:sloid:4102;1400.0;2025;4;hit;5;hit
+364;Schmitten FR;FR;ch:1:sloid:4102;1400.0;2025;4;hit;4;hit
 365;Schüpfen;BE;ch:1:sloid:4412;1400.0;2025;4;hit;4;hit
 366;Seuzach;ZH;ch:1:sloid:6020;1400.0;2025;3;hit;3;hit
-367;Tavannes;BE;ch:1:sloid:100;1400.0;2025;3;hit;3;hit
+367;Tavannes;BE;ch:1:sloid:100;1400.0;2025;2;hit;3;hit
 368;Knonau;ZH;ch:1:sloid:2226;1400.0;2025;3;hit;3;hit
 369;Sins;AG;ch:1:sloid:2218;1400.0;2025;3;hit;3;hit
-370;Bern Weissenbühl;BE;ch:1:sloid:7079;1300.0;2025;9;hit;8;hit
+370;Bern Weissenbühl;BE;ch:1:sloid:7079;1300.0;2025;7;hit;7;hit
 371;Belp Steinbach;BE;ch:1:sloid:7092;1300.0;2025;6;hit;6;hit
 372;Bassecourt;JU;ch:1:sloid:122;1300.0;2025;4;hit;4;hit
-373;Degersheim;SG;ch:1:sloid:6292;1300.0;2025;3;hit;4;hit
-374;Kloten Balsberg;ZH;ch:1:sloid:3309;1300.0;2025;8;hit;8;hit
+373;Degersheim;SG;ch:1:sloid:6292;1300.0;2025;3;hit;3;hit
+374;Kloten Balsberg;ZH;ch:1:sloid:3309;1300.0;2025;8;hit;4;hit
 375;Laupen BE;BE;ch:1:sloid:4194;1300.0;2025;4;hit;4;hit
-376;Rickenbach-Attikon;ZH;ch:1:sloid:6018;1300.0;2025;4;hit;5;hit
+376;Rickenbach-Attikon;ZH;ch:1:sloid:6018;1300.0;2025;4;hit;4;hit
 377;S. Antonino;TI;ch:1:sloid:5415;1300.0;2025;5;hit;5;hit
-378;Stalden-Saas;VS;ch:1:sloid:1683;1300.0;2025;9;hit;4;hit
-379;Steinmaur;ZH;ch:1:sloid:3316;1300.0;2025;6;hit;6;hit
-380;Solothurn West;SO;ch:1:sloid:206;1300.0;2025;4;hit;4;hit
+378;Stalden-Saas;VS;ch:1:sloid:1683;1300.0;2025;4;hit;4;hit
+379;Steinmaur;ZH;ch:1:sloid:3316;1300.0;2025;6;hit;5;hit
+380;Solothurn West;SO;ch:1:sloid:206;1300.0;2025;3;hit;4;hit
 381;Winkel am Zürichsee;ZH;ch:1:sloid:3111;1300.0;2025;8;hit;8;hit
-382;Winterthur Wallrüti;ZH;ch:1:sloid:6038;1300.0;2025;14;hit;14;hit
-383;Zernez;GR;ch:1:sloid:9262;1300.0;2025;3;hit;2;hit
+382;Winterthur Wallrüti;ZH;ch:1:sloid:6038;1300.0;2025;12;hit;12;hit
+383;Zernez;GR;ch:1:sloid:9262;1300.0;2025;2;hit;2;hit
 384;Bütschwil;SG;ch:1:sloid:6203;1300.0;2025;3;hit;3;hit
-385;Rothenburg Station;LU;ch:1:sloid:2020;1300.0;2025;12;hit;12;hit
-386;Schöfflisdorf-Oberweningen;ZH;ch:1:sloid:3317;1300.0;2025;6;hit;7;hit
+385;Rothenburg Station;LU;ch:1:sloid:2020;1300.0;2025;8;hit;8;hit
+386;Schöfflisdorf-Oberweningen;ZH;ch:1:sloid:3317;1300.0;2025;6;hit;6;hit
 387;Schmerikon;SG;ch:1:sloid:3115;1300.0;2025;4;hit;4;hit
 388;Travers;NE;ch:1:sloid:4215;1300.0;2025;3;hit;3;hit
-389;Vallorbe;VD;ch:1:sloid:1103;1300.0;2025;2;hit;4;hit
+389;Vallorbe;VD;ch:1:sloid:1103;1300.0;2025;2;hit;3;hit
 390;Wald ZH;ZH;ch:1:sloid:3138;1300.0;2025;4;hit;6;hit
 391;Zürich Seebach;ZH;ch:1:sloid:3007;1300.0;2025;10;hit;11;hit
 392;Egerkingen;SO;ch:1:sloid:214;1300.0;2025;3;hit;3;hit
 393;Blonay;VD;ch:1:sloid:1281;1200.0;2024;3;hit;3;hit
-394;Vernier;GE;ch:1:sloid:1007;1200.0;2025;4;hit;4;hit
+394;Vernier;GE;ch:1:sloid:1007;1200.0;2025;4;hit;3;hit
 395;Le Day;VD;ch:1:sloid:1104;1200.0;2025;5;hit;4;hit
 396;Flüelen;UR;ch:1:sloid:5112;1200.0;2025;3;hit;3;hit
-397;Glattfelden;ZH;ch:1:sloid:3401;1200.0;2025;6;hit;6;hit
-398;Grandson;VD;ch:1:sloid:4201;1200.0;2025;4;hit;3;hit
+397;Glattfelden;ZH;ch:1:sloid:3401;1200.0;2025;4;hit;4;hit
+398;Grandson;VD;ch:1:sloid:4201;1200.0;2025;3;hit;3;hit
 399;Hägendorf;SO;ch:1:sloid:215;1200.0;2025;2;hit;2;hit
 400;Hünenberg Zythus;ZG;ch:1:sloid:15996;1200.0;2025;11;hit;11;hit
 401;Küblis;GR;ch:1:sloid:9064;1200.0;2025;2;hit;2;hit
 402;Le Landeron;NE;ch:1:sloid:4225;1200.0;2025;6;hit;5;hit
 403;Lucens;VD;ch:1:sloid:4121;1200.0;2025;4;hit;3;hit
-404;Melide;TI;ch:1:sloid:5302;1200.0;2025;4;hit;4;hit
+404;Melide;TI;ch:1:sloid:5302;1200.0;2025;3;hit;3;hit
 405;Oberburg;BE;ch:1:sloid:8080;1200.0;2025;5;hit;5;hit
 406;Seftigen;BE;ch:1:sloid:7071;1200.0;2025;3;hit;3;hit
 407;Sulgen;TG;ch:1:sloid:6217;1200.0;2025;3;hit;3;hit
 408;Toffen;BE;ch:1:sloid:7075;1200.0;2025;2;hit;2;hit
-409;Winterthur Hegi;ZH;ch:1:sloid:16218;1200.0;2025;12;hit;12;hit
-410;Zug Schutzengel;ZG;ch:1:sloid:16187;1200.0;2025;7;hit;6;hit
-411;Baar Lindenpark;ZG;ch:1:sloid:15993;1200.0;2025;7;hit;6;hit
-412;Bonaduz;GR;ch:1:sloid:9184;1200.0;2025;4;hit;3;hit
-413;Kehrsatz Nord;BE;ch:1:sloid:7093;1200.0;2025;5;hit;4;hit
+409;Winterthur Hegi;ZH;ch:1:sloid:16218;1200.0;2025;9;hit;7;hit
+410;Zug Schutzengel;ZG;ch:1:sloid:16187;1200.0;2025;6;hit;6;hit
+411;Baar Lindenpark;ZG;ch:1:sloid:15993;1200.0;2025;6;hit;6;hit
+412;Bonaduz;GR;ch:1:sloid:9184;1200.0;2025;3;hit;3;hit
+413;Kehrsatz Nord;BE;ch:1:sloid:7093;1200.0;2025;4;hit;4;hit
 414;Lengnau BE;BE;ch:1:sloid:201;1200.0;2025;4;hit;4;hit
 415;Hergiswil Matt;NW;ch:1:sloid:8320;1200.0;2025;5;hit;5;hit
 416;Netstal;GL;ch:1:sloid:3228;1200.0;2025;3;hit;3;hit
 417;Neuenhof;AG;ch:1:sloid:3511;1200.0;2025;6;hit;4;hit
 418;Riazzino;TI;ch:1:sloid:5412;1200.0;2025;3;hit;3;hit
-419;Rorschach Hafen;SG;ch:1:sloid:6306;1200.0;2025;11;hit;5;hit
+419;Rorschach Hafen;SG;ch:1:sloid:6306;1200.0;2025;4;hit;4;hit
 420;Sachseln;OW;ch:1:sloid:8313;1200.0;2025;3;hit;3;hit
-421;Uetendorf;BE;ch:1:sloid:7070;1200.0;2025;3;hit;3;hit
+421;Uetendorf;BE;ch:1:sloid:7070;1200.0;2025;3;hit;2;hit
 422;Würenlos;AG;ch:1:sloid:3529;1200.0;2025;3;hit;2;hit
-423;La Sarraz;VD;ch:1:sloid:1108;1200.0;2025;5;hit;4;hit
-424;Riddes;VS;ch:1:sloid:1503;1200.0;2025;3;hit;3;hit
-425;Hindelbank;BE;ch:1:sloid:8003;1200.0;2025;3;hit;4;hit
+423;La Sarraz;VD;ch:1:sloid:1108;1200.0;2025;4;hit;4;hit
+424;Riddes;VS;ch:1:sloid:1503;1200.0;2025;3;hit;2;hit
+425;Hindelbank;BE;ch:1:sloid:8003;1200.0;2025;3;hit;3;hit
 426;Bazenheid;SG;ch:1:sloid:6205;1100.0;2025;3;hit;3;hit
-427;Capolago-Riva S. Vitale;TI;ch:1:sloid:5304;1100.0;2025;10;hit;10;hit
+427;Capolago-Riva S. Vitale;TI;ch:1:sloid:5304;1100.0;2025;8;hit;8;hit
 428;Châteauneuf-Conthey;VS;ch:1:sloid:1510;1100.0;2025;8;hit;8;hit
 429;Chambésy;GE;ch:1:sloid:1020;1100.0;2025;5;hit;5;hit
 430;Hettlingen;ZH;ch:1:sloid:6045;1100.0;2025;3;hit;3;hit
-431;Les Hauts-Geneveys;NE;ch:1:sloid:4237;1100.0;2025;7;hit;9;hit
+431;Les Hauts-Geneveys;NE;ch:1:sloid:4237;1100.0;2025;6;hit;7;hit
 432;Itingen;BL;ch:1:sloid:25;1100.0;2025;2;hit;2;hit
-433;Liebefeld;BE;ch:1:sloid:7091;1100.0;2025;3;hit;4;hit
+433;Liebefeld;BE;ch:1:sloid:7091;1100.0;2025;3;hit;3;hit
 434;Mörel;VS;ch:1:sloid:1676;1100.0;2025;2;hit;2;hit
 435;Mumpf;AG;ch:1:sloid:303;1100.0;2025;3;hit;3;hit
 436;Nottwil;LU;ch:1:sloid:2008;1100.0;2025;2;hit;2;hit
-437;Rothrist;AG;ch:1:sloid:8103;1100.0;2025;5;hit;4;hit
-438;Samstagern;ZH;ch:1:sloid:3286;1100.0;2025;4;hit;3;hit
+437;Rothrist;AG;ch:1:sloid:8103;1100.0;2025;5;hit;3;hit
+438;Samstagern;ZH;ch:1:sloid:3286;1100.0;2025;3;hit;3;hit
 439;Baar Neufeld;ZG;ch:1:sloid:15992;1100.0;2025;6;hit;6;hit
 440;Bergün/Bravuogn;GR;ch:1:sloid:9197;1100.0;2025;5;hit;5;hit
-441;Brügg BE;BE;ch:1:sloid:4416;1100.0;2025;4;hit;4;hit
+441;Brügg BE;BE;ch:1:sloid:4416;1100.0;2025;4;hit;3;hit
 442;Dagmersellen;LU;ch:1:sloid:2004;1100.0;2025;3;hit;3;hit
 443;Feldbach;ZH;ch:1:sloid:3109;1100.0;2025;3;hit;3;hit
 444;Hitzkirch;LU;ch:1:sloid:2027;1100.0;2025;3;hit;3;hit
 445;Oberdiessbach;BE;ch:1:sloid:8255;1100.0;2025;5;hit;5;hit
 446;Steinhausen;ZG;ch:1:sloid:2227;1100.0;2025;6;hit;6;hit
-447;Pieterlen;BE;ch:1:sloid:200;1100.0;2025;3;hit;3;hit
+447;Pieterlen;BE;ch:1:sloid:200;1100.0;2025;3;hit;2;hit
 448;Rivera-Bironico;TI;ch:1:sloid:5216;1100.0;2025;5;hit;5;hit
 449;Sagliains;GR;ch:1:sloid:9269;1100.0;2025;3;hit;3;hit
-450;Alp Grüm;GR;ch:1:sloid:9357;1000.0;2025;3;hit;5;hit
-451;Au ZH;ZH;ch:1:sloid:3205;1000.0;2025;4;hit;4;hit
+450;Alp Grüm;GR;ch:1:sloid:9357;1000.0;2025;3;hit;3;hit
+451;Au ZH;ZH;ch:1:sloid:3205;1000.0;2025;2;hit;4;hit
 452;Avenches;VD;ch:1:sloid:4126;1000.0;2025;3;hit;3;hit
-453;Eschenbach LU;LU;ch:1:sloid:2022;1000.0;2025;5;hit;7;hit
+453;Eschenbach LU;LU;ch:1:sloid:2022;1000.0;2025;3;hit;6;hit
 454;Glovelier;JU;ch:1:sloid:123;1000.0;2025;3;hit;3;hit
-455;Grellingen;BL;ch:1:sloid:115;1000.0;2025;4;hit;4;hit
+455;Grellingen;BL;ch:1:sloid:115;1000.0;2025;3;hit;4;hit
 456;Root D4;LU;ch:1:sloid:15997;1000.0;2025;3;hit;3;hit
 457;Lichtensteig;SG;ch:1:sloid:6201;1000.0;2025;3;hit;3;hit
-458;Mägenwil;AG;ch:1:sloid:2106;1000.0;2025;2;hit;3;hit
-459;Maroggia-Melano;TI;ch:1:sloid:5303;1000.0;2025;5;hit;5;hit
+458;Mägenwil;AG;ch:1:sloid:2106;1000.0;2025;2;hit;2;hit
+459;Maroggia-Melano;TI;ch:1:sloid:5303;1000.0;2025;5;hit;4;hit
 460;Mendrisio S. Martino;TI;ch:1:sloid:18475;1000.0;2025;11;hit;11;hit
-461;Sennhof-Kyburg;ZH;ch:1:sloid:6003;1000.0;2025;4;hit;5;hit
-462;Thurnen;BE;ch:1:sloid:7073;1000.0;2025;5;hit;4;hit
+461;Sennhof-Kyburg;ZH;ch:1:sloid:6003;1000.0;2025;4;hit;4;hit
+462;Thurnen;BE;ch:1:sloid:7073;1000.0;2025;3;hit;3;hit
 463;Waldibrücke;LU;ch:1:sloid:2017;1000.0;2025;3;hit;3;hit
-464;Wiesendangen;ZH;ch:1:sloid:6017;1000.0;2025;7;hit;5;hit
-465;Däniken SO;SO;ch:1:sloid:2111;1000.0;2025;2;hit;3;hit
+464;Wiesendangen;ZH;ch:1:sloid:6017;1000.0;2025;3;hit;4;hit
+465;Däniken SO;SO;ch:1:sloid:2111;1000.0;2025;2;hit;2;hit
 466;Oberentfelden;AG;ch:1:sloid:2102;1000.0;2025;6;hit;5;hit
 467;Sirnach;TG;ch:1:sloid:6010;1000.0;2025;3;hit;3;hit
-468;Sumiswald-Grünen;BE;ch:1:sloid:8272;1000.0;2025;11;hit;11;hit
+468;Sumiswald-Grünen;BE;ch:1:sloid:8272;1000.0;2025;4;hit;11;hit
 469;Bischofszell Stadt;TG;ch:1:sloid:6213;1000.0;2025;3;hit;2;hit
-470;Erstfeld;UR;ch:1:sloid:5114;1000.0;2025;3;hit;3;hit
+470;Erstfeld;UR;ch:1:sloid:5114;1000.0;2025;3;hit;2;hit
 471;Islikon;TG;ch:1:sloid:6019;1000.0;2025;3;hit;3;hit
-472;Poschiavo;GR;ch:1:sloid:9361;990.0;2025;4;hit;4;hit
+472;Poschiavo;GR;ch:1:sloid:9361;990.0;2025;3;hit;3;hit
 473;Wauwil;LU;ch:1:sloid:2006;990.0;2025;3;hit;3;hit
 474;Niederscherli;BE;ch:1:sloid:7086;990.0;2025;7;hit;7;hit
-475;Château-d'Oex;VD;ch:1:sloid:1394;980.0;2024;7;hit;9;hit
-476;Untervaz-Trimmis;GR;ch:1:sloid:9053;980.0;2025;10;hit;10;hit
+475;Château-d'Oex;VD;ch:1:sloid:1394;980.0;2024;7;hit;6;hit
+476;Untervaz-Trimmis;GR;ch:1:sloid:9053;980.0;2025;6;hit;6;hit
 477;Grosshöchstetten;BE;ch:1:sloid:8260;980.0;2025;6;hit;6;hit
 478;Balsthal;SO;ch:1:sloid:294;970.0;2025;4;hit;4;hit
-479;Lützelflüh-Goldbach;BE;ch:1:sloid:8266;970.0;2025;4;hit;5;hit
+479;Lützelflüh-Goldbach;BE;ch:1:sloid:8266;970.0;2025;4;hit;4;hit
 480;Niederweningen Dorf;ZH;ch:1:sloid:3318;970.0;2025;8;hit;8;hit
-481;Yvonand;VD;ch:1:sloid:4130;970.0;2025;3;hit;2;hit
-482;La Conversion;VD;ch:1:sloid:4010;970.0;2025;6;hit;6;hit
+481;Yvonand;VD;ch:1:sloid:4130;970.0;2025;3;hit;1;hit
+482;La Conversion;VD;ch:1:sloid:4010;970.0;2025;5;hit;5;hit
 483;Twann;BE;ch:1:sloid:4228;970.0;2025;2;hit;2;hit
 484;Rosé;FR;ch:1:sloid:4028;960.0;2025;;miss;;miss
 485;Rikon;ZH;ch:1:sloid:6005;950.0;2025;3;hit;2;hit
 486;Dachsen;ZH;ch:1:sloid:6049;940.0;2025;3;hit;2;hit
-487;Marin-Epagnier;NE;ch:1:sloid:4481;940.0;2025;5;hit;7;hit
-488;Les Geneveys-sur-Coffrane;NE;ch:1:sloid:4236;940.0;2025;11;hit;11;hit
+487;Marin-Epagnier;NE;ch:1:sloid:4481;940.0;2025;4;hit;7;hit
+488;Les Geneveys-sur-Coffrane;NE;ch:1:sloid:4236;940.0;2025;10;hit;9;hit
 489;Luzern Littau;LU;ch:1:sloid:8219;940.0;2025;8;hit;8;hit
-490;Escholzmatt;LU;ch:1:sloid:8210;930.0;2025;3;hit;5;hit
+490;Escholzmatt;LU;ch:1:sloid:8210;930.0;2025;3;hit;3;hit
 491;Rhäzüns;GR;ch:1:sloid:9185;930.0;2025;3;hit;2;hit
 492;Diessenhofen;TG;ch:1:sloid:3428;920.0;2025;2;hit;2;hit
 493;Montbovon;FR;ch:1:sloid:4070;920.0;2024;5;hit;5;hit
-494;Reichenau-Tamins;GR;ch:1:sloid:9183;920.0;2025;8;hit;8;hit
-495;Bettmeralp Talstation;VS;ch:1:sloid:1675;910.0;2025;12;hit;8;hit
+494;Reichenau-Tamins;GR;ch:1:sloid:9183;920.0;2025;4;hit;8;hit
+495;Bettmeralp Talstation;VS;ch:1:sloid:1675;910.0;2025;8;hit;6;hit
 496;Raron;VS;ch:1:sloid:1604;910.0;2025;3;hit;3;hit
 497;Zuoz;GR;ch:1:sloid:9258;900.0;2025;3;hit;3;hit
-498;Fribourg/Freiburg Poya;FR;ch:1:sloid:19133;900.0;2025;7;hit;4;hit
-499;Pully-Nord;VD;ch:1:sloid:4000;900.0;2025;7;hit;7;hit
+498;Fribourg/Freiburg Poya;FR;ch:1:sloid:19133;900.0;2025;5;hit;4;hit
+499;Pully-Nord;VD;ch:1:sloid:4000;900.0;2025;3;hit;3;hit
 500;Burghalden;ZH;ch:1:sloid:3287;890.0;2025;5;hit;5;hit

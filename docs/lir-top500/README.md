@@ -15,16 +15,16 @@ Messung: OJP 2.0 LIR, Sprache de, zehn Ergebnisse, IncludePtModes true,
 RequestorRef MENTRegTest. Keine Einschränkung auf den Objekttyp Haltestelle.
 Gleiche Namen auf TEST und INT; Abgleich ausschliesslich über globale IDs.
 Jeder Präfix ab dem ersten Zeichen wird getestet, bis die Station erstmals in
-den Top 3 erscheint. Leerzeichen zählen mit. Gemeinsame Präfixe werden pro
+den Top 5 erscheint. Leerzeichen zählen mit. Gemeinsame Präfixe werden pro
 System zwischengespeichert. Nach einem Treffer wird die längere Eingabe nicht
 mehr geprüft; die Messung bewertet keine spätere Stabilität.
 
 Weniger Zeichen ist besser: 1–3 sehr früh, 4–5 früh, 6–8 spät, ab 9 sehr spät.
-Fehlende Top-3-Treffer und Anfragefehler sind getrennte Zustände. Mittelwerte
+Fehlende Top-5-Treffer und Anfragefehler sind getrennte Zustände. Mittelwerte
 enthalten nur erfolgreiche Stationen; das ist keine Laufzeitmessung.
 
 Die Seite listet alle 500 Fälle, erlaubt Suche, Filter und Sortierung und
-zeigt beim Anklicken einer Station die aufgezeichneten Top 3 je Präfix.
+zeigt beim Anklicken einer Station die aufgezeichneten Top 5 je Präfix.
 Im Dialog wechseln Hoch/Runter den Schritt und Links/Rechts den Bahnhof
 innerhalb der gefilterten Liste. Beide Systeme werden gemeinsam umgeschaltet.
 
@@ -34,3 +34,9 @@ Rohdaten und Checkpoints liegen ausserhalb der Repositories. Die öffentliche
 Seite enthält nur Namen, öffentliche Kennungen und Messresultate, keine
 Koordinaten, Zugangsdaten oder internen Service-URLs. Es werden keine
 Live-Anfragen beim Öffnen der Seite gesendet.
+
+Seit dem erneuten Lauf gilt die Messgrenze **Top 5**. Der ursprüngliche
+Top-3-Lauf bleibt als `previous-top3.json` erhalten und darf wegen der
+unterschiedlichen Messgrenze nicht direkt als Vorher-/Nachher-Wert verglichen
+werden. Konfigurationsänderung DEV/TEST: `ed4f5f135a36d966d0eaadb1227be5d82a43915a`,
+Interlaken West von Relevanz 100 auf 1000; Semaphore TEST 59183, DEV 59184.
