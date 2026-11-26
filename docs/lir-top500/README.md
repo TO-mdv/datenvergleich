@@ -59,21 +59,28 @@ unterschiedliche Zustände. DEV/TEST werden unter derselben Messgrenze vergliche
 
 ## DEV-Konfiguration
 
-Commit `527b62678ef530cad82742cea7e40b2f6565fabb`, Semaphore 59190.
+Commit `e4884ed574c54e33c1491dab9e80c08e64832a15`, Semaphore 59198.
 
-- CH 500: gerundet `300 + 700 * sqrt(DTV / maximaler DTV)`.
-- Bern, Bellinzona, Interlaken Ost und Interlaken West: ausdrücklich 1000.
-- Münchenstein, Münchenbuchsee und Münchwilen TG: ausdrücklich 500.
-- DB-Landeshauptbahnhöfe: 400; weitere in der Relevanzdatei hinterlegte DB-Knoten: 350.
-- Übrige CH-Grundwerte bleiben 100; QUALITY vor REGION bleibt erhalten.
-- `[Phonetics] IsNeverCarPlateAbbrev "AB;AM;AN;AS;BAD;IN;ST;Z"`.
+Die DTV-Staffelung und bisherigen Ausnahmen bleiben erhalten. Für Bern werden
+sechs gezielte Werte geändert: Wankdorf 950, Europaplatz 900, Bern Bahnhof 850,
+Zytglogge 550, Hirschengraben 530 und Wankdorf Center 350. Hauptbahnhof Bern
+bleibt auf 1000. Wankdorf Center hatte zuvor noch 625, Wankdorf nur 428 und
+Europaplatz 387. Das verursachte die unerwünschte Reihenfolge.
 
-Der EFA-11.0-Code in `AbbreviationMgr.cpp` löst einen vollständigen Suchterm
-auch bei deaktivierter Ersetzung am Wortanfang/-ende als Kfz-Kennzeichen auf.
-Die Ausnahmeliste erhält die sieben bisherigen Default-Ausnahmen und ergänzt
-Z. Damit wird der Suchanfang nicht mehr zu Zwickau aufgelöst. Der ServiceHost
-wurde dafür nicht geändert. Alle Zielabfragen Z, be, münc, münch, münchen und I
-werden zusätzlich auf Deutsch und Englisch auf DEV geprüft.
+Grundlage sind SBB DTV (Wankdorf 15000, Europaplatz 7000) und SYS-Linienzahl
+(20 bzw. 9 gegenüber 3 beim Wankdorf Center) sowie die Funktion als Umsteigeknoten.
+Diese Kennzahlen sind keine direkte Messung der Umsteigevorgänge. Bern Bahnhof,
+Zytglogge und Hirschengraben haben besonders viele hinterlegte ÖV-Linien.
+
+Die Kfz-Kennzeichen-Auflösung ist für **alle Länder einschliesslich der Schweiz**
+deaktiviert: `[Phonetics] IsNeverCarPlateAbbrevException "__DISABLED__"`.
+Der gelesene EFA-11.0-Code in `AbbreviationMgr.cpp`, FindCarPlateAbbreviation,
+verwendet diesen Parameter bei nichtleerem Wert als Positivliste. Der Marker
+ist kein gültiger Code; dadurch wird keine Kennzeichen-Zuordnung zugelassen.
+Ein leerer Wert würde auf die frühere Negativliste zurückfallen und die Erkennung
+wieder einschalten. Normale Orts-/Haltestellenkürzel werden weiterhin verarbeitet.
+Der ServiceHost-Code wurde nicht verändert. Beide EFA-Dienste werden nach der
+Änderung neu gestartet und geprüft. TEST und INT bleiben unverändert.
 
 ## Bedienung und Nachweise
 
@@ -95,24 +102,21 @@ Rohdaten, Checkpoints und Laufzeitnachweise liegen ausserhalb der Repositories.
 Öffentliche Exporte sind auf Namen, öffentliche Kennungen, Messwerte und
 Metadaten begrenzt; keine Koordinaten, internen URLs oder Zugangsdaten.
 
-## Ergebnis dieses Laufs
 
-1800 Fälle vollständig ausgewertet. 3232 eindeutige Anfragen, 3234 HTTP-Versuche;
-zwei anfängliche Timeouts wurden erfolgreich wiederholt, kein bleibender
-Abfragefehler. DEV/TEST jeweils CH 499/500 und DB 100/100 gefunden. INT CH
-499/500, DB 22/80 zugeordneten Zielen gefunden, 58 nicht Top 5, weitere 20 ohne
-eindeutige Zielkennung. Rosé bleibt auf allen drei Systemen ausserhalb der Top 5.
+Zusätzlich zu den ersten Top-5-Treffern enthält `controls` feste Eingaben Bern,
+wi, Z, be, münc, münch, münchen und I auf allen drei Systemen jeweils in de/en.
+Diese 48 Abfragen laufen unabhängig davon, ob ein Ziel bereits bei einem kürzeren
+Präfix gefunden wurde. Dadurch werden leere Zwischenantworten wie bei wi sichtbar.
+Der neue Kontrollbereich des Dashboards zeigt diese Antworten direkt nebeneinander.
 
-| System | CH: Ø Zeichen bei Treffern | DB: Ø Zeichen bei Treffern |
-|---|---:|---:|
-| DEV | 2,96 | 3,10 |
-| TEST | 3,81 | 5,19 |
-| INT | 3,81 | 5,00 (nur 22 Treffer) |
+`previous-top5-600.json` enthält den vorherigen Dreiervergleich mit 600 Fällen.
 
-DEV gegenüber TEST: 292 früher, 297 gleichauf, 11 später. Die späteren Treffer
-sind Zürich Altstetten, Lenzburg, Stettbach, Zürich Enge, Bern Wankdorf,
-Wallisellen, Zürich Wiedikon, Murten/Morat, Moutier, Thusis und Diessenhofen.
-Der Vergleichsfilter im Dashboard macht diese Fälle gezielt sichtbar.
-
-Nach dauerhaftem Update bestehen auf DEV alle zwölf Zielprüfungen (sechs
-Eingaben in de und en): Z, be, münc, münch, münchen und I.
+Der erneute Lauf umfasst 1800 vollständig gemessene Fälle und zusätzlich 48
+feste Kontrollabfragen. Zwei anfängliche DEV-Timeouts wurden erfolgreich
+wiederholt. Kein bleibender Abfragefehler. Die neuen Ergebnisse und die
+Kontrollausgabe für Bern/wi sind im Dashboard enthalten. Die Referenzmessungen
+auf TEST/INT liefen unabhängig vom DEV-Update; DEV wurde nach Abschluss des
+Updates und der Prüfung beider Dienste gemessen. `stage_windows` dokumentiert
+die getrennten Messzeiträume. `merge-ranking-runs.py` prüft vor dem Zusammenführen
+identische Eingaben und disjunkte Stages. `capture-ranking-controls.py` zeichnet
+die zusätzlichen festen Abfragen auf.
