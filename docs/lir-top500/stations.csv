@@ -1,501 +1,601 @@
-﻿Frequenzrang;Bahnhof;Kanton;Globale ID;DTV;Jahr;TEST Zeichen;TEST Ergebnis;INT Zeichen;INT Ergebnis
-1;Zürich HB;ZH;ch:1:sloid:3000;449800.0;2025;2;hit;1;hit
-2;Bern;BE;ch:1:sloid:7000;177000.0;2025;2;hit;2;hit
-3;Luzern;LU;ch:1:sloid:5000;108800.0;2025;3;hit;2;hit
-4;Basel SBB;BS;ch:1:sloid:10;103800.0;2025;3;hit;3;hit
-5;Winterthur;ZH;ch:1:sloid:6000;103800.0;2025;3;hit;3;hit
-6;Lausanne;VD;ch:1:sloid:1120;97500.0;2025;4;hit;3;hit
-7;Zürich Oerlikon;ZH;ch:1:sloid:3006;86200.0;2025;2;hit;8;hit
-8;Genève;GE;ch:1:sloid:1008;83100.0;2025;3;hit;2;hit
-9;Olten;SO;ch:1:sloid:218;81600.0;2025;1;hit;1;hit
-10;Zürich Stadelhofen;ZH;ch:1:sloid:3003;75200.0;2025;8;hit;1;hit
-11;Zürich Flughafen;ZH;ch:1:sloid:3016;53300.0;2025;4;hit;8;hit
-12;Zürich Hardbrücke;ZH;ch:1:sloid:3020;52900.0;2025;2;hit;10;hit
-13;Biel/Bienne;BE;ch:1:sloid:4300;48400.0;2025;3;hit;2;hit
-14;Renens VD;VD;ch:1:sloid:1118;47400.0;2025;3;hit;2;hit
-15;St. Gallen;SG;ch:1:sloid:6302;46900.0;2025;2;hit;5;hit
-16;Zug;ZG;ch:1:sloid:2204;42100.0;2025;2;hit;1;hit
-17;Zürich Altstetten;ZH;ch:1:sloid:3001;40500.0;2025;2;hit;8;hit
-18;Aarau;AG;ch:1:sloid:2113;40100.0;2025;3;hit;3;hit
-19;Baden;AG;ch:1:sloid:3504;34000.0;2025;3;hit;3;hit
-20;Thun;BE;ch:1:sloid:7100;32800.0;2025;1;hit;2;hit
-21;Lugano;TI;ch:1:sloid:5300;32300.0;2025;3;hit;2;hit
-22;Fribourg/Freiburg;FR;ch:1:sloid:4100;30800.0;2025;4;hit;3;hit
-23;Chur;GR;ch:1:sloid:9000;29800.0;2025;2;hit;2;hit
-24;Neuchâtel;NE;ch:1:sloid:4221;29300.0;2025;3;hit;4;hit
-25;Lenzburg;AG;ch:1:sloid:2119;27600.0;2025;2;hit;4;hit
-26;Vevey;VD;ch:1:sloid:1200;27400.0;2025;2;hit;2;hit
-27;Visp;VS;ch:1:sloid:1605;26600.0;2025;2;hit;2;hit
-28;Wetzikon ZH;ZH;ch:1:sloid:3123;26000.0;2025;3;hit;3;hit
-29;Uster;ZH;ch:1:sloid:3125;25500.0;2025;1;hit;2;hit
-30;Rapperswil SG;SG;ch:1:sloid:3110;25300.0;2025;3;hit;3;hit
-31;Stettbach;ZH;ch:1:sloid:3147;25200.0;2025;2;hit;4;hit
-32;Schaffhausen;SH;ch:1:sloid:3424;25100.0;2025;3;hit;4;hit
-33;Brugg AG;AG;ch:1:sloid:309;22800.0;2025;2;hit;4;hit
-34;Brig;VS;ch:1:sloid:1609;21200.0;2025;2;hit;2;hit
-35;Dietikon;ZH;ch:1:sloid:3508;21200.0;2025;2;hit;4;hit
-36;Bellinzona;TI;ch:1:sloid:5213;20700.0;2025;2;hit;2;hit
-37;Arth-Goldau;SZ;ch:1:sloid:5004;20100.0;2025;2;hit;2;hit
-38;Montreux;VD;ch:1:sloid:1300;19500.0;2025;2;hit;2;hit
-39;Nyon;VD;ch:1:sloid:1030;19300.0;2025;2;hit;1;hit
-40;Yverdon-les-Bains;VD;ch:1:sloid:4200;19300.0;2025;1;hit;1;hit
-41;Landquart;GR;ch:1:sloid:9002;19100.0;2025;3;hit;3;hit
-42;Spiez;BE;ch:1:sloid:7483;18600.0;2025;3;hit;2;hit
-43;Wädenswil;ZH;ch:1:sloid:3206;18600.0;2025;2;hit;2;hit
-44;Wil SG;SG;ch:1:sloid:6206;18300.0;2025;5;hit;3;hit
-45;Interlaken Ost;BE;ch:1:sloid:7492;17700.0;2025;1;hit;1;hit
-46;Thalwil;ZH;ch:1:sloid:3202;17700.0;2025;1;hit;2;hit
-47;Morges;VD;ch:1:sloid:1037;17500.0;2025;2;hit;2;hit
-48;Effretikon;ZH;ch:1:sloid:3305;17400.0;2025;3;hit;2;hit
-49;Pfäffikon SZ;SZ;ch:1:sloid:3209;16700.0;2025;3;hit;3;hit
-50;Weinfelden;TG;ch:1:sloid:6105;16500.0;2025;3;hit;2;hit
-51;Liestal;BL;ch:1:sloid:23;16200.0;2025;3;hit;3;hit
-52;Burgdorf;BE;ch:1:sloid:8005;16000.0;2025;2;hit;3;hit
-53;Sargans;SG;ch:1:sloid:9411;16000.0;2025;2;hit;3;hit
-54;Genève-Aéroport;GE;ch:1:sloid:1026;16000.0;2025;3;hit;9;hit
-55;Bülach;ZH;ch:1:sloid:3400;15600.0;2025;2;hit;2;hit
-56;Solothurn;SO;ch:1:sloid:207;15600.0;2025;3;hit;2;hit
-57;Rotkreuz;ZG;ch:1:sloid:2202;15300.0;2025;3;hit;4;hit
-58;Zürich Enge;ZH;ch:1:sloid:3010;15300.0;2025;2;hit;8;hit
-59;Bern Wankdorf;BE;ch:1:sloid:16161;15000.0;2025;2;hit;7;hit
-60;Sion;VS;ch:1:sloid:1506;14300.0;2025;3;hit;3;hit
-61;Sursee;LU;ch:1:sloid:2007;13400.0;2025;3;hit;3;hit
-62;Wallisellen;ZH;ch:1:sloid:3129;13300.0;2025;2;hit;4;hit
-63;Schlieren;ZH;ch:1:sloid:3509;12800.0;2025;3;hit;4;hit
-64;Zürich Wiedikon;ZH;ch:1:sloid:3011;12700.0;2025;3;hit;8;hit
-65;Martigny;VS;ch:1:sloid:1500;12200.0;2025;3;hit;2;hit
-66;Ziegelbrücke;SG;ch:1:sloid:3225;12000.0;2025;2;hit;2;hit
-67;Rüti ZH;ZH;ch:1:sloid:3121;12000.0;2025;2;hit;3;hit
-68;Zermatt;VS;ch:1:sloid:1689;11900.0;2025;2;hit;2;hit
-69;Romanshorn;TG;ch:1:sloid:6121;11800.0;2025;3;hit;3;hit
-70;Aigle;VD;ch:1:sloid:1400;11500.0;2025;2;hit;2;hit
-71;Locarno;TI;ch:1:sloid:5400;10800.0;2025;2;hit;2;hit
-72;Frauenfeld;TG;ch:1:sloid:6100;10600.0;2025;3;hit;4;hit
-73;Langenthal;BE;ch:1:sloid:8100;10500.0;2025;3;hit;5;hit
-74;La Chaux-de-Fonds;NE;ch:1:sloid:4314;10200.0;2025;4;hit;8;hit
-75;Schwerzenbach ZH;ZH;ch:1:sloid:3127;10100.0;2025;3;hit;6;hit
-76;Zofingen;AG;ch:1:sloid:2001;10100.0;2025;2;hit;2;hit
-77;Lyss;BE;ch:1:sloid:4414;10000.0;2025;2;hit;2;hit
-78;Genève-Eaux-Vives;GE;ch:1:sloid:16273;9900.0;2025;8;hit;8;hit
-79;Mendrisio;TI;ch:1:sloid:5305;9600.0;2025;4;hit;4;hit
-80;Lancy-Bachet;GE;ch:1:sloid:17142;9300.0;2025;4;hit;4;hit
-81;Horgen;ZH;ch:1:sloid:3204;9200.0;2025;3;hit;2;hit
-82;Baar;ZG;ch:1:sloid:2206;9100.0;2025;3;hit;3;hit
-83;Chiasso;TI;ch:1:sloid:5307;9100.0;2025;3;hit;3;hit
-84;Rheinfelden;AG;ch:1:sloid:301;9000.0;2025;3;hit;2;hit
-85;Lancy-Pont-Rouge;GE;ch:1:sloid:16155;8700.0;2025;4;hit;5;hit
-86;Pratteln;BL;ch:1:sloid:21;8700.0;2025;4;hit;3;hit
-87;Dübendorf;ZH;ch:1:sloid:3128;8500.0;2025;2;hit;2;hit
-88;Wattwil;SG;ch:1:sloid:6200;8300.0;2025;3;hit;3;hit
-89;Dietlikon;ZH;ch:1:sloid:3306;8200.0;2025;4;hit;4;hit
-90;Meilen;ZH;ch:1:sloid:3104;8200.0;2025;2;hit;2;hit
-91;Aesch BL;BL;ch:1:sloid:117;8200.0;2025;3;hit;3;hit
-92;Delémont;JU;ch:1:sloid:109;7800.0;2025;4;hit;3;hit
-93;Gossau SG;SG;ch:1:sloid:6210;7700.0;2025;3;hit;3;hit
-94;Sissach;BL;ch:1:sloid:26;7700.0;2025;3;hit;3;hit
-95;Coppet;VD;ch:1:sloid:1023;7600.0;2025;3;hit;2;hit
-96;Konolfingen;BE;ch:1:sloid:8202;7600.0;2025;3;hit;3;hit
-97;Kreuzlingen;TG;ch:1:sloid:6131;7500.0;2025;3;hit;3;hit
-98;Sierre/Siders;VS;ch:1:sloid:1509;7500.0;2025;3;hit;3;hit
-99;Genève-Champel;GE;ch:1:sloid:16272;7400.0;2025;8;hit;8;hit
-100;Gland;VD;ch:1:sloid:1031;7400.0;2025;3;hit;2;hit
-101;Glattbrugg;ZH;ch:1:sloid:3310;7400.0;2025;3;hit;3;hit
-102;Oberglatt ZH;ZH;ch:1:sloid:3312;7400.0;2025;1;hit;1;hit
-103;Affoltern am Albis;ZH;ch:1:sloid:2224;7300.0;2025;3;hit;4;hit
-104;Regensdorf-Watt;ZH;ch:1:sloid:3526;7300.0;2025;4;hit;3;hit
-105;Rorschach;SG;ch:1:sloid:6311;7200.0;2025;3;hit;2;hit
-106;Stans;NW;ch:1:sloid:8391;7100.0;2025;4;hit;4;hit
-107;Bern Europaplatz;BE;ch:1:sloid:4108;7000.0;2025;6;hit;6;hit
-108;Chêne-Bourg;GE;ch:1:sloid:16274;7000.0;2025;4;hit;5;hit
-109;St-Maurice;VS;ch:1:sloid:1403;7000.0;2025;2;hit;4;hit
-110;Uznach;SG;ch:1:sloid:3116;7000.0;2025;1;hit;1;hit
-111;Prilly-Malley;VD;ch:1:sloid:18452;7000.0;2025;4;hit;4;hit
-112;Turgi;AG;ch:1:sloid:3503;6900.0;2025;2;hit;2;hit
-113;Täsch;VS;ch:1:sloid:1688;6900.0;2025;2;hit;2;hit
-114;Interlaken West;BE;ch:1:sloid:7493;6700.0;2025;1;hit;4;hit
-115;Payerne;VD;ch:1:sloid:4134;6700.0;2025;3;hit;2;hit
-116;Münsingen;BE;ch:1:sloid:7006;6600.0;2025;3;hit;2;hit
-117;Palézieux;VD;ch:1:sloid:4014;6500.0;2025;3;hit;2;hit
-118;Laufen;BL;ch:1:sloid:113;6300.0;2025;5;hit;3;hit
-119;Wohlen AG;AG;ch:1:sloid:2213;6100.0;2025;3;hit;2;hit
-120;Bussigny;VD;ch:1:sloid:1117;6100.0;2025;4;hit;4;hit
-121;Zürich Wollishofen;ZH;ch:1:sloid:3009;6000.0;2025;9;hit;9;hit
-122;Cham;ZG;ch:1:sloid:2203;5900.0;2025;4;hit;3;hit
-123;Jona;SG;ch:1:sloid:3120;5900.0;2025;2;hit;1;hit
-124;Muttenz;BL;ch:1:sloid:20;5900.0;2025;3;hit;3;hit
-125;St. Moritz;GR;ch:1:sloid:9253;5900.0;2025;5;hit;5;hit
-126;Emmenbrücke;LU;ch:1:sloid:2021;5900.0;2025;3;hit;3;hit
-127;Bassersdorf;ZH;ch:1:sloid:3307;5800.0;2025;4;hit;4;hit
-128;Herisau;AR;ch:1:sloid:6290;5800.0;2025;4;hit;3;hit
-129;Küsnacht ZH;ZH;ch:1:sloid:3101;5800.0;2025;3;hit;3;hit
-130;Pfäffikon ZH;ZH;ch:1:sloid:3301;5800.0;2025;3;hit;2;hit
-131;Giubiasco;TI;ch:1:sloid:5214;5700.0;2025;3;hit;2;hit
-132;Stäfa;ZH;ch:1:sloid:3107;5700.0;2025;3;hit;3;hit
-133;Romont FR;FR;ch:1:sloid:4023;5700.0;2025;4;hit;3;hit
-134;Buchs SG;SG;ch:1:sloid:9404;5600.0;2025;3;hit;4;hit
-135;Bubikon;ZH;ch:1:sloid:3122;5600.0;2025;3;hit;3;hit
-136;Uzwil;SG;ch:1:sloid:6208;5500.0;2025;2;hit;2;hit
-137;Kloten;ZH;ch:1:sloid:3308;5400.0;2025;3;hit;2;hit
-138;Richterswil;ZH;ch:1:sloid:3207;5400.0;2025;3;hit;3;hit
-139;Belp;BE;ch:1:sloid:7076;5200.0;2025;4;hit;3;hit
-140;Männedorf;ZH;ch:1:sloid:3106;5200.0;2025;2;hit;2;hit
-141;Oensingen;SO;ch:1:sloid:212;5200.0;2025;3;hit;2;hit
-142;Killwangen-Spreitenbach;AG;ch:1:sloid:3506;5100.0;2025;5;hit;5;hit
-143;Langnau i.E.;BE;ch:1:sloid:8207;5000.0;2025;5;hit;5;hit
-144;Wettingen;AG;ch:1:sloid:3505;5000.0;2025;3;hit;3;hit
-145;Nänikon-Greifensee;ZH;ch:1:sloid:3126;5000.0;2025;2;hit;2;hit
-146;Allaman;VD;ch:1:sloid:1035;4900.0;2025;2;hit;2;hit
-147;Uetikon;ZH;ch:1:sloid:3105;4900.0;2025;3;hit;2;hit
-148;Rümlang;ZH;ch:1:sloid:3311;4900.0;2025;3;hit;2;hit
-149;Birmensdorf ZH;ZH;ch:1:sloid:2221;4800.0;2025;3;hit;2;hit
-150;Frick;AG;ch:1:sloid:305;4800.0;2025;4;hit;3;hit
-151;Grenchen Süd;SO;ch:1:sloid:202;4800.0;2025;5;hit;5;hit
-152;Zweisimmen;BE;ch:1:sloid:7290;4800.0;2025;3;hit;2;hit
-153;Gelterkinden;BL;ch:1:sloid:27;4700.0;2025;3;hit;3;hit
-154;Versoix;GE;ch:1:sloid:1022;4700.0;2025;5;hit;4;hit
-155;Dornach-Arlesheim;SO;ch:1:sloid:118;4500.0;2025;5;hit;9;hit
-156;Heerbrugg;SG;ch:1:sloid:6317;4500.0;2025;3;hit;3;hit
-157;Rolle;VD;ch:1:sloid:1033;4500.0;2025;3;hit;2;hit
-158;Villeneuve VD;VD;ch:1:sloid:1303;4500.0;2025;6;hit;6;hit
-159;Einsiedeln;SZ;ch:1:sloid:3283;4300.0;2025;3;hit;2;hit
-160;Kilchberg ZH;ZH;ch:1:sloid:3200;4300.0;2025;3;hit;3;hit
-161;Pont-Céard;GE;ch:1:sloid:1013;4200.0;2025;4;hit;6;hit
-162;Zollikofen;BE;ch:1:sloid:4410;4200.0;2025;2;hit;2;hit
-163;Herrliberg-Feldmeilen;ZH;ch:1:sloid:3103;4200.0;2025;12;hit;12;hit
-164;Koblenz;AG;ch:1:sloid:329;4200.0;2025;3;hit;2;hit
-165;St. Margrethen SG;SG;ch:1:sloid:6314;4200.0;2025;7;hit;7;hit
-166;Meiringen;BE;ch:1:sloid:8308;4100.0;2025;4;hit;3;hit
-167;Zürich Tiefenbrunnen;ZH;ch:1:sloid:3004;4100.0;2025;8;hit;1;hit
-168;Pully;VD;ch:1:sloid:1121;4000.0;2025;2;hit;2;hit
-169;Samedan;GR;ch:1:sloid:9251;4000.0;2025;2;hit;2;hit
-170;Zürich Affoltern;ZH;ch:1:sloid:3008;4000.0;2025;9;hit;9;hit
-171;Cossonay-Penthalaz;VD;ch:1:sloid:1115;3900.0;2025;4;hit;4;hit
-172;Gümligen;BE;ch:1:sloid:7003;3900.0;2025;2;hit;2;hit
-173;Sarnen;OW;ch:1:sloid:8314;3900.0;2025;3;hit;3;hit
-174;Erlenbach ZH;ZH;ch:1:sloid:3102;3800.0;2025;3;hit;4;hit
-175;Kriens Mattenhof;LU;ch:1:sloid:16351;3800.0;2025;8;hit;8;hit
-176;Mellingen Heitersberg;AG;ch:1:sloid:16219;3800.0;2025;3;hit;3;hit
-177;Ostermundigen;BE;ch:1:sloid:7002;3800.0;2025;4;hit;4;hit
-178;Oberwinterthur;ZH;ch:1:sloid:6016;3800.0;2025;5;hit;6;hit
-179;Düdingen;FR;ch:1:sloid:4101;3700.0;2025;2;hit;2;hit
-180;Emmenbrücke Gersag;LU;ch:1:sloid:2028;3700.0;2025;13;hit;13;hit
-181;Murten/Morat;FR;ch:1:sloid:4128;3700.0;2025;2;hit;2;hit
-182;Bonstetten-Wettswil;ZH;ch:1:sloid:2222;3700.0;2025;5;hit;5;hit
-183;Flawil;SG;ch:1:sloid:6209;3600.0;2025;3;hit;2;hit
-184;Glanzenberg;ZH;ch:1:sloid:3512;3600.0;2025;4;hit;4;hit
-185;Münchenbuchsee;BE;ch:1:sloid:4411;3600.0;2025;4;hit;4;hit
-186;Frenkendorf-Füllinsdorf;BL;ch:1:sloid:22;3500.0;2025;5;hit;5;hit
-187;Lachen SZ;SZ;ch:1:sloid:3220;3500.0;2025;4;hit;3;hit
-188;Bex;VD;ch:1:sloid:1402;3400.0;2025;3;hit;3;hit
-189;Horw;LU;ch:1:sloid:8319;3400.0;2025;4;hit;2;hit
-190;Siebnen-Wangen;SZ;ch:1:sloid:3221;3400.0;2025;4;hit;4;hit
-191;Herzogenbuchsee;BE;ch:1:sloid:8008;3400.0;2025;4;hit;4;hit
-192;Möhlin;AG;ch:1:sloid:302;3400.0;2025;2;hit;2;hit
-193;Andermatt;UR;ch:1:sloid:5165;3300.0;2025;4;hit;3;hit
-194;Biberbrugg;SZ;ch:1:sloid:3284;3300.0;2025;3;hit;3;hit
-195;Altstätten SG;SG;ch:1:sloid:6319;3200.0;2025;4;hit;4;hit
-196;Amriswil;TG;ch:1:sloid:6109;3200.0;2025;3;hit;3;hit
-197;Glarus;GL;ch:1:sloid:3230;3200.0;2025;3;hit;2;hit
-198;Klosters Platz;GR;ch:1:sloid:9068;3200.0;2025;4;hit;8;hit
-199;Kerzers;FR;ch:1:sloid:4400;3200.0;2025;3;hit;2;hit
-200;Moutier;BE;ch:1:sloid:105;3200.0;2025;2;hit;2;hit
-201;Brunnen;SZ;ch:1:sloid:5007;3200.0;2025;4;hit;3;hit
-202;Wolhusen;LU;ch:1:sloid:8215;3200.0;2025;3;hit;2;hit
-203;Bern Bümpliz Süd;BE;ch:1:sloid:4106;3100.0;2025;6;hit;6;hit
-204;Dielsdorf;ZH;ch:1:sloid:3315;3100.0;2025;4;hit;4;hit
-205;Malters;LU;ch:1:sloid:8218;3100.0;2025;3;hit;3;hit
-206;Porrentruy;JU;ch:1:sloid:126;3100.0;2025;3;hit;3;hit
-207;Stein-Säckingen;AG;ch:1:sloid:320;3100.0;2025;5;hit;8;hit
-208;Fehraltorf;ZH;ch:1:sloid:3302;3100.0;2025;3;hit;3;hit
-209;Rüschlikon;ZH;ch:1:sloid:3201;3000.0;2025;3;hit;3;hit
-210;Küssnacht am Rigi;SZ;ch:1:sloid:5002;2900.0;2025;4;hit;4;hit
-211;Bern Brünnen Westside;BE;ch:1:sloid:16154;2900.0;2025;8;hit;8;hit
-212;Göschenen;UR;ch:1:sloid:5119;2800.0;2025;3;hit;2;hit
-213;Le Locle;NE;ch:1:sloid:4316;2800.0;2025;5;hit;4;hit
-214;St. Gallen St. Fiden;SG;ch:1:sloid:6303;2800.0;2025;2;hit;5;hit
-215;La Tour-de-Peilz;VD;ch:1:sloid:1201;2800.0;2025;7;hit;9;hit
-216;Andelfingen;ZH;ch:1:sloid:6047;2800.0;2025;4;hit;3;hit
-217;Cully;VD;ch:1:sloid:1124;2800.0;2025;2;hit;2;hit
-218;Muri AG;AG;ch:1:sloid:2215;2800.0;2025;4;hit;4;hit
-219;Schwyz;SZ;ch:1:sloid:5006;2800.0;2025;4;hit;4;hit
-220;Bad Ragaz;SG;ch:1:sloid:9004;2800.0;2025;3;hit;3;hit
-221;Buchs-Dällikon;ZH;ch:1:sloid:3527;2800.0;2025;7;hit;5;hit
-222;Luzern Allmend/Messe;LU;ch:1:sloid:8321;2700.0;2025;3;hit;2;hit
-223;Cadenazzo;TI;ch:1:sloid:5404;2700.0;2025;3;hit;3;hit
-224;Engelberg;OW;ch:1:sloid:8399;2700.0;2025;6;hit;4;hit
-225;Genève-Sécheron;GE;ch:1:sloid:16283;2700.0;2025;8;hit;8;hit
-226;Hergiswil NW;NW;ch:1:sloid:8318;2700.0;2025;5;hit;4;hit
-227;Hinwil;ZH;ch:1:sloid:3130;2700.0;2025;3;hit;2;hit
-228;Brienz;BE;ch:1:sloid:8305;2700.0;2025;3;hit;3;hit
-229;Biasca;TI;ch:1:sloid:5209;2600.0;2025;3;hit;3;hit
-230;Buchrain;LU;ch:1:sloid:16350;2600.0;2025;5;hit;3;hit
-231;Castione-Arbedo;TI;ch:1:sloid:5212;2600.0;2025;5;hit;5;hit
-232;Davos Platz;GR;ch:1:sloid:9073;2600.0;2025;4;hit;3;hit
-233;Frutigen;BE;ch:1:sloid:7478;2600.0;2025;3;hit;3;hit
-234;Bern Bümpliz Nord;BE;ch:1:sloid:4489;2600.0;2025;7;hit;7;hit
-235;Hasle-Rüegsau;BE;ch:1:sloid:8265;2600.0;2025;4;hit;3;hit
-236;Aarburg-Oftringen;AG;ch:1:sloid:2000;2500.0;2025;4;hit;5;hit
-237;Döttingen;AG;ch:1:sloid:3501;2500.0;2025;2;hit;2;hit
-238;Horgen Oberdorf;ZH;ch:1:sloid:2208;2500.0;2025;8;hit;8;hit
-239;Paradiso;TI;ch:1:sloid:5301;2500.0;2025;3;hit;3;hit
-240;Rorschach Stadt;SG;ch:1:sloid:6322;2500.0;2025;9;hit;4;hit
-241;Winterthur Seen;ZH;ch:1:sloid:6002;2500.0;2025;12;hit;12;hit
-242;Zürich Wipkingen;ZH;ch:1:sloid:3015;2500.0;2025;9;hit;9;hit
-243;Tenero;TI;ch:1:sloid:5401;2500.0;2025;2;hit;2;hit
-244;Ebikon;LU;ch:1:sloid:2200;2400.0;2025;2;hit;2;hit
-245;Leuk;VS;ch:1:sloid:1601;2400.0;2025;3;hit;3;hit
-246;Sempach-Neuenkirch;LU;ch:1:sloid:2009;2400.0;2025;3;hit;3;hit
-247;Altdorf UR;UR;ch:1:sloid:5113;2400.0;2025;4;hit;4;hit
-248;Ins;BE;ch:1:sloid:4483;2400.0;2025;3;hit;1;hit
-249;Kaiseraugst;AG;ch:1:sloid:300;2400.0;2025;3;hit;3;hit
-250;Schüpfheim;LU;ch:1:sloid:8211;2400.0;2025;4;hit;4;hit
-251;Clarens;VD;ch:1:sloid:1203;2300.0;2025;2;hit;2;hit
-252;Pontresina;GR;ch:1:sloid:9255;2300.0;2025;3;hit;3;hit
-253;Sonceboz-Sombeval;BE;ch:1:sloid:4304;2300.0;2025;4;hit;4;hit
-254;Thusis;GR;ch:1:sloid:9189;2300.0;2025;1;hit;2;hit
-255;Monthey;VS;ch:1:sloid:1421;2300.0;2025;5;hit;4;hit
-256;Schönenwerd SO;SO;ch:1:sloid:2112;2300.0;2025;6;hit;7;hit
-257;Chavornay;VD;ch:1:sloid:1112;2300.0;2025;4;hit;4;hit
-258;Basel Dreispitz;BS;ch:1:sloid:136;2200.0;2025;7;hit;7;hit
-259;Lutry;VD;ch:1:sloid:1122;2200.0;2025;3;hit;3;hit
-260;Schiers;GR;ch:1:sloid:9060;2200.0;2025;4;hit;4;hit
-261;Satigny;GE;ch:1:sloid:1003;2200.0;2025;3;hit;3;hit
-262;Disentis/Mustér;GR;ch:1:sloid:9179;2200.0;2025;4;hit;3;hit
-263;Hedingen;ZH;ch:1:sloid:2223;2200.0;2025;3;hit;3;hit
-264;Urdorf;ZH;ch:1:sloid:2220;2200.0;2025;3;hit;2;hit
-265;Willisau;LU;ch:1:sloid:8295;2200.0;2025;4;hit;4;hit
-266;Arbon;TG;ch:1:sloid:6308;2100.0;2025;2;hit;2;hit
-267;Illnau;ZH;ch:1:sloid:3303;2100.0;2025;3;hit;2;hit
-268;Ilanz;GR;ch:1:sloid:9171;2100.0;2025;2;hit;2;hit
-269;Kreuzlingen Hafen;TG;ch:1:sloid:6128;2100.0;2025;6;hit;6;hit
-270;Näfels-Mollis;GL;ch:1:sloid:3227;2100.0;2025;3;hit;3;hit
-271;Niederwangen;BE;ch:1:sloid:4105;2100.0;2025;7;hit;7;hit
-272;Opfikon;ZH;ch:1:sloid:3340;2100.0;2025;2;hit;2;hit
-273;Rupperswil;AG;ch:1:sloid:2114;2100.0;2025;3;hit;3;hit
-274;Zwingen;BL;ch:1:sloid:114;2100.0;2025;3;hit;2;hit
-275;Puidoux;VD;ch:1:sloid:4012;2100.0;2025;2;hit;2;hit
-276;Eglisau;ZH;ch:1:sloid:3402;2000.0;2025;2;hit;2;hit
-277;Niederhasli;ZH;ch:1:sloid:3314;2000.0;2025;7;hit;7;hit
-278;Suhr;AG;ch:1:sloid:2103;2000.0;2025;3;hit;2;hit
-279;Hochdorf;LU;ch:1:sloid:2024;2000.0;2025;3;hit;3;hit
-280;Scuol-Tarasp;GR;ch:1:sloid:9268;2000.0;2025;3;hit;3;hit
-281;Les Tuileries;GE;ch:1:sloid:1011;2000.0;2025;5;hit;5;hit
-282;Gstaad;BE;ch:1:sloid:1399;1900.0;2024;3;hit;2;hit
-283;Mettmenstetten;ZH;ch:1:sloid:2225;1900.0;2025;5;hit;5;hit
-284;Neuhausen;SH;ch:1:sloid:3423;1900.0;2025;4;hit;4;hit
-285;St-Imier;BE;ch:1:sloid:4310;1900.0;2025;6;hit;4;hit
-286;Stein am Rhein;SH;ch:1:sloid:6139;1900.0;2025;5;hit;7;hit
-287;Uerikon;ZH;ch:1:sloid:3108;1900.0;2025;3;hit;2;hit
-288;Urdorf Weihermatt;ZH;ch:1:sloid:2229;1900.0;2025;8;hit;8;hit
-289;Walenstadt;SG;ch:1:sloid:9414;1900.0;2025;4;hit;4;hit
-290;Winterthur Grüze;ZH;ch:1:sloid:6001;1900.0;2025;12;hit;12;hit
-291;Zimeysa;GE;ch:1:sloid:1000;1900.0;2025;3;hit;2;hit
-292;Dottikon-Dintikon;AG;ch:1:sloid:2212;1900.0;2025;4;hit;3;hit
-293;Aadorf;TG;ch:1:sloid:6013;1800.0;2025;3;hit;3;hit
-294;Davos Dorf;GR;ch:1:sloid:9072;1800.0;2025;3;hit;3;hit
-295;Elgg;ZH;ch:1:sloid:6014;1800.0;2025;3;hit;2;hit
-296;Embrach-Rorbas;ZH;ch:1:sloid:6041;1800.0;2025;3;hit;3;hit
-297;Marthalen;ZH;ch:1:sloid:6048;1800.0;2025;4;hit;4;hit
-298;Othmarsingen;AG;ch:1:sloid:2105;1800.0;2025;2;hit;2;hit
-299;Rafz;ZH;ch:1:sloid:3404;1800.0;2025;3;hit;3;hit
-300;Schwarzenburg;BE;ch:1:sloid:7089;1800.0;2025;5;hit;6;hit
-301;Schwanden GL;GL;ch:1:sloid:3233;1800.0;2025;6;hit;7;hit
-302;Zollikon;ZH;ch:1:sloid:3100;1800.0;2025;2;hit;2;hit
-303;Genthod-Bellevue;GE;ch:1:sloid:1021;1800.0;2025;5;hit;7;hit
-304;Alpnach Dorf;OW;ch:1:sloid:8316;1700.0;2025;4;hit;4;hit
-305;Domat/Ems;GR;ch:1:sloid:9181;1700.0;2025;4;hit;3;hit
-306;Estavayer-le-Lac;FR;ch:1:sloid:4132;1700.0;2025;4;hit;4;hit
-307;Etoy;VD;ch:1:sloid:1042;1700.0;2025;3;hit;2;hit
-308;Fiesch;VS;ch:1:sloid:1672;1700.0;2025;2;hit;2;hit
-309;Goldach;SG;ch:1:sloid:6305;1700.0;2025;2;hit;2;hit
-310;Hüntwangen-Wil;ZH;ch:1:sloid:3403;1700.0;2025;4;hit;4;hit
-311;Kempten;ZH;ch:1:sloid:3300;1700.0;2025;3;hit;3;hit
-312;Lamone-Cadempino;TI;ch:1:sloid:5219;1700.0;2025;4;hit;4;hit
-313;Pfungen;ZH;ch:1:sloid:6042;1700.0;2025;3;hit;2;hit
-314;Rheineck;SG;ch:1:sloid:6313;1700.0;2025;3;hit;2;hit
-315;Rubigen;BE;ch:1:sloid:7005;1700.0;2025;3;hit;3;hit
-316;Siggenthal-Würenlingen;AG;ch:1:sloid:3502;1700.0;2025;4;hit;6;hit
-317;Flamatt;FR;ch:1:sloid:4103;1700.0;2025;3;hit;2;hit
-318;Kollbrunn;ZH;ch:1:sloid:6004;1700.0;2025;3;hit;3;hit
-319;La Plaine;GE;ch:1:sloid:1001;1700.0;2025;6;hit;4;hit
-320;Burier;VD;ch:1:sloid:1202;1700.0;2025;3;hit;3;hit
-321;Stansstad;NW;ch:1:sloid:8390;1700.0;2025;4;hit;4;hit
-322;Arosa;GR;ch:1:sloid:9157;1600.0;2025;3;hit;3;hit
-323;Burgdorf Steinhof;BE;ch:1:sloid:8081;1600.0;2025;8;hit;6;hit
-324;Kandersteg;BE;ch:1:sloid:7475;1600.0;2025;3;hit;3;hit
-325;Küsnacht Goldbach;ZH;ch:1:sloid:3141;1600.0;2025;3;hit;3;hit
-326;Köniz;BE;ch:1:sloid:7083;1600.0;2025;2;hit;2;hit
-327;Lausen;BL;ch:1:sloid:24;1600.0;2025;4;hit;3;hit
-328;Nebikon;LU;ch:1:sloid:2005;1600.0;2025;3;hit;3;hit
-329;Oberrieden Dorf;ZH;ch:1:sloid:2209;1600.0;2025;6;hit;6;hit
-330;Reiden;LU;ch:1:sloid:2003;1600.0;2025;3;hit;3;hit
-331;Saxon;VS;ch:1:sloid:1502;1600.0;2025;4;hit;3;hit
-332;Thörishaus Dorf;BE;ch:1:sloid:4115;1600.0;2025;3;hit;3;hit
-333;Wabern bei Bern;BE;ch:1:sloid:7078;1600.0;2025;3;hit;8;hit
-334;Busswil BE;BE;ch:1:sloid:4415;1600.0;2025;4;hit;4;hit
-335;Ramsei;BE;ch:1:sloid:8267;1600.0;2025;3;hit;3;hit
-336;Wichtrach;BE;ch:1:sloid:7007;1600.0;2025;3;hit;3;hit
-337;Filisur;GR;ch:1:sloid:9195;1600.0;2025;3;hit;3;hit
-338;Cham Alpenblick;ZG;ch:1:sloid:15995;1500.0;2025;6;hit;6;hit
-339;Giswil;OW;ch:1:sloid:8312;1500.0;2025;3;hit;3;hit
-340;Grenchen Nord;SO;ch:1:sloid:159;1500.0;2025;4;hit;5;hit
-341;Gisikon-Root;LU;ch:1:sloid:2201;1500.0;2025;3;hit;3;hit
-342;Kehrsatz;BE;ch:1:sloid:7077;1500.0;2025;4;hit;3;hit
-343;Niederweningen;ZH;ch:1:sloid:3319;1500.0;2025;7;hit;7;hit
-344;St. Gallen Winkeln;SG;ch:1:sloid:6300;1500.0;2025;12;hit;12;hit
-345;Wildegg;AG;ch:1:sloid:2115;1500.0;2025;4;hit;3;hit
-346;Wittenbach;SG;ch:1:sloid:6393;1500.0;2025;3;hit;3;hit
-347;Bad Zurzach;AG;ch:1:sloid:3409;1500.0;2025;3;hit;3;hit
-348;Henggart;ZH;ch:1:sloid:6046;1500.0;2025;4;hit;4;hit
-349;Moudon;VD;ch:1:sloid:4120;1500.0;2025;3;hit;3;hit
-350;St-Prex;VD;ch:1:sloid:1036;1500.0;2025;4;hit;4;hit
-351;Oberrieden;ZH;ch:1:sloid:3203;1500.0;2025;5;hit;5;hit
-352;Beinwil am See;AG;ch:1:sloid:2034;1400.0;2025;4;hit;5;hit
-353;Eschlikon TG;TG;ch:1:sloid:6011;1400.0;2025;3;hit;5;hit
-354;Huttwil;BE;ch:1:sloid:8187;1400.0;2025;3;hit;2;hit
-355;Maienfeld;GR;ch:1:sloid:9003;1400.0;2025;3;hit;3;hit
-356;Niederglatt ZH;ZH;ch:1:sloid:3313;1400.0;2025;7;hit;7;hit
-357;Neuhausen Rheinfall;SH;ch:1:sloid:18924;1400.0;2025;11;hit;11;hit
-358;La Neuveville;BE;ch:1:sloid:4226;1400.0;2025;4;hit;4;hit
-359;Emmenbrücke Kapf;LU;ch:1:sloid:2012;1400.0;2025;6;hit;6;hit
-360;St. Niklaus VS;VS;ch:1:sloid:1685;1400.0;2025;5;hit;5;hit
-361;Turbenthal;ZH;ch:1:sloid:6007;1400.0;2025;3;hit;4;hit
-362;Unterterzen;SG;ch:1:sloid:9416;1400.0;2025;6;hit;3;hit
-363;Otelfingen;ZH;ch:1:sloid:3528;1400.0;2025;2;hit;2;hit
-364;Schmitten FR;FR;ch:1:sloid:4102;1400.0;2025;4;hit;4;hit
-365;Schüpfen;BE;ch:1:sloid:4412;1400.0;2025;4;hit;4;hit
-366;Seuzach;ZH;ch:1:sloid:6020;1400.0;2025;3;hit;3;hit
-367;Tavannes;BE;ch:1:sloid:100;1400.0;2025;2;hit;3;hit
-368;Knonau;ZH;ch:1:sloid:2226;1400.0;2025;3;hit;3;hit
-369;Sins;AG;ch:1:sloid:2218;1400.0;2025;3;hit;3;hit
-370;Bern Weissenbühl;BE;ch:1:sloid:7079;1300.0;2025;7;hit;7;hit
-371;Belp Steinbach;BE;ch:1:sloid:7092;1300.0;2025;6;hit;6;hit
-372;Bassecourt;JU;ch:1:sloid:122;1300.0;2025;4;hit;4;hit
-373;Degersheim;SG;ch:1:sloid:6292;1300.0;2025;3;hit;3;hit
-374;Kloten Balsberg;ZH;ch:1:sloid:3309;1300.0;2025;8;hit;4;hit
-375;Laupen BE;BE;ch:1:sloid:4194;1300.0;2025;4;hit;4;hit
-376;Rickenbach-Attikon;ZH;ch:1:sloid:6018;1300.0;2025;4;hit;4;hit
-377;S. Antonino;TI;ch:1:sloid:5415;1300.0;2025;5;hit;5;hit
-378;Stalden-Saas;VS;ch:1:sloid:1683;1300.0;2025;4;hit;4;hit
-379;Steinmaur;ZH;ch:1:sloid:3316;1300.0;2025;6;hit;5;hit
-380;Solothurn West;SO;ch:1:sloid:206;1300.0;2025;3;hit;4;hit
-381;Winkel am Zürichsee;ZH;ch:1:sloid:3111;1300.0;2025;8;hit;8;hit
-382;Winterthur Wallrüti;ZH;ch:1:sloid:6038;1300.0;2025;12;hit;12;hit
-383;Zernez;GR;ch:1:sloid:9262;1300.0;2025;2;hit;2;hit
-384;Bütschwil;SG;ch:1:sloid:6203;1300.0;2025;3;hit;3;hit
-385;Rothenburg Station;LU;ch:1:sloid:2020;1300.0;2025;8;hit;8;hit
-386;Schöfflisdorf-Oberweningen;ZH;ch:1:sloid:3317;1300.0;2025;6;hit;6;hit
-387;Schmerikon;SG;ch:1:sloid:3115;1300.0;2025;4;hit;4;hit
-388;Travers;NE;ch:1:sloid:4215;1300.0;2025;3;hit;3;hit
-389;Vallorbe;VD;ch:1:sloid:1103;1300.0;2025;2;hit;3;hit
-390;Wald ZH;ZH;ch:1:sloid:3138;1300.0;2025;4;hit;6;hit
-391;Zürich Seebach;ZH;ch:1:sloid:3007;1300.0;2025;10;hit;11;hit
-392;Egerkingen;SO;ch:1:sloid:214;1300.0;2025;3;hit;3;hit
-393;Blonay;VD;ch:1:sloid:1281;1200.0;2024;3;hit;3;hit
-394;Vernier;GE;ch:1:sloid:1007;1200.0;2025;4;hit;3;hit
-395;Le Day;VD;ch:1:sloid:1104;1200.0;2025;5;hit;4;hit
-396;Flüelen;UR;ch:1:sloid:5112;1200.0;2025;3;hit;3;hit
-397;Glattfelden;ZH;ch:1:sloid:3401;1200.0;2025;4;hit;4;hit
-398;Grandson;VD;ch:1:sloid:4201;1200.0;2025;3;hit;3;hit
-399;Hägendorf;SO;ch:1:sloid:215;1200.0;2025;2;hit;2;hit
-400;Hünenberg Zythus;ZG;ch:1:sloid:15996;1200.0;2025;11;hit;11;hit
-401;Küblis;GR;ch:1:sloid:9064;1200.0;2025;2;hit;2;hit
-402;Le Landeron;NE;ch:1:sloid:4225;1200.0;2025;6;hit;5;hit
-403;Lucens;VD;ch:1:sloid:4121;1200.0;2025;4;hit;3;hit
-404;Melide;TI;ch:1:sloid:5302;1200.0;2025;3;hit;3;hit
-405;Oberburg;BE;ch:1:sloid:8080;1200.0;2025;5;hit;5;hit
-406;Seftigen;BE;ch:1:sloid:7071;1200.0;2025;3;hit;3;hit
-407;Sulgen;TG;ch:1:sloid:6217;1200.0;2025;3;hit;3;hit
-408;Toffen;BE;ch:1:sloid:7075;1200.0;2025;2;hit;2;hit
-409;Winterthur Hegi;ZH;ch:1:sloid:16218;1200.0;2025;9;hit;7;hit
-410;Zug Schutzengel;ZG;ch:1:sloid:16187;1200.0;2025;6;hit;6;hit
-411;Baar Lindenpark;ZG;ch:1:sloid:15993;1200.0;2025;6;hit;6;hit
-412;Bonaduz;GR;ch:1:sloid:9184;1200.0;2025;3;hit;3;hit
-413;Kehrsatz Nord;BE;ch:1:sloid:7093;1200.0;2025;4;hit;4;hit
-414;Lengnau BE;BE;ch:1:sloid:201;1200.0;2025;4;hit;4;hit
-415;Hergiswil Matt;NW;ch:1:sloid:8320;1200.0;2025;5;hit;5;hit
-416;Netstal;GL;ch:1:sloid:3228;1200.0;2025;3;hit;3;hit
-417;Neuenhof;AG;ch:1:sloid:3511;1200.0;2025;6;hit;4;hit
-418;Riazzino;TI;ch:1:sloid:5412;1200.0;2025;3;hit;3;hit
-419;Rorschach Hafen;SG;ch:1:sloid:6306;1200.0;2025;4;hit;4;hit
-420;Sachseln;OW;ch:1:sloid:8313;1200.0;2025;3;hit;3;hit
-421;Uetendorf;BE;ch:1:sloid:7070;1200.0;2025;3;hit;2;hit
-422;Würenlos;AG;ch:1:sloid:3529;1200.0;2025;3;hit;2;hit
-423;La Sarraz;VD;ch:1:sloid:1108;1200.0;2025;4;hit;4;hit
-424;Riddes;VS;ch:1:sloid:1503;1200.0;2025;3;hit;2;hit
-425;Hindelbank;BE;ch:1:sloid:8003;1200.0;2025;3;hit;3;hit
-426;Bazenheid;SG;ch:1:sloid:6205;1100.0;2025;3;hit;3;hit
-427;Capolago-Riva S. Vitale;TI;ch:1:sloid:5304;1100.0;2025;8;hit;8;hit
-428;Châteauneuf-Conthey;VS;ch:1:sloid:1510;1100.0;2025;8;hit;8;hit
-429;Chambésy;GE;ch:1:sloid:1020;1100.0;2025;5;hit;5;hit
-430;Hettlingen;ZH;ch:1:sloid:6045;1100.0;2025;3;hit;3;hit
-431;Les Hauts-Geneveys;NE;ch:1:sloid:4237;1100.0;2025;6;hit;7;hit
-432;Itingen;BL;ch:1:sloid:25;1100.0;2025;2;hit;2;hit
-433;Liebefeld;BE;ch:1:sloid:7091;1100.0;2025;3;hit;3;hit
-434;Mörel;VS;ch:1:sloid:1676;1100.0;2025;2;hit;2;hit
-435;Mumpf;AG;ch:1:sloid:303;1100.0;2025;3;hit;3;hit
-436;Nottwil;LU;ch:1:sloid:2008;1100.0;2025;2;hit;2;hit
-437;Rothrist;AG;ch:1:sloid:8103;1100.0;2025;5;hit;3;hit
-438;Samstagern;ZH;ch:1:sloid:3286;1100.0;2025;3;hit;3;hit
-439;Baar Neufeld;ZG;ch:1:sloid:15992;1100.0;2025;6;hit;6;hit
-440;Bergün/Bravuogn;GR;ch:1:sloid:9197;1100.0;2025;5;hit;5;hit
-441;Brügg BE;BE;ch:1:sloid:4416;1100.0;2025;4;hit;3;hit
-442;Dagmersellen;LU;ch:1:sloid:2004;1100.0;2025;3;hit;3;hit
-443;Feldbach;ZH;ch:1:sloid:3109;1100.0;2025;3;hit;3;hit
-444;Hitzkirch;LU;ch:1:sloid:2027;1100.0;2025;3;hit;3;hit
-445;Oberdiessbach;BE;ch:1:sloid:8255;1100.0;2025;5;hit;5;hit
-446;Steinhausen;ZG;ch:1:sloid:2227;1100.0;2025;6;hit;6;hit
-447;Pieterlen;BE;ch:1:sloid:200;1100.0;2025;3;hit;2;hit
-448;Rivera-Bironico;TI;ch:1:sloid:5216;1100.0;2025;5;hit;5;hit
-449;Sagliains;GR;ch:1:sloid:9269;1100.0;2025;3;hit;3;hit
-450;Alp Grüm;GR;ch:1:sloid:9357;1000.0;2025;3;hit;3;hit
-451;Au ZH;ZH;ch:1:sloid:3205;1000.0;2025;2;hit;4;hit
-452;Avenches;VD;ch:1:sloid:4126;1000.0;2025;3;hit;3;hit
-453;Eschenbach LU;LU;ch:1:sloid:2022;1000.0;2025;3;hit;6;hit
-454;Glovelier;JU;ch:1:sloid:123;1000.0;2025;3;hit;3;hit
-455;Grellingen;BL;ch:1:sloid:115;1000.0;2025;3;hit;4;hit
-456;Root D4;LU;ch:1:sloid:15997;1000.0;2025;3;hit;3;hit
-457;Lichtensteig;SG;ch:1:sloid:6201;1000.0;2025;3;hit;3;hit
-458;Mägenwil;AG;ch:1:sloid:2106;1000.0;2025;2;hit;2;hit
-459;Maroggia-Melano;TI;ch:1:sloid:5303;1000.0;2025;5;hit;4;hit
-460;Mendrisio S. Martino;TI;ch:1:sloid:18475;1000.0;2025;11;hit;11;hit
-461;Sennhof-Kyburg;ZH;ch:1:sloid:6003;1000.0;2025;4;hit;4;hit
-462;Thurnen;BE;ch:1:sloid:7073;1000.0;2025;3;hit;3;hit
-463;Waldibrücke;LU;ch:1:sloid:2017;1000.0;2025;3;hit;3;hit
-464;Wiesendangen;ZH;ch:1:sloid:6017;1000.0;2025;3;hit;4;hit
-465;Däniken SO;SO;ch:1:sloid:2111;1000.0;2025;2;hit;2;hit
-466;Oberentfelden;AG;ch:1:sloid:2102;1000.0;2025;6;hit;5;hit
-467;Sirnach;TG;ch:1:sloid:6010;1000.0;2025;3;hit;3;hit
-468;Sumiswald-Grünen;BE;ch:1:sloid:8272;1000.0;2025;4;hit;11;hit
-469;Bischofszell Stadt;TG;ch:1:sloid:6213;1000.0;2025;3;hit;2;hit
-470;Erstfeld;UR;ch:1:sloid:5114;1000.0;2025;3;hit;2;hit
-471;Islikon;TG;ch:1:sloid:6019;1000.0;2025;3;hit;3;hit
-472;Poschiavo;GR;ch:1:sloid:9361;990.0;2025;3;hit;3;hit
-473;Wauwil;LU;ch:1:sloid:2006;990.0;2025;3;hit;3;hit
-474;Niederscherli;BE;ch:1:sloid:7086;990.0;2025;7;hit;7;hit
-475;Château-d'Oex;VD;ch:1:sloid:1394;980.0;2024;7;hit;6;hit
-476;Untervaz-Trimmis;GR;ch:1:sloid:9053;980.0;2025;6;hit;6;hit
-477;Grosshöchstetten;BE;ch:1:sloid:8260;980.0;2025;6;hit;6;hit
-478;Balsthal;SO;ch:1:sloid:294;970.0;2025;4;hit;4;hit
-479;Lützelflüh-Goldbach;BE;ch:1:sloid:8266;970.0;2025;4;hit;4;hit
-480;Niederweningen Dorf;ZH;ch:1:sloid:3318;970.0;2025;8;hit;8;hit
-481;Yvonand;VD;ch:1:sloid:4130;970.0;2025;3;hit;1;hit
-482;La Conversion;VD;ch:1:sloid:4010;970.0;2025;5;hit;5;hit
-483;Twann;BE;ch:1:sloid:4228;970.0;2025;2;hit;2;hit
-484;Rosé;FR;ch:1:sloid:4028;960.0;2025;;miss;;miss
-485;Rikon;ZH;ch:1:sloid:6005;950.0;2025;3;hit;2;hit
-486;Dachsen;ZH;ch:1:sloid:6049;940.0;2025;3;hit;2;hit
-487;Marin-Epagnier;NE;ch:1:sloid:4481;940.0;2025;4;hit;7;hit
-488;Les Geneveys-sur-Coffrane;NE;ch:1:sloid:4236;940.0;2025;10;hit;9;hit
-489;Luzern Littau;LU;ch:1:sloid:8219;940.0;2025;8;hit;8;hit
-490;Escholzmatt;LU;ch:1:sloid:8210;930.0;2025;3;hit;3;hit
-491;Rhäzüns;GR;ch:1:sloid:9185;930.0;2025;3;hit;2;hit
-492;Diessenhofen;TG;ch:1:sloid:3428;920.0;2025;2;hit;2;hit
-493;Montbovon;FR;ch:1:sloid:4070;920.0;2024;5;hit;5;hit
-494;Reichenau-Tamins;GR;ch:1:sloid:9183;920.0;2025;4;hit;8;hit
-495;Bettmeralp Talstation;VS;ch:1:sloid:1675;910.0;2025;8;hit;6;hit
-496;Raron;VS;ch:1:sloid:1604;910.0;2025;3;hit;3;hit
-497;Zuoz;GR;ch:1:sloid:9258;900.0;2025;3;hit;3;hit
-498;Fribourg/Freiburg Poya;FR;ch:1:sloid:19133;900.0;2025;5;hit;4;hit
-499;Pully-Nord;VD;ch:1:sloid:4000;900.0;2025;3;hit;3;hit
-500;Burghalden;ZH;ch:1:sloid:3287;890.0;2025;5;hit;5;hit
+﻿Gruppe;Auswahlrang;Bahnhof;Referenz ID;Kennzahl;Wert;Jahr;DEV Ziel-ID;DEV Zuordnung;DEV Zeichen;DEV Status;TEST Ziel-ID;TEST Zuordnung;TEST Zeichen;TEST Status;INT Ziel-ID;INT Zuordnung;INT Zeichen;INT Status
+CH;1;Zürich HB;ch:1:sloid:3000;SBB DTV;449800.0;2025;ch:1:sloid:3000;exact_global_id;1;hit;ch:1:sloid:3000;exact_global_id;2;hit;ch:1:sloid:3000;exact_global_id;1;hit
+CH;2;Bern;ch:1:sloid:7000;SBB DTV;177000.0;2025;ch:1:sloid:7000;exact_global_id;2;hit;ch:1:sloid:7000;exact_global_id;2;hit;ch:1:sloid:7000;exact_global_id;2;hit
+CH;3;Luzern;ch:1:sloid:5000;SBB DTV;108800.0;2025;ch:1:sloid:5000;exact_global_id;3;hit;ch:1:sloid:5000;exact_global_id;3;hit;ch:1:sloid:5000;exact_global_id;2;hit
+CH;4;Basel SBB;ch:1:sloid:10;SBB DTV;103800.0;2025;ch:1:sloid:10;exact_global_id;3;hit;ch:1:sloid:10;exact_global_id;3;hit;ch:1:sloid:10;exact_global_id;3;hit
+CH;5;Winterthur;ch:1:sloid:6000;SBB DTV;103800.0;2025;ch:1:sloid:6000;exact_global_id;3;hit;ch:1:sloid:6000;exact_global_id;3;hit;ch:1:sloid:6000;exact_global_id;3;hit
+CH;6;Lausanne;ch:1:sloid:1120;SBB DTV;97500.0;2025;ch:1:sloid:1120;exact_global_id;4;hit;ch:1:sloid:1120;exact_global_id;4;hit;ch:1:sloid:1120;exact_global_id;3;hit
+CH;7;Zürich Oerlikon;ch:1:sloid:3006;SBB DTV;86200.0;2025;ch:1:sloid:3006;exact_global_id;1;hit;ch:1:sloid:3006;exact_global_id;2;hit;ch:1:sloid:3006;exact_global_id;8;hit
+CH;8;Genève;ch:1:sloid:1008;SBB DTV;83100.0;2025;ch:1:sloid:1008;exact_global_id;3;hit;ch:1:sloid:1008;exact_global_id;3;hit;ch:1:sloid:1008;exact_global_id;2;hit
+CH;9;Olten;ch:1:sloid:218;SBB DTV;81600.0;2025;ch:1:sloid:218;exact_global_id;1;hit;ch:1:sloid:218;exact_global_id;1;hit;ch:1:sloid:218;exact_global_id;1;hit
+CH;10;Zürich Stadelhofen;ch:1:sloid:3003;SBB DTV;75200.0;2025;ch:1:sloid:3003;exact_global_id;1;hit;ch:1:sloid:3003;exact_global_id;8;hit;ch:1:sloid:3003;exact_global_id;1;hit
+CH;11;Zürich Flughafen;ch:1:sloid:3016;SBB DTV;53300.0;2025;ch:1:sloid:3016;exact_global_id;1;hit;ch:1:sloid:3016;exact_global_id;4;hit;ch:1:sloid:3016;exact_global_id;8;hit
+CH;12;Zürich Hardbrücke;ch:1:sloid:3020;SBB DTV;52900.0;2025;ch:1:sloid:3020;exact_global_id;2;hit;ch:1:sloid:3020;exact_global_id;2;hit;ch:1:sloid:3020;exact_global_id;10;hit
+CH;13;Biel/Bienne;ch:1:sloid:4300;SBB DTV;48400.0;2025;ch:1:sloid:4300;exact_global_id;3;hit;ch:1:sloid:4300;exact_global_id;3;hit;ch:1:sloid:4300;exact_global_id;2;hit
+CH;14;Renens VD;ch:1:sloid:1118;SBB DTV;47400.0;2025;ch:1:sloid:1118;exact_global_id;3;hit;ch:1:sloid:1118;exact_global_id;3;hit;ch:1:sloid:1118;exact_global_id;2;hit
+CH;15;St. Gallen;ch:1:sloid:6302;SBB DTV;46900.0;2025;ch:1:sloid:6302;exact_global_id;2;hit;ch:1:sloid:6302;exact_global_id;2;hit;ch:1:sloid:6302;exact_global_id;5;hit
+CH;16;Zug;ch:1:sloid:2204;SBB DTV;42100.0;2025;ch:1:sloid:2204;exact_global_id;1;hit;ch:1:sloid:2204;exact_global_id;2;hit;ch:1:sloid:2204;exact_global_id;1;hit
+CH;17;Zürich Altstetten;ch:1:sloid:3001;SBB DTV;40500.0;2025;ch:1:sloid:3001;exact_global_id;8;hit;ch:1:sloid:3001;exact_global_id;2;hit;ch:1:sloid:3001;exact_global_id;8;hit
+CH;18;Aarau;ch:1:sloid:2113;SBB DTV;40100.0;2025;ch:1:sloid:2113;exact_global_id;3;hit;ch:1:sloid:2113;exact_global_id;3;hit;ch:1:sloid:2113;exact_global_id;3;hit
+CH;19;Baden;ch:1:sloid:3504;SBB DTV;34000.0;2025;ch:1:sloid:3504;exact_global_id;3;hit;ch:1:sloid:3504;exact_global_id;3;hit;ch:1:sloid:3504;exact_global_id;3;hit
+CH;20;Thun;ch:1:sloid:7100;SBB DTV;32800.0;2025;ch:1:sloid:7100;exact_global_id;1;hit;ch:1:sloid:7100;exact_global_id;1;hit;ch:1:sloid:7100;exact_global_id;2;hit
+CH;21;Lugano;ch:1:sloid:5300;SBB DTV;32300.0;2025;ch:1:sloid:5300;exact_global_id;3;hit;ch:1:sloid:5300;exact_global_id;3;hit;ch:1:sloid:5300;exact_global_id;2;hit
+CH;22;Fribourg/Freiburg;ch:1:sloid:4100;SBB DTV;30800.0;2025;ch:1:sloid:4100;exact_global_id;4;hit;ch:1:sloid:4100;exact_global_id;4;hit;ch:1:sloid:4100;exact_global_id;3;hit
+CH;23;Chur;ch:1:sloid:9000;SBB DTV;29800.0;2025;ch:1:sloid:9000;exact_global_id;2;hit;ch:1:sloid:9000;exact_global_id;2;hit;ch:1:sloid:9000;exact_global_id;2;hit
+CH;24;Neuchâtel;ch:1:sloid:4221;SBB DTV;29300.0;2025;ch:1:sloid:4221;exact_global_id;3;hit;ch:1:sloid:4221;exact_global_id;3;hit;ch:1:sloid:4221;exact_global_id;4;hit
+CH;25;Lenzburg;ch:1:sloid:2119;SBB DTV;27600.0;2025;ch:1:sloid:2119;exact_global_id;3;hit;ch:1:sloid:2119;exact_global_id;2;hit;ch:1:sloid:2119;exact_global_id;4;hit
+CH;26;Vevey;ch:1:sloid:1200;SBB DTV;27400.0;2025;ch:1:sloid:1200;exact_global_id;2;hit;ch:1:sloid:1200;exact_global_id;2;hit;ch:1:sloid:1200;exact_global_id;2;hit
+CH;27;Visp;ch:1:sloid:1605;SBB DTV;26600.0;2025;ch:1:sloid:1605;exact_global_id;2;hit;ch:1:sloid:1605;exact_global_id;2;hit;ch:1:sloid:1605;exact_global_id;2;hit
+CH;28;Wetzikon ZH;ch:1:sloid:3123;SBB DTV;26000.0;2025;ch:1:sloid:3123;exact_global_id;3;hit;ch:1:sloid:3123;exact_global_id;3;hit;ch:1:sloid:3123;exact_global_id;3;hit
+CH;29;Uster;ch:1:sloid:3125;SBB DTV;25500.0;2025;ch:1:sloid:3125;exact_global_id;1;hit;ch:1:sloid:3125;exact_global_id;1;hit;ch:1:sloid:3125;exact_global_id;2;hit
+CH;30;Rapperswil SG;ch:1:sloid:3110;SBB DTV;25300.0;2025;ch:1:sloid:3110;exact_global_id;3;hit;ch:1:sloid:3110;exact_global_id;3;hit;ch:1:sloid:3110;exact_global_id;3;hit
+CH;31;Stettbach;ch:1:sloid:3147;SBB DTV;25200.0;2025;ch:1:sloid:3147;exact_global_id;3;hit;ch:1:sloid:3147;exact_global_id;2;hit;ch:1:sloid:3147;exact_global_id;4;hit
+CH;32;Schaffhausen;ch:1:sloid:3424;SBB DTV;25100.0;2025;ch:1:sloid:3424;exact_global_id;3;hit;ch:1:sloid:3424;exact_global_id;3;hit;ch:1:sloid:3424;exact_global_id;4;hit
+CH;33;Brugg AG;ch:1:sloid:309;SBB DTV;22800.0;2025;ch:1:sloid:309;exact_global_id;2;hit;ch:1:sloid:309;exact_global_id;2;hit;ch:1:sloid:309;exact_global_id;4;hit
+CH;34;Brig;ch:1:sloid:1609;SBB DTV;21200.0;2025;ch:1:sloid:1609;exact_global_id;2;hit;ch:1:sloid:1609;exact_global_id;2;hit;ch:1:sloid:1609;exact_global_id;2;hit
+CH;35;Dietikon;ch:1:sloid:3508;SBB DTV;21200.0;2025;ch:1:sloid:3508;exact_global_id;2;hit;ch:1:sloid:3508;exact_global_id;2;hit;ch:1:sloid:3508;exact_global_id;4;hit
+CH;36;Bellinzona;ch:1:sloid:5213;SBB DTV;20700.0;2025;ch:1:sloid:5213;exact_global_id;2;hit;ch:1:sloid:5213;exact_global_id;2;hit;ch:1:sloid:5213;exact_global_id;2;hit
+CH;37;Arth-Goldau;ch:1:sloid:5004;SBB DTV;20100.0;2025;ch:1:sloid:5004;exact_global_id;2;hit;ch:1:sloid:5004;exact_global_id;2;hit;ch:1:sloid:5004;exact_global_id;2;hit
+CH;38;Montreux;ch:1:sloid:1300;SBB DTV;19500.0;2025;ch:1:sloid:1300;exact_global_id;2;hit;ch:1:sloid:1300;exact_global_id;2;hit;ch:1:sloid:1300;exact_global_id;2;hit
+CH;39;Nyon;ch:1:sloid:1030;SBB DTV;19300.0;2025;ch:1:sloid:1030;exact_global_id;2;hit;ch:1:sloid:1030;exact_global_id;2;hit;ch:1:sloid:1030;exact_global_id;1;hit
+CH;40;Yverdon-les-Bains;ch:1:sloid:4200;SBB DTV;19300.0;2025;ch:1:sloid:4200;exact_global_id;1;hit;ch:1:sloid:4200;exact_global_id;1;hit;ch:1:sloid:4200;exact_global_id;1;hit
+CH;41;Landquart;ch:1:sloid:9002;SBB DTV;19100.0;2025;ch:1:sloid:9002;exact_global_id;3;hit;ch:1:sloid:9002;exact_global_id;3;hit;ch:1:sloid:9002;exact_global_id;3;hit
+CH;42;Spiez;ch:1:sloid:7483;SBB DTV;18600.0;2025;ch:1:sloid:7483;exact_global_id;3;hit;ch:1:sloid:7483;exact_global_id;3;hit;ch:1:sloid:7483;exact_global_id;2;hit
+CH;43;Wädenswil;ch:1:sloid:3206;SBB DTV;18600.0;2025;ch:1:sloid:3206;exact_global_id;2;hit;ch:1:sloid:3206;exact_global_id;2;hit;ch:1:sloid:3206;exact_global_id;2;hit
+CH;44;Wil SG;ch:1:sloid:6206;SBB DTV;18300.0;2025;ch:1:sloid:6206;exact_global_id;5;hit;ch:1:sloid:6206;exact_global_id;5;hit;ch:1:sloid:6206;exact_global_id;3;hit
+CH;45;Interlaken Ost;ch:1:sloid:7492;SBB DTV;17700.0;2025;ch:1:sloid:7492;exact_global_id;1;hit;ch:1:sloid:7492;exact_global_id;1;hit;ch:1:sloid:7492;exact_global_id;1;hit
+CH;46;Thalwil;ch:1:sloid:3202;SBB DTV;17700.0;2025;ch:1:sloid:3202;exact_global_id;1;hit;ch:1:sloid:3202;exact_global_id;1;hit;ch:1:sloid:3202;exact_global_id;2;hit
+CH;47;Morges;ch:1:sloid:1037;SBB DTV;17500.0;2025;ch:1:sloid:1037;exact_global_id;2;hit;ch:1:sloid:1037;exact_global_id;2;hit;ch:1:sloid:1037;exact_global_id;2;hit
+CH;48;Effretikon;ch:1:sloid:3305;SBB DTV;17400.0;2025;ch:1:sloid:3305;exact_global_id;3;hit;ch:1:sloid:3305;exact_global_id;3;hit;ch:1:sloid:3305;exact_global_id;2;hit
+CH;49;Pfäffikon SZ;ch:1:sloid:3209;SBB DTV;16700.0;2025;ch:1:sloid:3209;exact_global_id;3;hit;ch:1:sloid:3209;exact_global_id;3;hit;ch:1:sloid:3209;exact_global_id;3;hit
+CH;50;Weinfelden;ch:1:sloid:6105;SBB DTV;16500.0;2025;ch:1:sloid:6105;exact_global_id;3;hit;ch:1:sloid:6105;exact_global_id;3;hit;ch:1:sloid:6105;exact_global_id;2;hit
+CH;51;Liestal;ch:1:sloid:23;SBB DTV;16200.0;2025;ch:1:sloid:23;exact_global_id;3;hit;ch:1:sloid:23;exact_global_id;3;hit;ch:1:sloid:23;exact_global_id;3;hit
+CH;52;Burgdorf;ch:1:sloid:8005;SBB DTV;16000.0;2025;ch:1:sloid:8005;exact_global_id;2;hit;ch:1:sloid:8005;exact_global_id;2;hit;ch:1:sloid:8005;exact_global_id;3;hit
+CH;53;Sargans;ch:1:sloid:9411;SBB DTV;16000.0;2025;ch:1:sloid:9411;exact_global_id;2;hit;ch:1:sloid:9411;exact_global_id;2;hit;ch:1:sloid:9411;exact_global_id;3;hit
+CH;54;Genève-Aéroport;ch:1:sloid:1026;SBB DTV;16000.0;2025;ch:1:sloid:1026;exact_global_id;3;hit;ch:1:sloid:1026;exact_global_id;3;hit;ch:1:sloid:1026;exact_global_id;9;hit
+CH;55;Bülach;ch:1:sloid:3400;SBB DTV;15600.0;2025;ch:1:sloid:3400;exact_global_id;2;hit;ch:1:sloid:3400;exact_global_id;2;hit;ch:1:sloid:3400;exact_global_id;2;hit
+CH;56;Solothurn;ch:1:sloid:207;SBB DTV;15600.0;2025;ch:1:sloid:207;exact_global_id;3;hit;ch:1:sloid:207;exact_global_id;3;hit;ch:1:sloid:207;exact_global_id;2;hit
+CH;57;Rotkreuz;ch:1:sloid:2202;SBB DTV;15300.0;2025;ch:1:sloid:2202;exact_global_id;3;hit;ch:1:sloid:2202;exact_global_id;3;hit;ch:1:sloid:2202;exact_global_id;4;hit
+CH;58;Zürich Enge;ch:1:sloid:3010;SBB DTV;15300.0;2025;ch:1:sloid:3010;exact_global_id;8;hit;ch:1:sloid:3010;exact_global_id;2;hit;ch:1:sloid:3010;exact_global_id;8;hit
+CH;59;Bern Wankdorf;ch:1:sloid:16161;SBB DTV;15000.0;2025;ch:1:sloid:16161;exact_global_id;6;hit;ch:1:sloid:16161;exact_global_id;2;hit;ch:1:sloid:16161;exact_global_id;7;hit
+CH;60;Sion;ch:1:sloid:1506;SBB DTV;14300.0;2025;ch:1:sloid:1506;exact_global_id;3;hit;ch:1:sloid:1506;exact_global_id;3;hit;ch:1:sloid:1506;exact_global_id;3;hit
+CH;61;Sursee;ch:1:sloid:2007;SBB DTV;13400.0;2025;ch:1:sloid:2007;exact_global_id;3;hit;ch:1:sloid:2007;exact_global_id;3;hit;ch:1:sloid:2007;exact_global_id;3;hit
+CH;62;Wallisellen;ch:1:sloid:3129;SBB DTV;13300.0;2025;ch:1:sloid:3129;exact_global_id;3;hit;ch:1:sloid:3129;exact_global_id;2;hit;ch:1:sloid:3129;exact_global_id;4;hit
+CH;63;Schlieren;ch:1:sloid:3509;SBB DTV;12800.0;2025;ch:1:sloid:3509;exact_global_id;3;hit;ch:1:sloid:3509;exact_global_id;3;hit;ch:1:sloid:3509;exact_global_id;4;hit
+CH;64;Zürich Wiedikon;ch:1:sloid:3011;SBB DTV;12700.0;2025;ch:1:sloid:3011;exact_global_id;8;hit;ch:1:sloid:3011;exact_global_id;3;hit;ch:1:sloid:3011;exact_global_id;8;hit
+CH;65;Martigny;ch:1:sloid:1500;SBB DTV;12200.0;2025;ch:1:sloid:1500;exact_global_id;3;hit;ch:1:sloid:1500;exact_global_id;3;hit;ch:1:sloid:1500;exact_global_id;2;hit
+CH;66;Ziegelbrücke;ch:1:sloid:3225;SBB DTV;12000.0;2025;ch:1:sloid:3225;exact_global_id;2;hit;ch:1:sloid:3225;exact_global_id;2;hit;ch:1:sloid:3225;exact_global_id;2;hit
+CH;67;Rüti ZH;ch:1:sloid:3121;SBB DTV;12000.0;2025;ch:1:sloid:3121;exact_global_id;2;hit;ch:1:sloid:3121;exact_global_id;2;hit;ch:1:sloid:3121;exact_global_id;3;hit
+CH;68;Zermatt;ch:1:sloid:1689;SBB DTV;11900.0;2025;ch:1:sloid:1689;exact_global_id;2;hit;ch:1:sloid:1689;exact_global_id;2;hit;ch:1:sloid:1689;exact_global_id;2;hit
+CH;69;Romanshorn;ch:1:sloid:6121;SBB DTV;11800.0;2025;ch:1:sloid:6121;exact_global_id;3;hit;ch:1:sloid:6121;exact_global_id;3;hit;ch:1:sloid:6121;exact_global_id;3;hit
+CH;70;Aigle;ch:1:sloid:1400;SBB DTV;11500.0;2025;ch:1:sloid:1400;exact_global_id;2;hit;ch:1:sloid:1400;exact_global_id;2;hit;ch:1:sloid:1400;exact_global_id;2;hit
+CH;71;Locarno;ch:1:sloid:5400;SBB DTV;10800.0;2025;ch:1:sloid:5400;exact_global_id;2;hit;ch:1:sloid:5400;exact_global_id;2;hit;ch:1:sloid:5400;exact_global_id;2;hit
+CH;72;Frauenfeld;ch:1:sloid:6100;SBB DTV;10600.0;2025;ch:1:sloid:6100;exact_global_id;3;hit;ch:1:sloid:6100;exact_global_id;3;hit;ch:1:sloid:6100;exact_global_id;4;hit
+CH;73;Langenthal;ch:1:sloid:8100;SBB DTV;10500.0;2025;ch:1:sloid:8100;exact_global_id;3;hit;ch:1:sloid:8100;exact_global_id;3;hit;ch:1:sloid:8100;exact_global_id;5;hit
+CH;74;La Chaux-de-Fonds;ch:1:sloid:4314;SBB DTV;10200.0;2025;ch:1:sloid:4314;exact_global_id;4;hit;ch:1:sloid:4314;exact_global_id;4;hit;ch:1:sloid:4314;exact_global_id;8;hit
+CH;75;Schwerzenbach ZH;ch:1:sloid:3127;SBB DTV;10100.0;2025;ch:1:sloid:3127;exact_global_id;3;hit;ch:1:sloid:3127;exact_global_id;3;hit;ch:1:sloid:3127;exact_global_id;6;hit
+CH;76;Zofingen;ch:1:sloid:2001;SBB DTV;10100.0;2025;ch:1:sloid:2001;exact_global_id;2;hit;ch:1:sloid:2001;exact_global_id;2;hit;ch:1:sloid:2001;exact_global_id;2;hit
+CH;77;Lyss;ch:1:sloid:4414;SBB DTV;10000.0;2025;ch:1:sloid:4414;exact_global_id;2;hit;ch:1:sloid:4414;exact_global_id;2;hit;ch:1:sloid:4414;exact_global_id;2;hit
+CH;78;Genève-Eaux-Vives;ch:1:sloid:16273;SBB DTV;9900.0;2025;ch:1:sloid:16273;exact_global_id;3;hit;ch:1:sloid:16273;exact_global_id;8;hit;ch:1:sloid:16273;exact_global_id;8;hit
+CH;79;Mendrisio;ch:1:sloid:5305;SBB DTV;9600.0;2025;ch:1:sloid:5305;exact_global_id;2;hit;ch:1:sloid:5305;exact_global_id;4;hit;ch:1:sloid:5305;exact_global_id;4;hit
+CH;80;Lancy-Bachet;ch:1:sloid:17142;SBB DTV;9300.0;2025;ch:1:sloid:17142;exact_global_id;3;hit;ch:1:sloid:17142;exact_global_id;4;hit;ch:1:sloid:17142;exact_global_id;4;hit
+CH;81;Horgen;ch:1:sloid:3204;SBB DTV;9200.0;2025;ch:1:sloid:3204;exact_global_id;3;hit;ch:1:sloid:3204;exact_global_id;3;hit;ch:1:sloid:3204;exact_global_id;2;hit
+CH;82;Baar;ch:1:sloid:2206;SBB DTV;9100.0;2025;ch:1:sloid:2206;exact_global_id;3;hit;ch:1:sloid:2206;exact_global_id;3;hit;ch:1:sloid:2206;exact_global_id;3;hit
+CH;83;Chiasso;ch:1:sloid:5307;SBB DTV;9100.0;2025;ch:1:sloid:5307;exact_global_id;2;hit;ch:1:sloid:5307;exact_global_id;3;hit;ch:1:sloid:5307;exact_global_id;3;hit
+CH;84;Rheinfelden;ch:1:sloid:301;SBB DTV;9000.0;2025;ch:1:sloid:301;exact_global_id;3;hit;ch:1:sloid:301;exact_global_id;3;hit;ch:1:sloid:301;exact_global_id;2;hit
+CH;85;Lancy-Pont-Rouge;ch:1:sloid:16155;SBB DTV;8700.0;2025;ch:1:sloid:16155;exact_global_id;4;hit;ch:1:sloid:16155;exact_global_id;4;hit;ch:1:sloid:16155;exact_global_id;5;hit
+CH;86;Pratteln;ch:1:sloid:21;SBB DTV;8700.0;2025;ch:1:sloid:21;exact_global_id;3;hit;ch:1:sloid:21;exact_global_id;4;hit;ch:1:sloid:21;exact_global_id;3;hit
+CH;87;Dübendorf;ch:1:sloid:3128;SBB DTV;8500.0;2025;ch:1:sloid:3128;exact_global_id;2;hit;ch:1:sloid:3128;exact_global_id;2;hit;ch:1:sloid:3128;exact_global_id;2;hit
+CH;88;Wattwil;ch:1:sloid:6200;SBB DTV;8300.0;2025;ch:1:sloid:6200;exact_global_id;3;hit;ch:1:sloid:6200;exact_global_id;3;hit;ch:1:sloid:6200;exact_global_id;3;hit
+CH;89;Dietlikon;ch:1:sloid:3306;SBB DTV;8200.0;2025;ch:1:sloid:3306;exact_global_id;2;hit;ch:1:sloid:3306;exact_global_id;4;hit;ch:1:sloid:3306;exact_global_id;4;hit
+CH;90;Meilen;ch:1:sloid:3104;SBB DTV;8200.0;2025;ch:1:sloid:3104;exact_global_id;2;hit;ch:1:sloid:3104;exact_global_id;2;hit;ch:1:sloid:3104;exact_global_id;2;hit
+CH;91;Aesch BL;ch:1:sloid:117;SBB DTV;8200.0;2025;ch:1:sloid:117;exact_global_id;2;hit;ch:1:sloid:117;exact_global_id;3;hit;ch:1:sloid:117;exact_global_id;3;hit
+CH;92;Delémont;ch:1:sloid:109;SBB DTV;7800.0;2025;ch:1:sloid:109;exact_global_id;4;hit;ch:1:sloid:109;exact_global_id;4;hit;ch:1:sloid:109;exact_global_id;3;hit
+CH;93;Gossau SG;ch:1:sloid:6210;SBB DTV;7700.0;2025;ch:1:sloid:6210;exact_global_id;2;hit;ch:1:sloid:6210;exact_global_id;3;hit;ch:1:sloid:6210;exact_global_id;3;hit
+CH;94;Sissach;ch:1:sloid:26;SBB DTV;7700.0;2025;ch:1:sloid:26;exact_global_id;3;hit;ch:1:sloid:26;exact_global_id;3;hit;ch:1:sloid:26;exact_global_id;3;hit
+CH;95;Coppet;ch:1:sloid:1023;SBB DTV;7600.0;2025;ch:1:sloid:1023;exact_global_id;3;hit;ch:1:sloid:1023;exact_global_id;3;hit;ch:1:sloid:1023;exact_global_id;2;hit
+CH;96;Konolfingen;ch:1:sloid:8202;SBB DTV;7600.0;2025;ch:1:sloid:8202;exact_global_id;3;hit;ch:1:sloid:8202;exact_global_id;3;hit;ch:1:sloid:8202;exact_global_id;3;hit
+CH;97;Kreuzlingen;ch:1:sloid:6131;SBB DTV;7500.0;2025;ch:1:sloid:6131;exact_global_id;3;hit;ch:1:sloid:6131;exact_global_id;3;hit;ch:1:sloid:6131;exact_global_id;3;hit
+CH;98;Sierre/Siders;ch:1:sloid:1509;SBB DTV;7500.0;2025;ch:1:sloid:1509;exact_global_id;3;hit;ch:1:sloid:1509;exact_global_id;3;hit;ch:1:sloid:1509;exact_global_id;3;hit
+CH;99;Genève-Champel;ch:1:sloid:16272;SBB DTV;7400.0;2025;ch:1:sloid:16272;exact_global_id;3;hit;ch:1:sloid:16272;exact_global_id;8;hit;ch:1:sloid:16272;exact_global_id;8;hit
+CH;100;Gland;ch:1:sloid:1031;SBB DTV;7400.0;2025;ch:1:sloid:1031;exact_global_id;3;hit;ch:1:sloid:1031;exact_global_id;3;hit;ch:1:sloid:1031;exact_global_id;2;hit
+CH;101;Glattbrugg;ch:1:sloid:3310;SBB DTV;7400.0;2025;ch:1:sloid:3310;exact_global_id;3;hit;ch:1:sloid:3310;exact_global_id;3;hit;ch:1:sloid:3310;exact_global_id;3;hit
+CH;102;Oberglatt ZH;ch:1:sloid:3312;SBB DTV;7400.0;2025;ch:1:sloid:3312;exact_global_id;1;hit;ch:1:sloid:3312;exact_global_id;1;hit;ch:1:sloid:3312;exact_global_id;1;hit
+CH;103;Affoltern am Albis;ch:1:sloid:2224;SBB DTV;7300.0;2025;ch:1:sloid:2224;exact_global_id;2;hit;ch:1:sloid:2224;exact_global_id;3;hit;ch:1:sloid:2224;exact_global_id;4;hit
+CH;104;Regensdorf-Watt;ch:1:sloid:3526;SBB DTV;7300.0;2025;ch:1:sloid:3526;exact_global_id;3;hit;ch:1:sloid:3526;exact_global_id;4;hit;ch:1:sloid:3526;exact_global_id;3;hit
+CH;105;Rorschach;ch:1:sloid:6311;SBB DTV;7200.0;2025;ch:1:sloid:6311;exact_global_id;3;hit;ch:1:sloid:6311;exact_global_id;3;hit;ch:1:sloid:6311;exact_global_id;2;hit
+CH;106;Stans;ch:1:sloid:8391;SBB DTV;7100.0;2025;ch:1:sloid:8391;exact_global_id;4;hit;ch:1:sloid:8391;exact_global_id;4;hit;ch:1:sloid:8391;exact_global_id;4;hit
+CH;107;Bern Europaplatz;ch:1:sloid:4108;SBB DTV;7000.0;2025;ch:1:sloid:4108;exact_global_id;6;hit;ch:1:sloid:4108;exact_global_id;6;hit;ch:1:sloid:4108;exact_global_id;6;hit
+CH;108;Chêne-Bourg;ch:1:sloid:16274;SBB DTV;7000.0;2025;ch:1:sloid:16274;exact_global_id;2;hit;ch:1:sloid:16274;exact_global_id;4;hit;ch:1:sloid:16274;exact_global_id;5;hit
+CH;109;St-Maurice;ch:1:sloid:1403;SBB DTV;7000.0;2025;ch:1:sloid:1403;exact_global_id;2;hit;ch:1:sloid:1403;exact_global_id;2;hit;ch:1:sloid:1403;exact_global_id;4;hit
+CH;110;Uznach;ch:1:sloid:3116;SBB DTV;7000.0;2025;ch:1:sloid:3116;exact_global_id;1;hit;ch:1:sloid:3116;exact_global_id;1;hit;ch:1:sloid:3116;exact_global_id;1;hit
+CH;111;Prilly-Malley;ch:1:sloid:18452;SBB DTV;7000.0;2025;ch:1:sloid:18452;exact_global_id;3;hit;ch:1:sloid:18452;exact_global_id;4;hit;ch:1:sloid:18452;exact_global_id;4;hit
+CH;112;Turgi;ch:1:sloid:3503;SBB DTV;6900.0;2025;ch:1:sloid:3503;exact_global_id;2;hit;ch:1:sloid:3503;exact_global_id;2;hit;ch:1:sloid:3503;exact_global_id;2;hit
+CH;113;Täsch;ch:1:sloid:1688;SBB DTV;6900.0;2025;ch:1:sloid:1688;exact_global_id;2;hit;ch:1:sloid:1688;exact_global_id;2;hit;ch:1:sloid:1688;exact_global_id;2;hit
+CH;114;Interlaken West;ch:1:sloid:7493;SBB DTV;6700.0;2025;ch:1:sloid:7493;exact_global_id;1;hit;ch:1:sloid:7493;exact_global_id;1;hit;ch:1:sloid:7493;exact_global_id;4;hit
+CH;115;Payerne;ch:1:sloid:4134;SBB DTV;6700.0;2025;ch:1:sloid:4134;exact_global_id;3;hit;ch:1:sloid:4134;exact_global_id;3;hit;ch:1:sloid:4134;exact_global_id;2;hit
+CH;116;Münsingen;ch:1:sloid:7006;SBB DTV;6600.0;2025;ch:1:sloid:7006;exact_global_id;3;hit;ch:1:sloid:7006;exact_global_id;3;hit;ch:1:sloid:7006;exact_global_id;2;hit
+CH;117;Palézieux;ch:1:sloid:4014;SBB DTV;6500.0;2025;ch:1:sloid:4014;exact_global_id;3;hit;ch:1:sloid:4014;exact_global_id;3;hit;ch:1:sloid:4014;exact_global_id;2;hit
+CH;118;Laufen;ch:1:sloid:113;SBB DTV;6300.0;2025;ch:1:sloid:113;exact_global_id;4;hit;ch:1:sloid:113;exact_global_id;5;hit;ch:1:sloid:113;exact_global_id;3;hit
+CH;119;Wohlen AG;ch:1:sloid:2213;SBB DTV;6100.0;2025;ch:1:sloid:2213;exact_global_id;3;hit;ch:1:sloid:2213;exact_global_id;3;hit;ch:1:sloid:2213;exact_global_id;2;hit
+CH;120;Bussigny;ch:1:sloid:1117;SBB DTV;6100.0;2025;ch:1:sloid:1117;exact_global_id;2;hit;ch:1:sloid:1117;exact_global_id;4;hit;ch:1:sloid:1117;exact_global_id;4;hit
+CH;121;Zürich Wollishofen;ch:1:sloid:3009;SBB DTV;6000.0;2025;ch:1:sloid:3009;exact_global_id;8;hit;ch:1:sloid:3009;exact_global_id;9;hit;ch:1:sloid:3009;exact_global_id;9;hit
+CH;122;Cham;ch:1:sloid:2203;SBB DTV;5900.0;2025;ch:1:sloid:2203;exact_global_id;2;hit;ch:1:sloid:2203;exact_global_id;4;hit;ch:1:sloid:2203;exact_global_id;3;hit
+CH;123;Jona;ch:1:sloid:3120;SBB DTV;5900.0;2025;ch:1:sloid:3120;exact_global_id;2;hit;ch:1:sloid:3120;exact_global_id;2;hit;ch:1:sloid:3120;exact_global_id;1;hit
+CH;124;Muttenz;ch:1:sloid:20;SBB DTV;5900.0;2025;ch:1:sloid:20;exact_global_id;3;hit;ch:1:sloid:20;exact_global_id;3;hit;ch:1:sloid:20;exact_global_id;3;hit
+CH;125;St. Moritz;ch:1:sloid:9253;SBB DTV;5900.0;2025;ch:1:sloid:9253;exact_global_id;2;hit;ch:1:sloid:9253;exact_global_id;5;hit;ch:1:sloid:9253;exact_global_id;5;hit
+CH;126;Emmenbrücke;ch:1:sloid:2021;SBB DTV;5900.0;2025;ch:1:sloid:2021;exact_global_id;3;hit;ch:1:sloid:2021;exact_global_id;3;hit;ch:1:sloid:2021;exact_global_id;3;hit
+CH;127;Bassersdorf;ch:1:sloid:3307;SBB DTV;5800.0;2025;ch:1:sloid:3307;exact_global_id;4;hit;ch:1:sloid:3307;exact_global_id;4;hit;ch:1:sloid:3307;exact_global_id;4;hit
+CH;128;Herisau;ch:1:sloid:6290;SBB DTV;5800.0;2025;ch:1:sloid:6290;exact_global_id;4;hit;ch:1:sloid:6290;exact_global_id;4;hit;ch:1:sloid:6290;exact_global_id;3;hit
+CH;129;Küsnacht ZH;ch:1:sloid:3101;SBB DTV;5800.0;2025;ch:1:sloid:3101;exact_global_id;2;hit;ch:1:sloid:3101;exact_global_id;3;hit;ch:1:sloid:3101;exact_global_id;3;hit
+CH;130;Pfäffikon ZH;ch:1:sloid:3301;SBB DTV;5800.0;2025;ch:1:sloid:3301;exact_global_id;3;hit;ch:1:sloid:3301;exact_global_id;3;hit;ch:1:sloid:3301;exact_global_id;2;hit
+CH;131;Giubiasco;ch:1:sloid:5214;SBB DTV;5700.0;2025;ch:1:sloid:5214;exact_global_id;3;hit;ch:1:sloid:5214;exact_global_id;3;hit;ch:1:sloid:5214;exact_global_id;2;hit
+CH;132;Stäfa;ch:1:sloid:3107;SBB DTV;5700.0;2025;ch:1:sloid:3107;exact_global_id;3;hit;ch:1:sloid:3107;exact_global_id;3;hit;ch:1:sloid:3107;exact_global_id;3;hit
+CH;133;Romont FR;ch:1:sloid:4023;SBB DTV;5700.0;2025;ch:1:sloid:4023;exact_global_id;3;hit;ch:1:sloid:4023;exact_global_id;4;hit;ch:1:sloid:4023;exact_global_id;3;hit
+CH;134;Buchs SG;ch:1:sloid:9404;SBB DTV;5600.0;2025;ch:1:sloid:9404;exact_global_id;3;hit;ch:1:sloid:9404;exact_global_id;3;hit;ch:1:sloid:9404;exact_global_id;4;hit
+CH;135;Bubikon;ch:1:sloid:3122;SBB DTV;5600.0;2025;ch:1:sloid:3122;exact_global_id;2;hit;ch:1:sloid:3122;exact_global_id;3;hit;ch:1:sloid:3122;exact_global_id;3;hit
+CH;136;Uzwil;ch:1:sloid:6208;SBB DTV;5500.0;2025;ch:1:sloid:6208;exact_global_id;1;hit;ch:1:sloid:6208;exact_global_id;2;hit;ch:1:sloid:6208;exact_global_id;2;hit
+CH;137;Kloten;ch:1:sloid:3308;SBB DTV;5400.0;2025;ch:1:sloid:3308;exact_global_id;3;hit;ch:1:sloid:3308;exact_global_id;3;hit;ch:1:sloid:3308;exact_global_id;2;hit
+CH;138;Richterswil;ch:1:sloid:3207;SBB DTV;5400.0;2025;ch:1:sloid:3207;exact_global_id;2;hit;ch:1:sloid:3207;exact_global_id;3;hit;ch:1:sloid:3207;exact_global_id;3;hit
+CH;139;Belp;ch:1:sloid:7076;SBB DTV;5200.0;2025;ch:1:sloid:7076;exact_global_id;3;hit;ch:1:sloid:7076;exact_global_id;4;hit;ch:1:sloid:7076;exact_global_id;3;hit
+CH;140;Männedorf;ch:1:sloid:3106;SBB DTV;5200.0;2025;ch:1:sloid:3106;exact_global_id;2;hit;ch:1:sloid:3106;exact_global_id;2;hit;ch:1:sloid:3106;exact_global_id;2;hit
+CH;141;Oensingen;ch:1:sloid:212;SBB DTV;5200.0;2025;ch:1:sloid:212;exact_global_id;3;hit;ch:1:sloid:212;exact_global_id;3;hit;ch:1:sloid:212;exact_global_id;2;hit
+CH;142;Killwangen-Spreitenbach;ch:1:sloid:3506;SBB DTV;5100.0;2025;ch:1:sloid:3506;exact_global_id;3;hit;ch:1:sloid:3506;exact_global_id;5;hit;ch:1:sloid:3506;exact_global_id;5;hit
+CH;143;Langnau i.E.;ch:1:sloid:8207;SBB DTV;5000.0;2025;ch:1:sloid:8207;exact_global_id;4;hit;ch:1:sloid:8207;exact_global_id;5;hit;ch:1:sloid:8207;exact_global_id;5;hit
+CH;144;Wettingen;ch:1:sloid:3505;SBB DTV;5000.0;2025;ch:1:sloid:3505;exact_global_id;3;hit;ch:1:sloid:3505;exact_global_id;3;hit;ch:1:sloid:3505;exact_global_id;3;hit
+CH;145;Nänikon-Greifensee;ch:1:sloid:3126;SBB DTV;5000.0;2025;ch:1:sloid:3126;exact_global_id;2;hit;ch:1:sloid:3126;exact_global_id;2;hit;ch:1:sloid:3126;exact_global_id;2;hit
+CH;146;Allaman;ch:1:sloid:1035;SBB DTV;4900.0;2025;ch:1:sloid:1035;exact_global_id;2;hit;ch:1:sloid:1035;exact_global_id;2;hit;ch:1:sloid:1035;exact_global_id;2;hit
+CH;147;Uetikon;ch:1:sloid:3105;SBB DTV;4900.0;2025;ch:1:sloid:3105;exact_global_id;1;hit;ch:1:sloid:3105;exact_global_id;3;hit;ch:1:sloid:3105;exact_global_id;2;hit
+CH;148;Rümlang;ch:1:sloid:3311;SBB DTV;4900.0;2025;ch:1:sloid:3311;exact_global_id;2;hit;ch:1:sloid:3311;exact_global_id;3;hit;ch:1:sloid:3311;exact_global_id;2;hit
+CH;149;Birmensdorf ZH;ch:1:sloid:2221;SBB DTV;4800.0;2025;ch:1:sloid:2221;exact_global_id;3;hit;ch:1:sloid:2221;exact_global_id;3;hit;ch:1:sloid:2221;exact_global_id;2;hit
+CH;150;Frick;ch:1:sloid:305;SBB DTV;4800.0;2025;ch:1:sloid:305;exact_global_id;4;hit;ch:1:sloid:305;exact_global_id;4;hit;ch:1:sloid:305;exact_global_id;3;hit
+CH;151;Grenchen Süd;ch:1:sloid:202;SBB DTV;4800.0;2025;ch:1:sloid:202;exact_global_id;3;hit;ch:1:sloid:202;exact_global_id;5;hit;ch:1:sloid:202;exact_global_id;5;hit
+CH;152;Zweisimmen;ch:1:sloid:7290;SBB DTV;4800.0;2025;ch:1:sloid:7290;exact_global_id;3;hit;ch:1:sloid:7290;exact_global_id;3;hit;ch:1:sloid:7290;exact_global_id;2;hit
+CH;153;Gelterkinden;ch:1:sloid:27;SBB DTV;4700.0;2025;ch:1:sloid:27;exact_global_id;3;hit;ch:1:sloid:27;exact_global_id;3;hit;ch:1:sloid:27;exact_global_id;3;hit
+CH;154;Versoix;ch:1:sloid:1022;SBB DTV;4700.0;2025;ch:1:sloid:1022;exact_global_id;2;hit;ch:1:sloid:1022;exact_global_id;5;hit;ch:1:sloid:1022;exact_global_id;4;hit
+CH;155;Dornach-Arlesheim;ch:1:sloid:118;SBB DTV;4500.0;2025;ch:1:sloid:118;exact_global_id;4;hit;ch:1:sloid:118;exact_global_id;5;hit;ch:1:sloid:118;exact_global_id;9;hit
+CH;156;Heerbrugg;ch:1:sloid:6317;SBB DTV;4500.0;2025;ch:1:sloid:6317;exact_global_id;3;hit;ch:1:sloid:6317;exact_global_id;3;hit;ch:1:sloid:6317;exact_global_id;3;hit
+CH;157;Rolle;ch:1:sloid:1033;SBB DTV;4500.0;2025;ch:1:sloid:1033;exact_global_id;3;hit;ch:1:sloid:1033;exact_global_id;3;hit;ch:1:sloid:1033;exact_global_id;2;hit
+CH;158;Villeneuve VD;ch:1:sloid:1303;SBB DTV;4500.0;2025;ch:1:sloid:1303;exact_global_id;2;hit;ch:1:sloid:1303;exact_global_id;6;hit;ch:1:sloid:1303;exact_global_id;6;hit
+CH;159;Einsiedeln;ch:1:sloid:3283;SBB DTV;4300.0;2025;ch:1:sloid:3283;exact_global_id;3;hit;ch:1:sloid:3283;exact_global_id;3;hit;ch:1:sloid:3283;exact_global_id;2;hit
+CH;160;Kilchberg ZH;ch:1:sloid:3200;SBB DTV;4300.0;2025;ch:1:sloid:3200;exact_global_id;3;hit;ch:1:sloid:3200;exact_global_id;3;hit;ch:1:sloid:3200;exact_global_id;3;hit
+CH;161;Pont-Céard;ch:1:sloid:1013;SBB DTV;4200.0;2025;ch:1:sloid:1013;exact_global_id;2;hit;ch:1:sloid:1013;exact_global_id;4;hit;ch:1:sloid:1013;exact_global_id;6;hit
+CH;162;Zollikofen;ch:1:sloid:4410;SBB DTV;4200.0;2025;ch:1:sloid:4410;exact_global_id;2;hit;ch:1:sloid:4410;exact_global_id;2;hit;ch:1:sloid:4410;exact_global_id;2;hit
+CH;163;Herrliberg-Feldmeilen;ch:1:sloid:3103;SBB DTV;4200.0;2025;ch:1:sloid:3103;exact_global_id;4;hit;ch:1:sloid:3103;exact_global_id;12;hit;ch:1:sloid:3103;exact_global_id;12;hit
+CH;164;Koblenz;ch:1:sloid:329;SBB DTV;4200.0;2025;ch:1:sloid:329;exact_global_id;3;hit;ch:1:sloid:329;exact_global_id;3;hit;ch:1:sloid:329;exact_global_id;2;hit
+CH;165;St. Margrethen SG;ch:1:sloid:6314;SBB DTV;4200.0;2025;ch:1:sloid:6314;exact_global_id;5;hit;ch:1:sloid:6314;exact_global_id;7;hit;ch:1:sloid:6314;exact_global_id;7;hit
+CH;166;Meiringen;ch:1:sloid:8308;SBB DTV;4100.0;2025;ch:1:sloid:8308;exact_global_id;2;hit;ch:1:sloid:8308;exact_global_id;4;hit;ch:1:sloid:8308;exact_global_id;3;hit
+CH;167;Zürich Tiefenbrunnen;ch:1:sloid:3004;SBB DTV;4100.0;2025;ch:1:sloid:3004;exact_global_id;8;hit;ch:1:sloid:3004;exact_global_id;8;hit;ch:1:sloid:3004;exact_global_id;1;hit
+CH;168;Pully;ch:1:sloid:1121;SBB DTV;4000.0;2025;ch:1:sloid:1121;exact_global_id;2;hit;ch:1:sloid:1121;exact_global_id;2;hit;ch:1:sloid:1121;exact_global_id;2;hit
+CH;169;Samedan;ch:1:sloid:9251;SBB DTV;4000.0;2025;ch:1:sloid:9251;exact_global_id;2;hit;ch:1:sloid:9251;exact_global_id;2;hit;ch:1:sloid:9251;exact_global_id;2;hit
+CH;170;Zürich Affoltern;ch:1:sloid:3008;SBB DTV;4000.0;2025;ch:1:sloid:3008;exact_global_id;8;hit;ch:1:sloid:3008;exact_global_id;9;hit;ch:1:sloid:3008;exact_global_id;9;hit
+CH;171;Cossonay-Penthalaz;ch:1:sloid:1115;SBB DTV;3900.0;2025;ch:1:sloid:1115;exact_global_id;3;hit;ch:1:sloid:1115;exact_global_id;4;hit;ch:1:sloid:1115;exact_global_id;4;hit
+CH;172;Gümligen;ch:1:sloid:7003;SBB DTV;3900.0;2025;ch:1:sloid:7003;exact_global_id;2;hit;ch:1:sloid:7003;exact_global_id;2;hit;ch:1:sloid:7003;exact_global_id;2;hit
+CH;173;Sarnen;ch:1:sloid:8314;SBB DTV;3900.0;2025;ch:1:sloid:8314;exact_global_id;2;hit;ch:1:sloid:8314;exact_global_id;3;hit;ch:1:sloid:8314;exact_global_id;3;hit
+CH;174;Erlenbach ZH;ch:1:sloid:3102;SBB DTV;3800.0;2025;ch:1:sloid:3102;exact_global_id;3;hit;ch:1:sloid:3102;exact_global_id;3;hit;ch:1:sloid:3102;exact_global_id;4;hit
+CH;175;Kriens Mattenhof;ch:1:sloid:16351;SBB DTV;3800.0;2025;ch:1:sloid:16351;exact_global_id;3;hit;ch:1:sloid:16351;exact_global_id;8;hit;ch:1:sloid:16351;exact_global_id;8;hit
+CH;176;Mellingen Heitersberg;ch:1:sloid:16219;SBB DTV;3800.0;2025;ch:1:sloid:16219;exact_global_id;3;hit;ch:1:sloid:16219;exact_global_id;3;hit;ch:1:sloid:16219;exact_global_id;3;hit
+CH;177;Ostermundigen;ch:1:sloid:7002;SBB DTV;3800.0;2025;ch:1:sloid:7002;exact_global_id;3;hit;ch:1:sloid:7002;exact_global_id;4;hit;ch:1:sloid:7002;exact_global_id;4;hit
+CH;178;Oberwinterthur;ch:1:sloid:6016;SBB DTV;3800.0;2025;ch:1:sloid:6016;exact_global_id;3;hit;ch:1:sloid:6016;exact_global_id;5;hit;ch:1:sloid:6016;exact_global_id;6;hit
+CH;179;Düdingen;ch:1:sloid:4101;SBB DTV;3700.0;2025;ch:1:sloid:4101;exact_global_id;2;hit;ch:1:sloid:4101;exact_global_id;2;hit;ch:1:sloid:4101;exact_global_id;2;hit
+CH;180;Emmenbrücke Gersag;ch:1:sloid:2028;SBB DTV;3700.0;2025;ch:1:sloid:2028;exact_global_id;3;hit;ch:1:sloid:2028;exact_global_id;13;hit;ch:1:sloid:2028;exact_global_id;13;hit
+CH;181;Murten/Morat;ch:1:sloid:4128;SBB DTV;3700.0;2025;ch:1:sloid:4128;exact_global_id;3;hit;ch:1:sloid:4128;exact_global_id;2;hit;ch:1:sloid:4128;exact_global_id;2;hit
+CH;182;Bonstetten-Wettswil;ch:1:sloid:2222;SBB DTV;3700.0;2025;ch:1:sloid:2222;exact_global_id;3;hit;ch:1:sloid:2222;exact_global_id;5;hit;ch:1:sloid:2222;exact_global_id;5;hit
+CH;183;Flawil;ch:1:sloid:6209;SBB DTV;3600.0;2025;ch:1:sloid:6209;exact_global_id;3;hit;ch:1:sloid:6209;exact_global_id;3;hit;ch:1:sloid:6209;exact_global_id;2;hit
+CH;184;Glanzenberg;ch:1:sloid:3512;SBB DTV;3600.0;2025;ch:1:sloid:3512;exact_global_id;3;hit;ch:1:sloid:3512;exact_global_id;4;hit;ch:1:sloid:3512;exact_global_id;4;hit
+CH;185;Münchenbuchsee;ch:1:sloid:4411;SBB DTV;3600.0;2025;ch:1:sloid:4411;exact_global_id;3;hit;ch:1:sloid:4411;exact_global_id;4;hit;ch:1:sloid:4411;exact_global_id;4;hit
+CH;186;Frenkendorf-Füllinsdorf;ch:1:sloid:22;SBB DTV;3500.0;2025;ch:1:sloid:22;exact_global_id;3;hit;ch:1:sloid:22;exact_global_id;5;hit;ch:1:sloid:22;exact_global_id;5;hit
+CH;187;Lachen SZ;ch:1:sloid:3220;SBB DTV;3500.0;2025;ch:1:sloid:3220;exact_global_id;3;hit;ch:1:sloid:3220;exact_global_id;4;hit;ch:1:sloid:3220;exact_global_id;3;hit
+CH;188;Bex;ch:1:sloid:1402;SBB DTV;3400.0;2025;ch:1:sloid:1402;exact_global_id;3;hit;ch:1:sloid:1402;exact_global_id;3;hit;ch:1:sloid:1402;exact_global_id;3;hit
+CH;189;Horw;ch:1:sloid:8319;SBB DTV;3400.0;2025;ch:1:sloid:8319;exact_global_id;3;hit;ch:1:sloid:8319;exact_global_id;4;hit;ch:1:sloid:8319;exact_global_id;2;hit
+CH;190;Siebnen-Wangen;ch:1:sloid:3221;SBB DTV;3400.0;2025;ch:1:sloid:3221;exact_global_id;3;hit;ch:1:sloid:3221;exact_global_id;4;hit;ch:1:sloid:3221;exact_global_id;4;hit
+CH;191;Herzogenbuchsee;ch:1:sloid:8008;SBB DTV;3400.0;2025;ch:1:sloid:8008;exact_global_id;4;hit;ch:1:sloid:8008;exact_global_id;4;hit;ch:1:sloid:8008;exact_global_id;4;hit
+CH;192;Möhlin;ch:1:sloid:302;SBB DTV;3400.0;2025;ch:1:sloid:302;exact_global_id;2;hit;ch:1:sloid:302;exact_global_id;2;hit;ch:1:sloid:302;exact_global_id;2;hit
+CH;193;Andermatt;ch:1:sloid:5165;SBB DTV;3300.0;2025;ch:1:sloid:5165;exact_global_id;2;hit;ch:1:sloid:5165;exact_global_id;4;hit;ch:1:sloid:5165;exact_global_id;3;hit
+CH;194;Biberbrugg;ch:1:sloid:3284;SBB DTV;3300.0;2025;ch:1:sloid:3284;exact_global_id;3;hit;ch:1:sloid:3284;exact_global_id;3;hit;ch:1:sloid:3284;exact_global_id;3;hit
+CH;195;Altstätten SG;ch:1:sloid:6319;SBB DTV;3200.0;2025;ch:1:sloid:6319;exact_global_id;2;hit;ch:1:sloid:6319;exact_global_id;4;hit;ch:1:sloid:6319;exact_global_id;4;hit
+CH;196;Amriswil;ch:1:sloid:6109;SBB DTV;3200.0;2025;ch:1:sloid:6109;exact_global_id;3;hit;ch:1:sloid:6109;exact_global_id;3;hit;ch:1:sloid:6109;exact_global_id;3;hit
+CH;197;Glarus;ch:1:sloid:3230;SBB DTV;3200.0;2025;ch:1:sloid:3230;exact_global_id;3;hit;ch:1:sloid:3230;exact_global_id;3;hit;ch:1:sloid:3230;exact_global_id;2;hit
+CH;198;Klosters Platz;ch:1:sloid:9068;SBB DTV;3200.0;2025;ch:1:sloid:9068;exact_global_id;3;hit;ch:1:sloid:9068;exact_global_id;4;hit;ch:1:sloid:9068;exact_global_id;8;hit
+CH;199;Kerzers;ch:1:sloid:4400;SBB DTV;3200.0;2025;ch:1:sloid:4400;exact_global_id;3;hit;ch:1:sloid:4400;exact_global_id;3;hit;ch:1:sloid:4400;exact_global_id;2;hit
+CH;200;Moutier;ch:1:sloid:105;SBB DTV;3200.0;2025;ch:1:sloid:105;exact_global_id;3;hit;ch:1:sloid:105;exact_global_id;2;hit;ch:1:sloid:105;exact_global_id;2;hit
+CH;201;Brunnen;ch:1:sloid:5007;SBB DTV;3200.0;2025;ch:1:sloid:5007;exact_global_id;2;hit;ch:1:sloid:5007;exact_global_id;4;hit;ch:1:sloid:5007;exact_global_id;3;hit
+CH;202;Wolhusen;ch:1:sloid:8215;SBB DTV;3200.0;2025;ch:1:sloid:8215;exact_global_id;3;hit;ch:1:sloid:8215;exact_global_id;3;hit;ch:1:sloid:8215;exact_global_id;2;hit
+CH;203;Bern Bümpliz Süd;ch:1:sloid:4106;SBB DTV;3100.0;2025;ch:1:sloid:4106;exact_global_id;6;hit;ch:1:sloid:4106;exact_global_id;6;hit;ch:1:sloid:4106;exact_global_id;6;hit
+CH;204;Dielsdorf;ch:1:sloid:3315;SBB DTV;3100.0;2025;ch:1:sloid:3315;exact_global_id;2;hit;ch:1:sloid:3315;exact_global_id;4;hit;ch:1:sloid:3315;exact_global_id;4;hit
+CH;205;Malters;ch:1:sloid:8218;SBB DTV;3100.0;2025;ch:1:sloid:8218;exact_global_id;3;hit;ch:1:sloid:8218;exact_global_id;3;hit;ch:1:sloid:8218;exact_global_id;3;hit
+CH;206;Porrentruy;ch:1:sloid:126;SBB DTV;3100.0;2025;ch:1:sloid:126;exact_global_id;2;hit;ch:1:sloid:126;exact_global_id;3;hit;ch:1:sloid:126;exact_global_id;3;hit
+CH;207;Stein-Säckingen;ch:1:sloid:320;SBB DTV;3100.0;2025;ch:1:sloid:320;exact_global_id;3;hit;ch:1:sloid:320;exact_global_id;5;hit;ch:1:sloid:320;exact_global_id;8;hit
+CH;208;Fehraltorf;ch:1:sloid:3302;SBB DTV;3100.0;2025;ch:1:sloid:3302;exact_global_id;2;hit;ch:1:sloid:3302;exact_global_id;3;hit;ch:1:sloid:3302;exact_global_id;3;hit
+CH;209;Rüschlikon;ch:1:sloid:3201;SBB DTV;3000.0;2025;ch:1:sloid:3201;exact_global_id;2;hit;ch:1:sloid:3201;exact_global_id;3;hit;ch:1:sloid:3201;exact_global_id;3;hit
+CH;210;Küssnacht am Rigi;ch:1:sloid:5002;SBB DTV;2900.0;2025;ch:1:sloid:5002;exact_global_id;2;hit;ch:1:sloid:5002;exact_global_id;4;hit;ch:1:sloid:5002;exact_global_id;4;hit
+CH;211;Bern Brünnen Westside;ch:1:sloid:16154;SBB DTV;2900.0;2025;ch:1:sloid:16154;exact_global_id;6;hit;ch:1:sloid:16154;exact_global_id;8;hit;ch:1:sloid:16154;exact_global_id;8;hit
+CH;212;Göschenen;ch:1:sloid:5119;SBB DTV;2800.0;2025;ch:1:sloid:5119;exact_global_id;3;hit;ch:1:sloid:5119;exact_global_id;3;hit;ch:1:sloid:5119;exact_global_id;2;hit
+CH;213;Le Locle;ch:1:sloid:4316;SBB DTV;2800.0;2025;ch:1:sloid:4316;exact_global_id;2;hit;ch:1:sloid:4316;exact_global_id;5;hit;ch:1:sloid:4316;exact_global_id;4;hit
+CH;214;St. Gallen St. Fiden;ch:1:sloid:6303;SBB DTV;2800.0;2025;ch:1:sloid:6303;exact_global_id;2;hit;ch:1:sloid:6303;exact_global_id;2;hit;ch:1:sloid:6303;exact_global_id;5;hit
+CH;215;La Tour-de-Peilz;ch:1:sloid:1201;SBB DTV;2800.0;2025;ch:1:sloid:1201;exact_global_id;4;hit;ch:1:sloid:1201;exact_global_id;7;hit;ch:1:sloid:1201;exact_global_id;9;hit
+CH;216;Andelfingen;ch:1:sloid:6047;SBB DTV;2800.0;2025;ch:1:sloid:6047;exact_global_id;2;hit;ch:1:sloid:6047;exact_global_id;4;hit;ch:1:sloid:6047;exact_global_id;3;hit
+CH;217;Cully;ch:1:sloid:1124;SBB DTV;2800.0;2025;ch:1:sloid:1124;exact_global_id;2;hit;ch:1:sloid:1124;exact_global_id;2;hit;ch:1:sloid:1124;exact_global_id;2;hit
+CH;218;Muri AG;ch:1:sloid:2215;SBB DTV;2800.0;2025;ch:1:sloid:2215;exact_global_id;3;hit;ch:1:sloid:2215;exact_global_id;4;hit;ch:1:sloid:2215;exact_global_id;4;hit
+CH;219;Schwyz;ch:1:sloid:5006;SBB DTV;2800.0;2025;ch:1:sloid:5006;exact_global_id;3;hit;ch:1:sloid:5006;exact_global_id;4;hit;ch:1:sloid:5006;exact_global_id;4;hit
+CH;220;Bad Ragaz;ch:1:sloid:9004;SBB DTV;2800.0;2025;ch:1:sloid:9004;exact_global_id;3;hit;ch:1:sloid:9004;exact_global_id;3;hit;ch:1:sloid:9004;exact_global_id;3;hit
+CH;221;Buchs-Dällikon;ch:1:sloid:3527;SBB DTV;2800.0;2025;ch:1:sloid:3527;exact_global_id;3;hit;ch:1:sloid:3527;exact_global_id;7;hit;ch:1:sloid:3527;exact_global_id;5;hit
+CH;222;Luzern Allmend/Messe;ch:1:sloid:8321;SBB DTV;2700.0;2025;ch:1:sloid:8321;exact_global_id;3;hit;ch:1:sloid:8321;exact_global_id;3;hit;ch:1:sloid:8321;exact_global_id;2;hit
+CH;223;Cadenazzo;ch:1:sloid:5404;SBB DTV;2700.0;2025;ch:1:sloid:5404;exact_global_id;2;hit;ch:1:sloid:5404;exact_global_id;3;hit;ch:1:sloid:5404;exact_global_id;3;hit
+CH;224;Engelberg;ch:1:sloid:8399;SBB DTV;2700.0;2025;ch:1:sloid:8399;exact_global_id;3;hit;ch:1:sloid:8399;exact_global_id;6;hit;ch:1:sloid:8399;exact_global_id;4;hit
+CH;225;Genève-Sécheron;ch:1:sloid:16283;SBB DTV;2700.0;2025;ch:1:sloid:16283;exact_global_id;5;hit;ch:1:sloid:16283;exact_global_id;8;hit;ch:1:sloid:16283;exact_global_id;8;hit
+CH;226;Hergiswil NW;ch:1:sloid:8318;SBB DTV;2700.0;2025;ch:1:sloid:8318;exact_global_id;4;hit;ch:1:sloid:8318;exact_global_id;5;hit;ch:1:sloid:8318;exact_global_id;4;hit
+CH;227;Hinwil;ch:1:sloid:3130;SBB DTV;2700.0;2025;ch:1:sloid:3130;exact_global_id;3;hit;ch:1:sloid:3130;exact_global_id;3;hit;ch:1:sloid:3130;exact_global_id;2;hit
+CH;228;Brienz;ch:1:sloid:8305;SBB DTV;2700.0;2025;ch:1:sloid:8305;exact_global_id;2;hit;ch:1:sloid:8305;exact_global_id;3;hit;ch:1:sloid:8305;exact_global_id;3;hit
+CH;229;Biasca;ch:1:sloid:5209;SBB DTV;2600.0;2025;ch:1:sloid:5209;exact_global_id;3;hit;ch:1:sloid:5209;exact_global_id;3;hit;ch:1:sloid:5209;exact_global_id;3;hit
+CH;230;Buchrain;ch:1:sloid:16350;SBB DTV;2600.0;2025;ch:1:sloid:16350;exact_global_id;3;hit;ch:1:sloid:16350;exact_global_id;5;hit;ch:1:sloid:16350;exact_global_id;3;hit
+CH;231;Castione-Arbedo;ch:1:sloid:5212;SBB DTV;2600.0;2025;ch:1:sloid:5212;exact_global_id;2;hit;ch:1:sloid:5212;exact_global_id;5;hit;ch:1:sloid:5212;exact_global_id;5;hit
+CH;232;Davos Platz;ch:1:sloid:9073;SBB DTV;2600.0;2025;ch:1:sloid:9073;exact_global_id;3;hit;ch:1:sloid:9073;exact_global_id;4;hit;ch:1:sloid:9073;exact_global_id;3;hit
+CH;233;Frutigen;ch:1:sloid:7478;SBB DTV;2600.0;2025;ch:1:sloid:7478;exact_global_id;3;hit;ch:1:sloid:7478;exact_global_id;3;hit;ch:1:sloid:7478;exact_global_id;3;hit
+CH;234;Bern Bümpliz Nord;ch:1:sloid:4489;SBB DTV;2600.0;2025;ch:1:sloid:4489;exact_global_id;7;hit;ch:1:sloid:4489;exact_global_id;7;hit;ch:1:sloid:4489;exact_global_id;7;hit
+CH;235;Hasle-Rüegsau;ch:1:sloid:8265;SBB DTV;2600.0;2025;ch:1:sloid:8265;exact_global_id;4;hit;ch:1:sloid:8265;exact_global_id;4;hit;ch:1:sloid:8265;exact_global_id;3;hit
+CH;236;Aarburg-Oftringen;ch:1:sloid:2000;SBB DTV;2500.0;2025;ch:1:sloid:2000;exact_global_id;3;hit;ch:1:sloid:2000;exact_global_id;4;hit;ch:1:sloid:2000;exact_global_id;5;hit
+CH;237;Döttingen;ch:1:sloid:3501;SBB DTV;2500.0;2025;ch:1:sloid:3501;exact_global_id;2;hit;ch:1:sloid:3501;exact_global_id;2;hit;ch:1:sloid:3501;exact_global_id;2;hit
+CH;238;Horgen Oberdorf;ch:1:sloid:2208;SBB DTV;2500.0;2025;ch:1:sloid:2208;exact_global_id;3;hit;ch:1:sloid:2208;exact_global_id;8;hit;ch:1:sloid:2208;exact_global_id;8;hit
+CH;239;Paradiso;ch:1:sloid:5301;SBB DTV;2500.0;2025;ch:1:sloid:5301;exact_global_id;3;hit;ch:1:sloid:5301;exact_global_id;3;hit;ch:1:sloid:5301;exact_global_id;3;hit
+CH;240;Rorschach Stadt;ch:1:sloid:6322;SBB DTV;2500.0;2025;ch:1:sloid:6322;exact_global_id;3;hit;ch:1:sloid:6322;exact_global_id;9;hit;ch:1:sloid:6322;exact_global_id;4;hit
+CH;241;Winterthur Seen;ch:1:sloid:6002;SBB DTV;2500.0;2025;ch:1:sloid:6002;exact_global_id;3;hit;ch:1:sloid:6002;exact_global_id;12;hit;ch:1:sloid:6002;exact_global_id;12;hit
+CH;242;Zürich Wipkingen;ch:1:sloid:3015;SBB DTV;2500.0;2025;ch:1:sloid:3015;exact_global_id;8;hit;ch:1:sloid:3015;exact_global_id;9;hit;ch:1:sloid:3015;exact_global_id;9;hit
+CH;243;Tenero;ch:1:sloid:5401;SBB DTV;2500.0;2025;ch:1:sloid:5401;exact_global_id;2;hit;ch:1:sloid:5401;exact_global_id;2;hit;ch:1:sloid:5401;exact_global_id;2;hit
+CH;244;Ebikon;ch:1:sloid:2200;SBB DTV;2400.0;2025;ch:1:sloid:2200;exact_global_id;2;hit;ch:1:sloid:2200;exact_global_id;2;hit;ch:1:sloid:2200;exact_global_id;2;hit
+CH;245;Leuk;ch:1:sloid:1601;SBB DTV;2400.0;2025;ch:1:sloid:1601;exact_global_id;3;hit;ch:1:sloid:1601;exact_global_id;3;hit;ch:1:sloid:1601;exact_global_id;3;hit
+CH;246;Sempach-Neuenkirch;ch:1:sloid:2009;SBB DTV;2400.0;2025;ch:1:sloid:2009;exact_global_id;3;hit;ch:1:sloid:2009;exact_global_id;3;hit;ch:1:sloid:2009;exact_global_id;3;hit
+CH;247;Altdorf UR;ch:1:sloid:5113;SBB DTV;2400.0;2025;ch:1:sloid:5113;exact_global_id;2;hit;ch:1:sloid:5113;exact_global_id;4;hit;ch:1:sloid:5113;exact_global_id;4;hit
+CH;248;Ins;ch:1:sloid:4483;SBB DTV;2400.0;2025;ch:1:sloid:4483;exact_global_id;1;hit;ch:1:sloid:4483;exact_global_id;3;hit;ch:1:sloid:4483;exact_global_id;1;hit
+CH;249;Kaiseraugst;ch:1:sloid:300;SBB DTV;2400.0;2025;ch:1:sloid:300;exact_global_id;3;hit;ch:1:sloid:300;exact_global_id;3;hit;ch:1:sloid:300;exact_global_id;3;hit
+CH;250;Schüpfheim;ch:1:sloid:8211;SBB DTV;2400.0;2025;ch:1:sloid:8211;exact_global_id;4;hit;ch:1:sloid:8211;exact_global_id;4;hit;ch:1:sloid:8211;exact_global_id;4;hit
+CH;251;Clarens;ch:1:sloid:1203;SBB DTV;2300.0;2025;ch:1:sloid:1203;exact_global_id;2;hit;ch:1:sloid:1203;exact_global_id;2;hit;ch:1:sloid:1203;exact_global_id;2;hit
+CH;252;Pontresina;ch:1:sloid:9255;SBB DTV;2300.0;2025;ch:1:sloid:9255;exact_global_id;3;hit;ch:1:sloid:9255;exact_global_id;3;hit;ch:1:sloid:9255;exact_global_id;3;hit
+CH;253;Sonceboz-Sombeval;ch:1:sloid:4304;SBB DTV;2300.0;2025;ch:1:sloid:4304;exact_global_id;4;hit;ch:1:sloid:4304;exact_global_id;4;hit;ch:1:sloid:4304;exact_global_id;4;hit
+CH;254;Thusis;ch:1:sloid:9189;SBB DTV;2300.0;2025;ch:1:sloid:9189;exact_global_id;2;hit;ch:1:sloid:9189;exact_global_id;1;hit;ch:1:sloid:9189;exact_global_id;2;hit
+CH;255;Monthey;ch:1:sloid:1421;SBB DTV;2300.0;2025;ch:1:sloid:1421;exact_global_id;3;hit;ch:1:sloid:1421;exact_global_id;5;hit;ch:1:sloid:1421;exact_global_id;4;hit
+CH;256;Schönenwerd SO;ch:1:sloid:2112;SBB DTV;2300.0;2025;ch:1:sloid:2112;exact_global_id;4;hit;ch:1:sloid:2112;exact_global_id;6;hit;ch:1:sloid:2112;exact_global_id;7;hit
+CH;257;Chavornay;ch:1:sloid:1112;SBB DTV;2300.0;2025;ch:1:sloid:1112;exact_global_id;4;hit;ch:1:sloid:1112;exact_global_id;4;hit;ch:1:sloid:1112;exact_global_id;4;hit
+CH;258;Basel Dreispitz;ch:1:sloid:136;SBB DTV;2200.0;2025;ch:1:sloid:136;exact_global_id;7;hit;ch:1:sloid:136;exact_global_id;7;hit;ch:1:sloid:136;exact_global_id;7;hit
+CH;259;Lutry;ch:1:sloid:1122;SBB DTV;2200.0;2025;ch:1:sloid:1122;exact_global_id;3;hit;ch:1:sloid:1122;exact_global_id;3;hit;ch:1:sloid:1122;exact_global_id;3;hit
+CH;260;Schiers;ch:1:sloid:9060;SBB DTV;2200.0;2025;ch:1:sloid:9060;exact_global_id;4;hit;ch:1:sloid:9060;exact_global_id;4;hit;ch:1:sloid:9060;exact_global_id;4;hit
+CH;261;Satigny;ch:1:sloid:1003;SBB DTV;2200.0;2025;ch:1:sloid:1003;exact_global_id;3;hit;ch:1:sloid:1003;exact_global_id;3;hit;ch:1:sloid:1003;exact_global_id;3;hit
+CH;262;Disentis/Mustér;ch:1:sloid:9179;SBB DTV;2200.0;2025;ch:1:sloid:9179;exact_global_id;2;hit;ch:1:sloid:9179;exact_global_id;4;hit;ch:1:sloid:9179;exact_global_id;3;hit
+CH;263;Hedingen;ch:1:sloid:2223;SBB DTV;2200.0;2025;ch:1:sloid:2223;exact_global_id;3;hit;ch:1:sloid:2223;exact_global_id;3;hit;ch:1:sloid:2223;exact_global_id;3;hit
+CH;264;Urdorf;ch:1:sloid:2220;SBB DTV;2200.0;2025;ch:1:sloid:2220;exact_global_id;2;hit;ch:1:sloid:2220;exact_global_id;3;hit;ch:1:sloid:2220;exact_global_id;2;hit
+CH;265;Willisau;ch:1:sloid:8295;SBB DTV;2200.0;2025;ch:1:sloid:8295;exact_global_id;4;hit;ch:1:sloid:8295;exact_global_id;4;hit;ch:1:sloid:8295;exact_global_id;4;hit
+CH;266;Arbon;ch:1:sloid:6308;SBB DTV;2100.0;2025;ch:1:sloid:6308;exact_global_id;2;hit;ch:1:sloid:6308;exact_global_id;2;hit;ch:1:sloid:6308;exact_global_id;2;hit
+CH;267;Illnau;ch:1:sloid:3303;SBB DTV;2100.0;2025;ch:1:sloid:3303;exact_global_id;2;hit;ch:1:sloid:3303;exact_global_id;3;hit;ch:1:sloid:3303;exact_global_id;2;hit
+CH;268;Ilanz;ch:1:sloid:9171;SBB DTV;2100.0;2025;ch:1:sloid:9171;exact_global_id;2;hit;ch:1:sloid:9171;exact_global_id;2;hit;ch:1:sloid:9171;exact_global_id;2;hit
+CH;269;Kreuzlingen Hafen;ch:1:sloid:6128;SBB DTV;2100.0;2025;ch:1:sloid:6128;exact_global_id;3;hit;ch:1:sloid:6128;exact_global_id;6;hit;ch:1:sloid:6128;exact_global_id;6;hit
+CH;270;Näfels-Mollis;ch:1:sloid:3227;SBB DTV;2100.0;2025;ch:1:sloid:3227;exact_global_id;2;hit;ch:1:sloid:3227;exact_global_id;3;hit;ch:1:sloid:3227;exact_global_id;3;hit
+CH;271;Niederwangen;ch:1:sloid:4105;SBB DTV;2100.0;2025;ch:1:sloid:4105;exact_global_id;3;hit;ch:1:sloid:4105;exact_global_id;7;hit;ch:1:sloid:4105;exact_global_id;7;hit
+CH;272;Opfikon;ch:1:sloid:3340;SBB DTV;2100.0;2025;ch:1:sloid:3340;exact_global_id;2;hit;ch:1:sloid:3340;exact_global_id;2;hit;ch:1:sloid:3340;exact_global_id;2;hit
+CH;273;Rupperswil;ch:1:sloid:2114;SBB DTV;2100.0;2025;ch:1:sloid:2114;exact_global_id;3;hit;ch:1:sloid:2114;exact_global_id;3;hit;ch:1:sloid:2114;exact_global_id;3;hit
+CH;274;Zwingen;ch:1:sloid:114;SBB DTV;2100.0;2025;ch:1:sloid:114;exact_global_id;3;hit;ch:1:sloid:114;exact_global_id;4;hit;ch:1:sloid:114;exact_global_id;2;hit
+CH;275;Puidoux;ch:1:sloid:4012;SBB DTV;2100.0;2025;ch:1:sloid:4012;exact_global_id;2;hit;ch:1:sloid:4012;exact_global_id;2;hit;ch:1:sloid:4012;exact_global_id;2;hit
+CH;276;Eglisau;ch:1:sloid:3402;SBB DTV;2000.0;2025;ch:1:sloid:3402;exact_global_id;2;hit;ch:1:sloid:3402;exact_global_id;2;hit;ch:1:sloid:3402;exact_global_id;2;hit
+CH;277;Niederhasli;ch:1:sloid:3314;SBB DTV;2000.0;2025;ch:1:sloid:3314;exact_global_id;3;hit;ch:1:sloid:3314;exact_global_id;7;hit;ch:1:sloid:3314;exact_global_id;7;hit
+CH;278;Suhr;ch:1:sloid:2103;SBB DTV;2000.0;2025;ch:1:sloid:2103;exact_global_id;3;hit;ch:1:sloid:2103;exact_global_id;3;hit;ch:1:sloid:2103;exact_global_id;2;hit
+CH;279;Hochdorf;ch:1:sloid:2024;SBB DTV;2000.0;2025;ch:1:sloid:2024;exact_global_id;3;hit;ch:1:sloid:2024;exact_global_id;3;hit;ch:1:sloid:2024;exact_global_id;3;hit
+CH;280;Scuol-Tarasp;ch:1:sloid:9268;SBB DTV;2000.0;2025;ch:1:sloid:9268;exact_global_id;3;hit;ch:1:sloid:9268;exact_global_id;3;hit;ch:1:sloid:9268;exact_global_id;3;hit
+CH;281;Les Tuileries;ch:1:sloid:1011;SBB DTV;2000.0;2025;ch:1:sloid:1011;exact_global_id;3;hit;ch:1:sloid:1011;exact_global_id;5;hit;ch:1:sloid:1011;exact_global_id;5;hit
+CH;282;Gstaad;ch:1:sloid:1399;SBB DTV;1900.0;2024;ch:1:sloid:1399;exact_global_id;3;hit;ch:1:sloid:1399;exact_global_id;3;hit;ch:1:sloid:1399;exact_global_id;2;hit
+CH;283;Mettmenstetten;ch:1:sloid:2225;SBB DTV;1900.0;2025;ch:1:sloid:2225;exact_global_id;3;hit;ch:1:sloid:2225;exact_global_id;5;hit;ch:1:sloid:2225;exact_global_id;5;hit
+CH;284;Neuhausen;ch:1:sloid:3423;SBB DTV;1900.0;2025;ch:1:sloid:3423;exact_global_id;3;hit;ch:1:sloid:3423;exact_global_id;4;hit;ch:1:sloid:3423;exact_global_id;4;hit
+CH;285;St-Imier;ch:1:sloid:4310;SBB DTV;1900.0;2025;ch:1:sloid:4310;exact_global_id;4;hit;ch:1:sloid:4310;exact_global_id;6;hit;ch:1:sloid:4310;exact_global_id;4;hit
+CH;286;Stein am Rhein;ch:1:sloid:6139;SBB DTV;1900.0;2025;ch:1:sloid:6139;exact_global_id;4;hit;ch:1:sloid:6139;exact_global_id;5;hit;ch:1:sloid:6139;exact_global_id;7;hit
+CH;287;Uerikon;ch:1:sloid:3108;SBB DTV;1900.0;2025;ch:1:sloid:3108;exact_global_id;3;hit;ch:1:sloid:3108;exact_global_id;3;hit;ch:1:sloid:3108;exact_global_id;2;hit
+CH;288;Urdorf Weihermatt;ch:1:sloid:2229;SBB DTV;1900.0;2025;ch:1:sloid:2229;exact_global_id;2;hit;ch:1:sloid:2229;exact_global_id;8;hit;ch:1:sloid:2229;exact_global_id;8;hit
+CH;289;Walenstadt;ch:1:sloid:9414;SBB DTV;1900.0;2025;ch:1:sloid:9414;exact_global_id;3;hit;ch:1:sloid:9414;exact_global_id;4;hit;ch:1:sloid:9414;exact_global_id;4;hit
+CH;290;Winterthur Grüze;ch:1:sloid:6001;SBB DTV;1900.0;2025;ch:1:sloid:6001;exact_global_id;3;hit;ch:1:sloid:6001;exact_global_id;12;hit;ch:1:sloid:6001;exact_global_id;12;hit
+CH;291;Zimeysa;ch:1:sloid:1000;SBB DTV;1900.0;2025;ch:1:sloid:1000;exact_global_id;2;hit;ch:1:sloid:1000;exact_global_id;3;hit;ch:1:sloid:1000;exact_global_id;2;hit
+CH;292;Dottikon-Dintikon;ch:1:sloid:2212;SBB DTV;1900.0;2025;ch:1:sloid:2212;exact_global_id;3;hit;ch:1:sloid:2212;exact_global_id;4;hit;ch:1:sloid:2212;exact_global_id;3;hit
+CH;293;Aadorf;ch:1:sloid:6013;SBB DTV;1800.0;2025;ch:1:sloid:6013;exact_global_id;3;hit;ch:1:sloid:6013;exact_global_id;3;hit;ch:1:sloid:6013;exact_global_id;3;hit
+CH;294;Davos Dorf;ch:1:sloid:9072;SBB DTV;1800.0;2025;ch:1:sloid:9072;exact_global_id;3;hit;ch:1:sloid:9072;exact_global_id;3;hit;ch:1:sloid:9072;exact_global_id;3;hit
+CH;295;Elgg;ch:1:sloid:6014;SBB DTV;1800.0;2025;ch:1:sloid:6014;exact_global_id;3;hit;ch:1:sloid:6014;exact_global_id;3;hit;ch:1:sloid:6014;exact_global_id;2;hit
+CH;296;Embrach-Rorbas;ch:1:sloid:6041;SBB DTV;1800.0;2025;ch:1:sloid:6041;exact_global_id;3;hit;ch:1:sloid:6041;exact_global_id;3;hit;ch:1:sloid:6041;exact_global_id;3;hit
+CH;297;Marthalen;ch:1:sloid:6048;SBB DTV;1800.0;2025;ch:1:sloid:6048;exact_global_id;3;hit;ch:1:sloid:6048;exact_global_id;4;hit;ch:1:sloid:6048;exact_global_id;4;hit
+CH;298;Othmarsingen;ch:1:sloid:2105;SBB DTV;1800.0;2025;ch:1:sloid:2105;exact_global_id;2;hit;ch:1:sloid:2105;exact_global_id;2;hit;ch:1:sloid:2105;exact_global_id;2;hit
+CH;299;Rafz;ch:1:sloid:3404;SBB DTV;1800.0;2025;ch:1:sloid:3404;exact_global_id;3;hit;ch:1:sloid:3404;exact_global_id;3;hit;ch:1:sloid:3404;exact_global_id;3;hit
+CH;300;Schwarzenburg;ch:1:sloid:7089;SBB DTV;1800.0;2025;ch:1:sloid:7089;exact_global_id;4;hit;ch:1:sloid:7089;exact_global_id;5;hit;ch:1:sloid:7089;exact_global_id;6;hit
+CH;301;Schwanden GL;ch:1:sloid:3233;SBB DTV;1800.0;2025;ch:1:sloid:3233;exact_global_id;4;hit;ch:1:sloid:3233;exact_global_id;6;hit;ch:1:sloid:3233;exact_global_id;7;hit
+CH;302;Zollikon;ch:1:sloid:3100;SBB DTV;1800.0;2025;ch:1:sloid:3100;exact_global_id;2;hit;ch:1:sloid:3100;exact_global_id;2;hit;ch:1:sloid:3100;exact_global_id;2;hit
+CH;303;Genthod-Bellevue;ch:1:sloid:1021;SBB DTV;1800.0;2025;ch:1:sloid:1021;exact_global_id;4;hit;ch:1:sloid:1021;exact_global_id;5;hit;ch:1:sloid:1021;exact_global_id;7;hit
+CH;304;Alpnach Dorf;ch:1:sloid:8316;SBB DTV;1700.0;2025;ch:1:sloid:8316;exact_global_id;3;hit;ch:1:sloid:8316;exact_global_id;4;hit;ch:1:sloid:8316;exact_global_id;4;hit
+CH;305;Domat/Ems;ch:1:sloid:9181;SBB DTV;1700.0;2025;ch:1:sloid:9181;exact_global_id;3;hit;ch:1:sloid:9181;exact_global_id;4;hit;ch:1:sloid:9181;exact_global_id;3;hit
+CH;306;Estavayer-le-Lac;ch:1:sloid:4132;SBB DTV;1700.0;2025;ch:1:sloid:4132;exact_global_id;3;hit;ch:1:sloid:4132;exact_global_id;4;hit;ch:1:sloid:4132;exact_global_id;4;hit
+CH;307;Etoy;ch:1:sloid:1042;SBB DTV;1700.0;2025;ch:1:sloid:1042;exact_global_id;2;hit;ch:1:sloid:1042;exact_global_id;3;hit;ch:1:sloid:1042;exact_global_id;2;hit
+CH;308;Fiesch;ch:1:sloid:1672;SBB DTV;1700.0;2025;ch:1:sloid:1672;exact_global_id;2;hit;ch:1:sloid:1672;exact_global_id;2;hit;ch:1:sloid:1672;exact_global_id;2;hit
+CH;309;Goldach;ch:1:sloid:6305;SBB DTV;1700.0;2025;ch:1:sloid:6305;exact_global_id;2;hit;ch:1:sloid:6305;exact_global_id;2;hit;ch:1:sloid:6305;exact_global_id;2;hit
+CH;310;Hüntwangen-Wil;ch:1:sloid:3403;SBB DTV;1700.0;2025;ch:1:sloid:3403;exact_global_id;2;hit;ch:1:sloid:3403;exact_global_id;4;hit;ch:1:sloid:3403;exact_global_id;4;hit
+CH;311;Kempten;ch:1:sloid:3300;SBB DTV;1700.0;2025;ch:1:sloid:3300;exact_global_id;3;hit;ch:1:sloid:3300;exact_global_id;3;hit;ch:1:sloid:3300;exact_global_id;3;hit
+CH;312;Lamone-Cadempino;ch:1:sloid:5219;SBB DTV;1700.0;2025;ch:1:sloid:5219;exact_global_id;3;hit;ch:1:sloid:5219;exact_global_id;4;hit;ch:1:sloid:5219;exact_global_id;4;hit
+CH;313;Pfungen;ch:1:sloid:6042;SBB DTV;1700.0;2025;ch:1:sloid:6042;exact_global_id;3;hit;ch:1:sloid:6042;exact_global_id;3;hit;ch:1:sloid:6042;exact_global_id;2;hit
+CH;314;Rheineck;ch:1:sloid:6313;SBB DTV;1700.0;2025;ch:1:sloid:6313;exact_global_id;3;hit;ch:1:sloid:6313;exact_global_id;3;hit;ch:1:sloid:6313;exact_global_id;2;hit
+CH;315;Rubigen;ch:1:sloid:7005;SBB DTV;1700.0;2025;ch:1:sloid:7005;exact_global_id;2;hit;ch:1:sloid:7005;exact_global_id;3;hit;ch:1:sloid:7005;exact_global_id;3;hit
+CH;316;Siggenthal-Würenlingen;ch:1:sloid:3502;SBB DTV;1700.0;2025;ch:1:sloid:3502;exact_global_id;4;hit;ch:1:sloid:3502;exact_global_id;4;hit;ch:1:sloid:3502;exact_global_id;6;hit
+CH;317;Flamatt;ch:1:sloid:4103;SBB DTV;1700.0;2025;ch:1:sloid:4103;exact_global_id;3;hit;ch:1:sloid:4103;exact_global_id;3;hit;ch:1:sloid:4103;exact_global_id;2;hit
+CH;318;Kollbrunn;ch:1:sloid:6004;SBB DTV;1700.0;2025;ch:1:sloid:6004;exact_global_id;3;hit;ch:1:sloid:6004;exact_global_id;3;hit;ch:1:sloid:6004;exact_global_id;3;hit
+CH;319;La Plaine;ch:1:sloid:1001;SBB DTV;1700.0;2025;ch:1:sloid:1001;exact_global_id;4;hit;ch:1:sloid:1001;exact_global_id;6;hit;ch:1:sloid:1001;exact_global_id;4;hit
+CH;320;Burier;ch:1:sloid:1202;SBB DTV;1700.0;2025;ch:1:sloid:1202;exact_global_id;3;hit;ch:1:sloid:1202;exact_global_id;3;hit;ch:1:sloid:1202;exact_global_id;3;hit
+CH;321;Stansstad;ch:1:sloid:8390;SBB DTV;1700.0;2025;ch:1:sloid:8390;exact_global_id;4;hit;ch:1:sloid:8390;exact_global_id;4;hit;ch:1:sloid:8390;exact_global_id;4;hit
+CH;322;Arosa;ch:1:sloid:9157;SBB DTV;1600.0;2025;ch:1:sloid:9157;exact_global_id;2;hit;ch:1:sloid:9157;exact_global_id;3;hit;ch:1:sloid:9157;exact_global_id;3;hit
+CH;323;Burgdorf Steinhof;ch:1:sloid:8081;SBB DTV;1600.0;2025;ch:1:sloid:8081;exact_global_id;4;hit;ch:1:sloid:8081;exact_global_id;8;hit;ch:1:sloid:8081;exact_global_id;6;hit
+CH;324;Kandersteg;ch:1:sloid:7475;SBB DTV;1600.0;2025;ch:1:sloid:7475;exact_global_id;3;hit;ch:1:sloid:7475;exact_global_id;3;hit;ch:1:sloid:7475;exact_global_id;3;hit
+CH;325;Küsnacht Goldbach;ch:1:sloid:3141;SBB DTV;1600.0;2025;ch:1:sloid:3141;exact_global_id;2;hit;ch:1:sloid:3141;exact_global_id;3;hit;ch:1:sloid:3141;exact_global_id;3;hit
+CH;326;Köniz;ch:1:sloid:7083;SBB DTV;1600.0;2025;ch:1:sloid:7083;exact_global_id;2;hit;ch:1:sloid:7083;exact_global_id;2;hit;ch:1:sloid:7083;exact_global_id;2;hit
+CH;327;Lausen;ch:1:sloid:24;SBB DTV;1600.0;2025;ch:1:sloid:24;exact_global_id;4;hit;ch:1:sloid:24;exact_global_id;4;hit;ch:1:sloid:24;exact_global_id;3;hit
+CH;328;Nebikon;ch:1:sloid:2005;SBB DTV;1600.0;2025;ch:1:sloid:2005;exact_global_id;3;hit;ch:1:sloid:2005;exact_global_id;3;hit;ch:1:sloid:2005;exact_global_id;3;hit
+CH;329;Oberrieden Dorf;ch:1:sloid:2209;SBB DTV;1600.0;2025;ch:1:sloid:2209;exact_global_id;5;hit;ch:1:sloid:2209;exact_global_id;6;hit;ch:1:sloid:2209;exact_global_id;6;hit
+CH;330;Reiden;ch:1:sloid:2003;SBB DTV;1600.0;2025;ch:1:sloid:2003;exact_global_id;3;hit;ch:1:sloid:2003;exact_global_id;3;hit;ch:1:sloid:2003;exact_global_id;3;hit
+CH;331;Saxon;ch:1:sloid:1502;SBB DTV;1600.0;2025;ch:1:sloid:1502;exact_global_id;3;hit;ch:1:sloid:1502;exact_global_id;4;hit;ch:1:sloid:1502;exact_global_id;3;hit
+CH;332;Thörishaus Dorf;ch:1:sloid:4115;SBB DTV;1600.0;2025;ch:1:sloid:4115;exact_global_id;3;hit;ch:1:sloid:4115;exact_global_id;3;hit;ch:1:sloid:4115;exact_global_id;3;hit
+CH;333;Wabern bei Bern;ch:1:sloid:7078;SBB DTV;1600.0;2025;ch:1:sloid:7078;exact_global_id;3;hit;ch:1:sloid:7078;exact_global_id;3;hit;ch:1:sloid:7078;exact_global_id;8;hit
+CH;334;Busswil BE;ch:1:sloid:4415;SBB DTV;1600.0;2025;ch:1:sloid:4415;exact_global_id;3;hit;ch:1:sloid:4415;exact_global_id;4;hit;ch:1:sloid:4415;exact_global_id;4;hit
+CH;335;Ramsei;ch:1:sloid:8267;SBB DTV;1600.0;2025;ch:1:sloid:8267;exact_global_id;3;hit;ch:1:sloid:8267;exact_global_id;3;hit;ch:1:sloid:8267;exact_global_id;3;hit
+CH;336;Wichtrach;ch:1:sloid:7007;SBB DTV;1600.0;2025;ch:1:sloid:7007;exact_global_id;3;hit;ch:1:sloid:7007;exact_global_id;3;hit;ch:1:sloid:7007;exact_global_id;3;hit
+CH;337;Filisur;ch:1:sloid:9195;SBB DTV;1600.0;2025;ch:1:sloid:9195;exact_global_id;2;hit;ch:1:sloid:9195;exact_global_id;3;hit;ch:1:sloid:9195;exact_global_id;3;hit
+CH;338;Cham Alpenblick;ch:1:sloid:15995;SBB DTV;1500.0;2025;ch:1:sloid:15995;exact_global_id;4;hit;ch:1:sloid:15995;exact_global_id;6;hit;ch:1:sloid:15995;exact_global_id;6;hit
+CH;339;Giswil;ch:1:sloid:8312;SBB DTV;1500.0;2025;ch:1:sloid:8312;exact_global_id;3;hit;ch:1:sloid:8312;exact_global_id;3;hit;ch:1:sloid:8312;exact_global_id;3;hit
+CH;340;Grenchen Nord;ch:1:sloid:159;SBB DTV;1500.0;2025;ch:1:sloid:159;exact_global_id;3;hit;ch:1:sloid:159;exact_global_id;4;hit;ch:1:sloid:159;exact_global_id;5;hit
+CH;341;Gisikon-Root;ch:1:sloid:2201;SBB DTV;1500.0;2025;ch:1:sloid:2201;exact_global_id;3;hit;ch:1:sloid:2201;exact_global_id;3;hit;ch:1:sloid:2201;exact_global_id;3;hit
+CH;342;Kehrsatz;ch:1:sloid:7077;SBB DTV;1500.0;2025;ch:1:sloid:7077;exact_global_id;4;hit;ch:1:sloid:7077;exact_global_id;4;hit;ch:1:sloid:7077;exact_global_id;3;hit
+CH;343;Niederweningen;ch:1:sloid:3319;SBB DTV;1500.0;2025;ch:1:sloid:3319;exact_global_id;3;hit;ch:1:sloid:3319;exact_global_id;7;hit;ch:1:sloid:3319;exact_global_id;7;hit
+CH;344;St. Gallen Winkeln;ch:1:sloid:6300;SBB DTV;1500.0;2025;ch:1:sloid:6300;exact_global_id;5;hit;ch:1:sloid:6300;exact_global_id;12;hit;ch:1:sloid:6300;exact_global_id;12;hit
+CH;345;Wildegg;ch:1:sloid:2115;SBB DTV;1500.0;2025;ch:1:sloid:2115;exact_global_id;4;hit;ch:1:sloid:2115;exact_global_id;4;hit;ch:1:sloid:2115;exact_global_id;3;hit
+CH;346;Wittenbach;ch:1:sloid:6393;SBB DTV;1500.0;2025;ch:1:sloid:6393;exact_global_id;3;hit;ch:1:sloid:6393;exact_global_id;3;hit;ch:1:sloid:6393;exact_global_id;3;hit
+CH;347;Bad Zurzach;ch:1:sloid:3409;SBB DTV;1500.0;2025;ch:1:sloid:3409;exact_global_id;3;hit;ch:1:sloid:3409;exact_global_id;3;hit;ch:1:sloid:3409;exact_global_id;3;hit
+CH;348;Henggart;ch:1:sloid:6046;SBB DTV;1500.0;2025;ch:1:sloid:6046;exact_global_id;3;hit;ch:1:sloid:6046;exact_global_id;4;hit;ch:1:sloid:6046;exact_global_id;4;hit
+CH;349;Moudon;ch:1:sloid:4120;SBB DTV;1500.0;2025;ch:1:sloid:4120;exact_global_id;3;hit;ch:1:sloid:4120;exact_global_id;3;hit;ch:1:sloid:4120;exact_global_id;3;hit
+CH;350;St-Prex;ch:1:sloid:1036;SBB DTV;1500.0;2025;ch:1:sloid:1036;exact_global_id;4;hit;ch:1:sloid:1036;exact_global_id;4;hit;ch:1:sloid:1036;exact_global_id;4;hit
+CH;351;Oberrieden;ch:1:sloid:3203;SBB DTV;1500.0;2025;ch:1:sloid:3203;exact_global_id;3;hit;ch:1:sloid:3203;exact_global_id;5;hit;ch:1:sloid:3203;exact_global_id;5;hit
+CH;352;Beinwil am See;ch:1:sloid:2034;SBB DTV;1400.0;2025;ch:1:sloid:2034;exact_global_id;3;hit;ch:1:sloid:2034;exact_global_id;4;hit;ch:1:sloid:2034;exact_global_id;5;hit
+CH;353;Eschlikon TG;ch:1:sloid:6011;SBB DTV;1400.0;2025;ch:1:sloid:6011;exact_global_id;3;hit;ch:1:sloid:6011;exact_global_id;3;hit;ch:1:sloid:6011;exact_global_id;5;hit
+CH;354;Huttwil;ch:1:sloid:8187;SBB DTV;1400.0;2025;ch:1:sloid:8187;exact_global_id;3;hit;ch:1:sloid:8187;exact_global_id;3;hit;ch:1:sloid:8187;exact_global_id;2;hit
+CH;355;Maienfeld;ch:1:sloid:9003;SBB DTV;1400.0;2025;ch:1:sloid:9003;exact_global_id;3;hit;ch:1:sloid:9003;exact_global_id;3;hit;ch:1:sloid:9003;exact_global_id;3;hit
+CH;356;Niederglatt ZH;ch:1:sloid:3313;SBB DTV;1400.0;2025;ch:1:sloid:3313;exact_global_id;3;hit;ch:1:sloid:3313;exact_global_id;7;hit;ch:1:sloid:3313;exact_global_id;7;hit
+CH;357;Neuhausen Rheinfall;ch:1:sloid:18924;SBB DTV;1400.0;2025;ch:1:sloid:18924;exact_global_id;4;hit;ch:1:sloid:18924;exact_global_id;11;hit;ch:1:sloid:18924;exact_global_id;11;hit
+CH;358;La Neuveville;ch:1:sloid:4226;SBB DTV;1400.0;2025;ch:1:sloid:4226;exact_global_id;4;hit;ch:1:sloid:4226;exact_global_id;4;hit;ch:1:sloid:4226;exact_global_id;4;hit
+CH;359;Emmenbrücke Kapf;ch:1:sloid:2012;SBB DTV;1400.0;2025;ch:1:sloid:2012;exact_global_id;3;hit;ch:1:sloid:2012;exact_global_id;6;hit;ch:1:sloid:2012;exact_global_id;6;hit
+CH;360;St. Niklaus VS;ch:1:sloid:1685;SBB DTV;1400.0;2025;ch:1:sloid:1685;exact_global_id;5;hit;ch:1:sloid:1685;exact_global_id;5;hit;ch:1:sloid:1685;exact_global_id;5;hit
+CH;361;Turbenthal;ch:1:sloid:6007;SBB DTV;1400.0;2025;ch:1:sloid:6007;exact_global_id;2;hit;ch:1:sloid:6007;exact_global_id;3;hit;ch:1:sloid:6007;exact_global_id;4;hit
+CH;362;Unterterzen;ch:1:sloid:9416;SBB DTV;1400.0;2025;ch:1:sloid:9416;exact_global_id;3;hit;ch:1:sloid:9416;exact_global_id;6;hit;ch:1:sloid:9416;exact_global_id;3;hit
+CH;363;Otelfingen;ch:1:sloid:3528;SBB DTV;1400.0;2025;ch:1:sloid:3528;exact_global_id;2;hit;ch:1:sloid:3528;exact_global_id;2;hit;ch:1:sloid:3528;exact_global_id;2;hit
+CH;364;Schmitten FR;ch:1:sloid:4102;SBB DTV;1400.0;2025;ch:1:sloid:4102;exact_global_id;4;hit;ch:1:sloid:4102;exact_global_id;4;hit;ch:1:sloid:4102;exact_global_id;4;hit
+CH;365;Schüpfen;ch:1:sloid:4412;SBB DTV;1400.0;2025;ch:1:sloid:4412;exact_global_id;4;hit;ch:1:sloid:4412;exact_global_id;4;hit;ch:1:sloid:4412;exact_global_id;4;hit
+CH;366;Seuzach;ch:1:sloid:6020;SBB DTV;1400.0;2025;ch:1:sloid:6020;exact_global_id;3;hit;ch:1:sloid:6020;exact_global_id;3;hit;ch:1:sloid:6020;exact_global_id;3;hit
+CH;367;Tavannes;ch:1:sloid:100;SBB DTV;1400.0;2025;ch:1:sloid:100;exact_global_id;2;hit;ch:1:sloid:100;exact_global_id;2;hit;ch:1:sloid:100;exact_global_id;3;hit
+CH;368;Knonau;ch:1:sloid:2226;SBB DTV;1400.0;2025;ch:1:sloid:2226;exact_global_id;3;hit;ch:1:sloid:2226;exact_global_id;3;hit;ch:1:sloid:2226;exact_global_id;3;hit
+CH;369;Sins;ch:1:sloid:2218;SBB DTV;1400.0;2025;ch:1:sloid:2218;exact_global_id;3;hit;ch:1:sloid:2218;exact_global_id;3;hit;ch:1:sloid:2218;exact_global_id;3;hit
+CH;370;Bern Weissenbühl;ch:1:sloid:7079;SBB DTV;1300.0;2025;ch:1:sloid:7079;exact_global_id;7;hit;ch:1:sloid:7079;exact_global_id;7;hit;ch:1:sloid:7079;exact_global_id;7;hit
+CH;371;Belp Steinbach;ch:1:sloid:7092;SBB DTV;1300.0;2025;ch:1:sloid:7092;exact_global_id;3;hit;ch:1:sloid:7092;exact_global_id;6;hit;ch:1:sloid:7092;exact_global_id;6;hit
+CH;372;Bassecourt;ch:1:sloid:122;SBB DTV;1300.0;2025;ch:1:sloid:122;exact_global_id;4;hit;ch:1:sloid:122;exact_global_id;4;hit;ch:1:sloid:122;exact_global_id;4;hit
+CH;373;Degersheim;ch:1:sloid:6292;SBB DTV;1300.0;2025;ch:1:sloid:6292;exact_global_id;3;hit;ch:1:sloid:6292;exact_global_id;3;hit;ch:1:sloid:6292;exact_global_id;3;hit
+CH;374;Kloten Balsberg;ch:1:sloid:3309;SBB DTV;1300.0;2025;ch:1:sloid:3309;exact_global_id;3;hit;ch:1:sloid:3309;exact_global_id;8;hit;ch:1:sloid:3309;exact_global_id;4;hit
+CH;375;Laupen BE;ch:1:sloid:4194;SBB DTV;1300.0;2025;ch:1:sloid:4194;exact_global_id;4;hit;ch:1:sloid:4194;exact_global_id;4;hit;ch:1:sloid:4194;exact_global_id;4;hit
+CH;376;Rickenbach-Attikon;ch:1:sloid:6018;SBB DTV;1300.0;2025;ch:1:sloid:6018;exact_global_id;3;hit;ch:1:sloid:6018;exact_global_id;4;hit;ch:1:sloid:6018;exact_global_id;4;hit
+CH;377;S. Antonino;ch:1:sloid:5415;SBB DTV;1300.0;2025;ch:1:sloid:5415;exact_global_id;2;hit;ch:1:sloid:5415;exact_global_id;5;hit;ch:1:sloid:5415;exact_global_id;5;hit
+CH;378;Stalden-Saas;ch:1:sloid:1683;SBB DTV;1300.0;2025;ch:1:sloid:1683;exact_global_id;4;hit;ch:1:sloid:1683;exact_global_id;4;hit;ch:1:sloid:1683;exact_global_id;4;hit
+CH;379;Steinmaur;ch:1:sloid:3316;SBB DTV;1300.0;2025;ch:1:sloid:3316;exact_global_id;4;hit;ch:1:sloid:3316;exact_global_id;6;hit;ch:1:sloid:3316;exact_global_id;5;hit
+CH;380;Solothurn West;ch:1:sloid:206;SBB DTV;1300.0;2025;ch:1:sloid:206;exact_global_id;3;hit;ch:1:sloid:206;exact_global_id;3;hit;ch:1:sloid:206;exact_global_id;4;hit
+CH;381;Winkel am Zürichsee;ch:1:sloid:3111;SBB DTV;1300.0;2025;ch:1:sloid:3111;exact_global_id;4;hit;ch:1:sloid:3111;exact_global_id;8;hit;ch:1:sloid:3111;exact_global_id;8;hit
+CH;382;Winterthur Wallrüti;ch:1:sloid:6038;SBB DTV;1300.0;2025;ch:1:sloid:6038;exact_global_id;4;hit;ch:1:sloid:6038;exact_global_id;12;hit;ch:1:sloid:6038;exact_global_id;12;hit
+CH;383;Zernez;ch:1:sloid:9262;SBB DTV;1300.0;2025;ch:1:sloid:9262;exact_global_id;2;hit;ch:1:sloid:9262;exact_global_id;2;hit;ch:1:sloid:9262;exact_global_id;2;hit
+CH;384;Bütschwil;ch:1:sloid:6203;SBB DTV;1300.0;2025;ch:1:sloid:6203;exact_global_id;2;hit;ch:1:sloid:6203;exact_global_id;3;hit;ch:1:sloid:6203;exact_global_id;3;hit
+CH;385;Rothenburg Station;ch:1:sloid:2020;SBB DTV;1300.0;2025;ch:1:sloid:2020;exact_global_id;4;hit;ch:1:sloid:2020;exact_global_id;8;hit;ch:1:sloid:2020;exact_global_id;8;hit
+CH;386;Schöfflisdorf-Oberweningen;ch:1:sloid:3317;SBB DTV;1300.0;2025;ch:1:sloid:3317;exact_global_id;4;hit;ch:1:sloid:3317;exact_global_id;6;hit;ch:1:sloid:3317;exact_global_id;6;hit
+CH;387;Schmerikon;ch:1:sloid:3115;SBB DTV;1300.0;2025;ch:1:sloid:3115;exact_global_id;4;hit;ch:1:sloid:3115;exact_global_id;4;hit;ch:1:sloid:3115;exact_global_id;4;hit
+CH;388;Travers;ch:1:sloid:4215;SBB DTV;1300.0;2025;ch:1:sloid:4215;exact_global_id;3;hit;ch:1:sloid:4215;exact_global_id;3;hit;ch:1:sloid:4215;exact_global_id;3;hit
+CH;389;Vallorbe;ch:1:sloid:1103;SBB DTV;1300.0;2025;ch:1:sloid:1103;exact_global_id;2;hit;ch:1:sloid:1103;exact_global_id;2;hit;ch:1:sloid:1103;exact_global_id;3;hit
+CH;390;Wald ZH;ch:1:sloid:3138;SBB DTV;1300.0;2025;ch:1:sloid:3138;exact_global_id;3;hit;ch:1:sloid:3138;exact_global_id;4;hit;ch:1:sloid:3138;exact_global_id;6;hit
+CH;391;Zürich Seebach;ch:1:sloid:3007;SBB DTV;1300.0;2025;ch:1:sloid:3007;exact_global_id;8;hit;ch:1:sloid:3007;exact_global_id;10;hit;ch:1:sloid:3007;exact_global_id;11;hit
+CH;392;Egerkingen;ch:1:sloid:214;SBB DTV;1300.0;2025;ch:1:sloid:214;exact_global_id;2;hit;ch:1:sloid:214;exact_global_id;3;hit;ch:1:sloid:214;exact_global_id;3;hit
+CH;393;Blonay;ch:1:sloid:1281;SBB DTV;1200.0;2024;ch:1:sloid:1281;exact_global_id;3;hit;ch:1:sloid:1281;exact_global_id;3;hit;ch:1:sloid:1281;exact_global_id;3;hit
+CH;394;Vernier;ch:1:sloid:1007;SBB DTV;1200.0;2025;ch:1:sloid:1007;exact_global_id;4;hit;ch:1:sloid:1007;exact_global_id;4;hit;ch:1:sloid:1007;exact_global_id;3;hit
+CH;395;Le Day;ch:1:sloid:1104;SBB DTV;1200.0;2025;ch:1:sloid:1104;exact_global_id;2;hit;ch:1:sloid:1104;exact_global_id;5;hit;ch:1:sloid:1104;exact_global_id;4;hit
+CH;396;Flüelen;ch:1:sloid:5112;SBB DTV;1200.0;2025;ch:1:sloid:5112;exact_global_id;3;hit;ch:1:sloid:5112;exact_global_id;3;hit;ch:1:sloid:5112;exact_global_id;3;hit
+CH;397;Glattfelden;ch:1:sloid:3401;SBB DTV;1200.0;2025;ch:1:sloid:3401;exact_global_id;3;hit;ch:1:sloid:3401;exact_global_id;4;hit;ch:1:sloid:3401;exact_global_id;4;hit
+CH;398;Grandson;ch:1:sloid:4201;SBB DTV;1200.0;2025;ch:1:sloid:4201;exact_global_id;3;hit;ch:1:sloid:4201;exact_global_id;3;hit;ch:1:sloid:4201;exact_global_id;3;hit
+CH;399;Hägendorf;ch:1:sloid:215;SBB DTV;1200.0;2025;ch:1:sloid:215;exact_global_id;2;hit;ch:1:sloid:215;exact_global_id;2;hit;ch:1:sloid:215;exact_global_id;2;hit
+CH;400;Hünenberg Zythus;ch:1:sloid:15996;SBB DTV;1200.0;2025;ch:1:sloid:15996;exact_global_id;2;hit;ch:1:sloid:15996;exact_global_id;11;hit;ch:1:sloid:15996;exact_global_id;11;hit
+CH;401;Küblis;ch:1:sloid:9064;SBB DTV;1200.0;2025;ch:1:sloid:9064;exact_global_id;2;hit;ch:1:sloid:9064;exact_global_id;2;hit;ch:1:sloid:9064;exact_global_id;2;hit
+CH;402;Le Landeron;ch:1:sloid:4225;SBB DTV;1200.0;2025;ch:1:sloid:4225;exact_global_id;2;hit;ch:1:sloid:4225;exact_global_id;6;hit;ch:1:sloid:4225;exact_global_id;5;hit
+CH;403;Lucens;ch:1:sloid:4121;SBB DTV;1200.0;2025;ch:1:sloid:4121;exact_global_id;3;hit;ch:1:sloid:4121;exact_global_id;4;hit;ch:1:sloid:4121;exact_global_id;3;hit
+CH;404;Melide;ch:1:sloid:5302;SBB DTV;1200.0;2025;ch:1:sloid:5302;exact_global_id;3;hit;ch:1:sloid:5302;exact_global_id;3;hit;ch:1:sloid:5302;exact_global_id;3;hit
+CH;405;Oberburg;ch:1:sloid:8080;SBB DTV;1200.0;2025;ch:1:sloid:8080;exact_global_id;3;hit;ch:1:sloid:8080;exact_global_id;5;hit;ch:1:sloid:8080;exact_global_id;5;hit
+CH;406;Seftigen;ch:1:sloid:7071;SBB DTV;1200.0;2025;ch:1:sloid:7071;exact_global_id;3;hit;ch:1:sloid:7071;exact_global_id;3;hit;ch:1:sloid:7071;exact_global_id;3;hit
+CH;407;Sulgen;ch:1:sloid:6217;SBB DTV;1200.0;2025;ch:1:sloid:6217;exact_global_id;3;hit;ch:1:sloid:6217;exact_global_id;3;hit;ch:1:sloid:6217;exact_global_id;3;hit
+CH;408;Toffen;ch:1:sloid:7075;SBB DTV;1200.0;2025;ch:1:sloid:7075;exact_global_id;2;hit;ch:1:sloid:7075;exact_global_id;2;hit;ch:1:sloid:7075;exact_global_id;2;hit
+CH;409;Winterthur Hegi;ch:1:sloid:16218;SBB DTV;1200.0;2025;ch:1:sloid:16218;exact_global_id;3;hit;ch:1:sloid:16218;exact_global_id;9;hit;ch:1:sloid:16218;exact_global_id;7;hit
+CH;410;Zug Schutzengel;ch:1:sloid:16187;SBB DTV;1200.0;2025;ch:1:sloid:16187;exact_global_id;3;hit;ch:1:sloid:16187;exact_global_id;6;hit;ch:1:sloid:16187;exact_global_id;6;hit
+CH;411;Baar Lindenpark;ch:1:sloid:15993;SBB DTV;1200.0;2025;ch:1:sloid:15993;exact_global_id;3;hit;ch:1:sloid:15993;exact_global_id;6;hit;ch:1:sloid:15993;exact_global_id;6;hit
+CH;412;Bonaduz;ch:1:sloid:9184;SBB DTV;1200.0;2025;ch:1:sloid:9184;exact_global_id;3;hit;ch:1:sloid:9184;exact_global_id;3;hit;ch:1:sloid:9184;exact_global_id;3;hit
+CH;413;Kehrsatz Nord;ch:1:sloid:7093;SBB DTV;1200.0;2025;ch:1:sloid:7093;exact_global_id;4;hit;ch:1:sloid:7093;exact_global_id;4;hit;ch:1:sloid:7093;exact_global_id;4;hit
+CH;414;Lengnau BE;ch:1:sloid:201;SBB DTV;1200.0;2025;ch:1:sloid:201;exact_global_id;3;hit;ch:1:sloid:201;exact_global_id;4;hit;ch:1:sloid:201;exact_global_id;4;hit
+CH;415;Hergiswil Matt;ch:1:sloid:8320;SBB DTV;1200.0;2025;ch:1:sloid:8320;exact_global_id;4;hit;ch:1:sloid:8320;exact_global_id;5;hit;ch:1:sloid:8320;exact_global_id;5;hit
+CH;416;Netstal;ch:1:sloid:3228;SBB DTV;1200.0;2025;ch:1:sloid:3228;exact_global_id;3;hit;ch:1:sloid:3228;exact_global_id;3;hit;ch:1:sloid:3228;exact_global_id;3;hit
+CH;417;Neuenhof;ch:1:sloid:3511;SBB DTV;1200.0;2025;ch:1:sloid:3511;exact_global_id;3;hit;ch:1:sloid:3511;exact_global_id;6;hit;ch:1:sloid:3511;exact_global_id;4;hit
+CH;418;Riazzino;ch:1:sloid:5412;SBB DTV;1200.0;2025;ch:1:sloid:5412;exact_global_id;2;hit;ch:1:sloid:5412;exact_global_id;3;hit;ch:1:sloid:5412;exact_global_id;3;hit
+CH;419;Rorschach Hafen;ch:1:sloid:6306;SBB DTV;1200.0;2025;ch:1:sloid:6306;exact_global_id;3;hit;ch:1:sloid:6306;exact_global_id;4;hit;ch:1:sloid:6306;exact_global_id;4;hit
+CH;420;Sachseln;ch:1:sloid:8313;SBB DTV;1200.0;2025;ch:1:sloid:8313;exact_global_id;3;hit;ch:1:sloid:8313;exact_global_id;3;hit;ch:1:sloid:8313;exact_global_id;3;hit
+CH;421;Uetendorf;ch:1:sloid:7070;SBB DTV;1200.0;2025;ch:1:sloid:7070;exact_global_id;3;hit;ch:1:sloid:7070;exact_global_id;3;hit;ch:1:sloid:7070;exact_global_id;2;hit
+CH;422;Würenlos;ch:1:sloid:3529;SBB DTV;1200.0;2025;ch:1:sloid:3529;exact_global_id;3;hit;ch:1:sloid:3529;exact_global_id;3;hit;ch:1:sloid:3529;exact_global_id;2;hit
+CH;423;La Sarraz;ch:1:sloid:1108;SBB DTV;1200.0;2025;ch:1:sloid:1108;exact_global_id;4;hit;ch:1:sloid:1108;exact_global_id;4;hit;ch:1:sloid:1108;exact_global_id;4;hit
+CH;424;Riddes;ch:1:sloid:1503;SBB DTV;1200.0;2025;ch:1:sloid:1503;exact_global_id;2;hit;ch:1:sloid:1503;exact_global_id;3;hit;ch:1:sloid:1503;exact_global_id;2;hit
+CH;425;Hindelbank;ch:1:sloid:8003;SBB DTV;1200.0;2025;ch:1:sloid:8003;exact_global_id;3;hit;ch:1:sloid:8003;exact_global_id;3;hit;ch:1:sloid:8003;exact_global_id;3;hit
+CH;426;Bazenheid;ch:1:sloid:6205;SBB DTV;1100.0;2025;ch:1:sloid:6205;exact_global_id;3;hit;ch:1:sloid:6205;exact_global_id;3;hit;ch:1:sloid:6205;exact_global_id;3;hit
+CH;427;Capolago-Riva S. Vitale;ch:1:sloid:5304;SBB DTV;1100.0;2025;ch:1:sloid:5304;exact_global_id;2;hit;ch:1:sloid:5304;exact_global_id;8;hit;ch:1:sloid:5304;exact_global_id;8;hit
+CH;428;Châteauneuf-Conthey;ch:1:sloid:1510;SBB DTV;1100.0;2025;ch:1:sloid:1510;exact_global_id;4;hit;ch:1:sloid:1510;exact_global_id;8;hit;ch:1:sloid:1510;exact_global_id;8;hit
+CH;429;Chambésy;ch:1:sloid:1020;SBB DTV;1100.0;2025;ch:1:sloid:1020;exact_global_id;4;hit;ch:1:sloid:1020;exact_global_id;5;hit;ch:1:sloid:1020;exact_global_id;5;hit
+CH;430;Hettlingen;ch:1:sloid:6045;SBB DTV;1100.0;2025;ch:1:sloid:6045;exact_global_id;3;hit;ch:1:sloid:6045;exact_global_id;3;hit;ch:1:sloid:6045;exact_global_id;3;hit
+CH;431;Les Hauts-Geneveys;ch:1:sloid:4237;SBB DTV;1100.0;2025;ch:1:sloid:4237;exact_global_id;3;hit;ch:1:sloid:4237;exact_global_id;6;hit;ch:1:sloid:4237;exact_global_id;7;hit
+CH;432;Itingen;ch:1:sloid:25;SBB DTV;1100.0;2025;ch:1:sloid:25;exact_global_id;2;hit;ch:1:sloid:25;exact_global_id;2;hit;ch:1:sloid:25;exact_global_id;2;hit
+CH;433;Liebefeld;ch:1:sloid:7091;SBB DTV;1100.0;2025;ch:1:sloid:7091;exact_global_id;3;hit;ch:1:sloid:7091;exact_global_id;3;hit;ch:1:sloid:7091;exact_global_id;3;hit
+CH;434;Mörel;ch:1:sloid:1676;SBB DTV;1100.0;2025;ch:1:sloid:1676;exact_global_id;2;hit;ch:1:sloid:1676;exact_global_id;2;hit;ch:1:sloid:1676;exact_global_id;2;hit
+CH;435;Mumpf;ch:1:sloid:303;SBB DTV;1100.0;2025;ch:1:sloid:303;exact_global_id;3;hit;ch:1:sloid:303;exact_global_id;3;hit;ch:1:sloid:303;exact_global_id;3;hit
+CH;436;Nottwil;ch:1:sloid:2008;SBB DTV;1100.0;2025;ch:1:sloid:2008;exact_global_id;2;hit;ch:1:sloid:2008;exact_global_id;2;hit;ch:1:sloid:2008;exact_global_id;2;hit
+CH;437;Rothrist;ch:1:sloid:8103;SBB DTV;1100.0;2025;ch:1:sloid:8103;exact_global_id;3;hit;ch:1:sloid:8103;exact_global_id;5;hit;ch:1:sloid:8103;exact_global_id;3;hit
+CH;438;Samstagern;ch:1:sloid:3286;SBB DTV;1100.0;2025;ch:1:sloid:3286;exact_global_id;3;hit;ch:1:sloid:3286;exact_global_id;3;hit;ch:1:sloid:3286;exact_global_id;3;hit
+CH;439;Baar Neufeld;ch:1:sloid:15992;SBB DTV;1100.0;2025;ch:1:sloid:15992;exact_global_id;3;hit;ch:1:sloid:15992;exact_global_id;6;hit;ch:1:sloid:15992;exact_global_id;6;hit
+CH;440;Bergün/Bravuogn;ch:1:sloid:9197;SBB DTV;1100.0;2025;ch:1:sloid:9197;exact_global_id;4;hit;ch:1:sloid:9197;exact_global_id;5;hit;ch:1:sloid:9197;exact_global_id;5;hit
+CH;441;Brügg BE;ch:1:sloid:4416;SBB DTV;1100.0;2025;ch:1:sloid:4416;exact_global_id;3;hit;ch:1:sloid:4416;exact_global_id;4;hit;ch:1:sloid:4416;exact_global_id;3;hit
+CH;442;Dagmersellen;ch:1:sloid:2004;SBB DTV;1100.0;2025;ch:1:sloid:2004;exact_global_id;3;hit;ch:1:sloid:2004;exact_global_id;3;hit;ch:1:sloid:2004;exact_global_id;3;hit
+CH;443;Feldbach;ch:1:sloid:3109;SBB DTV;1100.0;2025;ch:1:sloid:3109;exact_global_id;2;hit;ch:1:sloid:3109;exact_global_id;3;hit;ch:1:sloid:3109;exact_global_id;3;hit
+CH;444;Hitzkirch;ch:1:sloid:2027;SBB DTV;1100.0;2025;ch:1:sloid:2027;exact_global_id;3;hit;ch:1:sloid:2027;exact_global_id;3;hit;ch:1:sloid:2027;exact_global_id;3;hit
+CH;445;Oberdiessbach;ch:1:sloid:8255;SBB DTV;1100.0;2025;ch:1:sloid:8255;exact_global_id;5;hit;ch:1:sloid:8255;exact_global_id;5;hit;ch:1:sloid:8255;exact_global_id;5;hit
+CH;446;Steinhausen;ch:1:sloid:2227;SBB DTV;1100.0;2025;ch:1:sloid:2227;exact_global_id;4;hit;ch:1:sloid:2227;exact_global_id;6;hit;ch:1:sloid:2227;exact_global_id;6;hit
+CH;447;Pieterlen;ch:1:sloid:200;SBB DTV;1100.0;2025;ch:1:sloid:200;exact_global_id;3;hit;ch:1:sloid:200;exact_global_id;3;hit;ch:1:sloid:200;exact_global_id;2;hit
+CH;448;Rivera-Bironico;ch:1:sloid:5216;SBB DTV;1100.0;2025;ch:1:sloid:5216;exact_global_id;3;hit;ch:1:sloid:5216;exact_global_id;5;hit;ch:1:sloid:5216;exact_global_id;5;hit
+CH;449;Sagliains;ch:1:sloid:9269;SBB DTV;1100.0;2025;ch:1:sloid:9269;exact_global_id;3;hit;ch:1:sloid:9269;exact_global_id;3;hit;ch:1:sloid:9269;exact_global_id;3;hit
+CH;450;Alp Grüm;ch:1:sloid:9357;SBB DTV;1000.0;2025;ch:1:sloid:9357;exact_global_id;3;hit;ch:1:sloid:9357;exact_global_id;3;hit;ch:1:sloid:9357;exact_global_id;3;hit
+CH;451;Au ZH;ch:1:sloid:3205;SBB DTV;1000.0;2025;ch:1:sloid:3205;exact_global_id;2;hit;ch:1:sloid:3205;exact_global_id;2;hit;ch:1:sloid:3205;exact_global_id;4;hit
+CH;452;Avenches;ch:1:sloid:4126;SBB DTV;1000.0;2025;ch:1:sloid:4126;exact_global_id;2;hit;ch:1:sloid:4126;exact_global_id;3;hit;ch:1:sloid:4126;exact_global_id;3;hit
+CH;453;Eschenbach LU;ch:1:sloid:2022;SBB DTV;1000.0;2025;ch:1:sloid:2022;exact_global_id;3;hit;ch:1:sloid:2022;exact_global_id;3;hit;ch:1:sloid:2022;exact_global_id;6;hit
+CH;454;Glovelier;ch:1:sloid:123;SBB DTV;1000.0;2025;ch:1:sloid:123;exact_global_id;3;hit;ch:1:sloid:123;exact_global_id;3;hit;ch:1:sloid:123;exact_global_id;3;hit
+CH;455;Grellingen;ch:1:sloid:115;SBB DTV;1000.0;2025;ch:1:sloid:115;exact_global_id;3;hit;ch:1:sloid:115;exact_global_id;3;hit;ch:1:sloid:115;exact_global_id;4;hit
+CH;456;Root D4;ch:1:sloid:15997;SBB DTV;1000.0;2025;ch:1:sloid:15997;exact_global_id;3;hit;ch:1:sloid:15997;exact_global_id;3;hit;ch:1:sloid:15997;exact_global_id;3;hit
+CH;457;Lichtensteig;ch:1:sloid:6201;SBB DTV;1000.0;2025;ch:1:sloid:6201;exact_global_id;3;hit;ch:1:sloid:6201;exact_global_id;3;hit;ch:1:sloid:6201;exact_global_id;3;hit
+CH;458;Mägenwil;ch:1:sloid:2106;SBB DTV;1000.0;2025;ch:1:sloid:2106;exact_global_id;2;hit;ch:1:sloid:2106;exact_global_id;2;hit;ch:1:sloid:2106;exact_global_id;2;hit
+CH;459;Maroggia-Melano;ch:1:sloid:5303;SBB DTV;1000.0;2025;ch:1:sloid:5303;exact_global_id;3;hit;ch:1:sloid:5303;exact_global_id;5;hit;ch:1:sloid:5303;exact_global_id;4;hit
+CH;460;Mendrisio S. Martino;ch:1:sloid:18475;SBB DTV;1000.0;2025;ch:1:sloid:18475;exact_global_id;4;hit;ch:1:sloid:18475;exact_global_id;11;hit;ch:1:sloid:18475;exact_global_id;11;hit
+CH;461;Sennhof-Kyburg;ch:1:sloid:6003;SBB DTV;1000.0;2025;ch:1:sloid:6003;exact_global_id;3;hit;ch:1:sloid:6003;exact_global_id;4;hit;ch:1:sloid:6003;exact_global_id;4;hit
+CH;462;Thurnen;ch:1:sloid:7073;SBB DTV;1000.0;2025;ch:1:sloid:7073;exact_global_id;2;hit;ch:1:sloid:7073;exact_global_id;3;hit;ch:1:sloid:7073;exact_global_id;3;hit
+CH;463;Waldibrücke;ch:1:sloid:2017;SBB DTV;1000.0;2025;ch:1:sloid:2017;exact_global_id;3;hit;ch:1:sloid:2017;exact_global_id;3;hit;ch:1:sloid:2017;exact_global_id;3;hit
+CH;464;Wiesendangen;ch:1:sloid:6017;SBB DTV;1000.0;2025;ch:1:sloid:6017;exact_global_id;3;hit;ch:1:sloid:6017;exact_global_id;3;hit;ch:1:sloid:6017;exact_global_id;4;hit
+CH;465;Däniken SO;ch:1:sloid:2111;SBB DTV;1000.0;2025;ch:1:sloid:2111;exact_global_id;2;hit;ch:1:sloid:2111;exact_global_id;2;hit;ch:1:sloid:2111;exact_global_id;2;hit
+CH;466;Oberentfelden;ch:1:sloid:2102;SBB DTV;1000.0;2025;ch:1:sloid:2102;exact_global_id;5;hit;ch:1:sloid:2102;exact_global_id;6;hit;ch:1:sloid:2102;exact_global_id;5;hit
+CH;467;Sirnach;ch:1:sloid:6010;SBB DTV;1000.0;2025;ch:1:sloid:6010;exact_global_id;3;hit;ch:1:sloid:6010;exact_global_id;3;hit;ch:1:sloid:6010;exact_global_id;3;hit
+CH;468;Sumiswald-Grünen;ch:1:sloid:8272;SBB DTV;1000.0;2025;ch:1:sloid:8272;exact_global_id;3;hit;ch:1:sloid:8272;exact_global_id;4;hit;ch:1:sloid:8272;exact_global_id;11;hit
+CH;469;Bischofszell Stadt;ch:1:sloid:6213;SBB DTV;1000.0;2025;ch:1:sloid:6213;exact_global_id;3;hit;ch:1:sloid:6213;exact_global_id;3;hit;ch:1:sloid:6213;exact_global_id;2;hit
+CH;470;Erstfeld;ch:1:sloid:5114;SBB DTV;1000.0;2025;ch:1:sloid:5114;exact_global_id;3;hit;ch:1:sloid:5114;exact_global_id;3;hit;ch:1:sloid:5114;exact_global_id;2;hit
+CH;471;Islikon;ch:1:sloid:6019;SBB DTV;1000.0;2025;ch:1:sloid:6019;exact_global_id;2;hit;ch:1:sloid:6019;exact_global_id;3;hit;ch:1:sloid:6019;exact_global_id;3;hit
+CH;472;Poschiavo;ch:1:sloid:9361;SBB DTV;990.0;2025;ch:1:sloid:9361;exact_global_id;3;hit;ch:1:sloid:9361;exact_global_id;3;hit;ch:1:sloid:9361;exact_global_id;3;hit
+CH;473;Wauwil;ch:1:sloid:2006;SBB DTV;990.0;2025;ch:1:sloid:2006;exact_global_id;3;hit;ch:1:sloid:2006;exact_global_id;3;hit;ch:1:sloid:2006;exact_global_id;3;hit
+CH;474;Niederscherli;ch:1:sloid:7086;SBB DTV;990.0;2025;ch:1:sloid:7086;exact_global_id;3;hit;ch:1:sloid:7086;exact_global_id;7;hit;ch:1:sloid:7086;exact_global_id;7;hit
+CH;475;Château-d'Oex;ch:1:sloid:1394;SBB DTV;980.0;2024;ch:1:sloid:1394;exact_global_id;4;hit;ch:1:sloid:1394;exact_global_id;7;hit;ch:1:sloid:1394;exact_global_id;6;hit
+CH;476;Untervaz-Trimmis;ch:1:sloid:9053;SBB DTV;980.0;2025;ch:1:sloid:9053;exact_global_id;3;hit;ch:1:sloid:9053;exact_global_id;6;hit;ch:1:sloid:9053;exact_global_id;6;hit
+CH;477;Grosshöchstetten;ch:1:sloid:8260;SBB DTV;980.0;2025;ch:1:sloid:8260;exact_global_id;3;hit;ch:1:sloid:8260;exact_global_id;6;hit;ch:1:sloid:8260;exact_global_id;6;hit
+CH;478;Balsthal;ch:1:sloid:294;SBB DTV;970.0;2025;ch:1:sloid:294;exact_global_id;3;hit;ch:1:sloid:294;exact_global_id;4;hit;ch:1:sloid:294;exact_global_id;4;hit
+CH;479;Lützelflüh-Goldbach;ch:1:sloid:8266;SBB DTV;970.0;2025;ch:1:sloid:8266;exact_global_id;2;hit;ch:1:sloid:8266;exact_global_id;4;hit;ch:1:sloid:8266;exact_global_id;4;hit
+CH;480;Niederweningen Dorf;ch:1:sloid:3318;SBB DTV;970.0;2025;ch:1:sloid:3318;exact_global_id;7;hit;ch:1:sloid:3318;exact_global_id;8;hit;ch:1:sloid:3318;exact_global_id;8;hit
+CH;481;Yvonand;ch:1:sloid:4130;SBB DTV;970.0;2025;ch:1:sloid:4130;exact_global_id;1;hit;ch:1:sloid:4130;exact_global_id;3;hit;ch:1:sloid:4130;exact_global_id;1;hit
+CH;482;La Conversion;ch:1:sloid:4010;SBB DTV;970.0;2025;ch:1:sloid:4010;exact_global_id;4;hit;ch:1:sloid:4010;exact_global_id;5;hit;ch:1:sloid:4010;exact_global_id;5;hit
+CH;483;Twann;ch:1:sloid:4228;SBB DTV;970.0;2025;ch:1:sloid:4228;exact_global_id;2;hit;ch:1:sloid:4228;exact_global_id;2;hit;ch:1:sloid:4228;exact_global_id;2;hit
+CH;484;Rosé;ch:1:sloid:4028;SBB DTV;960.0;2025;ch:1:sloid:4028;exact_global_id;;miss;ch:1:sloid:4028;exact_global_id;;miss;ch:1:sloid:4028;exact_global_id;;miss
+CH;485;Rikon;ch:1:sloid:6005;SBB DTV;950.0;2025;ch:1:sloid:6005;exact_global_id;2;hit;ch:1:sloid:6005;exact_global_id;3;hit;ch:1:sloid:6005;exact_global_id;2;hit
+CH;486;Dachsen;ch:1:sloid:6049;SBB DTV;940.0;2025;ch:1:sloid:6049;exact_global_id;3;hit;ch:1:sloid:6049;exact_global_id;3;hit;ch:1:sloid:6049;exact_global_id;2;hit
+CH;487;Marin-Epagnier;ch:1:sloid:4481;SBB DTV;940.0;2025;ch:1:sloid:4481;exact_global_id;3;hit;ch:1:sloid:4481;exact_global_id;4;hit;ch:1:sloid:4481;exact_global_id;7;hit
+CH;488;Les Geneveys-sur-Coffrane;ch:1:sloid:4236;SBB DTV;940.0;2025;ch:1:sloid:4236;exact_global_id;5;hit;ch:1:sloid:4236;exact_global_id;10;hit;ch:1:sloid:4236;exact_global_id;9;hit
+CH;489;Luzern Littau;ch:1:sloid:8219;SBB DTV;940.0;2025;ch:1:sloid:8219;exact_global_id;3;hit;ch:1:sloid:8219;exact_global_id;8;hit;ch:1:sloid:8219;exact_global_id;8;hit
+CH;490;Escholzmatt;ch:1:sloid:8210;SBB DTV;930.0;2025;ch:1:sloid:8210;exact_global_id;3;hit;ch:1:sloid:8210;exact_global_id;3;hit;ch:1:sloid:8210;exact_global_id;3;hit
+CH;491;Rhäzüns;ch:1:sloid:9185;SBB DTV;930.0;2025;ch:1:sloid:9185;exact_global_id;3;hit;ch:1:sloid:9185;exact_global_id;3;hit;ch:1:sloid:9185;exact_global_id;2;hit
+CH;492;Diessenhofen;ch:1:sloid:3428;SBB DTV;920.0;2025;ch:1:sloid:3428;exact_global_id;3;hit;ch:1:sloid:3428;exact_global_id;2;hit;ch:1:sloid:3428;exact_global_id;2;hit
+CH;493;Montbovon;ch:1:sloid:4070;SBB DTV;920.0;2024;ch:1:sloid:4070;exact_global_id;3;hit;ch:1:sloid:4070;exact_global_id;5;hit;ch:1:sloid:4070;exact_global_id;5;hit
+CH;494;Reichenau-Tamins;ch:1:sloid:9183;SBB DTV;920.0;2025;ch:1:sloid:9183;exact_global_id;3;hit;ch:1:sloid:9183;exact_global_id;4;hit;ch:1:sloid:9183;exact_global_id;8;hit
+CH;495;Bettmeralp Talstation;ch:1:sloid:1675;SBB DTV;910.0;2025;ch:1:sloid:1675;exact_global_id;3;hit;ch:1:sloid:1675;exact_global_id;8;hit;ch:1:sloid:1675;exact_global_id;6;hit
+CH;496;Raron;ch:1:sloid:1604;SBB DTV;910.0;2025;ch:1:sloid:1604;exact_global_id;3;hit;ch:1:sloid:1604;exact_global_id;3;hit;ch:1:sloid:1604;exact_global_id;3;hit
+CH;497;Zuoz;ch:1:sloid:9258;SBB DTV;900.0;2025;ch:1:sloid:9258;exact_global_id;3;hit;ch:1:sloid:9258;exact_global_id;3;hit;ch:1:sloid:9258;exact_global_id;3;hit
+CH;498;Fribourg/Freiburg Poya;ch:1:sloid:19133;SBB DTV;900.0;2025;ch:1:sloid:19133;exact_global_id;4;hit;ch:1:sloid:19133;exact_global_id;5;hit;ch:1:sloid:19133;exact_global_id;4;hit
+CH;499;Pully-Nord;ch:1:sloid:4000;SBB DTV;900.0;2025;ch:1:sloid:4000;exact_global_id;3;hit;ch:1:sloid:4000;exact_global_id;3;hit;ch:1:sloid:4000;exact_global_id;3;hit
+CH;500;Burghalden;ch:1:sloid:3287;SBB DTV;890.0;2025;ch:1:sloid:3287;exact_global_id;3;hit;ch:1:sloid:3287;exact_global_id;5;hit;ch:1:sloid:3287;exact_global_id;5;hit
+DB;1;Hamburg Hbf;de:02000:10950_Parent;SYS tripCountService;102982;;de:02000:10950_Parent;exact_global_id;4;hit;de:02000:10950_Parent;exact_global_id;4;hit;8001071;unique_exact_station_name_in_SYS;;miss
+DB;2;Berlin Hbf;8033452;SYS tripCountService;91485;;8033452;exact_global_id;4;hit;8033452;exact_global_id;6;hit;8033452;exact_global_id;;miss
+DB;3;Berlin Südkreuz;8065971;SYS tripCountService;89841;;8065971;exact_global_id;4;hit;8065971;exact_global_id;6;hit;8065971;exact_global_id;;miss
+DB;4;Düsseldorf Hbf;de:05111:18235;SYS tripCountService;68320;;de:05111:18235;exact_global_id;2;hit;de:05111:18235;exact_global_id;3;hit;8008094;unique_exact_station_name_in_SYS;;miss
+DB;5;Hamburg-Altona;8001093;SYS tripCountService;65939;;8001093;exact_global_id;4;hit;8001093;exact_global_id;4;hit;8001093;exact_global_id;;miss
+DB;6;Köln Hbf;de:05315:11201_Parent;SYS tripCountService;64319;;de:05315:11201_Parent;exact_global_id;2;hit;de:05315:11201_Parent;exact_global_id;4;hit;8015458;unique_exact_station_name_in_SYS;;miss
+DB;7;Nürnberg Hbf;de:09564:510_Parent;SYS tripCountService;61371;;de:09564:510_Parent;exact_global_id;2;hit;de:09564:510_Parent;exact_global_id;4;hit;8022193;unique_exact_station_name_in_SYS;;miss
+DB;8;München Ost;de:09162:5;SYS tripCountService;61266;;de:09162:5;exact_global_id;4;hit;de:09162:5;exact_global_id;7;hit;8020234;unique_exact_station_name_in_SYS;;miss
+DB;9;München Hbf;8020347;SYS tripCountService;59014;;8020347;exact_global_id;3;hit;8020347;exact_global_id;7;hit;8020347;exact_global_id;9;hit
+DB;10;Dortmund Hbf;de:05913:131;SYS tripCountService;58932;;de:05913:131;exact_global_id;4;hit;de:05913:131;exact_global_id;4;hit;8010053;unique_exact_station_name_in_SYS;;miss
+DB;11;Frankfurt(Main)Hbf;8011068;SYS tripCountService;58006;;8011068;exact_global_id;3;hit;8011068;exact_global_id;6;hit;8011068;exact_global_id;3;hit
+DB;12;Essen Hbf;de:05113:9289;SYS tripCountService;55427;;de:05113:9289;exact_global_id;3;hit;de:05113:9289;exact_global_id;5;hit;8010184;unique_exact_station_name_in_SYS;;miss
+DB;13;München-Pasing;de:09162:10_G;SYS tripCountService;52843;;de:09162:10_G;exact_global_id;6;hit;de:09162:10_G;exact_global_id;7;hit;8020286;unique_normalized_station_name_in_SYS;;miss
+DB;14;Hannover Hbf;de:03241:31_G;SYS tripCountService;48436;;de:03241:31_G;exact_global_id;3;hit;de:03241:31_G;exact_global_id;5;hit;8013552;unique_exact_station_name_in_SYS;;miss
+DB;15;Ulm Hbf;8029103;SYS tripCountService;48191;;8029103;exact_global_id;3;hit;8029103;exact_global_id;3;hit;8029103;exact_global_id;5;hit
+DB;16;Leipzig Hbf;8023179;SYS tripCountService;45426;;8023179;exact_global_id;3;hit;8023179;exact_global_id;4;hit;8023179;exact_global_id;;miss
+DB;17;Singen(Hohentwiel);8014558;SYS tripCountService;44443;;8014558;exact_global_id;3;hit;8014558;exact_global_id;6;hit;8014558;exact_global_id;2;hit
+DB;18;Stuttgart Hbf;8029034;SYS tripCountService;42164;;8029034;exact_global_id;3;hit;8029034;exact_global_id;5;hit;8029034;exact_global_id;3;hit
+DB;19;Duisburg Hbf;de:05112:16032;SYS tripCountService;38485;;de:05112:16032;exact_global_id;3;hit;de:05112:16032;exact_global_id;3;hit;8010316;unique_exact_station_name_in_SYS;;miss
+DB;20;Freiburg(Breisgau) Hbf;8014350;SYS tripCountService;37164;;8014350;exact_global_id;3;hit;8014350;exact_global_id;8;hit;8014350;exact_global_id;3;hit
+DB;21;Saarbrücken Hbf;8025391;SYS tripCountService;36451;;8025391;exact_global_id;2;hit;8025391;exact_global_id;5;hit;8025391;exact_global_id;5;hit
+DB;22;Karlsruhe Hbf;8014228;SYS tripCountService;36344;;8014228;exact_global_id;3;hit;8014228;exact_global_id;5;hit;8014228;exact_global_id;3;hit
+DB;23;Mannheim Hbf;8014008;SYS tripCountService;36212;;8014008;exact_global_id;3;hit;8014008;exact_global_id;5;hit;8014008;exact_global_id;5;hit
+DB;24;Augsburg Hbf;8002140;SYS tripCountService;33166;;8002140;exact_global_id;2;hit;8002140;exact_global_id;4;hit;8002140;exact_global_id;4;hit
+DB;25;Hamburg Dammtor;de:02000:8002548;SYS tripCountService;32432;;de:02000:8002548;exact_global_id;4;hit;de:02000:8002548;exact_global_id;4;hit;8001089;unique_exact_station_name_in_SYS;;miss
+DB;26;Münster(Westf)Hbf;de:05515:41000_G;SYS tripCountService;32322;;de:05515:41000_G;exact_global_id;4;hit;de:05515:41000_G;exact_global_id;7;hit;8021011;unique_normalized_station_name_in_SYS;;miss
+DB;27;Bremen Hbf;de:04011:13927_Parent;SYS tripCountService;30771;;de:04011:13927_Parent;exact_global_id;2;hit;de:04011:13927_Parent;exact_global_id;5;hit;8013751;unique_exact_station_name_in_SYS;;miss
+DB;28;Halle(Saale)Hbf;8023002;SYS tripCountService;30291;;8023002;exact_global_id;4;hit;8023002;exact_global_id;9;hit;8023002;exact_global_id;;miss
+DB;29;Hagen Hbf;de:05914:2007;SYS tripCountService;30045;;de:05914:2007;exact_global_id;3;hit;de:05914:2007;exact_global_id;5;hit;8008073;unique_exact_station_name_in_SYS;;miss
+DB;30;Berlin-Spandau;8003025;SYS tripCountService;29637;;8003025;exact_global_id;4;hit;8003025;exact_global_id;6;hit;8003025;exact_global_id;;miss
+DB;31;Hanau Hbf;de:06435:4503_Parent;SYS tripCountService;29240;;de:06435:4503_Parent;exact_global_id;3;hit;de:06435:4503_Parent;exact_global_id;4;hit;8011051;unique_exact_station_name_in_SYS;;miss
+DB;32;Neuss Hbf;de:05162:20055_G;SYS tripCountService;28060;;de:05162:20055_G;exact_global_id;3;hit;de:05162:20055_G;exact_global_id;5;hit;8015149;unique_exact_station_name_in_SYS;;miss
+DB;33;Magdeburg Hbf;de:15003:8010224;SYS tripCountService;27792;;de:15003:8010224;exact_global_id;3;hit;de:15003:8010224;exact_global_id;6;hit;8024001;unique_exact_station_name_in_SYS;;miss
+DB;34;Potsdam Hbf;de:12054:900230999;SYS tripCountService;27597;;de:12054:900230999;exact_global_id;2;hit;de:12054:900230999;exact_global_id;4;hit;8003479;unique_exact_station_name_in_SYS;;miss
+DB;35;Tübingen Hauptbahnhof;8029318;SYS tripCountService;27339;;8029318;exact_global_id;3;hit;8029318;exact_global_id;4;hit;8029318;exact_global_id;4;hit
+DB;36;Offenburg;8014309;SYS tripCountService;26969;;8014309;exact_global_id;3;hit;8014309;exact_global_id;4;hit;8014309;exact_global_id;1;hit
+DB;37;Heidelberg Hbf;8014021;SYS tripCountService;26848;;8014021;exact_global_id;4;hit;8014021;exact_global_id;6;hit;8014021;exact_global_id;6;hit
+DB;38;Bielefeld Hbf;de:05711:5500_G;SYS tripCountService;26772;;de:05711:5500_G;exact_global_id;3;hit;de:05711:5500_G;exact_global_id;6;hit;8013597;unique_exact_station_name_in_SYS;;miss
+DB;39;Erfurt Hbf;8016043;SYS tripCountService;26585;;8016043;exact_global_id;3;hit;8016043;exact_global_id;4;hit;8016043;exact_global_id;;miss
+DB;40;Dresden-Neustadt;de:14612:16;SYS tripCountService;26293;;de:14612:16;exact_global_id;2;hit;de:14612:16;exact_global_id;4;hit;8006216;unique_exact_station_name_in_SYS;;miss
+DB;41;Mainz Hbf;8019051;SYS tripCountService;26099;;8019051;exact_global_id;3;hit;8019051;exact_global_id;5;hit;8019051;exact_global_id;;miss
+DB;42;Wiesbaden Hbf;de:06414:6907_Parent;SYS tripCountService;25774;;de:06414:6907_Parent;exact_global_id;3;hit;de:06414:6907_Parent;exact_global_id;5;hit;8011018;unique_exact_station_name_in_SYS;;miss
+DB;43;Bochum Hbf;de:05911:5194;SYS tripCountService;25209;;de:05911:5194;exact_global_id;3;hit;de:05911:5194;exact_global_id;5;hit;8010179;unique_exact_station_name_in_SYS;;miss
+DB;44;Wuppertal Hbf;de:05124:11376;SYS tripCountService;24591;;de:05124:11376;exact_global_id;2;hit;de:05124:11376;exact_global_id;6;hit;8008143;unique_exact_station_name_in_SYS;;miss
+DB;45;Oberhausen Hbf;de:05119:14022;SYS tripCountService;24480;;de:05119:14022;exact_global_id;5;hit;de:05119:14022;exact_global_id;7;hit;8010263;unique_exact_station_name_in_SYS;;miss
+DB;46;Mülheim Hauptbahnhof;de:05117:15225;SYS tripCountService;23687;;de:05117:15225;exact_global_id;3;hit;de:05117:15225;exact_global_id;4;hit;;unresolved_or_absent;;not_present
+DB;47;Aachen, Hbf;de:05334:1008;SYS tripCountService;23307;;de:05334:1008;exact_global_id;3;hit;de:05334:1008;exact_global_id;3;hit;8015345;unique_normalized_station_name_in_SYS;;miss
+DB;48;Braunschweig Hbf;de:03101:178_Parent;SYS tripCountService;23276;;de:03101:178_Parent;exact_global_id;4;hit;de:03101:178_Parent;exact_global_id;6;hit;8013240;unique_exact_station_name_in_SYS;;miss
+DB;49;Gelsenkirchen Hbf;de:05513:5613;SYS tripCountService;22640;;de:05513:5613;exact_global_id;3;hit;de:05513:5613;exact_global_id;5;hit;8010144;unique_exact_station_name_in_SYS;;miss
+DB;50;Rostock Hbf;de:13003:1489;SYS tripCountService;22613;;de:13003:1489;exact_global_id;3;hit;de:13003:1489;exact_global_id;5;hit;8027089;unique_exact_station_name_in_SYS;;miss
+DB;51;Würzburg Hbf;de:09663:177;SYS tripCountService;22295;;de:09663:177;exact_global_id;3;hit;de:09663:177;exact_global_id;5;hit;8022534;unique_exact_station_name_in_SYS;;miss
+DB;52;Mönchengladbach Hbf;de:05116:23007_G;SYS tripCountService;22245;;de:05116:23007_G;exact_global_id;2;hit;de:05116:23007_G;exact_global_id;6;hit;8015165;unique_exact_station_name_in_SYS;;miss
+DB;53;Hamm(Westf)Hbf;de:05915:7756_G;SYS tripCountService;22034;;de:05915:7756_G;exact_global_id;4;hit;de:05915:7756_G;exact_global_id;4;hit;8010002;unique_normalized_station_name_in_SYS;;miss
+DB;54;Fürth(Bay)Hbf;de:09563:2110_Parent;SYS tripCountService;21578;;de:09563:2110_Parent;exact_global_id;3;hit;de:09563:2110_Parent;exact_global_id;4;hit;;unresolved_or_absent;;not_present
+DB;55;Kiel Hbf;de:01002:49079;SYS tripCountService;21506;;de:01002:49079;exact_global_id;3;hit;de:01002:49079;exact_global_id;4;hit;8001304;unique_exact_station_name_in_SYS;;miss
+DB;56;Herne-Wanne-Eickel Hbf;de:05916:7590;SYS tripCountService;20794;;de:05916:7590;exact_global_id;4;hit;de:05916:7590;exact_global_id;5;hit;;unresolved_or_absent;;not_present
+DB;57;Rottweil;8029411;SYS tripCountService;20532;;8029411;exact_global_id;3;hit;8029411;exact_global_id;5;hit;8029411;exact_global_id;3;hit
+DB;58;Dresden Hbf;de:14612:28;SYS tripCountService;20138;;de:14612:28;exact_global_id;2;hit;de:14612:28;exact_global_id;4;hit;8006050;unique_exact_station_name_in_SYS;;miss
+DB;59;Osnabrück Hbf;de:03404:71612_Parent;SYS tripCountService;19321;;de:03404:71612_Parent;exact_global_id;3;hit;de:03404:71612_Parent;exact_global_id;3;hit;8021025;unique_exact_station_name_in_SYS;;miss
+DB;60;Bamberg;de:09461:20010_Parent;SYS tripCountService;19054;;de:09461:20010_Parent;exact_global_id;3;hit;de:09461:20010_Parent;exact_global_id;4;hit;;unresolved_or_absent;;not_present
+DB;61;Darmstadt Hbf;de:06411:4734_Parent;SYS tripCountService;18829;;de:06411:4734_Parent;exact_global_id;3;hit;de:06411:4734_Parent;exact_global_id;4;hit;8011336;unique_exact_station_name_in_SYS;;miss
+DB;62;Neustadt(Weinstr)Hbf;8019404;SYS tripCountService;17758;;8019404;exact_global_id;4;hit;8019404;exact_global_id;9;hit;8019404;exact_global_id;10;hit
+DB;63;Kaiserslautern Hbf;8019698;SYS tripCountService;17380;;8019698;exact_global_id;3;hit;8019698;exact_global_id;8;hit;8019698;exact_global_id;8;hit
+DB;64;Ludwigshafen(Rh)Hbf;8019082;SYS tripCountService;17145;;8019082;exact_global_id;3;hit;8019082;exact_global_id;4;hit;8019082;exact_global_id;;miss
+DB;65;Paderborn Hbf;de:05774:7000_G;SYS tripCountService;16018;;de:05774:7000_G;exact_global_id;3;hit;de:05774:7000_G;exact_global_id;5;hit;;unresolved_or_absent;;not_present
+DB;66;Koblenz Hbf;de:07111:010001_Parent;SYS tripCountService;15529;;de:07111:010001_Parent;exact_global_id;3;hit;de:07111:010001_Parent;exact_global_id;4;hit;8019023;unique_exact_station_name_in_SYS;;miss
+DB;67;Siegen Hbf;de:05970:10097;SYS tripCountService;14999;;de:05970:10097;exact_global_id;3;hit;de:05970:10097;exact_global_id;4;hit;;unresolved_or_absent;;not_present
+DB;68;Ingolstadt Hbf;de:09161:9000_Parent;SYS tripCountService;14891;;de:09161:9000_Parent;exact_global_id;2;hit;de:09161:9000_Parent;exact_global_id;4;hit;;unresolved_or_absent;;not_present
+DB;69;Hof Hbf;de:09464:19_Parent;SYS tripCountService;14782;;de:09464:19_Parent;exact_global_id;3;hit;de:09464:19_Parent;exact_global_id;7;hit;;unresolved_or_absent;;not_present
+DB;70;Worms Hbf;8019068;SYS tripCountService;14669;;8019068;exact_global_id;3;hit;8019068;exact_global_id;4;hit;8019068;exact_global_id;;miss
+DB;71;Frankfurt(M) Flughafen Regionalbf;de:06412:2930;SYS tripCountService;14585;;de:06412:2930;exact_global_id;3;hit;de:06412:2930;exact_global_id;6;hit;;unresolved_or_absent;;not_present
+DB;72;Homburg (Saar) Hbf;de:10045:8000176;SYS tripCountService;14393;;de:10045:8000176;exact_global_id;4;hit;de:10045:8000176;exact_global_id;5;hit;;unresolved_or_absent;;not_present
+DB;73;Trier, Hauptbahnhof;8025181;SYS tripCountService;14360;;8025181;exact_global_id;3;hit;8025181;exact_global_id;5;hit;8025181;exact_global_id;8;hit
+DB;74;Cottbus, Hauptbahnhof;de:12052:900470000;SYS tripCountService;13995;;de:12052:900470000;exact_global_id;3;hit;de:12052:900470000;exact_global_id;5;hit;;unresolved_or_absent;;not_present
+DB;75;Rosenheim;de:09163:9;SYS tripCountService;13724;;de:09163:9;exact_global_id;3;hit;de:09163:9;exact_global_id;6;hit;8020174;unique_exact_station_name_in_SYS;;miss
+DB;76;Solingen Hbf;de:05122:13800;SYS tripCountService;13600;;de:05122:13800;exact_global_id;3;hit;de:05122:13800;exact_global_id;5;hit;8008182;unique_exact_station_name_in_SYS;;miss
+DB;77;Regensburg Hbf;de:09362:11090_Parent;SYS tripCountService;13535;;de:09362:11090_Parent;exact_global_id;3;hit;de:09362:11090_Parent;exact_global_id;7;hit;;unresolved_or_absent;;not_present
+DB;78;Recklinghausen Hbf;de:05562:3581;SYS tripCountService;13142;;de:05562:3581;exact_global_id;3;hit;de:05562:3581;exact_global_id;5;hit;8010138;unique_exact_station_name_in_SYS;;miss
+DB;79;Göttingen;de:03152:33817;SYS tripCountService;13129;;de:03152:33817;exact_global_id;3;hit;de:03152:33817;exact_global_id;3;hit;8013050;unique_exact_station_name_in_SYS;;miss
+DB;80;Aalen Hbf;8029549;SYS tripCountService;12960;;8029549;exact_global_id;3;hit;8029549;exact_global_id;4;hit;8029549;exact_global_id;3;hit
+DB;81;Neunkirchen (Saar) Hbf;de:10043:8000272;SYS tripCountService;12636;;de:10043:8000272;exact_global_id;4;hit;de:10043:8000272;exact_global_id;5;hit;;unresolved_or_absent;;not_present
+DB;82;Fulda;de:06631:11049_Parent;SYS tripCountService;12280;;de:06631:11049_Parent;exact_global_id;2;hit;de:06631:11049_Parent;exact_global_id;4;hit;8005637;unique_exact_station_name_in_SYS;;miss
+DB;83;Chemnitz Hbf;de:14511:30062;SYS tripCountService;12274;;de:14511:30062;exact_global_id;3;hit;de:14511:30062;exact_global_id;5;hit;;unresolved_or_absent;;not_present
+DB;84;Hildesheim Hauptbahnhof;de:03254:9922;SYS tripCountService;12227;;de:03254:9922;exact_global_id;3;hit;de:03254:9922;exact_global_id;5;hit;8013414;unique_normalized_station_name_in_SYS;;miss
+DB;85;Stolberg, Hbf;de:05334:5766_Parent;SYS tripCountService;12140;;de:05334:5766_Parent;exact_global_id;3;hit;de:05334:5766_Parent;exact_global_id;5;hit;;unresolved_or_absent;;not_present
+DB;86;Lübeck Hbf;de:01003:57819;SYS tripCountService;12090;;de:01003:57819;exact_global_id;2;hit;de:01003:57819;exact_global_id;3;hit;;unresolved_or_absent;;not_present
+DB;87;Bonn Hbf;de:05314:61101_Parent;SYS tripCountService;11989;;de:05314:61101_Parent;exact_global_id;3;hit;de:05314:61101_Parent;exact_global_id;4;hit;8015485;unique_exact_station_name_in_SYS;;miss
+DB;88;Frankfurt(M) Flughafen Fernbf;de:06412:11511_Parent;SYS tripCountService;11947;;de:06412:11511_Parent;exact_global_id;3;hit;de:06412:11511_Parent;exact_global_id;6;hit;8061676;unique_exact_station_name_in_SYS;;miss
+DB;89;Aschaffenburg Hbf;de:09661:99082_Parent;SYS tripCountService;11838;;de:09661:99082_Parent;exact_global_id;2;hit;de:09661:99082_Parent;exact_global_id;6;hit;8022610;unique_exact_station_name_in_SYS;;miss
+DB;90;Landau, Hauptbahnhof;8019426;SYS tripCountService;11812;;8019426;exact_global_id;4;hit;8019426;exact_global_id;6;hit;8019426;exact_global_id;9;hit
+DB;91;Witten Hbf;de:05954:5469_G;SYS tripCountService;11360;;de:05954:5469_G;exact_global_id;3;hit;de:05954:5469_G;exact_global_id;6;hit;;unresolved_or_absent;;not_present
+DB;92;Schwerin Hbf;de:13004:9005;SYS tripCountService;11317;;de:13004:9005;exact_global_id;3;hit;de:13004:9005;exact_global_id;6;hit;8027359;unique_exact_station_name_in_SYS;;miss
+DB;93;Bayreuth Hbf;de:09462:22000_Parent;SYS tripCountService;11141;;de:09462:22000_Parent;exact_global_id;3;hit;de:09462:22000_Parent;exact_global_id;4;hit;;unresolved_or_absent;;not_present
+DB;94;Reutlingen Hauptbahnhof;8029309;SYS tripCountService;11116;;8029309;exact_global_id;3;hit;8029309;exact_global_id;10;hit;8029309;exact_global_id;5;hit
+DB;95;Naumburg(Saale)Hbf;de:15084:8010240;SYS tripCountService;10929;;de:15084:8010240;exact_global_id;2;hit;de:15084:8010240;exact_global_id;10;hit;;unresolved_or_absent;;not_present
+DB;96;Heilbronn Hauptbahnhof;de:08121:26;SYS tripCountService;10800;;de:08121:26;exact_global_id;6;hit;de:08121:26;exact_global_id;6;hit;8029629;unique_normalized_station_name_in_SYS;;miss
+DB;97;Frankfurt(Oder);de:12053:900360000;SYS tripCountService;10234;;de:12053:900360000;exact_global_id;3;hit;de:12053:900360000;exact_global_id;5;hit;;unresolved_or_absent;;not_present
+DB;98;Donaueschingen;8014529;SYS tripCountService;10079;;8014529;exact_global_id;4;hit;8014529;exact_global_id;6;hit;8014529;exact_global_id;4;hit
+DB;99;Gütersloh Hbf;de:05754:5947;SYS tripCountService;7367;;de:05754:5947;exact_global_id;2;hit;de:05754:5947;exact_global_id;6;hit;8013606;unique_exact_station_name_in_SYS;;miss
+DB;100;Baden-Baden;8014277;SYS tripCountService;7317;;8014277;exact_global_id;3;hit;8014277;exact_global_id;9;hit;8014277;exact_global_id;7;hit
