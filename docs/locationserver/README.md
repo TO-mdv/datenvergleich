@@ -10,7 +10,7 @@ https://to-mdv.github.io/datenvergleich/locationserver/
 - «Alle Treffer» zeigt die vollständigen aufgezeichneten OJP-Trefferlisten.
 - Ein Treffer lässt sich aufklappen: globale Haltestellenkennung und EFA-Rang.
 - Länderkennzeichen: CH grün, DE blau, AT rot, FR violett und weitere ISO-Ländercodes.
-- Datenstand: DEV nach dem Config-Update, DEV vor der Anpassung oder INT als Referenz.
+- Datenstand: DEV oder TEST nach dem Config-Update, DEV vor der Anpassung oder INT als Referenz.
 - Die Adresszeile hält die Auswahl fest; der Link kann für einen konkreten Test geteilt werden.
 
 Es werden keine Live-Anfragen an die Testsysteme gesendet. Die veröffentlichten
